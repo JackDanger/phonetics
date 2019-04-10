@@ -1,0 +1,43 @@
+require_relative '../lib/phonetic_levenshtein'
+
+RSpec.describe PhoneticLevenshtein do
+  describe '#distance' do
+    subject(:distance) { described_class.new(phoneme1, phoneme2).distance }
+
+    context 'for identical sounds with one edit' do
+      let(:phoneme1) { 'dɪsug' }
+      let(:phoneme2) { 'ɪsug' }
+
+      it 'is less than the edit distance' do
+        expect(distance).to be_within(0.01).of(1)
+      end
+    end
+
+    context 'for many different but similar sounds' do
+      let(:phoneme1) { 'izok' }
+      let(:phoneme2) { 'ɪsug' }
+
+      it 'is less than the edit distance' do
+        expect(distance).to be_within(0.01).of(1.212)
+      end
+    end
+
+    context 'for very different sounds' do
+      let(:phoneme1) { 'mɔop' }
+      let(:phoneme2) { 'sinkœ' }
+
+      it 'approaches the orthographic Levenshtein edit distance' do
+        expect(distance).to be_within(0.2).of(4)
+      end
+    end
+
+    context 'when the inputs are not valid phonemes' do
+      let(:phoneme1) { '12345' }
+      let(:phoneme2) { '67890' }
+
+      it 'is exactly the orthographic Levenshtein edit distance' do
+        expect(distance).to be_within(0.01).of(5)
+      end
+    end
+  end
+end
