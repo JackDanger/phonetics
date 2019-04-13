@@ -22,6 +22,7 @@ module Phonetics
     end
 
     def distance
+      return 0 if walk.empty?
       walk.last[:distance]
     end
 

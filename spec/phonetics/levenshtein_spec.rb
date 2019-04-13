@@ -35,6 +35,24 @@ RSpec.describe Phonetics::Levenshtein do
       end
     end
 
+    context 'for two blank strings' do
+      let(:phoneme1) { '' }
+      let(:phoneme2) { '' }
+
+      it 'is zero' do
+        expect(distance).to eq(0)
+      end
+    end
+
+    context 'for one blank strings' do
+      let(:phoneme1) { 'length' }
+      let(:phoneme2) { '' }
+
+      it 'is the length of the other string' do
+        expect(distance).to eq(6)
+      end
+    end
+
     context 'for very different sounds' do
       let(:phoneme1) { 'mɔop' }
       let(:phoneme2) { 'sinkœ' }
