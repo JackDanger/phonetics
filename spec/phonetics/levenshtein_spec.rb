@@ -1,6 +1,6 @@
-require_relative '../lib/phonetic_levenshtein'
+require_relative '../../lib/phonetics/levenshtein'
 
-RSpec.describe PhoneticLevenshtein do
+RSpec.describe Phonetics::Levenshtein do
   describe '#distance' do
     subject(:distance) { described_class.new(phoneme1, phoneme2).distance }
 
