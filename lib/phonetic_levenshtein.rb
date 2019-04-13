@@ -59,9 +59,23 @@ class PhoneticLevenshtein
   end
 
   def find_previous(cell)
-    candidates = [[[ins(*cell), 1], :ins, [cell[0], cell[1] - 1]],
-                  [[del(*cell), 2], :del, [cell[0] - 1, cell[1]]],
-                  [[subst(*cell), 0], :subst, [cell[0] - 1, cell[1] - 1]]]
+    candidates = [
+      [
+        [ins(*cell), 1],
+        :ins,
+        [cell[0], cell[1] - 1],
+      ],
+      [
+        [del(*cell), 2],
+        :del,
+        [cell[0] - 1, cell[1]],
+      ],
+      [
+        [subst(*cell), 0],
+        :subst,
+        [cell[0] - 1, cell[1] - 1],
+      ],
+    ]
     select_cell(candidates)
   end
 
