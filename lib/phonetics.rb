@@ -223,14 +223,7 @@ module Phonetics
   )
 
   def distance(phoneme1, phoneme2)
-    types = [Symbols.fetch(phoneme1), Symbols.fetch(phoneme2)].sort
-    if types == [:consonant, :vowel]
-      1.0
-    elsif types == [:vowel, :vowel]
-      Vowels.distance(phoneme1, phoneme2)
-    elsif types == [:consonant, :consonant]
-      Consonants.distance(phoneme1, phoneme2)
-    end
+    distance_map.fetch(phoneme1).fetch(phoneme2)
   end
 
   def distance_map
@@ -238,9 +231,22 @@ module Phonetics
       Vowels.phonemes + Consonants.phonemes
     ).permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} } ) do |pair, scores|
       p1, p2 = *pair
-      score = distance(p1, p2)
+      score = _distance(p1, p2)
       scores[p1][p2] = score
       scores[p2][p1] = score
+    end
+  end
+
+  private
+
+  def _distance(phoneme1, phoneme2)
+    types = [Symbols.fetch(phoneme1), Symbols.fetch(phoneme2)].sort
+    if types == [:consonant, :vowel]
+      1.0
+    elsif types == [:vowel, :vowel]
+      Vowels.distance(phoneme1, phoneme2)
+    elsif types == [:consonant, :consonant]
+      Consonants.distance(phoneme1, phoneme2)
     end
   end
 end
