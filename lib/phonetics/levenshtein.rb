@@ -43,8 +43,10 @@ module Phonetics
     end
 
     def set_edit_distances(str1, str2)
-      (1..@len2).each do |i|
-        (1..@len1).each do |j|
+      i = 0
+      while (i += 1) <= @len2
+        j = 0
+        while (j += 1) <= @len1
           no_change(i, j) && next if str2[i - 1] == str1[j - 1]
           @matrix[i][j] = [del(i, j) + 1.0, ins(i, j) + 1.0, subst(i, j)].min
         end
@@ -111,10 +113,12 @@ module Phonetics
     def prepare_matrix
       @matrix = []
       @matrix << (0..@len1).to_a
-      @len2.times do |i|
-        ary = [i + 1] + (1..@len1).map { nil }
-        @matrix << ary
+      i = 0
+      while i < @len2
+        @matrix << [i + 1] + Array.new(@len1)
+        i += 1
       end
+      @matrix
     end
   end
 end
