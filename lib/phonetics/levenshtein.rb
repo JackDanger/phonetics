@@ -1,5 +1,4 @@
-require_relative '../phonetics'
-
+require_relative 'c_levenshtein'
 # Using the Damerau version of the Levenshtein algorithm, with phonetic feature
 # count used instead of a binary edit distance calculation
 #
@@ -11,114 +10,28 @@ require_relative '../phonetics'
 # Aumont, 2016
 # https://hal.archives-ouvertes.fr/hal-01474904/document
 module Phonetics
-  class Levenshtein
-    def initialize(ipa_str1, ipa_str2)
-      @str1 = ipa_str1
-      @str2 = ipa_str2
-      @len1 = ipa_str1.size
-      @len2 = ipa_str2.size
-      prepare_matrix
-      set_edit_distances(ipa_str1, ipa_str2)
+  module Levenshtein
+    extend ::PhoneticsLevenshteinCBinding
+
+    def self.distance(str1, str2, block_size = 1, max_distance = 10)
+      internal_phonetic_distance(
+        str1.unpack("U*"), str2.unpack("U*"),
+        block_size, max_distance
+      )
     end
 
-    def distance
-      return 0 if walk.empty?
-      walk.last[:distance]
+    def self.string_distance(*args)
+      distance(*args)
     end
 
-    def self.distance(str1, str2)
-      new(str1, str2).distance
+    def self.array_distance(array1, array2, block_size = 1, max_distance = 10)
+      internal_phonetic_distance(array1, array2, block_size, max_distance)
     end
 
-    private
-
-    def walk
-      res = []
-      cell = [@len2, @len1]
-      while cell != [0, 0]
-        cell, char = char_data(cell)
-        res.unshift char
-      end
-      res
-    end
-
-    def set_edit_distances(str1, str2)
-      i = 0
-      while (i += 1) <= @len2
-        j = 0
-        while (j += 1) <= @len1
-          no_change(i, j) && next if str2[i - 1] == str1[j - 1]
-          @matrix[i][j] = [del(i, j) + 1.0, ins(i, j) + 1.0, subst(i, j)].min
-        end
-      end
-    end
-
-    def char_data(cell)
-      char = { distance: @matrix[cell[0]][cell[1]] }
-      val = find_previous(cell)
-      previous_value = val[0][0]
-      char[:type] = previous_value == char[:distance] ? :same : val[1]
-      cell = val.pop
-      [cell, char]
-    end
-
-    def find_previous(cell)
-      candidates = [
-        [
-          [ins(*cell), 1],
-          :ins,
-          [cell[0], cell[1] - 1],
-        ],
-        [
-          [del(*cell), 2],
-          :del,
-          [cell[0] - 1, cell[1]],
-        ],
-        [
-          [subst(*cell), 0],
-          :subst,
-          [cell[0] - 1, cell[1] - 1],
-        ],
-      ]
-      select_cell(candidates)
-    end
-
-    def select_cell(candidates)
-      candidates.select { |e| e[-1][0] >= 0 && e[-1][1] >= 0 }.
-        sort_by(&:first).first
-    end
-
-    # TODO: Score the edit distance lower if sonorant sounds are found in sequence.
-    def del(i, j)
-      @matrix[i - 1][j]
-    end
-
-    def ins(i, j)
-      @matrix[i][j - 1]
-    end
-
-    # This is where we implement the modifications to Damerau-Levenshtein according to
-    # https://hal.archives-ouvertes.fr/hal-01474904/document
-    def subst(i, j)
-      map = Phonetics.distance_map[@str1[j]]
-      score = map[@str2[i]] if map
-      score ||= 1.0
-      @matrix[i - 1][j - 1] + score
-    end
-
-    def no_change(i, j)
-      @matrix[i][j] = @matrix[i - 1][j - 1]
-    end
-
-    def prepare_matrix
-      @matrix = []
-      @matrix << (0..@len1).to_a
-      i = 0
-      while i < @len2
-        @matrix << [i + 1] + Array.new(@len1)
-        i += 1
-      end
-      @matrix
+    # keep backward compatibility - internal_distance was called distance_utf
+    # before
+    def self.distance_utf(*args)
+      internal_phonetic_distance(*args)
     end
   end
 end

@@ -1,6 +1,6 @@
 # Phonetics
 
-
+The edit distance (Levenshtein) implementation is 99%+ written by Dmitry Mozzherin in the Damerau-Levenshtein gem.
 
 
 ## Contributing
