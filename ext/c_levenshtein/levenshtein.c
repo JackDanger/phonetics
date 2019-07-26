@@ -1,4 +1,5 @@
 #include "ruby.h"
+#include "./phonetic_cost.h"
 // This is a fork of
 // https://github.com/GlobalNamesArchitecture/damerau-levenshtein
 
@@ -16,7 +17,7 @@ void Init_c_levenshtein() {
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _block_size, VALUE _max_distance){
   VALUE *sv = RARRAY_PTR(_s);
   VALUE *tv = RARRAY_PTR(_t);
-  int i, i1, j, j1, k, half_tl, cost, *d, distance, del, ins, subs, transp, block;
+  int i, i1, j, j1, k, half_tl, *d, distance, del, ins, subs, transp, block;
   int half_sl;
   int stop_execution = 0;
   int min = 0;
@@ -26,6 +27,7 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
   int max_distance = NUM2INT(_max_distance);
   int sl = (int) RARRAY_LEN(_s);
   int tl = (int) RARRAY_LEN(_t);
+  float cost;
   long long s[sl];
   long long t[tl];
   
@@ -61,8 +63,7 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
     current_distance = 10000;
     for(j = 1; j<tl; j++){
 
-      cost = 1;
-      if(s[i-1] == t[j-1]) cost = 0;
+      cost = phonetic_cost(s[i-1], t[j-1]);
 
       half_sl = (sl - 1)/2;
       half_tl = (tl - 1)/2;
@@ -88,8 +89,10 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
           }
         }
 
-        del = d[j*sl + i - 1] + 1;
-        ins = d[(j-1)*sl + i] + 1;
+        // The cost of deletion or addition is the distance between the
+        // previous phone and the one being deleted or added.
+        del = d[j*sl + i - 1] + phonetic_cost(s[i-1], s[i]);
+        ins = d[(j-1)*sl + i] + phonetic_cost(t[i-1], t[i]); // TODO: this is definitely wrong
         min = del;
         if (ins < min) min = ins;
         //if (i == 2 && j==2) return INT2NUM(swap2+5);

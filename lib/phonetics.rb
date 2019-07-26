@@ -223,6 +223,7 @@ module Phonetics
   )
 
   def distance(phoneme1, phoneme2)
+    return 0 if phoneme1 == phoneme2
     distance_map.fetch(phoneme1).fetch(phoneme2)
   end
 
@@ -235,6 +236,63 @@ module Phonetics
       scores[p1][p2] = score
       scores[p2][p1] = score
     end
+  end
+
+  # This will print a C code file with a function that implements a two-level C
+  # switch like the following:
+  #
+  #    switch (a) {
+  #      case 100: // 'd'
+  #        switch (b) {
+  #          case 618: // 'ɪ'
+  #            return (float) 0.73827;
+  #            break;
+  #        }
+  #    }
+  #
+  def generate_phonetic_cost_c_code(writer = STDOUT)
+    def as_utf_8_long(string)
+      # "ɰ̊".unpack('U*') -> [624, 778]
+      # as_utf_8_long("ɰ̊") -> 624 + 10*778 -> 1413
+      string.unpack('U*').each_with_index.reduce(0) do |total, (byte, i)|
+        total += (10**i) * byte
+      end
+    end
+
+    # First, flatten the bytes of the runes (unicode codepoints encoded via
+    # UTF-8) into single integers. We do this by adding the utf-8 values, each
+    # multiplied by 10 * their byte number. The specific encoding doesn't
+    # matter so long as it's:
+    #   * consistent
+    #   * has no collisions
+    #   * produces a value that's a valid C case conditional
+    integer_distance_map = distance_map.reduce({}) do |acc_a, (a, distances)|
+      acc_a.update [a, as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
+        acc_b.update [b, as_utf_8_long(b)] => distance
+      end)
+    end
+
+    # Then we print out C code full of switches
+
+    writer.puts(<<-FUNC.gsub(/^ {4}/, ''))
+    float phonetic_cost(long a, long b) {
+      // This is compiled from Ruby, using `String#unpack("U")` on each character
+      // to retrieve the UTF-8 codepoint as a C long value.
+    FUNC
+    writer.puts '  switch (a) {'
+    integer_distance_map.each do |(a, a_i), distances|
+      writer.puts "    case #{a_i}: // #{a}"
+      writer.puts '      switch (b) {'
+      distances.each do |(b, b_i), distance|
+        writer.puts "        case #{b_i}: // #{a}->#{b}"
+        writer.puts "          return (float) #{distance};"
+        writer.puts "          break;"
+      end
+      writer.puts '      }'
+    end
+    writer.puts '  }'
+    writer.puts '  return 1.0;'
+    writer.puts '}'
   end
 
   private

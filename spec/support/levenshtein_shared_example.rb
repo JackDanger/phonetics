@@ -16,7 +16,7 @@ RSpec.shared_examples "calculates levenshtein distance" do
       let(:phoneme2) { 'ɪsug' }
 
       it 'is less than the edit distance' do
-        expect(distance).to be_within(0.01).of(1.212)
+        expect(distance).to be_within(0.01).of(0.356)
       end
     end
 
@@ -25,11 +25,11 @@ RSpec.shared_examples "calculates levenshtein distance" do
     # multiple words. Even in the case of the sounds truly being repeated lets
     # record the edit distance as nearly zero
     context 'when identical sounds repeat' do
-      let(:phoneme1) { 'dɪɪɪsug' }
+      let(:phoneme1) { 'ɪɪsuug' }
       let(:phoneme2) { 'ɪsug' }
 
-      pending 'is less than the edit distance' do
-        expect(distance).to be_within(0.01).of(1.01)
+      it 'is less than the edit distance' do
+        expect(distance).to be < (phoneme1.length - phoneme2.length)
       end
     end
 
@@ -42,12 +42,15 @@ RSpec.shared_examples "calculates levenshtein distance" do
       end
     end
 
-    context 'for one blank strings' do
-      let(:phoneme1) { 'length' }
+    context 'when one string is blank' do
+      let(:phoneme1) { 'curzlait' }
       let(:phoneme2) { '' }
 
-      it 'is the length of the other string' do
-        expect(distance).to eq(6)
+      it 'is the sequential distances of sounds in the other string' do
+        sequential_total = phoneme1.chars.each_cons(2).reduce(0) do |total, pair|
+          total + Phonetics.distance(*pair)
+        end
+        expect(distance).to eq(sequential_total)
       end
     end
 
@@ -56,7 +59,7 @@ RSpec.shared_examples "calculates levenshtein distance" do
       let(:phoneme2) { 'sinkœ' }
 
       it 'approaches the orthographic Levenshtein edit distance' do
-        expect(distance).to be_within(0.2).of(4)
+        expect(distance).to be_within(0.2).of(3.2)
       end
     end
 
@@ -64,8 +67,8 @@ RSpec.shared_examples "calculates levenshtein distance" do
       let(:phoneme1) { '12345' }
       let(:phoneme2) { '67890' }
 
-      it 'is exactly the orthographic Levenshtein edit distance' do
-        expect(distance).to be_within(0.01).of(5)
+      it 'throws an error with instructions' do
+        expect { distance }.to raise_error(ArgumentError, /IPA-transcribed strings/)
       end
     end
   end
