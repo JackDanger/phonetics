@@ -7,14 +7,14 @@ VALUE Binding = Qnil;
 
 void Init_c_levenshtein();
 
-VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _block_size, VALUE _max_distance);
+VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t);
 
 void Init_c_levenshtein() {
 	Binding = rb_define_module("PhoneticsLevenshteinCBinding");
-	rb_define_method(Binding, "internal_phonetic_distance", method_internal_phonetic_distance, 4);
+	rb_define_method(Binding, "internal_phonetic_distance", method_internal_phonetic_distance, 2);
 }
 
-VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _block_size, VALUE _max_distance){
+VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t){
   VALUE *sv = RARRAY_PTR(_s);
   VALUE *tv = RARRAY_PTR(_t);
   int i, i1, j, j1, k, half_tl, *d, distance, del, ins, subs, transp, block;
@@ -23,20 +23,12 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
   int min = 0;
   int current_distance = 0;
   int pure_levenshtein = 0;
-  int block_size = NUM2INT(_block_size);
-  int max_distance = NUM2INT(_max_distance);
   int sl = (int) RARRAY_LEN(_s);
   int tl = (int) RARRAY_LEN(_t);
   float cost;
   long long s[sl];
   long long t[tl];
   
-  if (block_size == 0) {
-    pure_levenshtein = 1;
-    block_size = 1;
-  }
-
-
   if (sl == 0) return INT2NUM(tl);
   if (tl == 0) return INT2NUM(sl);
   //case of lengths 1 must present or it will break further in the code
@@ -68,7 +60,7 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
       half_sl = (sl - 1)/2;
       half_tl = (tl - 1)/2;
 
-      block = block_size < half_sl || half_sl == 0 ? block_size : half_sl;
+      block = 1 < half_sl || half_sl == 0 ? 1 : half_sl;
       block = block < half_tl || half_tl == 0 ? block : half_tl;
 
       while (block >= 1){
@@ -108,9 +100,6 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _s, VALUE _t, VALUE _b
       }
       d[j*sl+i]=min;
       if (current_distance > d[j*sl+i]) current_distance = d[j*sl+i];
-    }
-    if (current_distance > max_distance) {
-      stop_execution = 1;
     }
   }
   distance=d[sl * tl - 1];
