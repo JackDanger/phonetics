@@ -152,6 +152,7 @@ void set_initial(double *d, int *string1, int string1_length, int *string2, int 
     distance_between_first_phonemes = phonetic_cost(string1[0], string2[0]);
   }
 
+  d[0] = (double) 0.0;
   // Set the first value of string1's sequential phonetic calculation (maps to
   // cell x=1, y=0)
   d[1] = distance_between_first_phonemes;
