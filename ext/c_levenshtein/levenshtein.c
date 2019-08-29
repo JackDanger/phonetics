@@ -152,8 +152,12 @@ void set_initial(double *d, int *string1, int string1_length, int *string2, int 
 
   // The top-left is 0, the cell to the right and down are each 1 to start
   d[0] = (double) 0.0;
-  d[1] = initial_distance;
-  d[string1_length+1] = initial_distance;
+  if (string1_length > 0) {
+    d[1] = initial_distance;
+  }
+  if (string2_length > 0) {
+    d[string1_length+1] = initial_distance;
+  }
 
   debug("string1 length: %d\n", string1_length);
   for (i=2; i <= string1_length; i++) {
