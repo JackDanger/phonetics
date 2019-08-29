@@ -47,7 +47,7 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
 
   // Guard clause for two empty strings
   if (string1_length == 0 && string2_length == 0)
-    return DBL2NUM(0.0d);
+    return DBL2NUM(0.0);
 
   //
   // Intial data setup
