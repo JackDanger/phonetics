@@ -121,18 +121,13 @@ module Phonetics
     # Set the minimum scores equal to the distance between each phoneme,
     # sequentially.
     #
-    # The first value is always zero.
-    # The second value is always the phonetic distance between the first
-    # phonemes of each string.
+    # The first value is always zero, the second is always 1.
     # Subsequent values are the cumulative phonetic distance between each
     # phoneme within the same string.
     # "aek" -> [0, 1, 1.61, 2.61]
     def initial_distances(str1, str2)
-      starting_distance = if len1 == 0 || len2 == 0
-                            0
-                          else
-                            Phonetics.distance(str1[0], str2[0])
-                          end
+      starting_distance = 1
+      starting_distance = 0 if len1 == 0 || len2 == 0
 
       distances1 = (1..(str1.length - 1)).reduce([0, starting_distance]) do |acc, i|
         acc << acc.last + Phonetics.distance(str1[i - 1], str1[i])

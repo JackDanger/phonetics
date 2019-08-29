@@ -141,25 +141,19 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
 // "aek" -> [0.0, 1.0, 1.61, 2.61]
 void set_initial(double *d, int *string1, int string1_length, int *string2, int string2_length, bool verbose) {
 
-  double distance_between_first_phonemes;
+  double initial_distance;
   int i, j;
 
   if (string1_length == 0 || string2_length == 0) {
-    distance_between_first_phonemes = 0.0;
-  } else if (string1[0] == string2[0]) {
-    distance_between_first_phonemes = 0.0;
+    initial_distance = 0.0;
   } else {
-    distance_between_first_phonemes = phonetic_cost(string1[0], string2[0]);
+    initial_distance = 1.0;
   }
 
+  // The top-left is 0, the cell to the right and down are each 1 to start
   d[0] = (double) 0.0;
-  // Set the first value of string1's sequential phonetic calculation (maps to
-  // cell x=1, y=0)
-  d[1] = distance_between_first_phonemes;
-  // And of string2 (maps to cell x=0, y=1)
-  if (string2_length > 0) {
-    d[string1_length+1] = distance_between_first_phonemes;
-  }
+  d[1] = initial_distance;
+  d[string1_length+1] = initial_distance;
 
   debug("string1 length: %d\n", string1_length);
   for (i=2; i <= string1_length; i++) {
