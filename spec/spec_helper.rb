@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "phonetics"
+require_relative 'support/levenshtein_shared_example'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
