@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/phonetics'
 
 RSpec.describe Phonetics do
@@ -62,6 +64,7 @@ RSpec.describe Phonetics do
           distance = described_class.distance(*pair)
           raise "too high: #{pair.inspect} -> #{distance}" if distance > 1.0
           raise "too low: #{pair.inspect} -> #{distance}" if distance < 0.0
+
           expect(distance <= 1.0).to be_truthy
           expect(distance >= 0.0).to be_truthy
         end
@@ -71,14 +74,14 @@ RSpec.describe Phonetics do
 
   describe Phonetics::String do
     describe '#each_phoneme' do
-      subject(:each_phoneme) { described_class.new("wə t 9 ɛvɝ").each_phoneme }
+      subject(:each_phoneme) { described_class.new('wə t 9 ɛvɝ').each_phoneme }
 
       it 'returns an enumerator' do
         expect(each_phoneme).to be_an_instance_of(Enumerator)
       end
 
       it 'return valid phonemes, omitting any other characters' do
-        expect(each_phoneme.to_a).to eq(["w", "ə", "t", "ɛ", "v", "ɝ"])
+        expect(each_phoneme.to_a).to eq(%w[w ə t ɛ v ɝ])
       end
     end
   end

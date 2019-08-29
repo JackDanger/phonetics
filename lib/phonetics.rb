@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'delegate'
 
 module Phonetics
@@ -10,7 +12,6 @@ module Phonetics
   #   Phonetics::String.new("wətɛvɝ").each_phoneme.to_a
   #   => ["w", "ə", "t", "ɛ", "v", "ɝ"]
   class String < SimpleDelegator
-
     # Group all phonemes by how many characters they have. Use this to walk
     # through a string finding phonemes (looking for longest ones first)
     def self.phonemes_by_length
@@ -29,16 +30,15 @@ module Phonetics
         while idx < chars.length
           found = false
           self.class.phonemes_by_length.each do |size, phonemes|
-            if idx + size <= chars.length
-              candidate = chars[idx..idx+size-1].join
-              if phonemes.include?(candidate)
-                y.yield candidate
-                idx += size
-                found = true
-                break
-              else
-              end
-            end
+            next unless idx + size <= chars.length
+
+            candidate = chars[idx..idx + size - 1].join
+            next unless phonemes.include?(candidate)
+
+            y.yield candidate
+            idx += size
+            found = true
+            break
           end
           idx += 1 unless found
         end
@@ -76,7 +76,7 @@ module Phonetics
       'u' => { F1: 350, F2: 650,  rounded: true }, # Guessing From other vowels
       'ʊ' => { F1: 350, F2: 650,  rounded: true },
       # Frequencies from http://videoweb.nie.edu.sg/phonetic/vowels/measurements.html
-    }
+    }.freeze
 
     def phonemes
       @phonemes ||= FormantFrequencies.keys
@@ -90,8 +90,8 @@ module Phonetics
       formants1 = FormantFrequencies.fetch(phoneme1)
       formants2 = FormantFrequencies.fetch(phoneme2)
 
-      @minmax_f1 ||= FormantFrequencies.values.minmax {|a, b| a[:F1] <=> b[:F1] }.map {|h| h[:F1] }
-      @minmax_f2 ||= FormantFrequencies.values.minmax {|a, b| a[:F2] <=> b[:F2] }.map {|h| h[:F2] }
+      @minmax_f1 ||= FormantFrequencies.values.minmax { |a, b| a[:F1] <=> b[:F1] }.map { |h| h[:F1] }
+      @minmax_f2 ||= FormantFrequencies.values.minmax { |a, b| a[:F2] <=> b[:F2] }.map { |h| h[:F2] }
 
       # Get an x and y value for each input phoneme scaled between 0.0 and 1.0
       # We'll use the scaled f1 as the 'x' and the scaled f2 as the 'y'
@@ -105,7 +105,7 @@ module Phonetics
 
       # When we have four values we can use the pythagorean theorem on them
       # (order doesn't matter)
-      Math.sqrt((f1_distance ** 2) + (f2_distance ** 2))
+      Math.sqrt((f1_distance**2) + (f2_distance**2))
     end
   end
 
@@ -147,7 +147,7 @@ module Phonetics
     # Parse the ChartData into a lookup table where we can retrieve attributes
     # for each phoneme
     def features
-      @features ||= begin 
+      @features ||= begin
         header, *manners = ChartData.lines
 
         _, *positions = header.chomp.split(' | ')
@@ -218,19 +218,20 @@ module Phonetics
     Consonants.phonemes + Vowels.phonemes
   end
 
-  Symbols = Consonants.phonemes.reduce({}) {|acc, p| acc.update p => :consonant }.merge(
+  Symbols = Consonants.phonemes.reduce({}) { |acc, p| acc.update p => :consonant }.merge(
     Vowels.phonemes.reduce({}) { |acc, p| acc.update p => :vowel }
   )
 
   def distance(phoneme1, phoneme2)
     return 0 if phoneme1 == phoneme2
+
     distance_map.fetch(phoneme1).fetch(phoneme2)
   end
 
   def distance_map
     @distance_map ||= (
       Vowels.phonemes + Consonants.phonemes
-    ).permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} } ) do |pair, scores|
+    ).permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} }) do |pair, scores|
       p1, p2 = *pair
       score = _distance(p1, p2)
       scores[p1][p2] = score
@@ -299,7 +300,7 @@ module Phonetics
       distances.each do |(b, b_i), distance|
         writer.puts "        case #{b_i}: // #{a}->#{b}"
         writer.puts "          return (float) #{distance};"
-        writer.puts "          break;"
+        writer.puts '          break;'
       end
       writer.puts '      }'
     end
@@ -312,11 +313,11 @@ module Phonetics
 
   def _distance(phoneme1, phoneme2)
     types = [Symbols.fetch(phoneme1), Symbols.fetch(phoneme2)].sort
-    if types == [:consonant, :vowel]
+    if types == %i[consonant vowel]
       1.0
-    elsif types == [:vowel, :vowel]
+    elsif types == %i[vowel vowel]
       Vowels.distance(phoneme1, phoneme2)
-    elsif types == [:consonant, :consonant]
+    elsif types == %i[consonant consonant]
       Consonants.distance(phoneme1, phoneme2)
     end
   end

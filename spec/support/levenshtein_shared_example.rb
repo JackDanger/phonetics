@@ -1,4 +1,6 @@
-RSpec.shared_examples "calculates levenshtein distance" do
+# frozen_string_literal: true
+
+RSpec.shared_examples 'calculates levenshtein distance' do
   describe '.distance' do
     subject(:distance) { described_class.distance(phoneme1, phoneme2) }
 

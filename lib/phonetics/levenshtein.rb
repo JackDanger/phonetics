@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'c_levenshtein'
 # Using the Damerau version of the Levenshtein algorithm, with phonetic feature
 # count used instead of a binary edit distance calculation
@@ -17,7 +19,7 @@ module Phonetics
       ensure_is_phonetic!(str1, str2)
       internal_phonetic_distance(
         Phonetics.as_utf_8_long(str1),
-        Phonetics.as_utf_8_long(str2),
+        Phonetics.as_utf_8_long(str2)
       )
     end
 
@@ -30,6 +32,5 @@ module Phonetics
         end
       end
     end
-
   end
 end

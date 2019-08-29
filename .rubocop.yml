@@ -20,14 +20,20 @@ Naming/ConstantName:
 Naming/UncommunicativeMethodParamName:
   Enabled: false
 
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ModuleFunction:
+  EnforcedStyle: extend_self
+
 Style/MultilineBlockChain:
   Enabled: false
 
 Style/NumericPredicate:
   Enabled: false
 
-Style/Documentation:
-  Enabled: false
-
-Style/AsciiComments:
-  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma

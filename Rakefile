@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/gem_tasks'
 require 'rake/extensiontask'
 require 'rspec/core/rake_task'
@@ -22,4 +24,4 @@ task compile: 'compile:phonetic_cost'
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task default: :spec

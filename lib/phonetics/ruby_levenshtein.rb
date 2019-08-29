@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../phonetics'
 
 # Using the Damerau version of the Levenshtein algorithm, with phonetic feature
@@ -12,7 +14,6 @@ require_relative '../phonetics'
 # https://hal.archives-ouvertes.fr/hal-01474904/document
 module Phonetics
   class RubyLevenshtein
-
     attr_reader :str1, :str2, :len1, :len2, :matrix
 
     def initialize(ipa_str1, ipa_str2, verbose = false)
@@ -28,6 +29,7 @@ module Phonetics
 
     def distance
       return 0 if walk.empty?
+
       print_matrix if @verbose
       walk.last[:distance]
     end
@@ -41,17 +43,17 @@ module Phonetics
     def ensure_is_phonetic!
       [str1, str2].each do |string|
         string.chars.each do |char|
-          unless Phonetics.phonemes.include?(char)
-            raise ArgumentError, "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings"
-          end
+          raise ArgumentError, "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings" unless Phonetics.phonemes.include?(char)
         end
       end
     end
 
     def walk
       res = []
-      i, j = len2, len1
+      i = len2
+      j = len1
       return res if i == 0 && j == 0
+
       begin
         i, j, char = char_data(i, j)
         res.unshift char
@@ -67,13 +69,13 @@ module Phonetics
           options = [
             ins(i, j),
             del(i, j),
-            subst(i, j),
+            subst(i, j)
           ]
           # This is where we implement the modifications to Damerau-Levenshtein
           # according to https://hal.archives-ouvertes.fr/hal-01474904/document
           phonetic_cost = Phonetics.distance(str1[j - 1], str2[i - 1])
           matrix[i][j] = options.min + phonetic_cost
-          puts "------- #{j}/#{i} #{j + (i*(len1+1))}" if @verbose
+          puts "------- #{j}/#{i} #{j + (i * (len1 + 1))}" if @verbose
           print_matrix if @verbose
         end
       end
@@ -90,16 +92,16 @@ module Phonetics
 
     def find_previous(i, j)
       [
-        [ :insert, { cost: ins(i, j), move_to: [i, j - 1] }],
-        [ :delete, { cost: del(i, j), move_to: [i, j - 1] }],
-        [ :substitute, { cost: subst(i, j), move_to: [i, j - 1] }],
-      ].select do |operation, data|
+        [:insert, { cost: ins(i, j), move_to: [i, j - 1] }],
+        [:delete, { cost: del(i, j), move_to: [i, j - 1] }],
+        [:substitute, { cost: subst(i, j), move_to: [i, j - 1] }]
+      ].select do |_operation, data|
         # Don't send us out of bounds
         data[:move_to][0] >= 0 && data[:move_to][1] >= 0
-      end.sort_by do |operation, data|
+      end.min_by do |_operation, data|
         # pick the cheapest one
         data[:value]
-      end.first
+      end
     end
 
     # TODO: Score the edit distance lower if sonorant sounds are found in sequence.
@@ -125,20 +127,20 @@ module Phonetics
     # phoneme within the same string.
     # "aek" -> [0, 1, 1.61, 2.61]
     def initial_distances(str1, str2)
-      if len1 == 0 || len2 == 0
-       starting_distance = 0
-      else
-       starting_distance = Phonetics.distance(str1[0], str2[0])
+      starting_distance = if len1 == 0 || len2 == 0
+                            0
+                          else
+                            Phonetics.distance(str1[0], str2[0])
+                          end
+
+      distances1 = (1..(str1.length - 1)).reduce([0, starting_distance]) do |acc, i|
+        acc << acc.last + Phonetics.distance(str1[i - 1], str1[i])
+      end
+      distances2 = (1..(str2.length - 1)).reduce([0, starting_distance]) do |acc, i|
+        acc << acc.last + Phonetics.distance(str2[i - 1], str2[i])
       end
 
-      distances1 = (1..(str1.length-1)).reduce([0, starting_distance]) do |acc, i|
-        acc << acc.last + Phonetics.distance(str1[i-1], str1[i])
-      end
-      distances2 = (1..(str2.length-1)).reduce([0, starting_distance]) do |acc, i|
-        acc << acc.last + Phonetics.distance(str2[i-1], str2[i])
-      end
-
-      [ distances1, distances2 ]
+      [distances1, distances2]
     end
 
     def prepare_matrix
@@ -154,11 +156,11 @@ module Phonetics
     # This is a helper method for developers to use when exploring this
     # algorithm.
     def print_matrix
-      puts "           #{str1.chars.map {|c| c.ljust(9, " ") }.join}"
+      puts "           #{str1.chars.map { |c| c.ljust(9, ' ') }.join}"
       matrix.each_with_index do |row, ridx|
         print '  ' if ridx == 0
         print "#{str2[ridx - 1]} " if ridx > 0
-        row.each_with_index do |cell, cidx|
+        row.each_with_index do |cell, _cidx|
           cell ||= 0.0
           print cell.to_s[0, 8].ljust(8, '0')
           print ' '
