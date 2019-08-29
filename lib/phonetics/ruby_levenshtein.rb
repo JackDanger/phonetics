@@ -161,10 +161,6 @@ module Phonetics
       end
 
       [ distances1, distances2 ]
-    rescue => e
-      require 'pry'
-      binding.pry
-      p e
     end
 
     def prepare_matrix
@@ -177,6 +173,7 @@ module Phonetics
       (@len2 + 1).times { |n| @matrix[n][0] = str2_initial[n] }
     end
 
+    # This is a helper method for developers to use when exploring this algorithm.
     def print_matrix
       puts "        #{@str1.chars.map {|c| c.ljust(6, " ") }.join}"
       @matrix.each_with_index do |row, ridx|

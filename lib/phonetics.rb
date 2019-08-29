@@ -279,17 +279,18 @@ module Phonetics
     #   * produces a value that's a valid C case conditional
     #   * can be applied to runes of input strings later
     integer_distance_map = distance_map.reduce({}) do |acc_a, (a, distances)|
-      acc_a.update [a, as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
-        acc_b.update [b, as_utf_8_long(b)] => distance
+      acc_a.update [a, grapheme_as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
+        acc_b.update [b, grapheme_as_utf_8_long(b)] => distance
       end)
     end
 
     # Then we print out C code full of switches
 
     writer.puts(<<-FUNC.gsub(/^ {4}/, ''))
-    float phonetic_cost(long a, long b) {
+    float phonetic_cost(int a, int b) {
       // This is compiled from Ruby, using `String#unpack("U")` on each character
       // to retrieve the UTF-8 codepoint as a C long value.
+      if (a == b) { return 0.0; };
     FUNC
     writer.puts '  switch (a) {'
     integer_distance_map.each do |(a, a_i), distances|

@@ -1,6 +1,7 @@
-float phonetic_cost(long a, long b) {
+float phonetic_cost(int a, int b) {
   // This is compiled from Ruby, using `String#unpack("U")` on each character
   // to retrieve the UTF-8 codepoint as a C long value.
+  if (a == b) { return 0.0; };
   switch (a) {
     case 105: // i
       switch (b) {
