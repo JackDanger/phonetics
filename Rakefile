@@ -3,6 +3,7 @@
 require 'bundler/gem_tasks'
 require 'rake/extensiontask'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 Rake::ExtensionTask.new('c_levenshtein') do |extension|
   extension.ext_dir = 'ext/c_levenshtein'
@@ -24,4 +25,6 @@ task compile: 'compile:phonetic_cost'
 
 RSpec::Core::RakeTask.new(:spec)
 
-task default: :spec
+RuboCop::RakeTask.new
+
+task default: [:rubocop, :spec]

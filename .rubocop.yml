@@ -1,4 +1,8 @@
 ---
+AllCops:
+  Exclude:
+    - Rakefile
+
 Metrics/AbcSize:
   Enabled: false
 
