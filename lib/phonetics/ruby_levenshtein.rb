@@ -130,7 +130,7 @@ module Phonetics
     end
 
     def substitution_cost(i, j)
-      [ Phonetics.distance(@str1[j - 1], @str2[i - 1]), MIN_EDIT_DISTANCE ].max
+      [ Phonetics.distance(@str1[j - 2], @str2[i - 2]), MIN_EDIT_DISTANCE ].max
     end
 
     def no_change(i, j)

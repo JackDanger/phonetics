@@ -59,7 +59,7 @@ RSpec.shared_examples "calculates levenshtein distance" do
       let(:phoneme2) { 'sinkœ' }
 
       it 'approaches the orthographic Levenshtein edit distance' do
-        expect(distance).to be_within(0.2).of(3.2)
+        expect(distance).to be_within(0.2).of(3.7)
       end
     end
 
