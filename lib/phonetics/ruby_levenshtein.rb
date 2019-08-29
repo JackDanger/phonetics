@@ -13,8 +13,6 @@ require_relative '../phonetics'
 module Phonetics
   class RubyLevenshtein
 
-    MIN_EDIT_DISTANCE = 0.01
-
     def initialize(ipa_str1, ipa_str2)
       @str1 = ipa_str1
       @str2 = ipa_str2
@@ -69,14 +67,7 @@ module Phonetics
             ins(i, j) + insertion_cost(i, j),
             subst(i, j) + substitution_cost(i, j),
           ]
-          best = options.min
-
-          # If we're comparing two identical phonemes, take the shortcut of
-          # reusing the previous (diagonally upper-left) value.
-          if str2[i - 1] == str1[j - 1] && no_change(i, j) <= best
-            best = no_change(i, j)
-          end
-          @matrix[i][j] = best
+          @matrix[i][j] = options.min
         end
       end
     end
@@ -112,7 +103,7 @@ module Phonetics
     def deletion_cost(i, j)
       prev_phoneme = @str2[i - 2]
       current_phoneme = @str1[j - 1]
-      [ Phonetics.distance(prev_phoneme, current_phoneme), MIN_EDIT_DISTANCE ].max
+      Phonetics.distance(prev_phoneme, current_phoneme)
     end
 
     def ins(i, j)
@@ -122,7 +113,7 @@ module Phonetics
     def insertion_cost(i, j)
       prev_phoneme = @str1[j - 2]
       current_phoneme = @str2[i - 1]
-      [ Phonetics.distance(prev_phoneme, current_phoneme), MIN_EDIT_DISTANCE ].max
+      Phonetics.distance(prev_phoneme, current_phoneme)
     end
 
     def subst(i, j)
@@ -130,11 +121,7 @@ module Phonetics
     end
 
     def substitution_cost(i, j)
-      [ Phonetics.distance(@str1[j - 2], @str2[i - 2]), MIN_EDIT_DISTANCE ].max
-    end
-
-    def no_change(i, j)
-      @matrix[i - 1][j - 1]
+      Phonetics.distance(@str1[j - 2], @str2[i - 2])
     end
 
     # Set the minimum scores equal to the distance between each phoneme,
