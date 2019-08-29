@@ -13,3 +13,4 @@
 .ruby-version
 *.so
 Gemfile.lock
+*.bundle
