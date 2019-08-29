@@ -15,7 +15,11 @@ module Phonetics
   module Levenshtein
     extend ::PhoneticsLevenshteinCBinding
 
-    def self.distance(str1, str2)
+    def self.distance(str1, str2, verbose = false)
+      if verbose
+        warn 'To get verbosity in the C extension, toggle the NDEBUG in the source'
+        warn 'A pull request that feeds this value through from Ruby land would be welcome'
+      end
       ensure_is_phonetic!(str1, str2)
       internal_phonetic_distance(
         Phonetics.as_utf_8_long(str1),

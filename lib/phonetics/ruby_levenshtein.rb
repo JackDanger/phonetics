@@ -34,8 +34,8 @@ module Phonetics
       walk.last[:distance]
     end
 
-    def self.distance(str1, str2)
-      new(str1, str2).distance
+    def self.distance(str1, str2, verbose = false)
+      new(str1, str2, verbose).distance
     end
 
     private
