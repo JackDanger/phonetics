@@ -110,7 +110,7 @@ module Phonetics
     end
 
     def deletion_cost(i, j)
-      prev_phoneme = @str2[i - 1]
+      prev_phoneme = @str2[i - 2]
       current_phoneme = @str1[j - 1]
       [ Phonetics.distance(prev_phoneme, current_phoneme), MIN_EDIT_DISTANCE ].max
     end
@@ -120,7 +120,7 @@ module Phonetics
     end
 
     def insertion_cost(i, j)
-      prev_phoneme = @str1[j - 1]
+      prev_phoneme = @str1[j - 2]
       current_phoneme = @str2[i - 1]
       [ Phonetics.distance(prev_phoneme, current_phoneme), MIN_EDIT_DISTANCE ].max
     end
@@ -174,7 +174,7 @@ module Phonetics
       # The first row is the initial values for @str2
       @matrix[0] = str1_initial
       # The first column is the initial values for @str1
-      @len2.times { |n| @matrix[n + 1][0] = str2_initial[n] }
+      (@len2 + 1).times { |n| @matrix[n][0] = str2_initial[n] }
     end
 
     def print_matrix
