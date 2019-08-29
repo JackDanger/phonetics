@@ -27,4 +27,4 @@ RSpec::Core::RakeTask.new(:spec)
 
 RuboCop::RakeTask.new
 
-task default: [:rubocop, :spec]
+task default: [:compile, :rubocop, :spec]
