@@ -71,7 +71,6 @@ RSpec.shared_examples 'calculates levenshtein distance' do
     context 'for very different sounds' do
       let(:phoneme1) { 'mɔop' }
       let(:phoneme2) { 'sinkœ' }
-      let(:verbose) { true }
 
       it 'approaches the orthographic Levenshtein edit distance' do
         expect(distance).to be_within(0.2).of(3.7)

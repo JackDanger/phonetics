@@ -55,9 +55,9 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
     string1[i] = NUM2INT(string1_ruby[i]);
     debug("string1[%d] = %d\n", i, string1[i]);
   }
-  for (i = 0; i < string2_length; i++) {
-    string2[i] = NUM2INT(string2_ruby[i]);
-    debug("string2[%d] = %d\n", i, string2[i]);
+  for (j = 0; j < string2_length; j++) {
+    string2[j] = NUM2INT(string2_ruby[j]);
+    debug("string2[%d] = %d\n", i, string2[j]);
   }
 
   // one-dimensional representation of 2 dimentional array len(string1)+1 *
@@ -81,8 +81,8 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
   // phonetic edit distance for that matrix cell.
   // (Skipping i=0 and j=0 because set_initial filled in all cells where i
   // or j are zero-valued)
-  for(j = 1; j <= string2_length; j++){
-    for(i = 1; i <= string1_length; i++){
+  for (j = 1; j <= string2_length; j++){
+    for (i = 1; i <= string1_length; i++){
 
       // The cost of deletion or addition is the Levenshtein distance
       // calculation (the value in the cell to the left, upper-left, or above)
@@ -165,6 +165,14 @@ void set_initial(double *d, int *string1, int string1_length, int *string2, int 
   for (j=2; j <= string2_length; j++) {
     // The same exact pattern down the left side of the matrix
     d[j * (string1_length+1)] = d[(j - 1) * (string1_length+1)] + phonetic_cost(string2[j-2], string2[j-1]);
+  }
+
+  // And zero out the rest. If you're reading this please edit this to be
+  // faster.
+  for (j=1; j <= string2_length; j++) {
+    for (i=1; i <= string1_length; i++) {
+      d[j * (string1_length+1) + i] = (double) 0.0;
+    }
   }
 }
 
