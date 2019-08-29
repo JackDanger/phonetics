@@ -50,7 +50,7 @@ RSpec.shared_examples "calculates levenshtein distance" do
         sequential_total = phoneme1.chars.each_cons(2).reduce(0) do |total, pair|
           total + Phonetics.distance(*pair)
         end
-        expect(distance).to eq(sequential_total)
+        expect(distance).to be_within(0.01).of(sequential_total)
       end
     end
 

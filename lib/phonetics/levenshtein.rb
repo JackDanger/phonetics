@@ -14,10 +14,22 @@ module Phonetics
     extend ::PhoneticsLevenshteinCBinding
 
     def self.distance(str1, str2)
+      ensure_is_phonetic!(str1, str2)
       internal_phonetic_distance(
         Phonetics.as_utf_8_long(str1),
         Phonetics.as_utf_8_long(str2),
       )
     end
+
+    def self.ensure_is_phonetic!(str1, str2)
+      [str1, str2].each do |string|
+        string.chars.each do |char|
+          unless Phonetics.phonemes.include?(char)
+            raise ArgumentError, "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings"
+          end
+        end
+      end
+    end
+
   end
 end
