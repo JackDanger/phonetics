@@ -12,3 +12,4 @@
 .ruby-version
 .ruby-version
 *.so
+Gemfile.lock
