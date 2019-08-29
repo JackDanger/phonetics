@@ -37,3 +37,7 @@ Style/NumericPredicate:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: separator
+  EnforcedColonStyle: separator

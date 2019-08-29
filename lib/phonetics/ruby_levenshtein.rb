@@ -54,10 +54,11 @@ module Phonetics
       j = len1
       return res if i == 0 && j == 0
 
-      begin
+      loop do
         i, j, char = char_data(i, j)
         res.unshift char
-      end while i > 0 && j > 0
+        break if i == 0 || j == 0
+      end
       res
     end
 

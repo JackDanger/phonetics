@@ -116,22 +116,24 @@ module Phonetics
     # sibilant fricatives and non-sibilant fricatives
     # TODO: this is unfinished and possibly a bad idea
     MannerDistances = {
-      'Nasal'                  => %w[continuant],
-      'Stop'                   => %w[],
-      'Sibilant fricative'     => %w[continuant fricative],
+                       'Nasal' => %w[continuant],
+                        'Stop' => %w[],
+          'Sibilant fricative' => %w[continuant fricative],
       'Non-sibilant fricative' => %w[continuant non_sibilant fricative],
-      'Approximant'            => %w[],
-      'Tap/Flap'               => %w[],
-      'Trill'                  => %w[],
-      'Lateral fricative'      => %w[continuant fricative],
-      'Lateral approximant'    => %w[],
-      'Lateral tap/flap'       => %w[],
+                 'Approximant' => %w[],
+                    'Tap/Flap' => %w[],
+                       'Trill' => %w[],
+           'Lateral fricative' => %w[continuant fricative],
+         'Lateral approximant' => %w[],
+            'Lateral tap/flap' => %w[],
     }.freeze
 
     # This chart (columns 2 through the end, anyway) is a direct port of
     # https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Letters
-    # We # store the consonant table in this format to make updating it easier.
-    ChartData = %Q{          | Labio-velar | Bi-labial | Labio-dental | Linguo-labial | Dental | Alveolar | Post-alveolar | Retro-flex | Palatal | Velar | Uvular | Pharyngeal | Glottal
+    # We store the consonant table in this format to make updating it easier.
+    #
+    # rubocop:disable Layout/TrailingWhitespace
+    ChartData = %(           | Labio-velar | Bi-labial | Labio-dental | Linguo-labial | Dental | Alveolar | Post-alveolar | Retro-flex | Palatal | Velar | Uvular | Pharyngeal | Glottal
       Nasal                  |             | m̥  m      |    ɱ         |    n̼          |        | n̥  n     |               | ɳ̊  ɳ       | ɲ̊  ɲ    | ŋ̊  ŋ  |    ɴ   |            |        
       Stop                   |             | p  b      | p̪  b̪         | t̼  d̼          |        | t  d     |               | ʈ  ɖ       | c  ɟ    | k  g  | q  ɢ   | ʡ          | ʔ      
       Sibilant fricative     |             |           |              |               |        | s  z     | ʃ  ʒ          | ʂ  ʐ       | ɕ  ʑ    |       |        |            |        
@@ -142,7 +144,8 @@ module Phonetics
       Lateral fricative      |             |           |              |               |        | ɬ  ɮ     |               | ɭ̊˔ ɭ˔      | ʎ̝̊  ʎ̝    | ʟ̝̊  ʟ̝  |        |            |        
       Lateral approximant    |             |           |              |               |        | l̥  l     |               | ɭ̊  ɭ       | ʎ̥  ʎ    | ʟ̥  ʟ  |    ʟ̠   |            |        
       Lateral tap/flap       |             |           |              |               |        |    ɺ     |               |    ɭ̆       |    ʎ̆    |    ʟ̆  |        |            |         
-    }
+    )
+    # rubocop:enable Layout/TrailingWhitespace
 
     # Parse the ChartData into a lookup table where we can retrieve attributes
     # for each phoneme
@@ -165,9 +168,9 @@ module Phonetics
           manner.strip!
           positions.zip(columns).each do |position, phoneme_text|
             data = {
-              position: position,
+                    position: position,
               position_index: position_indexes[position],
-              manner: manner,
+                      manner: manner,
             }
             # If there is a character in the first byte then this articulation
             # has a voiceless phoneme. The symbol may use additional characters
@@ -254,7 +257,7 @@ module Phonetics
   # => 1413 (624 + (10 * 778))
   def grapheme_as_utf_8_long(grapheme)
     grapheme.unpack('U*').each_with_index.reduce(0) do |total, (byte, i)|
-      total += (10**i) * byte
+      total + (10**i) * byte
     end
   end
 

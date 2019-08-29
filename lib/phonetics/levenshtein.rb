@@ -27,7 +27,8 @@ module Phonetics
       [str1, str2].each do |string|
         string.chars.each do |char|
           unless Phonetics.phonemes.include?(char)
-            raise ArgumentError, "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings"
+            msg = "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings"
+            raise ArgumentError, msg
           end
         end
       end
