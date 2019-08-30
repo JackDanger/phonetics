@@ -112,22 +112,6 @@ module Phonetics
   module Consonants
     extend self
 
-    # Plosives and fricatives are less similar than trills and flaps, or
-    # sibilant fricatives and non-sibilant fricatives
-    # TODO: this is unfinished and possibly a bad idea
-    MannerDistances = {
-                       'Nasal' => %w[continuant],
-                        'Stop' => %w[],
-          'Sibilant fricative' => %w[continuant fricative],
-      'Non-sibilant fricative' => %w[continuant non_sibilant fricative],
-                 'Approximant' => %w[],
-                    'Tap/Flap' => %w[],
-                       'Trill' => %w[],
-           'Lateral fricative' => %w[continuant fricative],
-         'Lateral approximant' => %w[],
-            'Lateral tap/flap' => %w[],
-    }.freeze
-
     # This chart (columns 2 through the end, anyway) is a direct port of
     # https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Letters
     # We store the consonant table in this format to make updating it easier.
