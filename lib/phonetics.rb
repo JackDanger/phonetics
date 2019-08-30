@@ -202,7 +202,7 @@ module Phonetics
   end
 
   def phonemes
-    Consonants.phonemes + Vowels.phonemes
+    Vowels.phonemes + Consonants.phonemes
   end
 
   Symbols = Consonants.phonemes.reduce({}) { |acc, p| acc.update p => :consonant }.merge(
@@ -216,9 +216,7 @@ module Phonetics
   end
 
   def distance_map
-    @distance_map ||= (
-      Vowels.phonemes + Consonants.phonemes
-    ).permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} }) do |pair, scores|
+    @distance_map ||= phonemes.permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} }) do |pair, scores|
       p1, p2 = *pair
       score = _distance(p1, p2)
       scores[p1][p2] = score

@@ -16,12 +16,6 @@ module Phonetics
   module Levenshtein
     extend ::PhoneticsLevenshteinCBinding
 
-    def self.codepoints(string)
-      puts "rubyland string: #{string} @ #{string.object_id}"
-      puts "rubyland string bytes: #{string.bytes.inspect}"
-      testing_codepoints(string)
-    end
-
     def self.distance(str1, str2, verbose = false)
       ensure_is_phonetic!(str1, str2)
       internal_phonetic_distance(

@@ -1,7 +1,4 @@
 #include "ruby.h"
-#include "ruby/encoding.h"
-#include "ruby/re.h"
-#include "ruby/onigmo.h"
 #include <stdbool.h>
 #include "./phonetic_cost.h"
 
@@ -16,14 +13,12 @@ void Init_c_levenshtein();
 void set_initial(double *d, int *string1, int string1_length, int *string2, int string2_length, bool verbose);
 void print_matrix(double *d, int *string1, int string1_length, int *string2, int string2_length, bool verbose);
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose);
-VALUE method_testing_codepoints(VALUE self, VALUE _string);
 
 /* Function implemitations */
 
 void Init_c_levenshtein() {
 	Binding = rb_define_module("PhoneticsLevenshteinCBinding");
 	rb_define_method(Binding, "internal_phonetic_distance", method_internal_phonetic_distance, 3);
-	rb_define_method(Binding, "testing_codepoints", method_testing_codepoints, 1);
 }
 
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose){
@@ -96,7 +91,7 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
 
       debug("------- %d/%d (%d) \n", i, j, j*(string1_length+1) + i);
 
-      cost = phonetic_cost(string1[i-1], string2[j-1]);
+      cost = phonetic_cost(string1, i-1, string1_length, string2, j-1, string2_length);
       debug("phonetic cost of %d to %d is %f\n", string1[i-1], string2[j-1], cost);
 
       insert = d[j*(string1_length+1) + i-1];
@@ -134,48 +129,6 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
   return DBL2NUM(distance);
 }
 
-VALUE method_testing_codepoints(VALUE self, VALUE string){
-  if (!RB_TYPE_P(string, T_STRING)) {
-    rb_raise(rb_eArgError, "string argument required");
-  }
-
-  VALUE *string_ruby = RSTRING_PTR(string);
-  int string_length = RSTRING_LEN(string);
-  int i;
-
-  printf("string_length: %d\n", string_length);
-
-  for (i = 0; i < string_length; i++) {
-    printf("%d: %d\n", i, RSTRING_PTR(string)[i] & 0xff);
-  }
-
-  rb_str_each_grapheme_cluster_size(string);
-  //VALUE string_frozen = rb_str_new_frozen(string);
-  //regex_t *reg_grapheme_cluster = NULL;
-  //const char *ptr0, *ptr, *end;
-
-  //rb_encoding *enc = rb_enc_from_index(ENCODING_GET(string));
-  //reg_grapheme_cluster = get_reg_grapheme_cluster(enc);
-  //ptr0 = ptr = RSTRING_PTR(string);
-  //end = RSTRING_END(str);
-
-  //while (ptr < end) {
-	//  OnigPosition len = onig_match(
-  //      reg_grapheme_cluster,
-  //      (const OnigUChar *)ptr,
-  //      (const OnigUChar *)end,
-  //      (const OnigUChar *)ptr,
-  //      NULL,
-  //      0
-  //    );
-  //  if (len <= 0) break;
-  //  ptr += len;
-  //  printf("char len: %d\n", len);
-  //}
-
-  return Qnil;
-}
-
 // Set the minimum scores equal to the distance between each phoneme,
 // sequentially.
 //
@@ -209,12 +162,12 @@ void set_initial(double *d, int *string1, int string1_length, int *string2, int 
   for (i=2; i <= string1_length; i++) {
     // The cost of adding the next phoneme is the cost so far plus the phonetic
     // distance between the previous one and the current one.
-    d[i] = d[i-1] + phonetic_cost(string1[i-2], string1[i-1]);
+    d[i] = d[i-1] + phonetic_cost(string1, i-2, string1_length, string1, i-1, string1_length);
   }
   debug("string2 length: %d\n", string2_length);
   for (j=2; j <= string2_length; j++) {
     // The same exact pattern down the left side of the matrix
-    d[j * (string1_length+1)] = d[(j - 1) * (string1_length+1)] + phonetic_cost(string2[j-2], string2[j-1]);
+    d[j * (string1_length+1)] = d[(j - 1) * (string1_length+1)] + phonetic_cost(string2, j-2, string2_length, string2, j-1, string2_length);
   }
 
   // And zero out the rest. If you're reading this please edit this to be

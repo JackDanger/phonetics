@@ -11,17 +11,30 @@ Rake::ExtensionTask.new('c_levenshtein') do |extension|
 end
 
 PHONETIC_COST_C_EXTENSION = File.expand_path('ext/c_levenshtein/phonetic_cost.c', __dir__)
+PHONEMES_C_EXTENSION = File.expand_path('ext/c_levenshtein/phonemes.c', __dir__)
+
+require_relative './lib/phonetics/code_generator'
 
 namespace :compile do
   desc 'Write phonetic_cost.c using Phonetic values'
   task :phonetic_cost do
-    require_relative './lib/phonetics/code_generator'
     file = File.open(PHONETIC_COST_C_EXTENSION, 'w')
-    Phonetics::Generator.new(file).generate_phonetic_cost_c_code
+    Phonetics::CodeGenerator.new(file).generate_phonetic_cost_c_code
     puts "Wrote #{PHONETIC_COST_C_EXTENSION}"
   end
+
+  desc 'Write phonemes.c using a lookup table of byte arrays'
+  task :phonemes do
+    file = File.open(PHONEMES_C_EXTENSION, 'w')
+    Phonetics::CodeGenerator.new(file).generate_next_phoneme_length_c_code
+    puts "Wrote #{PHONEMES_C_EXTENSION}"
+  end
 end
-task compile: 'compile:phonetic_cost'
+
+task compile: [
+  'compile:phonemes',
+  'compile:phonetic_cost',
+]
 
 RSpec::Core::RakeTask.new(:spec)
 
