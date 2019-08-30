@@ -15,9 +15,9 @@ PHONETIC_COST_C_EXTENSION = File.expand_path('ext/c_levenshtein/phonetic_cost.c'
 namespace :compile do
   desc 'Write phonetic_cost.c using Phonetic values'
   task :phonetic_cost do
-    require_relative './lib/phonetics'
+    require_relative './lib/phonetics/code_generator'
     file = File.open(PHONETIC_COST_C_EXTENSION, 'w')
-    Phonetics.generate_phonetic_cost_c_code(file)
+    Phonetics::Generator.new(file).generate_phonetic_cost_c_code
     puts "Wrote #{PHONETIC_COST_C_EXTENSION}"
   end
 end
