@@ -1,8 +1,6 @@
 #include "ruby.h"
-#include "ruby/encoding.h"
-#include "ruby/re.h"
-#include "ruby/onigmo.h"
 #include <stdbool.h>
+#include "./phonemes.h"
 #include "./phonetic_cost.h"
 
 #define debug(M, ...) if (verbose) printf(M, ##__VA_ARGS__)

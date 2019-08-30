@@ -1,4 +1,5 @@
 require_relative '../phonetics'
+require 'json'
 
 module Phonetics
   class CodeGenerator
@@ -6,7 +7,7 @@ module Phonetics
     attr_reader :writer
 
     def initialize(writer = STDOUT)
-      @writer = STDOUT
+      @writer = writer
     end
 
     # This will print a C code file with a function that implements a multil-level C
@@ -63,6 +64,8 @@ module Phonetics
       write '  }'
       write '  return 1.0;'
       write '}'
+
+      flush
     end
 
     # There's no simple way to break a string of IPA characters into phonemes.
@@ -84,8 +87,8 @@ module Phonetics
     #   - return 0
     #
     def generate_next_phoneme_length_c_code
-      write(<<-HEADER.gsub(/^ {4}/, ''))
-      int next_phoneme_length(char *string, int cursor, int length) {
+      write(<<-HEADER.gsub(/^ {6}/, ''))
+      int next_phoneme_length(int *string, int cursor, int length) {
         // This is compiled from Ruby, in #{__FILE__}:#{__LINE__}
 
         int max_length;
@@ -98,6 +101,8 @@ module Phonetics
       # If we fell through all the cases, return 0
       write '  return 0;'
       write '}'
+
+      flush
     end
 
     private
@@ -185,6 +190,10 @@ module Phonetics
 
     def write(line)
       writer.puts line
+    end
+
+    def flush
+      writer.flush
     end
   end
 end
