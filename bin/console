@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+$: << '../lib'
+
+require 'bundler/setup'
+require 'pry-byebug'
+require 'phonetics'
+
+Phonetics.pry
