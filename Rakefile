@@ -30,7 +30,11 @@ namespace :compile do
     puts "Wrote #{PHONEMES_C_EXTENSION}"
   end
 end
-task compile: ['compile:phonemes', 'compile:phonetic_cost']
+
+task compile: [
+  'compile:phonemes',
+  'compile:phonetic_cost',
+]
 
 RSpec::Core::RakeTask.new(:spec)
 
