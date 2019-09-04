@@ -224,7 +224,6 @@ module Phonetics
     end
   end
 
-
   private
 
   def _distance(phoneme1, phoneme2)
