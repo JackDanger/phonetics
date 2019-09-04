@@ -117,27 +117,65 @@ module Phonetics
     #  the distance of ("m", "ɲ̊") is therefore 0.4230
     #
     def generate
+      phonetic_cost_function
+
+      by_byte_length.each do |length, phonemes|
+        phonetic_cost_function_for_length(length, phonemes)
+      end
+    end
+
+    def phonetic_cost_function
+      write ''
+      by_byte_length.each do |length, _|
+        write "float phonetic_cost_length1_#{length}(int *string1, int pos1, int *string2, int pos2, int phoneme2_length);"
+      end
       write(<<-HEADER.gsub(/^ {6}/, ''))
+
       // This is compiled from Ruby, in #{ruby_source}
-      float phonetic_cost(int *phoneme1, int phoneme1_length, int *phoneme2, int phoneme2_length) {
-        if (phoneme1_length == 0) { return 0.0; };
-        if (phoneme2_length == 0) { return 0.0; };
+      #include "./phonemes.h"
+      float phonetic_cost(int *string1, int pos1, int string1_length, int *string2, int pos2, int string2_length) {
+        int phoneme1_length;
+        int phoneme2_length;
+
+        if (pos1 >= string1_length) { return 1.0; };
+        if (pos2 >= string2_length) { return 1.0; };
+
+        phoneme1_length = next_phoneme_length(string1, pos1, string1_length);
+        phoneme2_length = next_phoneme_length(string2, pos2, string2_length);
+
+        if (phoneme1_length <= 0) { return 1.0; };
+        if (phoneme2_length <= 0) { return 1.0; };
 
       HEADER
 
-      by_byte_length = Phonetics.phonemes.group_by { |phoneme| phoneme.bytes.length }.sort_by(&:first)
-
-      by_byte_length.each do |length, phonemes|
-        byte_trie = phoneme_byte_trie_for(phonemes)
-
-        write "  if (phoneme1_length == #{length}) {"
-        nest_cases(byte_trie, 0)
-        write '  }'
+      write '  switch (phoneme1_length) {'
+      by_byte_length.each do |length, _|
+        write "   case #{length}:"
+        write "     return phonetic_cost_length1_#{length}(string1, pos1, string2, pos2, phoneme2_length);"
+        write '     break;'
       end
-
+      write '    default:'
+      write '      return (float) 1.0;'
+      write '  }'
+      write '};'
+      write ''
     end
 
-    def nest_cases(trie, depth = 0)
+    def phonetic_cost_function_for_length(length, phonemes)
+      write(<<-HEADER.gsub(/^ {6}/, ''))
+      // This is compiled from Ruby, in #{ruby_source}
+      float phonetic_cost_length1_#{length}(int *string1, int pos1, int *string2, int pos2, int phoneme2_length) {
+
+      HEADER
+      byte_trie = phoneme_byte_trie_for(phonemes)
+
+      switch_phoneme1(byte_trie)
+
+      write '  return 1.0;'
+      write '};'
+    end
+
+    def switch_phoneme1(trie, depth = 0)
       indent depth, "  switch(string1[#{depth}]) {"
       write ''
       trie.each do |key, subtrie|
@@ -146,54 +184,77 @@ module Phonetics
 
         indent depth, "    case #{key}:"
 
-        # Add a comment to help understand the dataset
-        if subtrie[:source]
-          phoneme = subtrie[:source]
-          indent depth, "      // Phoneme: #{phoneme.inspect}, bytes: #{phoneme.bytes.inspect}"
-          if Phonetics::Consonants.features.key?(phoneme)
-            indent depth, "      // consonant features: #{Phonetics::Consonants.features[phoneme].to_json}"
-          else
-            indent depth, "      // vowel features: #{Phonetics::Vowels::FormantFrequencies[phoneme].to_json}"
-          end
-        end
+        phoneme1 = subtrie[:source]
 
+        # Add a comment to help understand the dataset
+        # describe(phoneme1, depth) if phoneme1
+
+        # If this could be a match of a phoneme1 then find phoneme2
         if subtrie.keys == [:source]
-          indent depth, '      // start phoneme2'
+          by_byte_length.each do |length, phonemes|
+            byte_trie = phoneme_byte_trie_for(phonemes - [phoneme1])
+            next if byte_trie.empty?
+
+            indent depth, "      if (phoneme2_length == #{length}) {"
+            switch_phoneme2(byte_trie, depth + 1, phoneme1)
+            indent depth, '      }'
+          end
         else
-          indent depth, "      if (max_length > #{depth + 1}) {"
-          indent depth, '      // recurse??'
-          # next_phoneme_switch(subtrie, depth + 1)
-          indent depth, "      }"
+          switch_phoneme1(subtrie, depth + 1)
         end
 
         indent depth, "      break;"
       end
-      indent depth, '  }'
-    end
-      # write '  switch (a) {'
-      # integer_distance_map.each do |(a, a_i), distances|
-      #   write "    case #{a_i}: // #{a}"
-      #   write '      switch (b) {'
-      #   distances.each do |(b, b_i), distance|
-      #     write "        case #{b_i}: // #{a}->#{b}"
-      #     write "          return (float) #{distance};"
-      #     write '          break;'
-      #   end
-      #   write '      }'
-      # end
-      # write '  }'
-      # write '  return 1.0;'
-      # write '}'
-
-      # flush
-    # end
-
-    private
-
-    # Recursively build switch statements for the body of next_phoneme_length
-    def next_switch(trie, depth)
+      indent depth, '    }'
     end
 
+    def switch_phoneme2(trie, depth = 0, previous_phoneme)
+      indent depth, "  switch(string1[#{depth}]) {"
+      write ''
+      trie.each do |key, subtrie|
+        next if key == :source
+        next if subtrie.empty?
+
+        phoneme2 = subtrie[:source]
+
+        # Add a comment to help understand the dataset
+        # describe(phoneme2, depth) if phoneme2
+
+        if subtrie.keys == [:source]
+          value = distance(previous_phoneme, phoneme2)
+          if value && value < 1.0
+            indent depth, "    case #{key}:"
+            indent depth, "      return (float) #{value};"
+            indent depth, "      break;"
+          end
+        else
+          indent depth, "    case #{key}:"
+          switch_phoneme2(subtrie, depth + 1, previous_phoneme)
+          indent depth, "      break;"
+        end
+
+      end
+      indent depth, '    }'
+    end
+
+    def describe(phoneme, depth)
+      indent depth, "      // Phoneme: #{phoneme.inspect}, bytes: #{phoneme.bytes.inspect}"
+      if Phonetics::Consonants.features.key?(phoneme)
+        indent depth, "      // consonant features: #{Phonetics::Consonants.features[phoneme].to_json}"
+      else
+        indent depth, "      // vowel features: #{Phonetics::Vowels::FormantFrequencies[phoneme].to_json}"
+      end
+    end
+
+    def by_byte_length
+      Phonetics.phonemes.group_by do |phoneme|
+        phoneme.bytes.length
+      end.sort_by(&:first).reverse
+    end
+
+    def distance(p1, p2)
+      Phonetics.distance_map[p1][p2]
+    end
   end
 
   class NextPhonemeLength < CodeGenerator
