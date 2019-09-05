@@ -17,7 +17,8 @@ namespace :compile do
   task :phonetic_cost do
     require_relative './lib/phonetics/code_generator'
     file = File.open(PHONETIC_COST_C_EXTENSION, 'w')
-    Phonetics::Generator.new(file).generate_phonetic_cost_c_code
+    Phonetics::CodeGenerator.new(file).generate_phonetic_cost_c_code
+    file.flush
     puts "Wrote #{PHONETIC_COST_C_EXTENSION}"
   end
 end

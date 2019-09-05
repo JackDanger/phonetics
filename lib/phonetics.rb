@@ -5,6 +5,26 @@ require 'delegate'
 module Phonetics
   extend self
 
+
+  # as_utf_8_long("aɰ̊ h")
+  # => [97, 8404, 32, 104]
+  def as_utf_8_long(string)
+    string.each_grapheme_cluster.map { |grapheme| grapheme_as_utf_8_long(grapheme) }
+  end
+
+  # Encode individual multi-byte strings as a single integer.
+  #
+  # "ɰ̊".unpack('U*')
+  # => [624, 778]
+  #
+  # grapheme_as_utf_8_long("ɰ̊")
+  # => 1413 (624 + (10 * 778))
+  def grapheme_as_utf_8_long(grapheme)
+    grapheme.unpack('U*').each_with_index.reduce(0) do |total, (byte, i)|
+      total + (10**i) * byte
+    end
+  end
+
   # This subclass of the stdlib's String allows us to iterate over each phoneme
   # in a string without monkeypatching
   #

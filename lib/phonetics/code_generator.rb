@@ -6,7 +6,7 @@ module Phonetics
     attr_reader :writer
 
     def initialize(writer = STDOUT)
-      @writer = STDOUT
+      @writer = writer
     end
 
     # This will print a C code file with a function that implements a multil-level C
@@ -35,9 +35,9 @@ module Phonetics
     def generate_phonetic_cost_c_code
       # We turn each phoneme into an array of bytes (unicode codepoints encoded
       # via UTF-8).
-      integer_distance_map = distance_map.reduce({}) do |acc_a, (a, distances)|
-        acc_a.update [a, grapheme_as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
-          acc_b.update [b, grapheme_as_utf_8_long(b)] => distance
+      integer_distance_map = Phonetics.distance_map.reduce({}) do |acc_a, (a, distances)|
+        acc_a.update [a, Phonetics.grapheme_as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
+        acc_b.update [b, Phonetics.grapheme_as_utf_8_long(b)] => distance
         end)
       end
 
