@@ -5,7 +5,7 @@ require_relative '../phonetics'
 # Using the Damerau version of the Levenshtein algorithm, with phonetic feature
 # count used instead of a binary edit distance calculation
 #
-# This implementation is almost entirely taken from the damerau-levenshtein gem
+# This Ruby implementation is almost entirely taken from the damerau-levenshtein gem
 # (https://github.com/GlobalNamesArchitecture/damerau-levenshtein/tree/master/ext/damerau_levenshtein).
 # The implementation is modified based on "Using Phonologically Weighted
 # Levenshtein Distances for the Prediction of Microscopic Intelligibility" by
