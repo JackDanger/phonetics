@@ -12,13 +12,13 @@ RSpec.describe Phonetics do
 
     it 'completes much faster than the Ruby version' do
       ruby_timing = Benchmark.measure do
-        Phonetics::RubyLevenshtein.distance(phoneme1, phoneme2)
+        1_000.times { Phonetics::RubyLevenshtein.distance(phoneme1, phoneme2) }
       end.real
       c_timing = Benchmark.measure do
-        Phonetics::Levenshtein.distance(phoneme1, phoneme2)
+        1_000.times { Phonetics::Levenshtein.distance(phoneme1, phoneme2) }
       end.real
 
-      expect(c_timing * 200).to be < ruby_timing
+      expect(c_timing * 60).to be < ruby_timing
     end
   end
 end

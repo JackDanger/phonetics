@@ -109,26 +109,17 @@ module Phonetics
       write(<<-HEADER.gsub(/^ {6}/, ''))
 
       // This is compiled from Ruby, in #{ruby_source}
+      #include <stdbool.h>
+      #include <stdio.h>
       #include "./phonemes.h"
-      float phonetic_cost(int *string1, int pos1, int string1_length, int *string2, int pos2, int string2_length) {
-        int phoneme1_length;
-        int phoneme2_length;
-
-        if (pos1 >= string1_length) { return 1.0; };
-        if (pos2 >= string2_length) { return 1.0; };
-
-        phoneme1_length = next_phoneme_length(string1, pos1, string1_length);
-        phoneme2_length = next_phoneme_length(string2, pos2, string2_length);
-
-        if (phoneme1_length <= 0) { return 1.0; };
-        if (phoneme2_length <= 0) { return 1.0; };
+      float phonetic_cost(int *string1, int string1_offset, int phoneme1_length, int *string2, int string2_offset, int phoneme2_length) {
 
       HEADER
 
       write '  switch (phoneme1_length) {'
       by_byte_length.each do |length, phonemes|
         write "    case #{length}:"
-        switch_phoneme1(phoneme_byte_trie_for(phonemes), 1)
+        switch_phoneme1(phoneme_byte_trie_for(phonemes), 0)
         write '    break;'
       end
       write '  }'
@@ -138,7 +129,7 @@ module Phonetics
     end
 
     def switch_phoneme1(trie, depth = 0)
-      indent depth, "switch(string1[#{depth}]) {"
+      indent depth, "switch(string1[string1_offset + #{depth}]) {"
       trie.each do |key, subtrie|
         next if key == :source
         next if subtrie.empty?
@@ -153,13 +144,13 @@ module Phonetics
           describe(phoneme1, depth + 2) if phoneme1
 
           by_byte_length.each do |_, phonemes|
-            byte_trie = phoneme_byte_trie_for(phonemes - [phoneme1])
+            byte_trie = phoneme_byte_trie_for(phonemes)
             next if byte_trie.empty?
 
-            switch_phoneme2(byte_trie, phoneme1, depth + 2)
+            switch_phoneme2(byte_trie, phoneme1, 0)
           end
         else
-          switch_phoneme1(subtrie, depth + 2)
+          switch_phoneme1(subtrie, depth + 1)
         end
 
         indent depth + 2, 'break;'
@@ -168,7 +159,7 @@ module Phonetics
     end
 
     def switch_phoneme2(trie, previous_phoneme, depth = 0)
-      indent depth, "switch(string2[#{depth}]) {"
+      indent depth, "switch(string2[string2_offset + #{depth}]) {"
       trie.each do |key, subtrie|
         next if key == :source
         next if subtrie.empty?
@@ -178,12 +169,16 @@ module Phonetics
         indent depth + 1, "case #{key}:"
 
         if phoneme2
-          value = distance(previous_phoneme, phoneme2)
+          value = if previous_phoneme == phoneme2
+                    0.0
+                  else
+                    distance(previous_phoneme, phoneme2)
+                  end
           # Add a comment to help understand the dataset
           describe(phoneme2, depth + 2)
           indent depth + 2, "return (float) #{value};"
         else
-          switch_phoneme2(subtrie, previous_phoneme, depth + 2)
+          switch_phoneme2(subtrie, previous_phoneme, depth + 1)
         end
 
         indent depth + 2, 'break;'
@@ -262,17 +257,19 @@ module Phonetics
         next if key == :source
         next if subtrie.empty?
 
-        indent depth, "  case #{key}:"
+        indent depth, "case #{key}:"
 
         # Add a comment to help understand the dataset
         describe(subtrie[:source], depth + 1) if subtrie[:source]
 
         if subtrie.keys == [:source]
-          indent depth, "    return #{depth + 1};"
+          indent depth, " return #{depth + 1};"
         else
-          indent depth, "    if (max_length > #{depth + 1}) {"
+          indent depth, " if (max_length > #{depth + 1}) {"
           next_phoneme_switch(subtrie, depth + 1)
-          indent depth, '    }'
+          indent depth, ' } else {'
+          indent depth, "   return #{depth + 1};"
+          indent depth, ' }'
         end
 
         indent depth, '    break;'

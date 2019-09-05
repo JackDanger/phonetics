@@ -17,14 +17,13 @@ module Phonetics
     attr_reader :str1, :str2, :len1, :len2, :matrix
 
     def initialize(ipa_str1, ipa_str2, verbose = false)
-      @str1 = ipa_str1
-      @str2 = ipa_str2
-      @len1 = ipa_str1.size
-      @len2 = ipa_str2.size
+      @str1 = ipa_str1.each_char.select { |c| Phonetics.phonemes.include?(c) }.join
+      @str2 = ipa_str2.each_char.select { |c| Phonetics.phonemes.include?(c) }.join
+      @len1 = @str1.size
+      @len2 = @str2.size
       @verbose = verbose
-      ensure_is_phonetic!
       prepare_matrix
-      set_edit_distances(ipa_str1, ipa_str2)
+      set_edit_distances(@str1, @str2)
     end
 
     def distance
@@ -39,14 +38,6 @@ module Phonetics
     end
 
     private
-
-    def ensure_is_phonetic!
-      [str1, str2].each do |string|
-        string.chars.each do |char|
-          raise ArgumentError, "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings" unless Phonetics.phonemes.include?(char)
-        end
-      end
-    end
 
     def walk
       res = []

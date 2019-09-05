@@ -81,8 +81,8 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:phoneme1) { '12345' }
       let(:phoneme2) { '67890' }
 
-      it 'throws an error with instructions' do
-        expect { distance }.to raise_error(ArgumentError, /IPA-transcribed strings/)
+      it 'skips over them (i.e. operates on zero-length strings)' do
+        expect(distance).to be_within(0.001).of(0)
       end
     end
   end
