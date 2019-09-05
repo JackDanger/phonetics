@@ -17,7 +17,7 @@ The `phonetics` gem provides a (very fast) implementation of an edit distance
 algorithm that uses phonetic feature sets (for consonants) and precise formant
 measurements (for vowels) as weights. It's a modified version of [Using
 Phonologically Weighted Levenshtein Distances for the Prediction of Microscopic
-Intelligibility](https://hal.archives-ouvertes.fr/hal-01474904/document)" by
+Intelligibility](https://hal.archives-ouvertes.fr/hal-01474904/document) by
 Lionel Fontan, Isabelle Ferrané, Jérôme Farinas, Julien Pinquier, Xavier
 Aumont, 2016
 
