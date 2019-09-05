@@ -18,7 +18,7 @@ RSpec.describe Phonetics do
         1_000.times { Phonetics::Levenshtein.distance(phoneme1, phoneme2) }
       end.real
 
-      expect(c_timing * 200).to be < ruby_timing
+      expect(c_timing * 4).to be < ruby_timing
     end
   end
 end
