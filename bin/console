@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH << '../lib'
+
+require 'bundler/setup'
+require 'pry-byebug'
+require 'phonetics'
+require 'phonetics/levenshtein'
+require 'phonetics/ruby_levenshtein'
+require 'phonetics/code_generator'
+
+Phonetics.pry

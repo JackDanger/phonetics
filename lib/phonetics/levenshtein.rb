@@ -16,24 +16,14 @@ module Phonetics
   module Levenshtein
     extend ::PhoneticsLevenshteinCBinding
 
-    def self.distance(str1, str2, verbose = false)
-      ensure_is_phonetic!(str1, str2)
-      internal_phonetic_distance(
-        Phonetics.as_utf_8_long(str1),
-        Phonetics.as_utf_8_long(str2),
-        verbose
-      )
+    def inspect_bytes(str)
+      puts "Rubyland str: #{str.inspect}"
+      puts "Rubyland bytes: #{str.bytes.inspect}"
+      testing_codepoints(str)
     end
 
-    def self.ensure_is_phonetic!(str1, str2)
-      [str1, str2].each do |string|
-        string.chars.each do |char|
-          unless Phonetics.phonemes.include?(char)
-            msg = "#{char.inspect} is not a character in the International Phonetic Alphabet. #{self.class.name} only works with IPA-transcribed strings"
-            raise ArgumentError, msg
-          end
-        end
-      end
+    def self.distance(str1, str2, verbose = false)
+      internal_phonetic_distance(str1, str2, verbose)
     end
   end
 end

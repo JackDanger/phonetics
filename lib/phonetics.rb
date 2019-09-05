@@ -112,22 +112,6 @@ module Phonetics
   module Consonants
     extend self
 
-    # Plosives and fricatives are less similar than trills and flaps, or
-    # sibilant fricatives and non-sibilant fricatives
-    # TODO: this is unfinished and possibly a bad idea
-    MannerDistances = {
-                       'Nasal' => %w[continuant],
-                        'Stop' => %w[],
-          'Sibilant fricative' => %w[continuant fricative],
-      'Non-sibilant fricative' => %w[continuant non_sibilant fricative],
-                 'Approximant' => %w[],
-                    'Tap/Flap' => %w[],
-                       'Trill' => %w[],
-           'Lateral fricative' => %w[continuant fricative],
-         'Lateral approximant' => %w[],
-            'Lateral tap/flap' => %w[],
-    }.freeze
-
     # This chart (columns 2 through the end, anyway) is a direct port of
     # https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Letters
     # We store the consonant table in this format to make updating it easier.
@@ -218,7 +202,7 @@ module Phonetics
   end
 
   def phonemes
-    Consonants.phonemes + Vowels.phonemes
+    Vowels.phonemes + Consonants.phonemes
   end
 
   Symbols = Consonants.phonemes.reduce({}) { |acc, p| acc.update p => :consonant }.merge(
@@ -232,84 +216,12 @@ module Phonetics
   end
 
   def distance_map
-    @distance_map ||= (
-      Vowels.phonemes + Consonants.phonemes
-    ).permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} }) do |pair, scores|
+    @distance_map ||= phonemes.permutation(2).each_with_object(Hash.new { |h, k| h[k] = {} }) do |pair, scores|
       p1, p2 = *pair
       score = _distance(p1, p2)
       scores[p1][p2] = score
       scores[p2][p1] = score
     end
-  end
-
-  # as_utf_8_long("aɰ̊ h")
-  # => [97, 8404, 32, 104]
-  def as_utf_8_long(string)
-    string.each_grapheme_cluster.map { |grapheme| grapheme_as_utf_8_long(grapheme) }
-  end
-
-  # Encode individual multi-byte strings as a single integer.
-  #
-  # "ɰ̊".unpack('U*')
-  # => [624, 778]
-  #
-  # grapheme_as_utf_8_long("ɰ̊")
-  # => 1413 (624 + (10 * 778))
-  def grapheme_as_utf_8_long(grapheme)
-    grapheme.unpack('U*').each_with_index.reduce(0) do |total, (byte, i)|
-      total + (10**i) * byte
-    end
-  end
-
-  # This will print a C code file with a function that implements a two-level C
-  # switch like the following:
-  #
-  #    switch (a) {
-  #      case 100: // 'd'
-  #        switch (b) {
-  #          case 618: // 'ɪ'
-  #            return (float) 0.73827;
-  #            break;
-  #        }
-  #    }
-  #
-  def generate_phonetic_cost_c_code(writer = STDOUT)
-    # First, flatten the bytes of the runes (unicode codepoints encoded via
-    # UTF-8) into single integers. We do this by adding the utf-8 values, each
-    # multiplied by 10 * their byte number. The specific encoding doesn't
-    # matter so long as it's:
-    #   * consistent
-    #   * has no collisions
-    #   * produces a value that's a valid C case conditional
-    #   * can be applied to runes of input strings later
-    integer_distance_map = distance_map.reduce({}) do |acc_a, (a, distances)|
-      acc_a.update [a, grapheme_as_utf_8_long(a)] => (distances.reduce({}) do |acc_b, (b, distance)|
-        acc_b.update [b, grapheme_as_utf_8_long(b)] => distance
-      end)
-    end
-
-    # Then we print out C code full of switches
-
-    writer.puts(<<-FUNC.gsub(/^ {4}/, ''))
-    float phonetic_cost(int a, int b) {
-      // This is compiled from Ruby, using `String#unpack("U")` on each character
-      // to retrieve the UTF-8 codepoint as a C long value.
-      if (a == b) { return 0.0; };
-    FUNC
-    writer.puts '  switch (a) {'
-    integer_distance_map.each do |(a, a_i), distances|
-      writer.puts "    case #{a_i}: // #{a}"
-      writer.puts '      switch (b) {'
-      distances.each do |(b, b_i), distance|
-        writer.puts "        case #{b_i}: // #{a}->#{b}"
-        writer.puts "          return (float) #{distance};"
-        writer.puts '          break;'
-      end
-      writer.puts '      }'
-    end
-    writer.puts '  }'
-    writer.puts '  return 1.0;'
-    writer.puts '}'
   end
 
   private
