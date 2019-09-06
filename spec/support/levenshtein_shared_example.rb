@@ -57,7 +57,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
     end
 
     context 'when one string is blank' do
-      let(:phoneme1) { 'curzlaɪt' }
+      let(:phoneme1) { 'kuɹzlɑɪt' }
       let(:phoneme2) { '' }
 
       it 'is the sequential distances of sounds in the other string' do

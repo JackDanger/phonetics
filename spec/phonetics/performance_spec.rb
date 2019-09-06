@@ -17,13 +17,14 @@ RSpec.describe Phonetics do
       end.real
     end
 
-    let(:iterations) { 1_0000 }
+    let(:iterations) { 1_000 }
 
     context 'for short sequences' do
       let(:phoneme1) { 'kuɹzlɑɪt' }
       let(:phoneme2) { 'bədlɑɪt' }
 
       it 'completes much faster than the Ruby version' do
+        puts "Difference on short strings: #{ruby_timing / c_timing}"
         expect(c_timing * 60).to be < ruby_timing
       end
     end
@@ -33,8 +34,9 @@ RSpec.describe Phonetics do
       let(:phoneme2) { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }
 
       it 'completes much faster than the Ruby version' do
+        puts "Difference on long strings: #{ruby_timing / c_timing}"
         # TODO: make this at least 100x faster than Ruby. There must be some
-        # allocations we're missing.
+        # allocations we're  missing.
         expect(c_timing * 30).to be < ruby_timing
       end
     end
