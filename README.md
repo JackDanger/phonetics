@@ -25,7 +25,7 @@ With this, the input strings must be valid IPA notation and the output is a phon
 
 ```
 require 'phonetics'
-Phonetics::Levenshtein.distance('curzlait', 'budlight')
+Phonetics::Levenshtein.distance('curzlaɪt', 'budlaɪt')
 => 1.388384
 ```
 
