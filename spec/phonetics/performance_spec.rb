@@ -6,19 +6,37 @@ require_relative '../../lib/phonetics/ruby_levenshtein'
 require 'benchmark'
 RSpec.describe Phonetics do
   context 'performance' do
-    let(:phoneme1) { 'curzlait' }
-    let(:phoneme2) { 'bədlait' }
-    let(:iterations) { 10 }
-
-    it 'completes much faster than the Ruby version' do
-      ruby_timing = Benchmark.measure do
-        1_000.times { Phonetics::RubyLevenshtein.distance(phoneme1, phoneme2) }
+    let(:ruby_timing) do
+      Benchmark.measure do
+        iterations.times { Phonetics::RubyLevenshtein.distance(phoneme1, phoneme2) }
       end.real
-      c_timing = Benchmark.measure do
-        1_000.times { Phonetics::Levenshtein.distance(phoneme1, phoneme2) }
+    end
+    let(:c_timing) do
+      Benchmark.measure do
+        iterations.times { Phonetics::Levenshtein.distance(phoneme1, phoneme2) }
       end.real
+    end
 
-      expect(c_timing * 60).to be < ruby_timing
+    let(:iterations) { 1_0000 }
+
+    context 'for short sequences' do
+      let(:phoneme1) { 'kuɹzlɑɪt' }
+      let(:phoneme2) { 'bədlɑɪt' }
+
+      it 'completes much faster than the Ruby version' do
+        expect(c_timing * 60).to be < ruby_timing
+      end
+    end
+
+    context 'for long sequences' do
+      let(:phoneme1) { 'kuɹzlɑɪtizgʊdfɔɹju' }
+      let(:phoneme2) { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }
+
+      it 'completes much faster than the Ruby version' do
+        # TODO: make this at least 100x faster than Ruby. There must be some
+        # allocations we're missing.
+        expect(c_timing * 30).to be < ruby_timing
+      end
     end
   end
 end
