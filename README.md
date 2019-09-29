@@ -1,8 +1,17 @@
 # Phonetics
 
 This library currently provides two utilities for anyone working with the International Phonetic Alphabet:
-* A list of vowels and consonants with their features
-* A phonetic implementation of Levenshtein distance calculation
+* An index of vowels and consonants with their linguistic features
+* A phonetic implementation of the Levenshtein distance calculation
+
+## Exploring vowels and consonants
+
+Vowels are sounds with unimpeded airflow. We categorize them by the resonant frequencies they make in our vocal tract. When a person changes their tongue position or the rounding of their lips they change the way the sound reverberates in their skull. 
+
+The primary classification for vowels is the frequency of their lowest two resonant frequencies (called 'formants'). When we plot these on an x/y axis we get a vowel chart like this:
+
+![IPA vowel chart with 'b' words](_site/vowel_chart_b_words.jpg)
+
 
 ## Phonetic Levenshtein Distance 
 Using a typical 'edit distance' algorithm, we can calculate how many
