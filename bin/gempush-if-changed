@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if git log --name-only HEAD | grep -q VERSION; then
+  # The VERSION file changed in the last commit, build the gem and push
+  gem build *.gemspec
+  gem push *.gem
+fi
