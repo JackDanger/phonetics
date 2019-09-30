@@ -37,13 +37,6 @@ RSpec.describe Phonetics do
       let(:iterations) { 100 }
 
       it 'completes much faster than the Ruby version' do
-        # result = RubyProf.profile { c_timing }
-        # printer = RubyProf::FlatPrinter.new(result)
-        # file = File.open("#{File.basename(__FILE__)}.profile", 'w')
-        # printer.print(file , {})
-        # file.close()
-        # TODO: make this at least 100x faster than Ruby. There must be some
-        # allocations we're  missing.
         puts "Difference on long strings: #{ruby_timing / c_timing}"
         expect(c_timing * 30).to be < ruby_timing
       end
