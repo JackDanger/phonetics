@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build + Publish
+    name: gem publishing
     runs-on: ubuntu-latest
 
     steps:
