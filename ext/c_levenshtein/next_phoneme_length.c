@@ -1,4 +1,4 @@
-// This is compiled from Ruby, in app/lib/phonetics/code_generator.rb:171
+// This is compiled from Ruby, in phonetics/lib/phonetics/code_generator.rb:158
 int next_phoneme_length(int *string, int cursor, int length) {
 
   int max_length;

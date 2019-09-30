@@ -108,22 +108,9 @@ module Phonetics
       write(<<-HEADER.gsub(/^ {6}/, ''))
 
       // This is compiled from Ruby, in #{ruby_source}
-      #include <stdbool.h>
-      #include <stdio.h>
       #include <stdint.h>
-      #include "./phonemes.h"
-      float phonetic_cost(int *string1, int string1_offset, int phoneme1_length, int *string2, int string2_offset, int phoneme2_length) {
+      float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
 
-      uint64_t phoneme1 = string1[string1_offset];
-      uint64_t phoneme2 = string2[string2_offset];
-
-      int i;
-      for (i = 1; i < phoneme1_length; i++) {
-        phoneme1 = (int) ( phoneme1 << 8 | string1[string1_offset + i] );
-      }
-      for (i = 1; i < phoneme2_length; i++) {
-        phoneme2 = (int) ( phoneme2 << 8 | string2[string2_offset + i] );
-      }
       HEADER
 
       write '  switch (phoneme1) {'

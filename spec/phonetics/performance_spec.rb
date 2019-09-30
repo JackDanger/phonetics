@@ -18,11 +18,11 @@ RSpec.describe Phonetics do
       end.real
     end
 
-    let(:iterations) { 1_000 }
-
     context 'for short sequences' do
       let(:phoneme1) { 'kuɹzlɑɪt' }
       let(:phoneme2) { 'bədlɑɪt' }
+
+      let(:iterations) { 1_000 }
 
       it 'completes much faster than the Ruby version' do
         puts "Difference on short strings: #{ruby_timing / c_timing}"
@@ -31,8 +31,10 @@ RSpec.describe Phonetics do
     end
 
     context 'for long sequences' do
-      let(:phoneme1) { 'kuɹzlɑɪtizgʊdfɔɹju' }
-      let(:phoneme2) { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }
+      let(:phoneme1) { 10.times.map { 'kuɹzlɑɪtizgʊdfɔɹju' }.join }
+      let(:phoneme2) { 10.times.map { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }.join }
+
+      let(:iterations) { 100 }
 
       it 'completes much faster than the Ruby version' do
         # result = RubyProf.profile { c_timing }
