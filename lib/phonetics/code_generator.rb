@@ -25,6 +25,10 @@ module Phonetics
 
     private
 
+    def binary(str)
+      "0b#{str.bytes.map { |byte| byte.to_s(2).rjust(8, '0') }.join}"
+    end
+
     # Turn the bytes of all phonemes into a lookup trie where a sequence of
     # bytes can find a phoneme in linear time.
     def phoneme_byte_trie
@@ -52,13 +56,8 @@ module Phonetics
       end
     end
 
-    def ruby_source
-      location = caller_locations.first
-      "#{location.path.split('/')[-4..-1].join('/')}:#{location.lineno}"
-    end
-
-    def describe(phoneme, depth)
-      indent depth, "// Phoneme: #{phoneme.inspect}, bytes: #{phoneme.bytes.inspect}"
+    def describe(phoneme, depth = 0)
+      indent depth, "// Phoneme: '#{phoneme}', bytes: #{phoneme.bytes.inspect}"
       if Phonetics::Consonants.features.key?(phoneme)
         indent depth, "// consonant features: #{Phonetics::Consonants.features[phoneme].to_json}"
       else
@@ -66,8 +65,13 @@ module Phonetics
       end
     end
 
+    def ruby_source
+      location = caller_locations.first
+      "#{location.path.split('/')[-4..-1].join('/')}:#{location.lineno}"
+    end
+
     def indent(depth, line)
-      write "    #{'  ' * depth}#{line}"
+      write "    #{' ' * depth}#{line}"
     end
 
     def write(line)
@@ -88,20 +92,15 @@ module Phonetics
     # This will print a C code file with a function that implements a multil-level C
     # switch like the following:
     #
-    #    switch (phoneme1_length) {
-    #      case 2:
-    #        switch(string1[1]) {
-    #          case 201: // first byte of "ɪ"
-    #            switch(string1[3]) {
-    #              case 170: // second and final byte of "ɪ"
-    #                // Phoneme: "ɪ", bytes: [201, 170]
+    #    switch (phoneme1) {
+    #      case 'ɪ': // two bytes: [201, 170]
     #                // vowel features: {"F1":300,"F2":2100,"rounded":false}
-    #                switch(string2[6]) {
-    #                  case 105: // first and only byte of "i"
-    #                    // Phoneme: "i", bytes: [105]
-    #                    // vowel features: {"F1":240,"F2":2400,"rounded":false}
-    #                    return (float) 0.14355381904337383;
-    #                    break;
+    #         
+    #         switch(phoneme2) {
+    #            'i': // one byte: [105]
+    #                 // vowel features: {"F1":240,"F2":2400,"rounded":false}
+    #              return (float) 0.14355381904337383;
+    #              break;
     #
     #  the distance of ("ɪ", "i")2 is therefore 0.14355
     #
@@ -109,91 +108,29 @@ module Phonetics
       write(<<-HEADER.gsub(/^ {6}/, ''))
 
       // This is compiled from Ruby, in #{ruby_source}
-      #include <stdbool.h>
-      #include <stdio.h>
-      #include "./phonemes.h"
-      float phonetic_cost(int *string1, int string1_offset, int phoneme1_length, int *string2, int string2_offset, int phoneme2_length) {
+      #include <stdint.h>
+      float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
 
       HEADER
 
-      write '  switch (phoneme1_length) {'
-      by_byte_length.each do |length, phonemes|
-        write "    case #{length}:"
-        switch_phoneme1(phoneme_byte_trie_for(phonemes), 0)
-        write '    break;'
+      write '  switch (phoneme1) {'
+      Phonetics.phonemes.each do |phoneme1|
+        write "    case #{binary(phoneme1)}:"
+        describe(phoneme1, 2)
+        write "      switch(phoneme2) {"
+        Phonetics.distance_map[phoneme1].each do |phoneme2, distance|
+          write "        case #{binary(phoneme2)}:"
+          describe(phoneme2, 6)
+          write "          return (float) #{distance};"
+          write '          break;'
+        end
+        write "      }"
+        write '      break;'
       end
       write '  }'
       write '  return (float) 1.0;'
       write '};'
       write ''
-    end
-
-    def switch_phoneme1(trie, depth = 0)
-      indent depth, "switch(string1[string1_offset + #{depth}]) {"
-      trie.each do |key, subtrie|
-        next if key == :source
-        next if subtrie.empty?
-
-        indent depth + 1, "case #{key}:"
-
-        phoneme1 = subtrie[:source]
-
-        # If this could be a match of a phoneme1 then find phoneme2
-        if phoneme1
-          # Add a comment to help understand the dataset
-          describe(phoneme1, depth + 2) if phoneme1
-
-          by_byte_length.each do |_, phonemes|
-            byte_trie = phoneme_byte_trie_for(phonemes)
-            next if byte_trie.empty?
-
-            switch_phoneme2(byte_trie, phoneme1, 0)
-          end
-        else
-          switch_phoneme1(subtrie, depth + 1)
-        end
-
-        indent depth + 2, 'break;'
-      end
-      indent depth, '}'
-    end
-
-    def switch_phoneme2(trie, previous_phoneme, depth = 0)
-      indent depth, "switch(string2[string2_offset + #{depth}]) {"
-      trie.each do |key, subtrie|
-        next if key == :source
-        next if subtrie.empty?
-
-        phoneme2 = subtrie[:source]
-
-        indent depth + 1, "case #{key}:"
-
-        if phoneme2
-          value = if previous_phoneme == phoneme2
-                    0.0
-                  else
-                    distance(previous_phoneme, phoneme2)
-                  end
-          # Add a comment to help understand the dataset
-          describe(phoneme2, depth + 2)
-          indent depth + 2, "return (float) #{value};"
-        else
-          switch_phoneme2(subtrie, previous_phoneme, depth + 1)
-        end
-
-        indent depth + 2, 'break;'
-      end
-      indent depth, '}'
-    end
-
-    def by_byte_length
-      Phonetics.phonemes.group_by do |phoneme|
-        phoneme.bytes.length
-      end.sort_by(&:first)
-    end
-
-    def distance(p1, p2)
-      Phonetics.distance_map[p1][p2]
     end
   end
 

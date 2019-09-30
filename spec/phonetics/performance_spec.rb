@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'ruby-prof'
 require_relative '../../lib/phonetics/levenshtein'
 require_relative '../../lib/phonetics/ruby_levenshtein'
 
@@ -17,11 +18,11 @@ RSpec.describe Phonetics do
       end.real
     end
 
-    let(:iterations) { 1_000 }
-
     context 'for short sequences' do
       let(:phoneme1) { 'kuɹzlɑɪt' }
       let(:phoneme2) { 'bədlɑɪt' }
+
+      let(:iterations) { 1_000 }
 
       it 'completes much faster than the Ruby version' do
         puts "Difference on short strings: #{ruby_timing / c_timing}"
@@ -30,13 +31,20 @@ RSpec.describe Phonetics do
     end
 
     context 'for long sequences' do
-      let(:phoneme1) { 'kuɹzlɑɪtizgʊdfɔɹju' }
-      let(:phoneme2) { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }
+      let(:phoneme1) { 10.times.map { 'kuɹzlɑɪtizgʊdfɔɹju' }.join }
+      let(:phoneme2) { 10.times.map { 'bədlɑɪtizməfeɪvɹɪtbɪɝ' }.join }
+
+      let(:iterations) { 100 }
 
       it 'completes much faster than the Ruby version' do
-        puts "Difference on long strings: #{ruby_timing / c_timing}"
+        # result = RubyProf.profile { c_timing }
+        # printer = RubyProf::FlatPrinter.new(result)
+        # file = File.open("#{File.basename(__FILE__)}.profile", 'w')
+        # printer.print(file , {})
+        # file.close()
         # TODO: make this at least 100x faster than Ruby. There must be some
         # allocations we're  missing.
+        puts "Difference on long strings: #{ruby_timing / c_timing}"
         expect(c_timing * 30).to be < ruby_timing
       end
     end
