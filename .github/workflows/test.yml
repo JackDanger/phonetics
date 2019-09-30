@@ -16,4 +16,5 @@ jobs:
 
     - name: RSpec
       run: |
+        bundle
         bundle exec rake
