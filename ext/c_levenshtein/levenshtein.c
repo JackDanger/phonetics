@@ -96,33 +96,35 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
       // plus the phonetic distance between the sound we're moving from to the
       // new one.
 
-      debug("------- %d/%d (%d) \n", i, j, j*(string1_phoneme_count+1) + i);
+      // debug("------- %d/%d (%d) \n", i, j, j*(string1_phoneme_count+1) + i);
 
       // TODO: increment i and j by the phoneme lengths
       cost = phonetic_cost(string1, string1_offset, string1_phoneme_sizes[i-1], string2, string2_offset, string2_phoneme_sizes[j-1]);
 
       insert = d[j*(string1_phoneme_count+1) + i-1];
-      debug("insert proposes cell %d,%d - %f\n", i-1, j, insert);
+      // debug("insert proposes cell %d,%d - %f\n", i-1, j, insert);
       min = insert;
-      debug("min (insert): %f\n", min);
+      // debug("min (insert): %f\n", min);
 
       delete = d[(j-1)*(string1_phoneme_count+1) + i];
-      debug("delete proposes cell %d,%d - %f\n", i, j-1, delete);
+      // debug("delete proposes cell %d,%d - %f\n", i, j-1, delete);
       if (delete < min) {
-        debug("delete is %f, better than %f for %d/%d\n", delete, min, i, j);
+        // debug("delete is %f, better than %f for %d/%d\n", delete, min, i, j);
         min = delete;
       }
 
       replace = d[(j-1)*(string1_phoneme_count+1) + i-1];
-      debug("replace proposes cell %d,%d - %f\n", i-1, j-1, replace);
+      // debug("replace proposes cell %d,%d - %f\n", i-1, j-1, replace);
       if (replace < min) {
-        debug("replace is %f, better than %f for %d/%d\n", replace, min, i, j);
+        // debug("replace is %f, better than %f for %d/%d\n", replace, min, i, j);
         min = replace;
       }
 
       d[(j * (string1_phoneme_count+1)) + i] = min + cost;
-      debug("\n");
-      print_matrix(d, string1, string1_phoneme_count, string1_phoneme_sizes, string2, string2_phoneme_count, string2_phoneme_sizes, verbose);
+      // debug("\n");
+      // if (verbose) {
+        // print_matrix(d, string1, string1_phoneme_count, string1_phoneme_sizes, string2, string2_phoneme_count, string2_phoneme_sizes, verbose);
+      // }
 
       string1_offset += string1_phoneme_sizes[i-1];
     }
