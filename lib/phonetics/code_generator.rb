@@ -95,7 +95,7 @@ module Phonetics
     #    switch (phoneme1) {
     #      case 'ɪ': // two bytes: [201, 170]
     #                // vowel features: {"F1":300,"F2":2100,"rounded":false}
-    #         
+    #
     #         switch(phoneme2) {
     #            'i': // one byte: [105]
     #                 // vowel features: {"F1":240,"F2":2400,"rounded":false}
@@ -117,14 +117,14 @@ module Phonetics
       Phonetics.phonemes.each do |phoneme1|
         write "    case #{binary(phoneme1)}:"
         describe(phoneme1, 2)
-        write "      switch(phoneme2) {"
+        write '      switch(phoneme2) {'
         Phonetics.distance_map[phoneme1].each do |phoneme2, distance|
           write "        case #{binary(phoneme2)}:"
           describe(phoneme2, 6)
           write "          return (float) #{distance};"
           write '          break;'
         end
-        write "      }"
+        write '      }'
         write '      break;'
       end
       write '  }'
