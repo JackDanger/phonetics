@@ -14,13 +14,10 @@ jobs:
           - '2.5.x'
           - '2.6.x'
     steps:
-    - uses: actions/checkout@master
-    - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-
-    - name: RSpec
-      run: |
-        bundle
-        bundle exec rake
+      - uses: actions/checkout@master
+      - name: Setup ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          architecture: 'x64'
+      - run: gem install bundler && bundle && bundle exec rake 
