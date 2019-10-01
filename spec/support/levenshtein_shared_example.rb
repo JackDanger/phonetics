@@ -10,7 +10,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:phoneme1) { 'dɪsug' }
       let(:phoneme2) { 'ɪsug' }
 
-      it 'is less than the edit distance' do
+      it 'is about the edit distance' do
         expect(distance).to be_within(0.01).of(1)
       end
     end
@@ -18,6 +18,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
     context 'for the README (and testing verbosity)' do
       let(:phoneme1) { 'bæd' }
       let(:phoneme2) { 'ben' }
+
       let(:verbose) { true }
 
       it 'is less than the edit distance' do

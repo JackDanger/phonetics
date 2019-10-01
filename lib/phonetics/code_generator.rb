@@ -109,7 +109,12 @@ module Phonetics
 
       // This is compiled from Ruby, in #{ruby_source}
       #include <stdint.h>
+      #include <stdio.h>
+      #include <inttypes.h>
       float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
+        if (phoneme1 == phoneme2) {
+          return (float) 0.0;
+        }
 
       HEADER
 
@@ -156,6 +161,7 @@ module Phonetics
     def generate
       write(<<-HEADER.gsub(/^ {6}/, ''))
       // This is compiled from Ruby, in #{ruby_source}
+      #include <stdio.h>
       int next_phoneme_length(int *string, int cursor, int length) {
 
         int max_length;
