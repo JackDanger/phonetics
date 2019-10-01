@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby-prof'
 require_relative '../../lib/phonetics/levenshtein'
 require_relative '../../lib/phonetics/ruby_levenshtein'
 
