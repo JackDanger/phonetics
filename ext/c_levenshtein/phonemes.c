@@ -1,8 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include "./next_phoneme_length.h"
+
 void find_phonemes(int *string, int string_length, int *count, int *lengths) {
-  int i = 0;
   int length;
+  int i;
+
+  i = 0;
   while (i < string_length) {
     length = next_phoneme_length(string, i, string_length);
     if (length) {
@@ -10,6 +15,21 @@ void find_phonemes(int *string, int string_length, int *count, int *lengths) {
       i += length;
     } else {
       i++;
+    }
+  }
+}
+
+// Collect between 1 and 8 bytes of a phoneme into a single 64-bit word so we can compare two
+// phonemes using just one instruction.
+// These 64-bit words are how we implement the lookup table in phonetic_cost
+void set_phonemes(uint64_t* phonemes, int* string, int count, int* lengths) {
+  int idx = 0;
+  int i, j;
+  for (i = 0; i < count; i++) {
+    phonemes[i] = 0;
+    for (j = 0; j < lengths[i]; j++) {
+      phonemes[i] = (uint64_t) ( phonemes[i] << 8 | string[idx] );
+      idx++;
     }
   }
 }
