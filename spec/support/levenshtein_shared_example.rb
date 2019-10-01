@@ -4,7 +4,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
   describe '.distance' do
     subject(:distance) { described_class.distance(phoneme1, phoneme2, verbose) }
 
-    let(:verbose) { true }
+    let(:verbose) { false }
 
     context 'for identical sounds with one edit' do
       let(:phoneme1) { 'dɪsug' }
@@ -18,6 +18,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
     context 'for the README (and testing verbosity)' do
       let(:phoneme1) { 'bæd' }
       let(:phoneme2) { 'ben' }
+
       let(:verbose) { true }
 
       it 'is less than the edit distance' do
