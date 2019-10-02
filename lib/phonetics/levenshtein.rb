@@ -16,12 +16,6 @@ module Phonetics
   module Levenshtein
     extend ::PhoneticsLevenshteinCBinding
 
-    def inspect_bytes(str)
-      puts "Rubyland str: #{str.inspect}"
-      puts "Rubyland bytes: #{str.bytes.inspect}"
-      testing_codepoints(str)
-    end
-
     def self.distance(str1, str2, verbose = false)
       internal_phonetic_distance(str1, str2, verbose)
     end
