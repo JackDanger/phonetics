@@ -1,8 +1,14 @@
 #!/bin/bash
 
 set -x
-if git diff --name-only HEAD^ | egrep -q '^VERSION$'; then
+
+# 'latest' is a git tag that we recreate every time we release a new
+# version. If the VERSION file has changed since `latest` then we release a
+# new version.
+if git diff --name-only HEAD..latest | egrep -q '^VERSION$'; then
   # The VERSION file changed in the last commit, build the gem and push
   gem build *.gemspec
   gem push *.gem
+  git tag -f latest HEAD
+  git push origin latest
 fi
