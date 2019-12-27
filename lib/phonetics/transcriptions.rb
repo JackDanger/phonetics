@@ -4,6 +4,10 @@ require 'open-uri'
 require 'json'
 
 module Phonetics
+  def self.transcription_for(word)
+    Transcriptions[word]
+  end
+
   module Transcriptions
     extend self
     Transcriptions = File.join(__dir__, '..', 'common_ipa_transcriptions.json')
