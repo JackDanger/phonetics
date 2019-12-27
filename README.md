@@ -1,8 +1,9 @@
 # Phonetics
 
-This library currently provides two utilities for anyone working with the International Phonetic Alphabet:
+This library currently provides three utilities for anyone working with the International Phonetic Alphabet:
 * An index of vowels and consonants with their linguistic features
 * A phonetic implementation of the Levenshtein distance calculation
+* English transcriptions for ~140,000 words from a variety of sources
 
 ## Exploring vowels and consonants
 

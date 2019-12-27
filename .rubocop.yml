@@ -3,6 +3,9 @@ AllCops:
   Exclude:
     - Rakefile
 
+Layout/LineLength:
+  Enabled: false
+
 Metrics/AbcSize:
   Enabled: false
 
@@ -12,16 +15,13 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   Enabled: false
 
-Metrics/LineLength:
-  Enabled: false
-
 Metrics/MethodLength:
   Enabled: false
 
 Naming/ConstantName:
   Enabled: false
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 
 Style/Documentation:
@@ -42,6 +42,6 @@ Style/NumericPredicate:
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: separator
   EnforcedColonStyle: separator
