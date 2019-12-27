@@ -10,7 +10,8 @@ module Phonetics
 
   module Transcriptions
     extend self
-    Transcriptions = File.join(__dir__, '..', 'common_ipa_transcriptions.json')
+
+    TranscriptionFile = File.join(__dir__, '..', 'common_ipa_transcriptions.json')
     TranscriptionsURL = 'https://jackdanger.com/common_ipa_transcriptions.json'
 
     SourcesByPreference = [/wiktionary/, /cmu/, /phonemicchart.com/].freeze
@@ -30,7 +31,7 @@ module Phonetics
 
     def transcriptions
       @transcriptions ||= begin
-        download! unless File.exist?(Transcriptions)
+        download! unless File.exist?(TranscriptionFile)
         load_from_disk!
       end
     end
