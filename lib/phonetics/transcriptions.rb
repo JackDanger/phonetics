@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 require 'json'
 
@@ -24,8 +26,6 @@ module Phonetics
 
     def transcriptions
       @transcriptions ||= begin
-                            require 'pry'
-                            binding.pry
         download! unless File.exist?(Transcriptions)
         load_from_disk!
       end
@@ -37,7 +37,7 @@ module Phonetics
     end
 
     def download!
-      open(Transcriptions, 'w') { |f| f.write(open(TranscriptionsURL).read) }
+      File.open(Transcriptions, 'w') { |f| f.write(URI.open(TranscriptionsURL).read) }
     end
 
     def trie
@@ -109,8 +109,8 @@ module Phonetics
         base_trie = {}
         transcriptions.each do |key, entry|
           entry_data = {
-            word: key,
-            rarity: entry['rarity']
+              word: key,
+            rarity: entry['rarity'],
           }
           entry.fetch('ipa', []).each do |_source, transcription|
             base_trie = construct_trie(base_trie, transcription, entry_data)
@@ -139,14 +139,13 @@ module Phonetics
         # Base condition met
         subtrie[:terminal] ||= []
         subtrie[:terminal] << entry_data unless subtrie[:terminal].include?(entry_data)
-        subtrie
       else
         next_char = chars_remaining[0]
         subtrie[next_char] ||= {}
         subtrie[next_char][:path] ||= subtrie[:path].to_s + next_char
         subtrie[next_char] = construct_trie(subtrie[next_char], chars_remaining[1..-1], entry_data, depth + 1)
-        subtrie
       end
+      subtrie
     end
   end
 end
