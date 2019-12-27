@@ -4,8 +4,8 @@ require 'open-uri'
 require 'json'
 
 module Phonetics
-  def self.transcription_for(word)
-    Transcriptions[word]
+  def self.transcription_for(phrase)
+    phrase.downcase.split(' ').map { |word| Transcriptions[word] }.join
   end
 
   module Transcriptions
