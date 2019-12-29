@@ -38,14 +38,14 @@ module Phonetics
 
     # Lazily loaded from JSON file on disk
     def load_from_disk!
-      @transcriptions = JSON.parse(File.read(Transcriptions))
+      @transcriptions = JSON.parse(File.read(TranscriptionFile))
     end
 
     def download!
       File.open(Transcriptions, 'w') { |f| f.write(URI.open(TranscriptionsURL).read) }
     end
 
-    def trie
+    def trie(max_rarity = nil)
       # Let's turn this:
       #
       #    "century": {
@@ -110,9 +110,14 @@ module Phonetics
       #     },
       #   },
       #
-      @trie ||= begin
+      @tries ||= {}
+      @tries[max_rarity] ||= begin
         base_trie = {}
         transcriptions.each do |key, entry|
+          if max_rarity
+            next if entry['rarity'].nil? || entry['rarity'] > max_rarity
+          end
+
           entry_data = {
               word: key,
             rarity: entry['rarity'],
