@@ -41,14 +41,14 @@ RSpec.describe Phonetics do
       let(:phoneme1) { 'p' }
       let(:phoneme2) { 'b' }
 
-      it { expect(distance).to be_within(0.001).of(0.1) }
+      it { expect(distance).to be_within(0.001).of(0.3) }
     end
 
     context 'for dissimilar consonants' do
       let(:phoneme1) { 'p' }
       let(:phoneme2) { 'g' }
 
-      it { expect(distance).to be_within(0.001).of(0.469) }
+      it { expect(distance).to be_within(0.001).of(0.546) }
     end
 
     context 'for a vowel and a consonant' do

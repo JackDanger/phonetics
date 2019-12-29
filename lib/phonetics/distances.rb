@@ -183,20 +183,20 @@ module Phonetics
 
     # Given two consonants, calculate their difference by summing the
     # following:
-    #   * 0.1 if they are not voiced the same
+    #   * 0.3 if they are not voiced the same
     #   * 0.3 if they are different manners
-    #   * Up to 0.6 if they are the maximum position difference
+    #   * Up to 0.4 if they are the maximum position difference
     def distance(phoneme1, phoneme2)
       features1 = features[phoneme1]
       features2 = features[phoneme2]
 
       penalty = 0
-      penalty += 0.1 if features1[:voiced] != features2[:voiced]
+      penalty += 0.3 if features1[:voiced] != features2[:voiced]
 
       penalty += 0.3 if features1[:manner] != features2[:manner]
 
-      # Use up to the remaining 0.6 for penalizing differences in manner
-      penalty += 0.6 * ((features1[:position_index] - features2[:position_index]).abs / @position_count.to_f)
+      # Use up to the remaining 0.4 for penalizing differences in manner
+      penalty += 0.4 * ((features1[:position_index] - features2[:position_index]).abs / @position_count.to_f)
       penalty
     end
   end

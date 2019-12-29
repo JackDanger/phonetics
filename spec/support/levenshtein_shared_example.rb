@@ -31,7 +31,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:phoneme2) { 'ɪsug' }
 
       it 'is less than the edit distance' do
-        expect(distance).to be_within(0.01).of(0.356)
+        expect(distance).to be_within(0.01).of(0.756)
       end
     end
 
