@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'phonetics/transcriptions'
 
 RSpec.describe Phonetics::Transcriptions do
-
   def max_rarity_in_trie(trie)
     trie.reduce(0) do |max_so_far, (key, subtrie)|
       max = if key == :terminal
@@ -21,13 +22,13 @@ RSpec.describe Phonetics::Transcriptions do
     subject(:trie) { described_class.trie(max_rarity) }
 
     context 'with no max_rarity' do
-      let(:max_rarity) { }
+      let(:max_rarity) {}
 
       it 'returns all transcriptions, even those with rarity unset' do
-        rarity_under_100_000 = described_class.trie(100_000)
+        rarity_defined = described_class.trie(100_000)
         # We should get more transcriptions with a null max_rarity than we do
         # with even an improbably high one
-        expect(trie.to_json.size).to be > rarity_under_100_000.to_json.size
+        expect(trie.to_json.size).to be > rarity_defined.to_json.size
       end
     end
 
