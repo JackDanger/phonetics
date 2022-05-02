@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'delegate'
+require 'set'
 
 module Phonetics
   extend self
