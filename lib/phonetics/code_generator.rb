@@ -7,7 +7,7 @@ module Phonetics
   class CodeGenerator
     attr_reader :writer
 
-    def initialize(writer = STDOUT)
+    def initialize(writer = $stdout)
       @writer = writer
     end
 
