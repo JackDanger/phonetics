@@ -5,11 +5,12 @@ require 'phonetics/transcriptions'
 RSpec.describe Phonetics::Transcriptions do
   def max_rarity_in_trie(trie)
     trie.reduce(0) do |max_so_far, (key, subtrie)|
-      max = if key == :terminal
+      max = case key
+            when :terminal
               subtrie.max_by do |word_data|
                 word_data[:rarity]
               end[:rarity]
-            elsif key.is_a?(String)
+            when String
               max_rarity_in_trie(subtrie)
             else
               0

@@ -22,7 +22,7 @@ module Phonetics
       return unless entry['ipa']
 
       SourcesByPreference.each do |preferred_source|
-        entry['ipa'].keys.each do |source|
+        entry['ipa'].each_key do |source|
           return entry['ipa'][source] if source =~ preferred_source
         end
       end
@@ -41,10 +41,13 @@ module Phonetics
       @transcriptions = JSON.parse(File.read(TranscriptionFile))
     end
 
+    # rubocop:disable Security/Open
     def download!
       File.open(Transcriptions, 'w') { |f| f.write(URI.open(TranscriptionsURL).read) }
     end
+    # rubocop:enable Security/Open
 
+    # rubocop:disable Metrics/CyclomaticComplexity
     def trie(max_rarity = nil)
       # Let's turn this:
       #
@@ -114,9 +117,7 @@ module Phonetics
       @tries[max_rarity] ||= begin
         base_trie = {}
         transcriptions.each do |key, entry|
-          if max_rarity
-            next if entry['rarity'].nil? || entry['rarity'] > max_rarity
-          end
+          next if max_rarity && (entry['rarity'].nil? || entry['rarity'] > max_rarity)
 
           entry_data = {
               word: key,
@@ -129,6 +130,7 @@ module Phonetics
         base_trie.freeze
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
 
     def walk(ipa)
       ipa.each_char.reduce(trie) { |acc, char| acc[char] }

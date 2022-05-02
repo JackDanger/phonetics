@@ -16,10 +16,12 @@ module Phonetics
   module Levenshtein
     extend ::PhoneticsLevenshteinCBinding
 
+    # rubocop:disable Style/OptionalBooleanParameter
     def self.distance(str1, str2, verbose = false)
       return if str1.nil? || str2.nil?
 
       internal_phonetic_distance(str1, str2, verbose)
     end
+    # rubocop:enable Style/OptionalBooleanParameter
   end
 end

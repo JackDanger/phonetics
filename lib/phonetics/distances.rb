@@ -132,6 +132,8 @@ module Phonetics
     )
     # rubocop:enable Layout/TrailingWhitespace
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     # Parse the ChartData into a lookup table where we can retrieve attributes
     # for each phoneme
     def features
@@ -177,6 +179,8 @@ module Phonetics
         end
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
     def phonemes
       @phonemes ||= features.keys
@@ -229,11 +233,12 @@ module Phonetics
 
   def _distance(phoneme1, phoneme2)
     types = [Symbols.fetch(phoneme1), Symbols.fetch(phoneme2)].sort
-    if types == %i[consonant vowel]
+    case types
+    when %i[consonant vowel]
       1.0
-    elsif types == %i[vowel vowel]
+    when %i[vowel vowel]
       Vowels.distance(phoneme1, phoneme2)
-    elsif types == %i[consonant consonant]
+    when %i[consonant consonant]
       Consonants.distance(phoneme1, phoneme2)
     end
   end

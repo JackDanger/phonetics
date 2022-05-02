@@ -16,6 +16,7 @@ module Phonetics
   class RubyLevenshtein
     attr_reader :str1, :str2, :len1, :len2, :matrix
 
+    # rubocop:disable Style/OptionalBooleanParameter
     def initialize(ipa_str1, ipa_str2, verbose = false)
       @str1 = ipa_str1.each_char.select { |c| Phonetics.phonemes.include?(c) }.join
       @str2 = ipa_str2.each_char.select { |c| Phonetics.phonemes.include?(c) }.join
@@ -26,15 +27,16 @@ module Phonetics
       set_edit_distances(@str1, @str2)
     end
 
+    def self.distance(str1, str2, verbose = false)
+      new(str1, str2, verbose).distance
+    end
+    # rubocop:enable Style/OptionalBooleanParameter
+
     def distance
       return 0 if walk.empty?
 
       print_matrix if @verbose
       walk.last[:distance]
-    end
-
-    def self.distance(str1, str2, verbose = false)
-      new(str1, str2, verbose).distance
     end
 
     private

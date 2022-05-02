@@ -11,6 +11,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/JackDanger/phonetics'
   spec.license       = 'MIT'
 
+  spec.required_ruby_version = '>= 2.5'
+
   spec.extensions = ['ext/c_levenshtein/extconf.rb']
 
   # Specify which files should be added to the gem when it is released.
