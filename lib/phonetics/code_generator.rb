@@ -67,7 +67,7 @@ module Phonetics
 
     def ruby_source
       location = caller_locations.first
-      "#{location.path.split('/')[-4..-1].join('/')}:#{location.lineno}"
+      "#{location.path.split('/')[-4..].join('/')}:#{location.lineno}"
     end
 
     def indent(depth, line)

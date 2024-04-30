@@ -23,7 +23,7 @@ RSpec.describe Phonetics::Transcriptions do
     subject(:words) { described_class.words }
 
     it 'is all transcribable words' do
-      expect(words.detect {|w| w =~ /aboar/ }).to eq('aboard')
+      expect(words.detect { |w| w =~ /aboar/ }).to eq('aboard')
     end
   end
 

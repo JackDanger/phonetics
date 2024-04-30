@@ -124,10 +124,10 @@ module Phonetics
           next if max_rarity && (entry['rarity'].nil? || entry['rarity'] > max_rarity)
 
           entry_data = {
-              word: key,
+            word: key,
             rarity: entry['rarity'],
           }
-          entry.fetch('ipa', []).each do |_source, transcription|
+          entry.fetch('ipa', []).each_value do |transcription|
             base_trie = construct_trie(base_trie, transcription, entry_data)
           end
         end
@@ -159,7 +159,7 @@ module Phonetics
         next_char = chars_remaining[0]
         subtrie[next_char] ||= {}
         subtrie[next_char][:path] ||= subtrie[:path].to_s + next_char
-        subtrie[next_char] = construct_trie(subtrie[next_char], chars_remaining[1..-1], entry_data, depth + 1)
+        subtrie[next_char] = construct_trie(subtrie[next_char], chars_remaining[1..], entry_data, depth + 1)
       end
       subtrie
     end
