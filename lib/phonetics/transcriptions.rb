@@ -29,6 +29,10 @@ module Phonetics
       nil
     end
 
+    def words
+      transcriptions.keys
+    end
+
     def transcriptions
       @transcriptions ||= begin
         download! unless File.exist?(TranscriptionFile)
