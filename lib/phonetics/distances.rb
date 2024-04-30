@@ -155,9 +155,9 @@ module Phonetics
           manner.strip!
           positions.zip(columns).each do |position, phoneme_text|
             data = {
-                    position: position,
+              position: position,
               position_index: position_indexes[position],
-                      manner: manner,
+              manner: manner,
             }
             # If there is a character in the first byte then this articulation
             # has a voiceless phoneme. The symbol may use additional characters
@@ -165,7 +165,7 @@ module Phonetics
             unless phoneme_text[0] == ' '
               # Take the first non-blank character string
               symbol = phoneme_text.chars.take_while { |char| char != ' ' }.join
-              phoneme_text = phoneme_text[symbol.chars.size..-1]
+              phoneme_text = phoneme_text[symbol.chars.size..]
 
               phonemes[symbol] = data.merge(voiced: false)
             end

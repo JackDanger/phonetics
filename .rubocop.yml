@@ -45,4 +45,6 @@ Style/TrailingCommaInHashLiteral:
 
 Layout/HashAlignment:
   EnforcedHashRocketStyle: separator
-  EnforcedColonStyle: separator
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
