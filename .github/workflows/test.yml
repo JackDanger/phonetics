@@ -3,8 +3,8 @@ name: Tests
 on: push
 
 jobs:
-  ci:
-    name: CI
+  ci-ruby:
+    name: CI Ruby
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,4 +17,4 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           architecture: 'x64'
-      - run: gem install bundler && bundle && bundle exec rake 
+      - run: cd ruby && gem install bundler && bundle && bundle exec rake 
