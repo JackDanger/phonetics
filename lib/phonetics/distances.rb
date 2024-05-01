@@ -106,7 +106,11 @@ module Phonetics
 
       # When we have four values we can use the pythagorean theorem on them
       # (order doesn't matter)
-      Math.sqrt((f1_distance**2) + (f2_distance**2))
+      sqrt = Math.sqrt((f1_distance**2) + (f2_distance**2))
+
+      # Vowels are more similiar to each other than consonants, so we apply a
+      # penalty softening here
+      sqrt / 2.0
     end
   end
 

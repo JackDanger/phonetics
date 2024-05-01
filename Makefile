@@ -4,3 +4,6 @@ docker-image:
 
 docker: docker-image
 	exec docker run -it -v $$(pwd):/app phonetics:latest bash
+
+pry:
+	pry -I ./lib -r phonetics
