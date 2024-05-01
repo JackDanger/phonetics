@@ -9,8 +9,8 @@ RSpec.describe Phonetics do
       let(:phoneme1) { 'i' }
       let(:phoneme2) { 'ɔ' }
 
-      it 'is the hypotenuse between the two formant sets' do
-        expect(distance).to be_within(0.001).of(0.7715)
+      it 'is half the hypotenuse between the two formant sets' do
+        expect(distance).to be_within(0.001).of(0.38575)
       end
     end
 

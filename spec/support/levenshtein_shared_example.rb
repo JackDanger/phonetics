@@ -22,7 +22,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:verbose) { true }
 
       it 'is less than the edit distance' do
-        expect(distance).to be_within(0.01).of(0.81)
+        expect(distance).to be_within(0.01).of(0.55)
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:phoneme2) { 'ɪsug' }
 
       it 'is less than the edit distance' do
-        expect(distance).to be_within(0.01).of(0.756)
+        expect(distance).to be_within(0.01).of(0.678)
       end
     end
 
@@ -74,7 +74,7 @@ RSpec.shared_examples 'calculates levenshtein distance' do
       let(:phoneme2) { 'sinkœ' }
 
       it 'approaches the orthographic Levenshtein edit distance' do
-        expect(distance).to be_within(0.2).of(3.7)
+        expect(distance).to be_within(0.2).of(3.35)
       end
     end
 
