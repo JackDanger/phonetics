@@ -16,5 +16,4 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          architecture: 'x64'
       - run: cd ruby && gem install bundler && bundle && bundle exec rake 
