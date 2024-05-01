@@ -17,3 +17,18 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
       - run: cd ruby && gem install bundler && bundle && bundle exec rake 
+  ci-python:
+    name: CI Python
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python:
+          - '3.9'
+          - '3.10'
+          - '3.11'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: python/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+      - run: cd python && nosetests

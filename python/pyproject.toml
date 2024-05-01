@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools", "wheel", "setuptools-rust"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phonetics-ipa"
+version = "0.5.0"
+description = "Phonetic transcriptions and phonetic Levenshtein distance"
+
+authors = [
+    { name = "Jack Danger", email = "github@jackdanger.com" }
+]
+license = { file = 'NON-AI-MIT' }
+#readme = "README.md"
+keywords = ["python", "rust", "extension"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Operating System :: OS Independent",
+]
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages]
+find = { where = ["phonetics-ipa"] }
+
+#[tool.setuptools-rust.ext-modules]
+#find = { where = ["phonetic_cost"] }
+
+[tool.setuptools-rust]
+bindings = "pyo3"
+
+[[tool.setuptools-rust.pyo3]]
+name = "phonetic_cost"

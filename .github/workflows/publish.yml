@@ -26,24 +26,23 @@ jobs:
         cd ruby && bin/gempush-if-changed
       env:
         GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
-
   python:
     name: PyPi publishing
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@master
-    - name: Set up Python 3.10
-      uses: python/setup-python@v1
+    - name: Set up Ruby 3.1
+      uses: ruby/setup-ruby@v1
       with:
-        python-version: 3.10
+        ruby-version: 3.1.1
 
-    - name: Publish to PyPi
+    - name: Publish to RubyGems
       run: |
-        #mkdir -p $HOME/.gem
-        #touch $HOME/.gem/credentials
-        #chmod 0600 $HOME/.gem/credentials
-        #printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        cd python && bin/publish
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+        cd ruby && bin/gempush-if-changed
       env:
-        PYPI_API_KEY: ${{secrets.PYPI_API_KEY}}
+        GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
