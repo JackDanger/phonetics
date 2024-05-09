@@ -1,2 +1,5 @@
 target
 *.egg-info
+_python_ipa2
+ipa_to_text.txt
+text_to_ipa.txt

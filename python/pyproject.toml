@@ -24,8 +24,11 @@ test = [
   "pytest"
 ]
 dev = [
-  "ipa2",
+ "ipa2",
  "torch",
+ "torchvision",
+ "torchtext",
+ "numpy",
 ]
 
 [tool.setuptools.packages]
