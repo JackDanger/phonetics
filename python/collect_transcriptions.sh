@@ -20,11 +20,11 @@ if [ ! -f ${root}/ipa2_lang_pairs.text ]; then
   popd
 fi
 
- # Some of the input texts have multiple transcription options
- # We assign the first as the target transcription
- < ipa2_lang_pairs.text ruby -ne 'lang, text, ipa = $_.split; ipas = ipa.split(","); puts "#{text} #{ipas[0]}"' > text_to_ipa.txt
- # and we use the rest as inputs for reverse transcription
- < ipa2_lang_pairs.text ruby -ne ' lang, text, ipa = $_.split; ipas = ipa.split(","); ipas.each {|i| puts "#{i} #{text}" };' > ipa_to_text.txt
+# Some of the input texts have multiple transcription options
+# We assign the first as the target transcription
+< ipa2_lang_pairs.text ruby -ne 'lang, text, ipa = $_.split; ipas = ipa.split(","); puts "#{text} #{ipas[0]}"' > text_to_ipa.txt
+# and we use the rest as inputs for reverse transcription
+< ipa2_lang_pairs.text ruby -ne ' lang, text, ipa = $_.split; ipas = ipa.split(","); ipas.each {|i| puts "#{i} #{text}" };' > ipa_to_text.txt
 
 # Identify maximum character size of inputs and outputs to help us design our
 # encoder/decoder with a helpful sequence length
