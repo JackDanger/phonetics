@@ -1,9 +1,10 @@
+from torch.nn.utils.rnn import pad_sequence
+from torch.utils.data import DataLoader, Dataset
+from torchtext.vocab import build_vocab_from_iterator
+from tqdm import tqdm
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader, Dataset
-from torch.nn.utils.rnn import pad_sequence
-from torchtext.vocab import build_vocab_from_iterator
 import unicodedata
 
 # Helper function to normalize text
@@ -39,24 +40,22 @@ class TextIPAData(Dataset):
 
 
 # Define constants
-BATCH_SIZE = 8
+BATCH_SIZE = 128
+# We'll do the ipa_to_text later, maybe in one model but maybe separately
 SRC_FILE_PATH = 'text_to_ipa.txt'
-TGT_FILE_PATH = 'ipa_to_text.txt'
 
 # Build vocabularies
-def yield_tokens(files):
-    for file in files:
-        with open(file, 'r', encoding='utf-8') as f:
-            for line in f:
-                src, tgt = line.strip().split(' ')
-                yield tokenize(src)
-                yield tokenize(tgt)
-vocab = build_vocab_from_iterator(yield_tokens([SRC_FILE_PATH, TGT_FILE_PATH]), specials=["<unk>", "<pad>", "<sos>", "<eos>"])
+def yield_tokens(file):
+    with open(file, 'r', encoding='utf-8') as f:
+        for line in f:
+            src, tgt = line.strip().split(' ')
+            yield tokenize(src)
+            yield tokenize(tgt)
+vocab = build_vocab_from_iterator(yield_tokens(SRC_FILE_PATH), specials=["<unk>", "<pad>", "<sos>", "<eos>"])
 
 
 # Define dataset and dataloader
 src_dataset = TextIPAData(SRC_FILE_PATH, vocab)
-tgt_dataset = TextIPAData(TGT_FILE_PATH, vocab)
 
 def collate_batch(batch):
     src_batch, tgt_batch = zip(*batch)  # This separates the source and target tensors
@@ -71,7 +70,6 @@ def collate_batch(batch):
     return src_padded, tgt_padded, src_mask, tgt_mask
 
 src_loader = DataLoader(src_dataset, batch_size=BATCH_SIZE, shuffle=True, collate_fn=collate_batch)
-tgt_loader = DataLoader(tgt_dataset, batch_size=BATCH_SIZE, shuffle=True, collate_fn=collate_batch)
 
 # Transformer Model
 class TransformerModel(nn.Module):
@@ -113,7 +111,8 @@ class TransformerModel(nn.Module):
 def train(model, loader, optimizer, criterion, clip):
     model.train()
     epoch_loss = 0
-    for src, tgt, src_mask, tgt_mask in loader:
+    for i, data in enumerate(tqdm(loader)):
+        src, tgt, src_mask, tgt_mask = data
         src, tgt = src.to(device), tgt.to(device)
         src_mask, tgt_mask = src_mask.to(device), tgt_mask.to(device)
         optimizer.zero_grad()
@@ -132,6 +131,7 @@ def train(model, loader, optimizer, criterion, clip):
 
 # Define the device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"device: {device}")
 
 # Define model, optimizer, and loss function
 model = TransformerModel(len(vocab), len(vocab), emb_dim=256, n_heads=8, ff_dim=512, num_layers=3, dropout=0.1).to(device)

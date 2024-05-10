@@ -24,11 +24,12 @@ test = [
   "pytest"
 ]
 dev = [
- "ipa2",
- "torch",
- "torchvision",
- "torchtext",
- "numpy",
+  "ipa2",
+  "ipython",
+  "numpy",
+  "torch",
+  "torchtext",
+  "torchvision",
 ]
 
 [tool.setuptools.packages]
