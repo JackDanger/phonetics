@@ -1,1 +1,0 @@
-../../ruby/ext/c_levenshtein/phonetic_cost.c
