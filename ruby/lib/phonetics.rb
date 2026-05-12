@@ -1,31 +1,79 @@
 # frozen_string_literal: true
 
-# Phonetics: tools for working with the International Phonetic Alphabet.
+# Phonetics — IPA-based phonetic distance.
+#
+# The entire algorithmic core is written in Rust (see <repo>/rust/
+# phonetics) and loaded as a native extension via Magnus. This file
+# layers ergonomic Ruby idioms on top of the bare module functions
+# that the extension exports.
 #
 # Two-tier distance API:
 #
-#   * Phonetics::Levenshtein.distance(ipa1, ipa2)
-#     Strict weighted edit-distance over IPA phonemes. Each substitution
-#     costs Phonetics.distance(a, b) (Bark-space vowel distance + structured
-#     consonant feature distance + cross-class bridge + diacritic
-#     mismatches). Each indel costs 1.0. Use this when you want raw
-#     acoustic distance — clustering accents, dialect work, ASR error
-#     analysis. Backed by a fast C extension.
-#
-#   * Phonetics::Confusion.distance(ipa1, ipa2)
-#     Listener-confusion distance, calibrated against Mad Gab puzzle data.
-#     Uses Gotoh's affine-gap algorithm so multi-phoneme re-syllabification
-#     at word boundaries doesn't pay full per-phoneme cost, plus an explicit
-#     weak-phoneme discount for /ə/, /h/, /ʔ/, /ɦ/ (which native English
-#     listeners drop, insert, and hallucinate without much perceptual
-#     awareness). Use this when you want perceptual similarity — Mad Gab
-#     solving, pun detection, mondegreen analysis, mishearing modelling.
-#     Pure Ruby; slower than the strict path but still tractable on
-#     phrase-sized input.
-#
-# Both metrics share the same per-phoneme cost (Phonetics.distance), so
-# improvements to the underlying acoustic model propagate to both layers.
-require 'phonetics/distances'
-require 'phonetics/levenshtein'
-require 'phonetics/confusion'
-require 'phonetics/transcriptions'
+#   Phonetics.distance(p1, p2)              acoustic per-phoneme, 0..1
+#   Phonetics.levenshtein(s1, s2)           strict edit distance
+#   Phonetics.confusion(s1, s2)             listener-confusion distance
+#   Phonetics.similarity(s1, s2)            normalised 0..1
+#   Phonetics.sub_cost(p1, p2)              perceptual per-phoneme
+#   Phonetics.tokenize(ipa, boundaries:)    phoneme stream
+require 'delegate'
+
+require_relative 'phonetics/phonetics_ruby'
+require_relative 'phonetics/transcriptions'
+
+module Phonetics
+  # The native binding exposes the tokenizer as `_tokenize(input,
+  # boundaries)`. Magnus's `function!` macro doesn't bridge Ruby
+  # keyword arguments through to Rust, so we wrap it in a Ruby method
+  # that does accept the kwarg.
+  def self.tokenize(input, boundaries: false)
+    _tokenize(input, boundaries)
+  end
+
+  # ------------------------------------------------------------------
+  # Phonetics::String — iterator over phonemes in an IPA string.
+  # ------------------------------------------------------------------
+  class String < SimpleDelegator
+    def each_phoneme(boundaries: false)
+      Phonetics.tokenize(to_s, boundaries: boundaries).each
+    end
+  end
+
+  # ------------------------------------------------------------------
+  # Backwards-compatible namespaced API.
+  #
+  # The previous Ruby+C implementation exposed these under sub-modules.
+  # Keep them as thin delegators so existing callers don't break —
+  # there's nothing interesting happening here, just forwarding.
+  # ------------------------------------------------------------------
+
+  module Levenshtein
+    INDEL_COST     = 1.0
+    TRANSPOSE_COST = 0.8
+
+    def self.distance(s1, s2, _verbose = false)
+      return if s1.nil? || s2.nil?
+
+      Phonetics.levenshtein(s1, s2)
+    end
+  end
+
+  module Confusion
+    GAP_OPEN             = 0.60
+    GAP_EXTEND           = 0.25
+    WEAK_INDEL_COST      = 0.15
+    BOUNDARY_INDEL_COST  = 0.02
+
+    def self.distance(s1, s2, verbose: false)
+      _ = verbose
+      Phonetics.confusion(s1, s2)
+    end
+
+    def self.similarity(s1, s2)
+      Phonetics.similarity(s1, s2)
+    end
+
+    def self.sub_cost(a, b)
+      Phonetics.sub_cost(a, b)
+    end
+  end
+end

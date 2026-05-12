@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/phonetics/levenshtein'
-require_relative '../../lib/phonetics/ruby_levenshtein'
-require_relative '../../lib/phonetics/confusion'
+require 'phonetics'
 
 # Exercise the metric on real Mad Gab puzzles. The contract is:
 #

@@ -1,21 +1,17 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Phonetics CLI — the implementation-agnostic contract.
+# Phonetics CLI — implementation-agnostic contract.
 #
-# Subcommands produce a single numeric value (or for tokenize, one token per
-# line) on stdout. Errors go to stderr with a non-zero exit. The integration
-# tests in spec/phonetics/cli_spec.rb exercise this contract, not Ruby
-# internals: a Rust (or Python, or anything) reimplementation that preserves
-# the same input/output behavior is automatically validated by the same
-# suite.
+# The integration tests in spec/phonetics/cli_spec.rb shell out to this
+# binary (or any other one — set PHONETICS_BIN). What matters is
+# stdin/stdout/exit-code behaviour, not which language fields the
+# Phonetics module. With the Rust port live, this script is a thin
+# layer over the Magnus binding.
 
 $stdout.set_encoding('UTF-8')
 $stderr.set_encoding('UTF-8')
 
-# Make the project's lib/ findable for the bare `require 'phonetics/...'`
-# calls inside the library. Running as a gem-installed binary, this is on
-# $LOAD_PATH already; running from a checkout, we add it ourselves.
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'phonetics'
 
@@ -48,8 +44,6 @@ def format_number(value, json:)
   value.to_s
 end
 
-# Pull --json out of args wherever it sits, since it can apply to any
-# command. Same for --boundaries on tokenize.
 json   = !ARGV.delete('--json').nil?
 bounds = !ARGV.delete('--boundaries').nil?
 
@@ -59,7 +53,7 @@ require 'json' if json
 case command
 when 'distance'
   die USAGE unless args.size == 2
-  puts format_number(Phonetics::Levenshtein.distance(args[0], args[1]), json: json)
+  puts format_number(Phonetics.levenshtein(args[0], args[1]), json: json)
 
 when 'confusion'
   die USAGE unless args.size == 2
@@ -67,7 +61,7 @@ when 'confusion'
 
 when 'similarity'
   die USAGE unless args.size == 2
-  puts format_number(Phonetics::Confusion.similarity(args[0], args[1]), json: json)
+  puts format_number(Phonetics.similarity(args[0], args[1]), json: json)
 
 when 'phoneme'
   die USAGE unless args.size == 2
@@ -75,21 +69,17 @@ when 'phoneme'
 
 when 'phoneme-conf'
   die USAGE unless args.size == 2
-  puts format_number(Phonetics::Confusion.sub_cost(args[0], args[1]), json: json)
+  puts format_number(Phonetics.sub_cost(args[0], args[1]), json: json)
 
 when 'tokenize'
   die USAGE unless args.size == 1
 
-  tokens = Phonetics::String.new(args[0]).each_phoneme(boundaries: bounds).to_a
+  tokens = Phonetics.tokenize(args[0], boundaries: bounds)
   if json
     puts JSON.dump(tokens: tokens)
   else
     puts tokens
   end
-
-when 'version', '--version'
-  require_relative '../lib/phonetics/version'
-  puts Phonetics::VERSION
 
 when '--help', '-h', nil
   puts USAGE
