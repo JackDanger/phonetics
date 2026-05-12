@@ -29,6 +29,7 @@ pub mod compounds;
 pub mod consonants;
 pub mod cross_class;
 pub mod diacritics;
+pub mod levenshtein;
 pub mod symbols;
 pub mod tokenizer;
 pub mod vowels;
@@ -36,4 +37,5 @@ pub mod vowels;
 mod distance;
 
 pub use distance::distance;
+pub use levenshtein::distance as levenshtein;
 pub use tokenizer::tokens;
