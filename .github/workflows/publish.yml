@@ -27,7 +27,17 @@ jobs:
             echo "Pre-release tag — running cargo publish --dry-run."
             cargo publish --dry-run
           else
-            cargo publish --token "${CARGO_REGISTRY_TOKEN}"
+            # cargo publish doesn't have a --skip-existing flag. The
+            # "already published" failure mode prints a specific
+            # message; grep for it to make retry runs idempotent
+            # without swallowing real errors.
+            if ! cargo publish --token "${CARGO_REGISTRY_TOKEN}" 2>&1 | tee publish.log; then
+              if grep -q "already.*uploaded\|crate version.*is already uploaded" publish.log; then
+                echo "::warning::version already on crates.io — treating as success"
+                exit 0
+              fi
+              exit 1
+            fi
           fi
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
