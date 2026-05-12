@@ -25,7 +25,11 @@ crate-type = ["cdylib"]
 # from <repo>/rust/phonetics; see ruby/Rakefile. The vendor dir is
 # not committed to git but IS shipped in the .gem tarball, so a
 # user running `gem install phonetics` gets a self-contained build.
-phonetics = { path = "vendor/phonetics" }
+#
+# The package on crates.io is `phonetics-rs` (the bare `phonetics`
+# name is taken by an unrelated metaphone library). The `package`
+# alias lets us still write `use phonetics::distance;` in our code.
+phonetics = { path = "vendor/phonetics", package = "phonetics-rs" }
 magnus = "0.8"
 
 [build-dependencies]

@@ -18,5 +18,5 @@ name = "phonetics_native"
 crate-type = ["cdylib"]
 
 [dependencies]
-phonetics = { path = "../../rust/phonetics" }
+phonetics = { path = "../../rust/phonetics", package = "phonetics-rs" }
 pyo3 = { version = "0.22", features = ["extension-module", "abi3-py39"] }

@@ -83,14 +83,12 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: ruby/ext/phonetics -> target
+          workspaces: ruby -> target
       - name: install dependencies
-        run: gem install rb_sys rspec
-      - name: build native extension
-        working-directory: ruby/ext/phonetics
-        run: |
-          ruby extconf.rb
-          make
-      - name: rspec
+        run: gem install bundler rb_sys
+      - name: bundle install
         working-directory: ruby
-        run: rspec --no-color spec/
+        run: bundle install
+      - name: rake compile + spec
+        working-directory: ruby
+        run: bundle exec rake compile spec

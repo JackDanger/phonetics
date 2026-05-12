@@ -50,8 +50,10 @@ jobs:
   #   Environment    : pypi
   # See https://docs.pypi.org/trusted-publishers/.
   # ----------------------------------------------------------------
+  # Build platform wheels in parallel. Each matrix entry produces one
+  # wheel and uploads it as a GHA artifact.
   build-pypi-wheels:
-    name: Build wheels (${{ matrix.os }} / ${{ matrix.target }})
+    name: Build wheel (${{ matrix.os }} / ${{ matrix.target }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -59,7 +61,6 @@ jobs:
         include:
           - os: ubuntu-latest
             target: x86_64
-            build-sdist: true
           - os: ubuntu-latest
             target: aarch64
           - os: macos-14
@@ -82,22 +83,39 @@ jobs:
           args: --release --out dist
           # Use manylinux container on Linux for portable wheels.
           manylinux: ${{ runner.os == 'Linux' && 'auto' || '' }}
+      - name: Upload wheel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-dist-wheel-${{ matrix.os }}-${{ matrix.target }}
+          path: python/phonetics-py/dist/
+
+  # sdist is built in its own job — running it inside the manylinux
+  # matrix entry caused permission clashes between the container's
+  # root-owned wheel directory and the host user trying to write the
+  # tarball after.
+  build-pypi-sdist:
+    name: Build sdist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - name: Build sdist
-        if: matrix.build-sdist
         uses: PyO3/maturin-action@v1
         with:
           working-directory: python/phonetics-py
           command: sdist
           args: --out dist
-      - name: Upload artifacts
+      - name: Upload sdist artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pypi-dist-${{ matrix.os }}-${{ matrix.target }}
+          name: pypi-dist-sdist
           path: python/phonetics-py/dist/
 
   publish-pypi:
     name: Publish to PyPI
-    needs: build-pypi-wheels
+    needs: [build-pypi-wheels, build-pypi-sdist]
     runs-on: ubuntu-latest
     # Pre-release tags build the wheels but skip the upload entirely
     # so we don't burn a version on rehearsal.
@@ -152,6 +170,11 @@ jobs:
           bundler-cache: true
           working-directory: ruby
       - uses: dtolnay/rust-toolchain@stable
+      # oxidize-rb cross-gem mounts ~/.cargo/registry into the build
+      # container. The mount fails if the directory doesn't exist on
+      # the host yet — a fresh runner hasn't necessarily touched cargo.
+      - name: Ensure cargo registry exists for docker mount
+        run: mkdir -p ~/.cargo/registry ~/.cargo/git
       - uses: oxidize-rb/actions/cross-gem@v1
         id: cross-gem
         with:

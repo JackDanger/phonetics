@@ -1,5 +1,10 @@
 [package]
-name = "phonetics"
+# `phonetics` on crates.io is taken (different project — a metaphone/
+# NYSIIS encoder). We publish under `phonetics-rs`, the conventional
+# fallback when a bare project name is unavailable. The Rust API is
+# still `use phonetics::distance;` because `lib.name` below stays
+# `phonetics`; only the crates.io package name changes.
+name = "phonetics-rs"
 description = "IPA-based phonetic distance metrics: strict edit distance, listener-confusion distance, and per-phoneme acoustic and perceptual scoring. Calibrated against Mad Gab puzzle data; tunable per dialect."
 version.workspace = true
 edition.workspace = true
@@ -13,6 +18,11 @@ categories = ["text-processing", "science"]
 
 [lints]
 workspace = true
+
+# Keep the Rust API name as `phonetics` even though the registry name
+# is `phonetics-rs`. Downstream code stays `use phonetics::distance;`.
+[lib]
+name = "phonetics"
 
 [dependencies]
 
