@@ -1,50 +1,73 @@
 # frozen_string_literal: true
 
+# Rake tasks for the Rust-backed Ruby gem.
+#
+#   rake compile          build the native extension via cargo
+#   rake spec             run rspec
+#   rake build            assemble the source gem (vendor + package)
+#
+# Cross-platform native gem builds use rb-sys-dock; see
+# .github/workflows/release.yml for the published recipe.
+
+require 'fileutils'
 require 'bundler/gem_tasks'
-require 'rake/extensiontask'
+
+# ---------------------------------------------------------------
+# Vendoring of the Rust core into the gem directory.
+#
+# A gem can't ship files from outside its own directory (rubygems
+# policy), and `cargo` can't follow a path dependency that points
+# up into the parent of a `gem install`-extracted source tree. So
+# we keep the canonical Rust core at <repo>/rust/phonetics and
+# copy it into <repo>/ruby/ext/phonetics_ruby/vendor/ for builds
+# that need to ship it (gem-build, gem-install, CI).
+#
+# The vendor copy is git-ignored — single source of truth is the
+# /rust/ tree. It IS bundled into the .gem tarball at build time.
+# ---------------------------------------------------------------
+
+RUST_CORE_SRC    = File.expand_path('../rust/phonetics', __dir__)
+RUST_CORE_VENDOR = File.expand_path('ext/phonetics_ruby/vendor/phonetics', __dir__)
+
+def vendor_rust_core
+  return if File.directory?(RUST_CORE_SRC).nil?
+
+  unless File.directory?(RUST_CORE_SRC)
+    warn "(skipping vendor: #{RUST_CORE_SRC} not present)" if ENV['VERBOSE']
+    return
+  end
+  FileUtils.rm_rf(RUST_CORE_VENDOR)
+  FileUtils.mkdir_p(File.dirname(RUST_CORE_VENDOR))
+  FileUtils.cp_r(RUST_CORE_SRC, RUST_CORE_VENDOR)
+  # Strip the CLI bin and any stale build artifacts.
+  FileUtils.rm_rf(File.join(RUST_CORE_VENDOR, 'src', 'bin'))
+  FileUtils.rm_rf(File.join(RUST_CORE_VENDOR, 'target'))
+end
+
+# The downstream Cargo workspace at ruby/Cargo.toml lists the ext
+# crate as a member, and that crate's Cargo.toml has a path
+# dependency on vendor/phonetics. `cargo metadata` (which
+# `rb_sys/extensiontask` runs at load time) would fail before our
+# tasks even register. Vendor synchronously here, before any
+# require touches cargo.
+vendor_rust_core
+
+require 'rb_sys/extensiontask'
 require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
 
-EXT_PATH = 'ext/c_levenshtein'
+desc 'Re-copy the Rust core into ext/phonetics_ruby/vendor/'
+task(:vendor_rust) { vendor_rust_core }
 
-Rake::ExtensionTask.new('c_levenshtein') do |extension|
-  extension.ext_dir = EXT_PATH
-  extension.lib_dir = 'lib/phonetics'
+GEMSPEC = Gem::Specification.load(File.expand_path('phonetics.gemspec', __dir__))
+
+RbSys::ExtensionTask.new('phonetics_ruby', GEMSPEC) do |ext|
+  ext.lib_dir = 'lib/phonetics'
 end
 
-PHONETIC_COST_C_EXTENSION = File.join(EXT_PATH, 'phonetic_cost.c')
-NEXT_PHONEME_LENGTH_C_EXTENSION = File.join(EXT_PATH, 'next_phoneme_length.c')
-CONFUSION_COST_C_EXTENSION = File.join(EXT_PATH, 'confusion_cost.c')
-
-require_relative './lib/phonetics/code_generator'
-
-desc 'Write phonetic_cost.c using Phonetic values'
-task PHONETIC_COST_C_EXTENSION do
-  file = File.open(PHONETIC_COST_C_EXTENSION, 'w')
-  Phonetics::CodeGenerator.new(file).generate_phonetic_cost_c_code
-  puts "Wrote #{PHONETIC_COST_C_EXTENSION}"
-end
-
-desc 'Write phonemes.c using a lookup table of byte arrays'
-task NEXT_PHONEME_LENGTH_C_EXTENSION do
-  file = File.open(NEXT_PHONEME_LENGTH_C_EXTENSION, 'w')
-  Phonetics::CodeGenerator.new(file).generate_next_phoneme_length_c_code
-  puts "Wrote #{NEXT_PHONEME_LENGTH_C_EXTENSION}"
-end
-
-desc 'Write confusion_cost.c using Phonetics::Confusion.sub_cost (acoustic + overlay)'
-task CONFUSION_COST_C_EXTENSION do
-  file = File.open(CONFUSION_COST_C_EXTENSION, 'w')
-  Phonetics::CodeGenerator.new(file).generate_confusion_cost_c_code
-  puts "Wrote #{CONFUSION_COST_C_EXTENSION}"
-end
-
-task compile: PHONETIC_COST_C_EXTENSION
-task compile: NEXT_PHONEME_LENGTH_C_EXTENSION
-task compile: CONFUSION_COST_C_EXTENSION
+# build / compile both depend on a fresh vendor copy.
+task compile: :vendor_rust
+task build:   :vendor_rust
 
 RSpec::Core::RakeTask.new(:spec)
 
-RuboCop::RakeTask.new
-
-task default: [:compile, :rubocop, :spec]
+task default: %i[compile spec]

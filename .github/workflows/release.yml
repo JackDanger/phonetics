@@ -1,9 +1,8 @@
 name: Release
 
-# Triggered by pushing a git tag of the form `v0.1.0`. Each job pushes
-# to its respective registry only if the tag is a real release tag —
-# pre-release tags (`v0.1.0-rc1`) build and validate but skip the
-# upload steps.
+# Triggered by pushing a git tag of the form `v0.1.0`. Each registry's
+# upload step skips on pre-release tags (`v0.1.0-rc1`) so you can
+# rehearse the build pipeline without burning a version slot.
 on:
   push:
     tags:
@@ -12,6 +11,8 @@ on:
 jobs:
   # ----------------------------------------------------------------
   # crates.io: source-only publish of the `phonetics` core crate.
+  # Uses a registry token because crates.io doesn't yet support OIDC
+  # trusted publishing.
   # ----------------------------------------------------------------
   publish-crates-io:
     name: Publish to crates.io
@@ -19,10 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: cargo publish (dry-run on pre-release)
+      - name: cargo publish
         working-directory: rust/phonetics
         run: |
           if [[ "${GITHUB_REF_NAME}" == *-* ]]; then
+            echo "Pre-release tag — running cargo publish --dry-run."
             cargo publish --dry-run
           else
             cargo publish --token "${CARGO_REGISTRY_TOKEN}"
@@ -31,22 +33,35 @@ jobs:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
   # ----------------------------------------------------------------
-  # PyPI: maturin builds platform wheels in a matrix; one Linux job
-  # also produces an sdist. PyPI's "trusted publisher" OIDC flow is
-  # the recommended path — no token needed if you've configured the
-  # project on pypi.org.
+  # PyPI: trusted-publisher / OIDC flow.
+  #
+  # Stage 1 builds platform wheels in parallel (linux x86_64, macOS
+  # arm64, macOS x86_64, windows x64) plus an sdist on Linux. Each
+  # job uploads its dist/ directory as a GitHub Actions artifact.
+  #
+  # Stage 2 downloads all artifacts and publishes them via the
+  # official `pypa/gh-action-pypi-publish` action, which mints an
+  # OIDC token bound to this exact workflow + environment and hands
+  # it to PyPI. The PyPI project must have a Trusted Publisher
+  # configured with:
+  #   Owner          : JackDanger
+  #   Repository name: phonetics
+  #   Workflow name  : release.yml
+  #   Environment    : pypi
+  # See https://docs.pypi.org/trusted-publishers/.
   # ----------------------------------------------------------------
-  publish-pypi:
-    name: Publish to PyPI (${{ matrix.target }})
+  build-pypi-wheels:
+    name: Build wheels (${{ matrix.os }} / ${{ matrix.target }})
     runs-on: ${{ matrix.os }}
-    permissions:
-      id-token: write   # for PyPI trusted publisher
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
             target: x86_64
-            sdist: true
+            build-sdist: true
+          - os: ubuntu-latest
+            target: aarch64
           - os: macos-14
             target: aarch64
           - os: macos-13
@@ -58,61 +73,133 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: build wheel
+      - name: Build wheel
         uses: PyO3/maturin-action@v1
         with:
           working-directory: python/phonetics-py
+          target: ${{ matrix.target }}
           command: build
           args: --release --out dist
-      - name: build sdist
-        if: matrix.sdist
+          # Use manylinux container on Linux for portable wheels.
+          manylinux: ${{ runner.os == 'Linux' && 'auto' || '' }}
+      - name: Build sdist
+        if: matrix.build-sdist
         uses: PyO3/maturin-action@v1
         with:
           working-directory: python/phonetics-py
           command: sdist
           args: --out dist
-      - name: upload to PyPI
-        if: ${{ !contains(github.ref_name, '-') }}
-        uses: PyO3/maturin-action@v1
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
-          working-directory: python/phonetics-py
-          command: upload
-          args: --non-interactive --skip-existing dist/*
+          name: pypi-dist-${{ matrix.os }}-${{ matrix.target }}
+          path: python/phonetics-py/dist/
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: build-pypi-wheels
+    runs-on: ubuntu-latest
+    # Pre-release tags build the wheels but skip the upload entirely
+    # so we don't burn a version on rehearsal.
+    if: ${{ !contains(github.ref_name, '-') }}
+    # The `pypi` environment must exist on the GitHub repo (Settings ->
+    # Environments). PyPI's trusted-publisher config binds *this exact
+    # workflow + environment name* to publishing rights for the package.
+    environment:
+      name: pypi
+      url: https://pypi.org/project/phonetics/
+    permissions:
+      id-token: write   # required for OIDC; no API token needed.
+    steps:
+      - name: Download all built wheels
+        uses: actions/download-artifact@v4
+        with:
+          pattern: pypi-dist-*
+          merge-multiple: true
+          path: dist/
+      - name: List contents
+        run: ls -la dist/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
+          skip-existing: true
 
   # ----------------------------------------------------------------
-  # RubyGems: build the platform native gem via rake-compiler-dock so
-  # users on macOS, Linux, and Windows can `gem install` without a
-  # Rust toolchain. cross-gem ships one gem per platform plus the
-  # source gem for environments we don't pre-compile for.
+  # RubyGems: cross-compiled native gems for the major platforms,
+  # plus the source gem for everything else. The Rakefile defines
+  # tasks via `rb_sys/extensiontask`; `rb-sys-dock` runs the build
+  # inside the right cross-compiler container per platform.
   # ----------------------------------------------------------------
   publish-rubygems:
-    name: Publish to RubyGems
+    name: Publish to RubyGems (${{ matrix.platform }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - arm64-darwin
+          - x86_64-darwin
+          - x86_64-linux
+          - x86_64-linux-musl
+          - aarch64-linux
+          - x64-mingw-ucrt
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: ruby
       - uses: dtolnay/rust-toolchain@stable
-      - name: build cross gems via rake-compiler-dock
-        working-directory: ruby
-        run: |
-          gem install rake-compiler rake-compiler-dock rb_sys
-          # Native gems: arm64-darwin, x86_64-darwin, x86_64-linux,
-          # x86_64-linux-musl, aarch64-linux, x64-mingw-ucrt
-          bundle exec rake clean
-          bundle exec rb-sys-dock --platform arm64-darwin --build
-          bundle exec rb-sys-dock --platform x86_64-darwin --build
-          bundle exec rb-sys-dock --platform x86_64-linux --build
-          bundle exec rb-sys-dock --platform aarch64-linux --build
-          bundle exec rake build  # source gem too
-      - name: push to RubyGems
+      - uses: oxidize-rb/actions/cross-gem@v1
+        id: cross-gem
+        with:
+          platform: ${{ matrix.platform }}
+          ruby-versions: '3.2,3.3,3.4'
+          working-directory: ruby
+      - name: push native gem
         if: ${{ !contains(github.ref_name, '-') }}
         working-directory: ruby
         run: |
           mkdir -p ~/.gem
           printf -- "---\n:rubygems_api_key: %s\n" "${GEM_HOST_API_KEY}" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-          for gem in pkg/*.gem; do gem push "$gem" --skip-existing; done
+          for gem in pkg/*-${{ matrix.platform }}.gem; do
+            [ -f "$gem" ] || continue
+            gem push "$gem" --skip-existing
+          done
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
+
+  publish-rubygems-source:
+    name: Publish source gem to RubyGems
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.ref_name, '-') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: ruby
+      - name: build source gem
+        working-directory: ruby
+        run: bundle exec rake build
+      - name: push source gem
+        working-directory: ruby
+        run: |
+          mkdir -p ~/.gem
+          printf -- "---\n:rubygems_api_key: %s\n" "${GEM_HOST_API_KEY}" > ~/.gem/credentials
+          chmod 0600 ~/.gem/credentials
+          for gem in pkg/*.gem; do
+            # Source gem (no platform suffix). Skip native gems if any
+            # snuck into pkg/ from cached state.
+            case "$gem" in
+              *-arm64-darwin*|*-x86_64-darwin*|*-x86_64-linux*|*-aarch64-linux*|*-mingw*)
+                continue ;;
+            esac
+            gem push "$gem" --skip-existing
+          done
         env:
           GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}

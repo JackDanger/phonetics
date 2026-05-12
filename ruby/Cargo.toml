@@ -1,0 +1,27 @@
+# Cargo workspace declaration for the Ruby gem. Exists so that
+# `rb_sys/extensiontask` can find the native extension's manifest by
+# walking up from the gem root, and so cargo resolves the vendored
+# `phonetics` core path dependency.
+#
+# The workspace.package values mirror what the Rust workspace at
+# <repo>/rust/ defines; they're declared here so the vendored copy
+# of the Rust core (which inherits via `.workspace = true`) resolves
+# correctly inside the gem.
+[workspace]
+resolver = "2"
+members = [
+    "ext/phonetics_ruby",
+    "ext/phonetics_ruby/vendor/phonetics",
+]
+exclude = []
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/JackDanger/phonetics"
+homepage = "https://github.com/JackDanger/phonetics"
+authors = ["Jack Danger <github@jackcanty.com>"]
+
+[workspace.lints.rust]
+unused_must_use = "deny"

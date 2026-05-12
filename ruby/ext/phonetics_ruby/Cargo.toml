@@ -1,0 +1,32 @@
+# Member of the gem-local workspace at <repo>/ruby/Cargo.toml. The
+# workspace exists purely so `rb_sys` can find this crate via `cargo
+# metadata` from the gem root; the package is otherwise standalone
+# (no shared inheritance from the Rust workspace at <repo>/rust/),
+# which means it builds the same in a checkout and in a `gem
+# install`-extracted source tree.
+[package]
+# Underscored to match the rake extension name and the cdylib that
+# `Init_phonetics_ruby` expects to find. Cargo accepts both forms;
+# this avoids the s/-/_/ rename Cargo otherwise applies to the
+# produced artifact.
+name = "phonetics_ruby"
+description = "Ruby bindings for the phonetics crate, via magnus."
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+# cdylib so Ruby `require` can dlopen it as a native extension.
+crate-type = ["cdylib"]
+
+[dependencies]
+# Vendored copy of the Rust core. Populated by `rake vendor_rust`
+# from <repo>/rust/phonetics; see ruby/Rakefile. The vendor dir is
+# not committed to git but IS shipped in the .gem tarball, so a
+# user running `gem install phonetics` gets a self-contained build.
+phonetics = { path = "vendor/phonetics" }
+magnus = "0.8"
+
+[build-dependencies]
+rb-sys-env = "0.2"

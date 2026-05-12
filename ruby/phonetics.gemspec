@@ -24,20 +24,24 @@ Gem::Specification.new do |spec|
   spec.metadata['homepage_uri']    = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
 
-  spec.extensions = ['ext/phonetics/extconf.rb']
+  spec.extensions = ['ext/phonetics_ruby/extconf.rb']
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject do |f|
+    tracked = `git ls-files -z`.split("\x0").reject do |f|
       f.match(%r{\A(test|spec|features)/}) ||
-        f.match(%r{\Aext/phonetics/(target|Cargo.lock|Makefile)})
+        f.match(%r{\Aext/phonetics_ruby/(target|Cargo.lock|Makefile)})
     end
+    # The vendored Rust core isn't tracked in git (it's a build
+    # artifact populated by `rake vendor_rust`), but it IS shipped
+    # in the .gem tarball so end users don't need the source
+    # workspace to compile the extension.
+    vendor = Dir.glob('ext/phonetics_ruby/vendor/**/*', File::FNM_DOTMATCH).reject do |p|
+      File.directory?(p) ||
+        p.include?('/target/') ||
+        p.end_with?('Cargo.lock', '/.', '/..')
+    end
+    (tracked + vendor).uniq.sort
   end
-  # Ship the Rust core as part of the gem so a `gem install` doesn't
-  # need a separate workspace checkout to find phonetics/.
-  rust_core = Dir[File.expand_path('../rust/phonetics/**/*', __dir__)].reject do |p|
-    p.include?('/target/') || p.end_with?('Cargo.lock')
-  end
-  spec.files += rust_core.map { |p| Pathname.new(p).relative_path_from(Pathname.new(File.expand_path('..', __dir__))).to_s }
 
   spec.require_paths = ['lib']
 

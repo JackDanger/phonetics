@@ -15,12 +15,18 @@ Gemfile.lock
 *.bundle
 *.bundle.dSYM
 
-# C extension build artifacts (legacy, scheduled for removal)
-ext/c_levenshtein/Makefile
-ext/c_levenshtein/*.o
-
 # Rust extension build artifacts (mkmf-generated)
-ext/phonetics/Makefile
-ext/phonetics/Cargo.lock
-ext/phonetics/target/
-ext/phonetics/mkmf.log
+ext/phonetics_ruby/Makefile
+ext/phonetics_ruby/Cargo.lock
+ext/phonetics_ruby/target/
+ext/phonetics_ruby/mkmf.log
+
+# Vendored Rust core. Populated by `rake vendor_rust`; shipped in
+# the .gem tarball but not tracked in git (single source of truth
+# lives at <repo>/rust/phonetics).
+ext/phonetics_ruby/vendor/
+
+# Cargo workspace build artifacts (the gem-local workspace at
+# ruby/Cargo.toml puts its target/ at ruby/target).
+target/
+Cargo.lock
