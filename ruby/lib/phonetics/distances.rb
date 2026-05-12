@@ -292,6 +292,17 @@ module Phonetics
     PLACE_SCALE     = 0.30
     PLACE_NORM      = Math.sqrt(2.0)
 
+    # Lateral airflow is a separate articulatory dimension that the manner
+    # rank conflates: /l/ and /ɹ/ are both "approximants" but route airflow
+    # differently and sound very different. Without this penalty,
+    # alveolar /l/ vs alveolar /ɹ/ comes out as distance 0.0.
+    LATERAL_PENALTY = 0.10
+    LATERAL_MANNERS = Set.new([
+      'Lateral fricative',
+      'Lateral approximant',
+      'Lateral tap/flap',
+    ]).freeze
+
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
     # Parse the ChartData into a lookup table where we can retrieve attributes
@@ -358,12 +369,17 @@ module Phonetics
       penalty  = 0.0
       penalty += VOICING_PENALTY if f1[:voiced] != f2[:voiced]
       penalty += MANNER_SCALE * (MannerScore[f1[:manner]] - MannerScore[f2[:manner]]).abs
+      penalty += LATERAL_PENALTY if lateral?(f1[:manner]) != lateral?(f2[:manner])
 
       x1, y1 = PositionCoords[f1[:position]]
       x2, y2 = PositionCoords[f2[:position]]
       penalty += PLACE_SCALE * Math.sqrt((x1 - x2)**2 + (y1 - y2)**2) / PLACE_NORM
 
       [penalty, 1.0].min
+    end
+
+    def lateral?(manner)
+      LATERAL_MANNERS.include?(manner)
     end
   end
 

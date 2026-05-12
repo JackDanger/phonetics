@@ -60,9 +60,48 @@ module Phonetics
 
     # Phonemes that are perceptually transparent at word boundaries in
     # English. Indels of these always use WEAK_INDEL_COST regardless of
-    # whether they're opening or extending a gap.
+    # whether they're opening or extending a gap. The set is informed by
+    # English speech-reduction literature (Bybee, Fokes & Bond) — these
+    # are the segments with the highest measured deletion/insertion rates
+    # in natural conversational speech.
     WEAK_PHONEMES = Set.new(%w[ə h ʔ ɦ]).freeze
     WEAK_INDEL_COST = 0.15
+
+    # Empirically-confusable phoneme pairs whose acoustic distance under
+    # Phonetics.distance overstates the perceptual gap. Drawn from the
+    # Miller-Nicely (1955) consonant-confusion lineage and English-
+    # variation studies (th-stopping, intervocalic /t/-flapping, the
+    # canonical l/r confusion).
+    #
+    # The overlay is one-directional in the look-up but symmetric in
+    # interpretation: presence of the pair {a,b} sets sub_cost(a,b) and
+    # sub_cost(b,a) both to the overlay value.
+    #
+    # Strict Phonetics.distance is unaffected — only the Confusion path
+    # consults this table.
+    EMPIRICAL_OVERLAY = {
+      # Th-stopping: /θ/→/t/, /ð/→/d/ (very common in casual speech,
+      # AAVE, NYC English, and L2 English).
+      Set[ 'θ', 't' ]  => 0.18,
+      Set[ 'ð', 'd' ]  => 0.18,
+      # Th-stopping into sibilants: less common but documented.
+      Set[ 'θ', 's' ]  => 0.12,
+      Set[ 'ð', 'z' ]  => 0.12,
+      # Fric-stop crossing at the same place (the "p/f", "b/v" cousins).
+      Set[ 'p', 'f' ]  => 0.20,
+      Set[ 'b', 'v' ]  => 0.20,
+      Set[ 't', 's' ]  => 0.20,
+      Set[ 'd', 'z' ]  => 0.20,
+      # Intervocalic /t/-flapping in American English: 'butter' ≈ 'budder'
+      # ≈ 'buɾer'. The flap [ɾ] is acoustically nearly indistinguishable
+      # from a brief voiced [d] between vowels.
+      Set[ 't', 'ɾ' ]  => 0.10,
+      Set[ 'd', 'ɾ' ]  => 0.05,
+      # L/R confusion (universally high-confusion pair for L2 English;
+      # the lateral fix already drops it to 0.10 acoustically, the
+      # overlay pushes it slightly higher to reflect perceptual reality).
+      Set[ 'l', 'ɹ' ]  => 0.15,
+    }.freeze
 
     # Convenience: top-level entry point.
     def distance(ipa1, ipa2, verbose: false)
@@ -82,10 +121,16 @@ module Phonetics
       [1.0 - (d.to_f / max_n), 0.0].max
     end
 
-    # Per-phoneme substitution cost used by the confusion DP. Routes through
-    # Phonetics.distance, which already handles compound phonemes
-    # (diphthongs/affricates), cross-class bridges, and diacritics.
+    # Per-phoneme substitution cost used by the confusion DP. Consults the
+    # empirical overlay first, then falls back to Phonetics.distance, which
+    # already handles compound phonemes (diphthongs/affricates), cross-class
+    # bridges, and diacritics.
     def sub_cost(a, b)
+      return 0.0 if a == b
+
+      overlay = EMPIRICAL_OVERLAY[Set[a, b]]
+      return overlay if overlay
+
       Phonetics.distance(a, b)
     end
 

@@ -95,6 +95,47 @@ RSpec.describe Phonetics::Confusion do
     end
   end
 
+  describe 'empirical overlay' do
+    it 'applies the th-stopping discount to /θ/-/t/ and /ð/-/d/' do
+      expect(described_class.sub_cost('θ', 't')).to be < Phonetics.distance('θ', 't')
+      expect(described_class.sub_cost('ð', 'd')).to be < Phonetics.distance('ð', 'd')
+    end
+
+    it 'treats American /t/-flap as near-identical to /d/' do
+      # 'butter' ≈ 'budder' ≈ 'buɾer' in American English.
+      expect(described_class.sub_cost('t', 'ɾ')).to be < 0.15
+      expect(described_class.sub_cost('d', 'ɾ')).to be < 0.10
+    end
+
+    it 'does not leak overlay values into Phonetics.distance' do
+      # Strict acoustic distance must stay honest about the dental→alveolar
+      # manner change even when the perceptual layer discounts it.
+      expect(Phonetics.distance('θ', 't')).to be > 0.20
+    end
+
+    it 'is symmetric' do
+      [%w[θ t], %w[t ɾ], %w[l ɹ], %w[p f]].each do |a, b|
+        expect(described_class.sub_cost(a, b)).to be_within(1e-9).of(described_class.sub_cost(b, a))
+      end
+    end
+  end
+
+  describe 'lateral airflow feature' do
+    it 'distinguishes /l/ from /ɹ/' do
+      # Without LATERAL_PENALTY, both are alveolar approximants with manner
+      # rank 1.0 and the distance was tied at exactly 0.
+      expect(Phonetics.distance('l', 'ɹ')).to be > 0.0
+    end
+
+    it 'penalises a lateral/non-lateral mismatch on otherwise-similar consonants' do
+      # /ɬ/ and /s/ share alveolar place and voiceless voicing; they differ
+      # only in lateral airflow + sibilance. /ɮ/ vs /z/ is the voiced
+      # counterpart. With LATERAL_PENALTY each gets a clear non-zero cost.
+      expect(Phonetics::Consonants.distance('ɬ', 's')).to be > Phonetics::Consonants::LATERAL_PENALTY * 0.9
+      expect(Phonetics::Consonants.distance('ɮ', 'z')).to be > Phonetics::Consonants::LATERAL_PENALTY * 0.9
+    end
+  end
+
   describe 'two-tier API contract' do
     it "exposes Phonetics::Levenshtein as the strict per-phoneme edit distance" do
       # Strict and confusion should diverge meaningfully on length-changing
