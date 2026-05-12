@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
-require 'bundler/setup'
+begin
+  require 'bundler/setup'
+rescue LoadError, StandardError
+  # Allow the suite to run on Ruby versions where bundler/setup is unavailable
+  # or its lock can't be satisfied; the lib only depends on stdlib + a built C
+  # extension that we load relatively.
+  $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+end
 require 'phonetics'
 require_relative 'support/levenshtein_shared_example'
 
