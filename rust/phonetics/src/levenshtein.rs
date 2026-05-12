@@ -118,7 +118,7 @@ mod tests {
     }
 
     #[test]
-    fn one_indel_costs_INDEL_COST() {
+    fn one_indel_costs_one_unit() {
         // Inserting or deleting one phoneme costs exactly the indel.
         assert!((distance("kæt", "kæte") - super::INDEL_COST).abs() < 1e-6);
     }

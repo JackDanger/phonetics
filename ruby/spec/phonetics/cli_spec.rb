@@ -244,7 +244,7 @@ RSpec.describe 'phonetics CLI' do
     # Same puzzles as madgab_spec.rb but driven entirely through the
     # executable. If we ever ship a Rust binary, this is the suite that
     # gates parity.
-    PUZZLES = [
+    CLI_PUZZLES = [
       ['ɪtsdʒʌstəstupɪdgeɪm',  'hɪtsdʒʌstɪsduphɪdkeɪm', 'jɔrmʌðɝwɛrzsneɪkɝz'],
       ['æpəlpaɪ',              'eɪppʊlpaɪ',             'rɑkiroʊd'],
       ['məʃingʌn',             'mʌʃʃingʌm',             'maʊntɪnrʌn'],
@@ -252,7 +252,7 @@ RSpec.describe 'phonetics CLI' do
       ['sænwɪtʃ',              'sændwɛdʒ',              'lɛmənslaɪs'],
     ].freeze
 
-    PUZZLES.each_with_index do |(target, clue, decoy), i|
+    CLI_PUZZLES.each_with_index do |(target, clue, decoy), i|
       it "ranks puzzle ##{i + 1} clue closer than decoy under confusion" do
         clue_d  = run_number('confusion', target, clue)
         decoy_d = run_number('confusion', target, decoy)
