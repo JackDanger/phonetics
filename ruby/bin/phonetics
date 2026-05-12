@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Phonetics CLI — the implementation-agnostic contract.
+#
+# Subcommands produce a single numeric value (or for tokenize, one token per
+# line) on stdout. Errors go to stderr with a non-zero exit. The integration
+# tests in spec/phonetics/cli_spec.rb exercise this contract, not Ruby
+# internals: a Rust (or Python, or anything) reimplementation that preserves
+# the same input/output behavior is automatically validated by the same
+# suite.
+
+$stdout.set_encoding('UTF-8')
+$stderr.set_encoding('UTF-8')
+
+# Make the project's lib/ findable for the bare `require 'phonetics/...'`
+# calls inside the library. Running as a gem-installed binary, this is on
+# $LOAD_PATH already; running from a checkout, we add it ourselves.
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'phonetics'
+
+USAGE = <<~USAGE
+  Usage: phonetics <command> [args...]
+
+  Phrase-level distances (input: IPA strings, possibly with spaces):
+    distance    <ipa1> <ipa2>     Strict phonetic Levenshtein.
+    confusion   <ipa1> <ipa2>     Listener-confusion distance.
+    similarity  <ipa1> <ipa2>     0..1 normalised similarity.
+
+  Phoneme-level distances (input: single phonemes):
+    phoneme         <a> <b>       Acoustic distance.
+    phoneme-conf    <a> <b>       Perceptual distance (with overlay).
+
+  Tokenisation:
+    tokenize    [--boundaries] <ipa>     Phoneme stream, one per line.
+
+  Numeric output is a single line. With --json, output is a JSON object.
+USAGE
+
+def die(message, code = 2)
+  warn message
+  exit code
+end
+
+def format_number(value, json:)
+  return JSON.dump(value: value) if json
+
+  value.to_s
+end
+
+# Pull --json out of args wherever it sits, since it can apply to any
+# command. Same for --boundaries on tokenize.
+json   = !ARGV.delete('--json').nil?
+bounds = !ARGV.delete('--boundaries').nil?
+
+command, *args = ARGV
+require 'json' if json
+
+case command
+when 'distance'
+  die USAGE unless args.size == 2
+  puts format_number(Phonetics::Levenshtein.distance(args[0], args[1]), json: json)
+
+when 'confusion'
+  die USAGE unless args.size == 2
+  puts format_number(Phonetics.confusion(args[0], args[1]), json: json)
+
+when 'similarity'
+  die USAGE unless args.size == 2
+  puts format_number(Phonetics::Confusion.similarity(args[0], args[1]), json: json)
+
+when 'phoneme'
+  die USAGE unless args.size == 2
+  puts format_number(Phonetics.distance(args[0], args[1]), json: json)
+
+when 'phoneme-conf'
+  die USAGE unless args.size == 2
+  puts format_number(Phonetics::Confusion.sub_cost(args[0], args[1]), json: json)
+
+when 'tokenize'
+  die USAGE unless args.size == 1
+
+  tokens = Phonetics::String.new(args[0]).each_phoneme(boundaries: bounds).to_a
+  if json
+    puts JSON.dump(tokens: tokens)
+  else
+    puts tokens
+  end
+
+when 'version', '--version'
+  require_relative '../lib/phonetics/version'
+  puts Phonetics::VERSION
+
+when '--help', '-h', nil
+  puts USAGE
+
+else
+  die "phonetics: unknown command #{command.inspect}\n\n#{USAGE}"
+end
