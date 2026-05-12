@@ -1,0 +1,20 @@
+[package]
+name = "phonetics"
+description = "IPA-based phonetic distance metrics: strict edit distance, listener-confusion distance, and per-phoneme acoustic and perceptual scoring. Calibrated against Mad Gab puzzle data; tunable per dialect."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+authors.workspace = true
+readme = "README.md"
+keywords = ["phonetics", "ipa", "linguistics", "edit-distance", "speech"]
+categories = ["text-processing", "science"]
+
+[lints]
+workspace = true
+
+[dependencies]
+
+[dev-dependencies]
+# Empty for now; will gain criterion + insta as the surface grows.

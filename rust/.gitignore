@@ -1,0 +1,7 @@
+# Build artifacts
+target/
+
+# Lock files we commit for the workspace but not for individual crates'
+# binary builds:
+**/Cargo.lock
+!Cargo.lock

@@ -1,0 +1,49 @@
+# Cargo workspace for the phonetics Rust port.
+#
+# Three crates with a clean dependency direction:
+#
+#   phonetics        the language-agnostic core. Publishable to crates.io.
+#                    No FFI, no Ruby, no Python — just IPA-distance math.
+#
+#   phonetics-ruby   Magnus bindings around `phonetics`. Built as a Ruby
+#                    extension; ships in the gem.
+#
+#   phonetics-py     PyO3 bindings around `phonetics`. Built with maturin;
+#                    ships as a wheel.
+#
+# The bindings crates only thin-wrap the core API. All algorithm changes
+# happen in `phonetics` and propagate automatically.
+[workspace]
+resolver = "2"
+members = [
+    "phonetics",
+    # "phonetics-ruby",   # enabled once the core is parity-checked
+    # "phonetics-py",     # enabled once the core is parity-checked
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/JackDanger/phonetics"
+homepage = "https://github.com/JackDanger/phonetics"
+authors = ["Jack Danger <github@jackcanty.com>"]
+
+[workspace.lints.rust]
+unused_must_use = "deny"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+# Allow some pedantic lints that hurt readability for math-heavy code.
+similar_names = "allow"
+many_single_char_names = "allow"
+must_use_candidate = "allow"
+missing_panics_doc = "allow"
+missing_errors_doc = "allow"
+cast_precision_loss = "allow"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
