@@ -100,30 +100,20 @@ RSpec.describe 'Mad Gab puzzle ranking' do
   ].freeze
   # rubocop:enable Layout/LineLength
 
-  describe 'using the Ruby implementation' do
+  describe 'strict Levenshtein per puzzle' do
     PUZZLES.each do |puzzle|
       it "ranks #{puzzle[:clue_phrase].inspect} closer to #{puzzle[:label].inspect} than the distractor" do
-        clue_d       = Phonetics::RubyLevenshtein.distance(puzzle[:target], puzzle[:clue])
-        distractor_d = Phonetics::RubyLevenshtein.distance(puzzle[:target], puzzle[:distractor])
+        clue_d       = Phonetics.levenshtein(puzzle[:target], puzzle[:clue])
+        distractor_d = Phonetics.levenshtein(puzzle[:target], puzzle[:distractor])
         expect(clue_d).to be < distractor_d
-      end
-    end
-  end
-
-  describe 'using the C implementation (parity check on undiacriticised input)' do
-    PUZZLES.each do |puzzle|
-      it "agrees with Ruby for #{puzzle[:label].inspect}" do
-        c_clue    = Phonetics::Levenshtein.distance(puzzle[:target], puzzle[:clue])
-        ruby_clue = Phonetics::RubyLevenshtein.distance(puzzle[:target], puzzle[:clue])
-        expect(c_clue).to be_within(0.01).of(ruby_clue)
       end
     end
   end
 
   it 'on average puts the clue ≥2× closer than the distractor (strict Levenshtein)' do
     ratios = PUZZLES.map do |p|
-      clue_d       = Phonetics::RubyLevenshtein.distance(p[:target], p[:clue])
-      distractor_d = Phonetics::RubyLevenshtein.distance(p[:target], p[:distractor])
+      clue_d       = Phonetics.levenshtein(p[:target], p[:clue])
+      distractor_d = Phonetics.levenshtein(p[:target], p[:distractor])
       next nil if clue_d.zero?
 
       distractor_d / clue_d
@@ -135,24 +125,24 @@ RSpec.describe 'Mad Gab puzzle ranking' do
   describe 'using the listener-confusion metric' do
     PUZZLES.each do |puzzle|
       it "ranks #{puzzle[:clue_phrase].inspect} closer to #{puzzle[:label].inspect} than the distractor" do
-        clue_d       = Phonetics::Confusion.distance(puzzle[:target], puzzle[:clue])
-        distractor_d = Phonetics::Confusion.distance(puzzle[:target], puzzle[:distractor])
+        clue_d       = Phonetics.confusion(puzzle[:target], puzzle[:clue])
+        distractor_d = Phonetics.confusion(puzzle[:target], puzzle[:distractor])
         expect(clue_d).to be < distractor_d
       end
     end
 
     it 'beats strict Levenshtein on mean discrimination ratio' do
       strict_ratios = PUZZLES.map do |p|
-        cl = Phonetics::RubyLevenshtein.distance(p[:target], p[:clue])
-        dl = Phonetics::RubyLevenshtein.distance(p[:target], p[:distractor])
+        cl = Phonetics.levenshtein(p[:target], p[:clue])
+        dl = Phonetics.levenshtein(p[:target], p[:distractor])
         next nil if cl.zero?
 
         dl / cl
       end.compact
 
       conf_ratios = PUZZLES.map do |p|
-        cl = Phonetics::Confusion.distance(p[:target], p[:clue])
-        dl = Phonetics::Confusion.distance(p[:target], p[:distractor])
+        cl = Phonetics.confusion(p[:target], p[:clue])
+        dl = Phonetics.confusion(p[:target], p[:distractor])
         next nil if cl.zero?
 
         dl / cl
@@ -167,8 +157,8 @@ RSpec.describe 'Mad Gab puzzle ranking' do
       # The strict metric bottoms out at ~1.05x (the Need-a-Coffee case).
       # Confusion lifts the worst case to ≥1.2x.
       ratios = PUZZLES.map do |p|
-        cl = Phonetics::Confusion.distance(p[:target], p[:clue])
-        dl = Phonetics::Confusion.distance(p[:target], p[:distractor])
+        cl = Phonetics.confusion(p[:target], p[:clue])
+        dl = Phonetics.confusion(p[:target], p[:distractor])
         next nil if cl.zero?
 
         dl / cl

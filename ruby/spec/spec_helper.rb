@@ -4,12 +4,11 @@ begin
   require 'bundler/setup'
 rescue LoadError, StandardError
   # Allow the suite to run on Ruby versions where bundler/setup is unavailable
-  # or its lock can't be satisfied; the lib only depends on stdlib + a built C
-  # extension that we load relatively.
+  # or its lock can't be satisfied. The lib loads its Rust native extension
+  # via a relative require; we only need lib/ on $LOAD_PATH.
   $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 end
 require 'phonetics'
-require_relative 'support/levenshtein_shared_example'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
