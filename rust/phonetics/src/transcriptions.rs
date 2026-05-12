@@ -90,29 +90,11 @@ impl Trie {
     /// because the full corpus has long-tail entries that aren't
     /// useful for Mad Gab; cutting the tail dramatically shrinks the
     /// trie and speeds searches.
+    ///
+    /// If you also need word → IPA lookup, use [`Corpus::from_json`]
+    /// which produces both directions in a single parse.
     pub fn from_json(json: &str, max_rarity: Option<f64>) -> Result<Self, Error> {
-        let raw: HashMap<String, RawEntry> = serde_json::from_str(json)?;
-        let mut trie = Self::default();
-        for (word, entry) in raw {
-            if let (Some(rarity), Some(cap)) = (entry.rarity, max_rarity) {
-                if rarity > cap {
-                    continue;
-                }
-            }
-            for (source, ipa) in entry.ipa {
-                if ipa.is_empty() {
-                    continue;
-                }
-                trie.insert(Pronunciation {
-                    word: word.clone(),
-                    ipa,
-                    source,
-                    rarity: entry.rarity,
-                    alt_display: entry.alt_display.clone(),
-                });
-            }
-        }
-        Ok(trie)
+        Ok(Corpus::from_json(json, max_rarity)?.trie)
     }
 
     fn insert(&mut self, p: Pronunciation) {
@@ -156,6 +138,101 @@ impl Trie {
     /// True if the trie has no entries.
     pub fn is_empty(&self) -> bool {
         self.len() == 0
+    }
+}
+
+/// Bidirectional lookup: forward (word → IPAs) and reverse (IPA
+/// prefix → words). One parse builds both; share one corpus across
+/// transcription and generator workloads.
+#[derive(Debug, Default)]
+pub struct Corpus {
+    /// Reverse index — phoneme prefix to words.
+    pub trie: Trie,
+    /// Forward index — word to all known pronunciations.
+    by_word: HashMap<String, Vec<Pronunciation>>,
+}
+
+/// Source-preference order used by [`Corpus::preferred_ipa`]. The
+/// first source whose name *contains* one of these substrings wins.
+/// Matches the Ruby gem's `SourcesByPreference` order.
+const SOURCE_PREFERENCE: &[&str] = &["wiktionary", "cmu", "phonemicchart"];
+
+impl Corpus {
+    /// Parse the JSON corpus and build both forward and reverse
+    /// indexes in a single pass.
+    pub fn from_json(json: &str, max_rarity: Option<f64>) -> Result<Self, Error> {
+        let raw: HashMap<String, RawEntry> = serde_json::from_str(json)?;
+        let mut trie = Trie::default();
+        let mut by_word: HashMap<String, Vec<Pronunciation>> = HashMap::new();
+        for (word, entry) in raw {
+            if let (Some(rarity), Some(cap)) = (entry.rarity, max_rarity) {
+                if rarity > cap {
+                    continue;
+                }
+            }
+            let mut entries: Vec<Pronunciation> = Vec::with_capacity(entry.ipa.len());
+            for (source, ipa) in entry.ipa {
+                if ipa.is_empty() {
+                    continue;
+                }
+                entries.push(Pronunciation {
+                    word: word.clone(),
+                    ipa,
+                    source,
+                    rarity: entry.rarity,
+                    alt_display: entry.alt_display.clone(),
+                });
+            }
+            for p in &entries {
+                trie.insert(p.clone());
+            }
+            if !entries.is_empty() {
+                by_word.insert(word, entries);
+            }
+        }
+        Ok(Self { trie, by_word })
+    }
+
+    /// All registered pronunciations of `word`, in original-source
+    /// order. Returns an empty slice for unknown words.
+    pub fn pronunciations(&self, word: &str) -> &[Pronunciation] {
+        self.by_word
+            .get(word)
+            .map(Vec::as_slice)
+            .unwrap_or(&[])
+    }
+
+    /// The "best" IPA transcription for `word`: the first source
+    /// whose label matches the [`SOURCE_PREFERENCE`] order, falling
+    /// back to whatever appears first in the corpus.
+    pub fn preferred_ipa(&self, word: &str) -> Option<&str> {
+        let prs = self.pronunciations(word);
+        for pref in SOURCE_PREFERENCE {
+            if let Some(p) = prs.iter().find(|p| p.source.contains(pref)) {
+                return Some(&p.ipa);
+            }
+        }
+        prs.first().map(|p| p.ipa.as_str())
+    }
+
+    /// Transcribe an English phrase to a concatenated IPA stream.
+    /// Words are lowercased before lookup. Returns `None` if any word
+    /// has no transcription in the corpus.
+    pub fn transcribe(&self, phrase: &str) -> Option<String> {
+        let mut out = String::new();
+        for word in phrase.split_whitespace() {
+            let key = word.to_lowercase();
+            // Strip simple trailing punctuation common in input.
+            let key = key.trim_end_matches(|c: char| matches!(c, '.' | ',' | '!' | '?' | ';' | ':'));
+            let ipa = self.preferred_ipa(key)?;
+            out.push_str(ipa);
+        }
+        Some(out)
+    }
+
+    /// Number of distinct headwords in the corpus.
+    pub fn word_count(&self) -> usize {
+        self.by_word.len()
     }
 }
 
@@ -252,5 +329,32 @@ mod tests {
         let stream: Vec<char> = "fʌn".chars().collect();
         let hits: Vec<_> = t.words_starting_at(&stream, 0).collect();
         assert!(hits.is_empty());
+    }
+
+    #[test]
+    fn corpus_supports_forward_lookup_and_transcribe() {
+        let c = Corpus::from_json(TINY, None).unwrap();
+        assert_eq!(c.word_count(), 4);
+        assert_eq!(c.preferred_ipa("cat"), Some("kæt"));
+        assert_eq!(c.preferred_ipa("dog"), Some("dɔg"));
+        assert_eq!(c.preferred_ipa("not_there"), None);
+        // Transcription of a phrase concatenates per-word IPA.
+        assert_eq!(c.transcribe("cat dog"), Some("kætdɔg".to_string()));
+        assert_eq!(c.transcribe("Cat Dog"), Some("kætdɔg".to_string())); // case-insensitive
+        // Unknown word → None
+        assert_eq!(c.transcribe("cat orange"), None);
+    }
+
+    #[test]
+    fn corpus_trie_field_walks_correctly() {
+        let c = Corpus::from_json(TINY, None).unwrap();
+        let stream: Vec<char> = "kæts".chars().collect();
+        let words: Vec<&str> = c
+            .trie
+            .words_starting_at(&stream, 0)
+            .map(|(_, p)| p.word.as_str())
+            .collect();
+        assert!(words.contains(&"cat"));
+        assert!(words.contains(&"cats"));
     }
 }
