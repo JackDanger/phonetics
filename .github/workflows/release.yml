@@ -65,8 +65,9 @@ jobs:
             target: aarch64
           - os: macos-14
             target: aarch64
-          - os: macos-13
-            target: x86_64
+          # macos-13 (Intel) runners are deprecated and frequently
+          # queue for 10+ minutes. Apple Silicon is the practical
+          # macOS target now; Intel-Mac users install from sdist.
           - os: windows-latest
             target: x64
     steps:
