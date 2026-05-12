@@ -1,34 +1,96 @@
 name: Tests
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - rust-implementation
+  pull_request:
 
 jobs:
-  ci-ruby:
-    name: CI Ruby
+  # ----------------------------------------------------------------
+  # Rust core: cargo test on stable. Tests are inside the crate so
+  # this also exercises every parity-pinned reference value.
+  # ----------------------------------------------------------------
+  rust:
+    name: rust core tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rust -> target
+      - name: cargo test
+        working-directory: rust
+        run: cargo test --workspace --no-fail-fast
+      - name: cargo clippy
+        working-directory: rust
+        run: cargo clippy --workspace --no-deps -- -D warnings
+
+  # ----------------------------------------------------------------
+  # Python: maturin develop into a venv, then pytest.
+  # ----------------------------------------------------------------
+  python:
+    name: python tests (${{ matrix.python }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby:
-          - '3.1.5'
-          - '3.3.1'
+        python: ['3.9', '3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: python/phonetics-py -> target
+      - name: install dependencies
+        working-directory: python/phonetics-py
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install maturin pytest
+      - name: build native extension
+        working-directory: python/phonetics-py
+        run: |
+          source .venv/bin/activate
+          maturin develop --release
+      - name: pytest
+        working-directory: python/phonetics-py
+        run: |
+          source .venv/bin/activate
+          pytest tests/ -v
+
+  # ----------------------------------------------------------------
+  # Ruby: build the magnus extension via the gem's extconf, then run
+  # the spec suite (which exercises the public Phonetics module
+  # surface and the CLI integration tier).
+  # ----------------------------------------------------------------
+  ruby:
+    name: ruby tests (${{ matrix.ruby }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: ['3.2', '3.3', '3.4']
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: cd ruby && gem install bundler && bundle && bundle exec rake 
-  ci-python:
-    name: CI Python
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python:
-          - '3.9'
-          - '3.10'
-          - '3.11'
-    steps:
-      - uses: actions/checkout@v4
-      - uses: python/setup-python@v1
+          # bundler-cache: true   # disabled until gemspec is updated
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
         with:
-          python-version: ${{ matrix.python }}
-      - run: cd python && nosetests
+          workspaces: ruby/ext/phonetics -> target
+      - name: install dependencies
+        run: gem install rb_sys rspec
+      - name: build native extension
+        working-directory: ruby/ext/phonetics
+        run: |
+          ruby extconf.rb
+          make
+      - name: rspec
+        working-directory: ruby
+        run: rspec --no-color spec/

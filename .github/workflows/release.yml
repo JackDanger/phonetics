@@ -1,0 +1,118 @@
+name: Release
+
+# Triggered by pushing a git tag of the form `v0.1.0`. Each job pushes
+# to its respective registry only if the tag is a real release tag —
+# pre-release tags (`v0.1.0-rc1`) build and validate but skip the
+# upload steps.
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  # ----------------------------------------------------------------
+  # crates.io: source-only publish of the `phonetics` core crate.
+  # ----------------------------------------------------------------
+  publish-crates-io:
+    name: Publish to crates.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: cargo publish (dry-run on pre-release)
+        working-directory: rust/phonetics
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == *-* ]]; then
+            cargo publish --dry-run
+          else
+            cargo publish --token "${CARGO_REGISTRY_TOKEN}"
+          fi
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
+  # ----------------------------------------------------------------
+  # PyPI: maturin builds platform wheels in a matrix; one Linux job
+  # also produces an sdist. PyPI's "trusted publisher" OIDC flow is
+  # the recommended path — no token needed if you've configured the
+  # project on pypi.org.
+  # ----------------------------------------------------------------
+  publish-pypi:
+    name: Publish to PyPI (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      id-token: write   # for PyPI trusted publisher
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64
+            sdist: true
+          - os: macos-14
+            target: aarch64
+          - os: macos-13
+            target: x86_64
+          - os: windows-latest
+            target: x64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: build wheel
+        uses: PyO3/maturin-action@v1
+        with:
+          working-directory: python/phonetics-py
+          command: build
+          args: --release --out dist
+      - name: build sdist
+        if: matrix.sdist
+        uses: PyO3/maturin-action@v1
+        with:
+          working-directory: python/phonetics-py
+          command: sdist
+          args: --out dist
+      - name: upload to PyPI
+        if: ${{ !contains(github.ref_name, '-') }}
+        uses: PyO3/maturin-action@v1
+        with:
+          working-directory: python/phonetics-py
+          command: upload
+          args: --non-interactive --skip-existing dist/*
+
+  # ----------------------------------------------------------------
+  # RubyGems: build the platform native gem via rake-compiler-dock so
+  # users on macOS, Linux, and Windows can `gem install` without a
+  # Rust toolchain. cross-gem ships one gem per platform plus the
+  # source gem for environments we don't pre-compile for.
+  # ----------------------------------------------------------------
+  publish-rubygems:
+    name: Publish to RubyGems
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - uses: dtolnay/rust-toolchain@stable
+      - name: build cross gems via rake-compiler-dock
+        working-directory: ruby
+        run: |
+          gem install rake-compiler rake-compiler-dock rb_sys
+          # Native gems: arm64-darwin, x86_64-darwin, x86_64-linux,
+          # x86_64-linux-musl, aarch64-linux, x64-mingw-ucrt
+          bundle exec rake clean
+          bundle exec rb-sys-dock --platform arm64-darwin --build
+          bundle exec rb-sys-dock --platform x86_64-darwin --build
+          bundle exec rb-sys-dock --platform x86_64-linux --build
+          bundle exec rb-sys-dock --platform aarch64-linux --build
+          bundle exec rake build  # source gem too
+      - name: push to RubyGems
+        if: ${{ !contains(github.ref_name, '-') }}
+        working-directory: ruby
+        run: |
+          mkdir -p ~/.gem
+          printf -- "---\n:rubygems_api_key: %s\n" "${GEM_HOST_API_KEY}" > ~/.gem/credentials
+          chmod 0600 ~/.gem/credentials
+          for gem in pkg/*.gem; do gem push "$gem" --skip-existing; done
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
