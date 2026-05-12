@@ -117,6 +117,31 @@ pub const PLACE_NORM: f64 = std::f64::consts::SQRT_2;
 /// other doesn't (e.g. /l/ vs /ɹ/).
 pub const LATERAL_PENALTY: f64 = 0.10;
 
+/// Every IPA consonant symbol the metric knows about, in canonical
+/// (chart-traversal) order.
+pub const INVENTORY: &[&str] = &[
+    // Nasals
+    "m̥","m","ɱ","n̼","n̥","n","ɳ̊","ɳ","ɲ̊","ɲ","ŋ̊","ŋ","ɴ",
+    // Stops
+    "p","b","p̪","b̪","t̼","d̼","t","d","ʈ","ɖ","c","ɟ","k","g","q","ɢ","ʡ","ʔ",
+    // Sibilant fricatives
+    "s","z","ʃ","ʒ","ʂ","ʐ","ɕ","ʑ",
+    // Non-sibilant fricatives
+    "ɸ","β","f","v","θ̼","ð̼","θ","ð","θ̠","ð̠","ɹ̠̊˔","ɹ̠˔","ɻ˔","ç","ʝ","x","ɣ","χ","ʁ","ħ","ʕ","h","ɦ",
+    // Approximants
+    "w","ʋ̥","ʋ","ɹ̥","ɹ","ɻ̊","ɻ","j̊","j","ɰ̊","ɰ","ʔ̞",
+    // Taps/flaps
+    "ⱱ̟","ⱱ","ɾ̼","ɾ̥","ɾ","ɽ̊","ɽ","ɢ̆","ʡ̆",
+    // Trills
+    "ʙ̥","ʙ","r̥","r","ʀ̥","ʀ","ʜ","ʢ",
+    // Lateral fricatives
+    "ɬ","ɮ","ɭ̊˔","ɭ˔","ʎ̝̊","ʎ̝","ʟ̝̊","ʟ̝",
+    // Lateral approximants
+    "l̥","l","ɭ̊","ɭ","ʎ̥","ʎ","ʟ̥","ʟ","ʟ̠",
+    // Lateral taps/flaps
+    "ɺ","ɭ̆","ʎ̆","ʟ̆",
+];
+
 /// Look up the feature data for an IPA consonant symbol.
 ///
 /// The table is the full IPA pulmonic-consonant chart from

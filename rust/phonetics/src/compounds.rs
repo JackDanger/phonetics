@@ -7,6 +7,14 @@
 //! repeating its last segment so /aɪ/ vs /a/ charges half a phoneme
 //! distance rather than nothing.
 
+/// Every registered compound phoneme symbol.
+pub const INVENTORY: &[&str] = &[
+    // Diphthongs
+    "aɪ","ɑɪ","aʊ","ɑʊ","ɔɪ","eɪ","oʊ","əʊ","ɪə","ʊə","ɛə",
+    // English affricates
+    "tʃ","dʒ",
+];
+
 /// Decompose a compound phoneme symbol into its components. Returns
 /// `None` for non-compound phonemes.
 pub fn components(symbol: &str) -> Option<&'static [&'static str]> {
