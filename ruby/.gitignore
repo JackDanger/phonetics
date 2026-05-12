@@ -10,12 +10,17 @@
 # rspec failure tracking
 .rspec_status
 .ruby-version
-.ruby-version
 *.so
 Gemfile.lock
 *.bundle
-.ruby-version
+*.bundle.dSYM
 
-# C extension build artifacts produced by `rake compile` / `ruby extconf.rb`
+# C extension build artifacts (legacy, scheduled for removal)
 ext/c_levenshtein/Makefile
 ext/c_levenshtein/*.o
+
+# Rust extension build artifacts (mkmf-generated)
+ext/phonetics/Makefile
+ext/phonetics/Cargo.lock
+ext/phonetics/target/
+ext/phonetics/mkmf.log

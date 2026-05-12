@@ -1,0 +1,26 @@
+# This crate is intentionally NOT a workspace member of the Rust
+# workspace at <repo>/rust/. It lives where rb_sys/mkmf wants it, and
+# `cargo build` runs from this directory during gem installation —
+# at which point any path up to a workspace root would be far away
+# from the installed gem source. Keeping the crate fully self-
+# contained (no `.workspace` inheritance) means the gem builds the
+# same whether you're in a git checkout or a `gem install`-extracted
+# tree.
+[package]
+name = "phonetics-ruby"
+description = "Ruby bindings for the phonetics crate, via magnus."
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+# cdylib so Ruby `require` can dlopen it as a native extension.
+crate-type = ["cdylib"]
+
+[dependencies]
+phonetics = { path = "../../../rust/phonetics" }
+magnus = "0.8"
+
+[build-dependencies]
+rb-sys-env = "0.2"

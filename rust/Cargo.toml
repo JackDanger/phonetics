@@ -17,9 +17,13 @@
 resolver = "2"
 members = [
     "phonetics",
-    # "phonetics-ruby",   # enabled once the core is parity-checked
-    # "phonetics-py",     # enabled once the core is parity-checked
 ]
+
+# The Ruby binding crate lives at <repo>/ruby/ext/phonetics/ where the
+# gem's extconf.rb builds it. It's standalone (no workspace
+# inheritance) so it builds equally well from a git checkout or from
+# a `gem install`-extracted tree where the workspace root isn't
+# available.
 
 [workspace.package]
 version = "0.1.0"
