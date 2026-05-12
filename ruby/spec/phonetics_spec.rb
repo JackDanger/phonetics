@@ -2,19 +2,43 @@
 
 require_relative '../lib/phonetics'
 
+# These specs assert *relative* phonetic relationships, not pinned numeric
+# values. Pinning numbers couples the test suite to the current weight tuning;
+# the cross-pair orderings below are what actually has to hold for the metric
+# to be useful as Levenshtein input.
 RSpec.describe Phonetics do
   describe Phonetics::Vowels do
     describe '.distance' do
-      subject(:distance) { described_class.distance(phoneme1, phoneme2) }
-      let(:phoneme1) { 'i' }
-      let(:phoneme2) { 'ɔ' }
+      it 'is zero for a vowel against itself' do
+        Phonetics::Vowels::FormantFrequencies.each_key do |v|
+          expect(described_class.distance(v, v)).to eq(0)
+        end
+      end
 
-      it 'is half the hypotenuse between the two formant sets' do
-        expect(distance).to be_within(0.001).of(0.38575)
+      it 'is symmetric' do
+        keys = Phonetics::Vowels::FormantFrequencies.keys
+        keys.combination(2).each do |a, b|
+          expect(described_class.distance(a, b)).to be_within(1e-9).of(described_class.distance(b, a))
+        end
+      end
+
+      it 'is bounded in [0, 1]' do
+        keys = Phonetics::Vowels::FormantFrequencies.keys
+        keys.combination(2).each do |a, b|
+          expect(described_class.distance(a, b)).to be_between(0.0, 1.0)
+        end
+      end
+
+      it 'distinguishes /ə/ from rhotic /ɝ/' do
+        expect(described_class.distance('ə', 'ɝ')).to be > 0.1
+      end
+
+      it 'distinguishes rounded /y/ from unrounded /i/ despite near-identical formants' do
+        expect(described_class.distance('i', 'y')).to be > 0.0
       end
     end
 
-    context 'comparing front vowels to backvowels' do
+    context 'comparing front vowels to back vowels' do
       {
         'a' => { closer: 'œ', further: 'o' },
         'i' => { closer: 'ɪ', further: 'œ' },
@@ -34,28 +58,49 @@ RSpec.describe Phonetics do
     end
   end
 
+  describe Phonetics::Consonants do
+    describe '.distance' do
+      it 'is zero for a consonant against itself' do
+        Phonetics::Consonants.features.each_key do |c|
+          expect(described_class.distance(c, c)).to eq(0)
+        end
+      end
+
+      it 'is symmetric' do
+        Phonetics::Consonants.phonemes.combination(2).each do |a, b|
+          expect(described_class.distance(a, b)).to be_within(1e-9).of(described_class.distance(b, a))
+        end
+      end
+
+      it 'is bounded in [0, 1]' do
+        Phonetics::Consonants.phonemes.combination(2).each do |a, b|
+          expect(described_class.distance(a, b)).to be_between(0.0, 1.0)
+        end
+      end
+
+      it 'puts homorganic voicing pairs at the cheap end' do
+        expect(described_class.distance('p', 'b')).to be < described_class.distance('p', 'k')
+        expect(described_class.distance('t', 'd')).to be < described_class.distance('t', 'g')
+      end
+
+      it 'puts same-manner place neighbours closer than cross-manner same-place' do
+        expect(described_class.distance('s', 'ʃ')).to be < described_class.distance('s', 't')
+        expect(described_class.distance('m', 'n')).to be < described_class.distance('m', 'p')
+      end
+
+      it 'penalises cross-manner pairs more than voicing flips' do
+        expect(described_class.distance('s', 'z')).to be < described_class.distance('s', 't')
+      end
+    end
+  end
+
   describe '.distance' do
     subject(:distance) { described_class.distance(phoneme1, phoneme2) }
 
-    context 'for similar consonants' do
-      let(:phoneme1) { 'p' }
-      let(:phoneme2) { 'b' }
-
-      it { expect(distance).to be_within(0.001).of(0.3) }
-    end
-
-    context 'for dissimilar consonants' do
-      let(:phoneme1) { 'p' }
-      let(:phoneme2) { 'g' }
-
-      it { expect(distance).to be_within(0.001).of(0.546) }
-    end
-
-    context 'for a vowel and a consonant' do
+    context 'for identical phonemes' do
       let(:phoneme1) { 'i' }
-      let(:phoneme2) { 't' }
-
-      it { expect(distance).to eq(1) }
+      let(:phoneme2) { 'i' }
+      it { is_expected.to eq(0) }
     end
 
     context 'for any pair of phonemes' do
@@ -65,8 +110,29 @@ RSpec.describe Phonetics do
           raise "too high: #{pair.inspect} -> #{distance}" if distance > 1.0
           raise "too low: #{pair.inspect} -> #{distance}" if distance < 0.0
 
-          expect(distance <= 1.0).to be_truthy
-          expect(distance >= 0.0).to be_truthy
+          expect(distance).to be_between(0.0, 1.0)
+        end
+      end
+    end
+
+    context 'cross-class bridge' do
+      it 'puts /j/ closer to /i/ than to /t/' do
+        expect(described_class.distance('j', 'i')).to be < described_class.distance('j', 't')
+      end
+
+      it 'puts /w/ closer to /u/ than to /t/' do
+        expect(described_class.distance('w', 'u')).to be < described_class.distance('w', 't')
+      end
+
+      it 'puts /ɹ/ closer to /ɝ/ than to /s/' do
+        expect(described_class.distance('ɹ', 'ɝ')).to be < described_class.distance('ɹ', 's')
+      end
+
+      it 'never charges the full unit cost for any phoneme pair' do
+        # The Levenshtein layer reserves 1.0 for indel cost; the per-phoneme
+        # metric should always sit strictly below that.
+        Phonetics.phonemes.permutation(2).each do |a, b|
+          expect(described_class.distance(a, b)).to be < 1.0
         end
       end
     end
