@@ -25,6 +25,7 @@
 
 #![doc(html_root_url = "https://docs.rs/phonetics/0.1.0")]
 
+pub mod consonants;
 pub mod vowels;
 
 mod distance;
