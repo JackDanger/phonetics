@@ -842,7 +842,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110101:
           // Phoneme: 'u', bytes: [117]
           // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.4656465518039159;
+          return (float) 0.15;
           break;
         case 0b1100101010001010:
           // Phoneme: 'ʊ', bytes: [202, 138]
@@ -6685,12 +6685,12 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110010010:
           // Phoneme: 'ɒ', bytes: [201, 146]
           // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.1286602599796913;
+          return (float) 0.05;
           break;
         case 0b1100101010001100:
           // Phoneme: 'ʌ', bytes: [202, 140]
           // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.1091225271190398;
+          return (float) 0.1;
           break;
         case 0b1100100110011001:
           // Phoneme: 'ə', bytes: [201, 153]
@@ -6705,7 +6705,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110010100:
           // Phoneme: 'ɔ', bytes: [201, 148]
           // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.20794558148737352;
+          return (float) 0.05;
           break;
         case 0b1100100110100100:
           // Phoneme: 'ɤ', bytes: [201, 164]
@@ -7421,7 +7421,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110010001:
           // Phoneme: 'ɑ', bytes: [201, 145]
           // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.1286602599796913;
+          return (float) 0.05;
           break;
         case 0b1100101010001100:
           // Phoneme: 'ʌ', bytes: [202, 140]
@@ -8157,7 +8157,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110010001:
           // Phoneme: 'ɑ', bytes: [201, 145]
           // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.1091225271190398;
+          return (float) 0.1;
           break;
         case 0b1100100110010010:
           // Phoneme: 'ɒ', bytes: [201, 146]
@@ -8923,7 +8923,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01101111:
           // Phoneme: 'o', bytes: [111]
           // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.3713742516148463;
+          return (float) 0.2;
           break;
         case 0b1100100110101111:
           // Phoneme: 'ɯ', bytes: [201, 175]
@@ -10365,7 +10365,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110010001:
           // Phoneme: 'ɑ', bytes: [201, 145]
           // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.20794558148737352;
+          return (float) 0.05;
           break;
         case 0b1100100110010010:
           // Phoneme: 'ɒ', bytes: [201, 146]
@@ -11852,7 +11852,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110011001:
           // Phoneme: 'ə', bytes: [201, 153]
           // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.3713742516148463;
+          return (float) 0.2;
           break;
         case 0b1100100110011101:
           // Phoneme: 'ɝ', bytes: [201, 157]
@@ -12618,7 +12618,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110101:
           // Phoneme: 'u', bytes: [117]
           // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.3554059796205135;
+          return (float) 0.15;
           break;
         case 0b1100101010001010:
           // Phoneme: 'ʊ', bytes: [202, 138]
@@ -14005,7 +14005,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01111001:
           // Phoneme: 'y', bytes: [121]
           // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.4656465518039159;
+          return (float) 0.15;
           break;
         case 0b1100100110101010:
           // Phoneme: 'ɪ', bytes: [201, 170]
@@ -14085,7 +14085,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110101111:
           // Phoneme: 'ɯ', bytes: [201, 175]
           // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.3554059796205135;
+          return (float) 0.15;
           break;
         case 0b1100001110100110:
           // Phoneme: 'æ', bytes: [195, 166]
@@ -29706,7 +29706,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100101010010100:
           // Phoneme: 'ʔ', bytes: [202, 148]
           // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.16155494421403507;
+          return (float) 0.08;
           break;
         case 0b01110011:
           // Phoneme: 's', bytes: [115]
@@ -30442,7 +30442,7 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100101010010100:
           // Phoneme: 'ʔ', bytes: [202, 148]
           // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.31155494421403507;
+          return (float) 0.2;
           break;
         case 0b01110011:
           // Phoneme: 's', bytes: [115]
@@ -37752,12 +37752,12 @@ float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110100:
           // Phoneme: 't', bytes: [116]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.16155494421403507;
+          return (float) 0.08;
           break;
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.31155494421403507;
+          return (float) 0.2;
           break;
         case 0b1100101010001000:
           // Phoneme: 'ʈ', bytes: [202, 136]

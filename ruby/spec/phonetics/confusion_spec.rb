@@ -95,6 +95,40 @@ RSpec.describe Phonetics::Confusion do
     end
   end
 
+  describe 'West Coast American features' do
+    it 'merges /ɑ/ and /ɔ/ (cot/caught)' do
+      expect(described_class.sub_cost('ɑ', 'ɔ')).to be < 0.1
+    end
+
+    it 'allows /t/ → /ʔ/ for free-ish (t-glottalisation)' do
+      expect(described_class.sub_cost('t', 'ʔ')).to be < 0.1
+    end
+
+    it 'allows /u/ to front toward /y/ and /ɯ/' do
+      expect(described_class.sub_cost('u', 'y')).to be < 0.2
+      expect(described_class.sub_cost('u', 'ɯ')).to be < 0.2
+    end
+
+    it 'centralises /o/ toward /ə/ (goat-fronting)' do
+      expect(described_class.sub_cost('o', 'ə')).to be < 0.25
+    end
+
+    it 'keeps strict Phonetics.distance untouched by dialect overlay' do
+      # The audit's whole point: the cot/caught merger is a fact about
+      # WCE listeners, not about the waveforms. Strict acoustic distance
+      # should still reflect the formant gap.
+      expect(Phonetics.distance('ɑ', 'ɔ')).to be > 0.15
+      expect(Phonetics.distance('u', 'y')).to be > 0.4
+    end
+  end
+
+  describe 'top-level helper' do
+    it 'Phonetics.confusion(a, b) matches Confusion.distance(a, b)' do
+      a, b = 'kæt', 'kʌt'
+      expect(Phonetics.confusion(a, b)).to be_within(1e-9).of(described_class.distance(a, b))
+    end
+  end
+
   describe 'empirical overlay' do
     it 'applies the th-stopping discount to /θ/-/t/ and /ð/-/d/' do
       expect(described_class.sub_cost('θ', 't')).to be < Phonetics.distance('θ', 't')

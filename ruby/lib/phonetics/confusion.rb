@@ -83,18 +83,23 @@ module Phonetics
     BOUNDARY_INDEL_COST = 0.02
 
     # Empirically-confusable phoneme pairs whose acoustic distance under
-    # Phonetics.distance overstates the perceptual gap. Drawn from the
-    # Miller-Nicely (1955) consonant-confusion lineage and English-
-    # variation studies (th-stopping, intervocalic /t/-flapping, the
-    # canonical l/r confusion).
+    # Phonetics.distance overstates the perceptual gap. The table mixes
+    # cross-variety findings (Miller-Nicely 1955, generic English speech-
+    # perception studies) with American-English-specific mergers and
+    # reductions — most of the overlay is calibrated against a West Coast
+    # American baseline because that's the variety the maintainer hears
+    # natively. Speakers of other varieties may want to override per-pair.
     #
-    # The overlay is one-directional in the look-up but symmetric in
-    # interpretation: presence of the pair {a,b} sets sub_cost(a,b) and
-    # sub_cost(b,a) both to the overlay value.
+    # The overlay key is an unordered Set so look-ups are symmetric:
+    # sub_cost(a, b) == sub_cost(b, a) by construction.
     #
     # Strict Phonetics.distance is unaffected — only the Confusion path
-    # consults this table.
+    # consults this table. The split is the point of the two-tier API:
+    # acoustic distance is a fact about the waveform; perceptual distance
+    # is a fact about a particular listener's parser.
     EMPIRICAL_OVERLAY = {
+      # ----- Cross-variety (broadly English) -----
+      #
       # Th-stopping: /θ/→/t/, /ð/→/d/ (very common in casual speech,
       # AAVE, NYC English, and L2 English).
       Set[ 'θ', 't' ]  => 0.18,
@@ -107,15 +112,39 @@ module Phonetics
       Set[ 'b', 'v' ]  => 0.20,
       Set[ 't', 's' ]  => 0.20,
       Set[ 'd', 'z' ]  => 0.20,
-      # Intervocalic /t/-flapping in American English: 'butter' ≈ 'budder'
-      # ≈ 'buɾer'. The flap [ɾ] is acoustically nearly indistinguishable
-      # from a brief voiced [d] between vowels.
-      Set[ 't', 'ɾ' ]  => 0.10,
-      Set[ 'd', 'ɾ' ]  => 0.05,
       # L/R confusion (universally high-confusion pair for L2 English;
       # the lateral fix already drops it to 0.10 acoustically, the
       # overlay pushes it slightly higher to reflect perceptual reality).
       Set[ 'l', 'ɹ' ]  => 0.15,
+
+      # ----- American-English-specific (esp. West Coast) -----
+      #
+      # Intervocalic /t/-flapping: 'butter' ≈ 'budder' ≈ 'buɾer'. The flap
+      # [ɾ] is acoustically nearly indistinguishable from a brief voiced
+      # [d] between vowels.
+      Set[ 't', 'ɾ' ]  => 0.10,
+      Set[ 'd', 'ɾ' ]  => 0.05,
+      # Cot/caught merger: /ɑ/ and /ɔ/ are fully merged for most West
+      # Coast (and Canadian, and increasingly American Midwestern)
+      # speakers. "Cot" and "caught" are homophones.
+      Set[ 'ɑ', 'ɔ' ]  => 0.05,
+      Set[ 'ɑ', 'ɒ' ]  => 0.05,
+      # T-glottalisation: word-final and pre-consonantal /t/ → [ʔ].
+      # 'kitten' → /kɪʔn/, 'but' → /bʌʔ/. Routine in WCE.
+      Set[ 't', 'ʔ' ]  => 0.08,
+      Set[ 'd', 'ʔ' ]  => 0.20,
+      # /u/-fronting (California Vowel Shift): 'dude' fronts toward /ʉ/
+      # or /y/. The unrounded variant /ɯ/ is also a close target.
+      Set[ 'u', 'y' ]  => 0.15,
+      Set[ 'u', 'ɯ' ]  => 0.15,
+      Set[ 'u', 'ʉ' ]  => 0.10, # if /ʉ/ ever gets registered (not in current inventory)
+      # /oʊ/-nucleus centralization: 'go' has a noticeably central first
+      # element in WCE. Approached by the central vowels /ə/ and /ɵ/.
+      Set[ 'o', 'ə' ]  => 0.20,
+      # Stressed/unstressed schwa-strut variation: /ʌ/ is sometimes
+      # backed toward /ɑ/ in WCE, more so than the cardinal IPA values
+      # suggest.
+      Set[ 'ʌ', 'ɑ' ]  => 0.10,
     }.freeze
 
     # Top-level entry point. Delegates to the C binding when the levenshtein
