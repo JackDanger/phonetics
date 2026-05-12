@@ -40,6 +40,14 @@ require_relative '../phonetics'
 #   Phonetics::Confusion.similarity(ipa1, ipa2)  # 1.0 - normalised distance
 #   Phonetics::RubyConfusion.new(...).distance   # for verbose tracing
 module Phonetics
+  # Top-level shorthand for Phonetics::Confusion.distance. The perceptual
+  # metric is what most callers actually want — the only reason "what's
+  # the confusion between A and B?" gets a one-word verb instead of
+  # Confusion::distance is convenience.
+  def confusion(ipa1, ipa2)
+    Confusion.distance(ipa1, ipa2)
+  end
+
   module Confusion
     extend self
 
