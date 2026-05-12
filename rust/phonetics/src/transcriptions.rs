@@ -127,6 +127,62 @@ impl Trie {
         }
     }
 
+    /// Approximate variant of [`Trie::words_starting_at`]: instead of
+    /// demanding exact character match at every trie step, allow
+    /// per-character substitution priced by `cost_fn`. A trie path
+    /// is followed while its accumulated substitution cost stays
+    /// within `max_total_cost`. Substitution-free steps remain free.
+    ///
+    /// Useful for Mad Gab generation where the clue's IPA can differ
+    /// slightly from the target's (/t/→/d/, /ɪ/→/i/) without breaking
+    /// the listener's parse.
+    ///
+    /// Returns `(consumed_chars, pronunciation, total_substitution_cost)`
+    /// for every match found.
+    ///
+    /// `cost_fn` takes (target_char, trie_char) and returns the cost
+    /// of substituting target_char with trie_char. A common choice is
+    /// `|t, c| phonetics::distance(&t.to_string(), &c.to_string())`.
+    pub fn words_approximately_starting_at<F>(
+        &self,
+        chars: &[char],
+        offset: usize,
+        max_total_cost: f64,
+        mut cost_fn: F,
+    ) -> Vec<(usize, &Pronunciation, f64)>
+    where
+        F: FnMut(char, char) -> f64,
+    {
+        let mut results: Vec<(usize, &Pronunciation, f64)> = Vec::new();
+        // DFS via explicit stack; each frame is (node, depth, accumulated_cost).
+        let mut stack: Vec<(&Node, usize, f64)> = vec![(&self.root, 0, 0.0)];
+        while let Some((node, depth, cost)) = stack.pop() {
+            // Emit terminations *except* the empty word at the root.
+            if depth > 0 {
+                for p in &node.terminations {
+                    results.push((depth, p, cost));
+                }
+            }
+            let pos = offset + depth;
+            if pos >= chars.len() {
+                continue;
+            }
+            let target_char = chars[pos];
+            for (&trie_char, child) in &node.children {
+                let step = if trie_char == target_char {
+                    0.0
+                } else {
+                    cost_fn(target_char, trie_char)
+                };
+                let new_cost = cost + step;
+                if new_cost <= max_total_cost {
+                    stack.push((child.as_ref(), depth + 1, new_cost));
+                }
+            }
+        }
+        results
+    }
+
     /// Total number of pronunciation entries in the trie.
     pub fn len(&self) -> usize {
         fn count(n: &Node) -> usize {
@@ -154,8 +210,14 @@ pub struct Corpus {
 
 /// Source-preference order used by [`Corpus::preferred_ipa`]. The
 /// first source whose name *contains* one of these substrings wins.
-/// Matches the Ruby gem's `SourcesByPreference` order.
-const SOURCE_PREFERENCE: &[&str] = &["wiktionary", "cmu", "phonemicchart"];
+///
+/// CMU is professionally curated and canonical for American English;
+/// the Wiktionary corpus has known data-quality issues (e.g. "pie"
+/// transcribed as `piaɪi`) and is used as fallback. This differs
+/// from the Ruby gem's historical order, which preferred Wiktionary;
+/// for downstream search the more reliable transcription matters
+/// more than the more permissive one.
+const SOURCE_PREFERENCE: &[&str] = &["cmu", "phonemicchart", "wiktionary"];
 
 impl Corpus {
     /// Parse the JSON corpus and build both forward and reverse
@@ -343,6 +405,36 @@ mod tests {
         assert_eq!(c.transcribe("Cat Dog"), Some("kætdɔg".to_string())); // case-insensitive
         // Unknown word → None
         assert_eq!(c.transcribe("cat orange"), None);
+    }
+
+    #[test]
+    fn approximate_match_allows_substitution_within_budget() {
+        // "cat" IPA = "kæt"; "kit" IPA = "kɪt". Searching from the
+        // start of "kæt" with a small cost budget should *also*
+        // surface "kit" because k matches and æ↔ɪ has a small
+        // phonetic distance — exact mode would never see it.
+        let t = Trie::from_json(TINY, None).unwrap();
+        let stream: Vec<char> = "kæt".chars().collect();
+        // Generous budget so the æ→ɪ swap fits.
+        let hits = t.words_approximately_starting_at(&stream, 0, 1.0, |a, b| {
+            crate::distance(&a.to_string(), &b.to_string())
+        });
+        let words: Vec<&str> = hits.iter().map(|(_, p, _)| p.word.as_str()).collect();
+        assert!(words.contains(&"cat")); // exact match, cost 0
+        assert!(words.contains(&"kit")); // approximate match
+    }
+
+    #[test]
+    fn approximate_match_respects_budget() {
+        let t = Trie::from_json(TINY, None).unwrap();
+        let stream: Vec<char> = "kæt".chars().collect();
+        // Tiny budget — only exact matches should survive.
+        let hits = t.words_approximately_starting_at(&stream, 0, 0.001, |a, b| {
+            crate::distance(&a.to_string(), &b.to_string())
+        });
+        let words: Vec<&str> = hits.iter().map(|(_, p, _)| p.word.as_str()).collect();
+        assert!(words.contains(&"cat"));
+        assert!(!words.contains(&"kit")); // budget too small for substitution
     }
 
     #[test]
