@@ -44,6 +44,7 @@ pub fn distance_from_tokens<S: AsRef<str>>(a: &[S], b: &[S]) -> f64 {
     for i in 0..=m {
         d[i * width] = i as f64 * INDEL_COST;
     }
+    #[allow(clippy::needless_range_loop)]
     for j in 0..=n {
         d[j] = j as f64 * INDEL_COST;
     }
