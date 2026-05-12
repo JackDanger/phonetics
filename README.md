@@ -2,11 +2,17 @@
 
 IPA-based phonetic distance metrics. One Rust core, three packages.
 
-| Package | Manifest | Registry |
-|---|---|---|
-| `phonetics` (Rust) | [`rust/phonetics`](rust/phonetics) | crates.io |
-| `phonetics` (Ruby gem) | [`ruby/`](ruby) (Magnus binding at `ruby/ext/phonetics/`) | RubyGems |
-| `phonetics` (Python wheel) | [`python/phonetics-py/`](python/phonetics-py) (PyO3 binding) | PyPI |
+| Package | Registry name | Manifest | Registry |
+|---|---|---|---|
+| Rust crate | `phonetics-rs` | [`rust/phonetics`](rust/phonetics) | crates.io |
+| Ruby gem | `phonetics` | [`ruby/`](ruby) (Magnus binding at `ruby/ext/phonetics_ruby/`) | RubyGems |
+| Python wheel | `phonetics-ipa` | [`python/phonetics-py/`](python/phonetics-py) (PyO3 binding) | PyPI |
+
+The Rust crate is `phonetics-rs` and the Python package is `phonetics-ipa`
+because the bare `phonetics` name is taken on both registries by unrelated
+projects. The Ruby gem keeps the bare name because it's a continuation of
+the prior 3.x line. In code you still write `use phonetics::…`,
+`import phonetics`, and `Phonetics.…` respectively.
 
 ## The metric
 
@@ -66,7 +72,7 @@ phonetics/
 │   └── tests/              # pytest
 └── .github/workflows/
     ├── test.yml            # cargo + rspec + pytest on every PR
-    └── release.yml         # crates.io + RubyGems + PyPI on git tag
+    └── publish.yml         # crates.io + RubyGems + PyPI on git tag
 ```
 
 ## License

@@ -5,7 +5,15 @@ IPA-based phonetic distance for Python, built on a Rust core.
 ## Install
 
 ```bash
-pip install phonetics
+pip install phonetics-ipa
+```
+
+The PyPI package is `phonetics-ipa` (the bare `phonetics` name is held
+by an unrelated metaphone library). The importable module is still
+`phonetics`:
+
+```python
+import phonetics
 ```
 
 ## Usage

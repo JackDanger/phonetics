@@ -3,7 +3,11 @@ requires = ["maturin>=1.5,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "phonetics"
+# The bare `phonetics` PyPI name is taken (a different metaphone /
+# NYSIIS encoder by Zack Dibe). Like crates.io, we publish under a
+# disambiguated name. Users still `import phonetics` because the
+# importable module name is controlled by [tool.maturin] below.
+name = "phonetics-ipa"
 version = "0.2.0"
 description = "IPA-based phonetic distance: strict edit distance, listener-confusion distance, and per-phoneme acoustic and perceptual scoring."
 readme = "README.md"
