@@ -1,4 +1,4 @@
-// This is compiled from Ruby, in phonetics/lib/phonetics/code_generator.rb:163
+// This is compiled from Ruby, in ruby/lib/phonetics/code_generator.rb:163
 #include <stdio.h>
 int next_phoneme_length(int *string, int cursor, int length) {
 
@@ -14,7 +14,7 @@ int next_phoneme_length(int *string, int cursor, int length) {
         break;
     case 121:
      // Phoneme: 'y', bytes: [121]
-     // vowel features: {"F1":235,"F2":2100,"rounded":false}
+     // vowel features: {"F1":235,"F2":2100,"rounded":true}
      return 1;
         break;
     case 201:
@@ -24,12 +24,64 @@ int next_phoneme_length(int *string, int cursor, int length) {
      case 170:
       // Phoneme: 'ɪ', bytes: [201, 170]
       // vowel features: {"F1":300,"F2":2100,"rounded":false}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 201:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 153:
+        // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 155:
       // Phoneme: 'ɛ', bytes: [201, 155]
       // vowel features: {"F1":610,"F2":1900,"rounded":false}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 201:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 153:
+        // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 182:
       // Phoneme: 'ɶ', bytes: [201, 182]
@@ -39,7 +91,50 @@ int next_phoneme_length(int *string, int cursor, int length) {
      case 145:
       // Phoneme: 'ɑ', bytes: [201, 145]
       // vowel features: {"F1":750,"F2":940,"rounded":false}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 201:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 170:
+        // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+      case 202:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 138:
+        // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 146:
       // Phoneme: 'ɒ', bytes: [201, 146]
@@ -48,18 +143,70 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      case 153:
       // Phoneme: 'ə', bytes: [201, 153]
-      // vowel features: {"F1":600,"F2":1170,"rounded":false}
+      // vowel features: {"F1":500,"F2":1500,"rounded":false}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 202:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 138:
+        // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 157:
       // Phoneme: 'ɝ', bytes: [201, 157]
-      // vowel features: {"F1":600,"F2":1170,"rounded":false,"rhotic":true}
+      // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
       return 2;
          break;
      case 148:
       // Phoneme: 'ɔ', bytes: [201, 148]
       // vowel features: {"F1":500,"F2":700,"rounded":true}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 201:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 170:
+        // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 164:
       // Phoneme: 'ɤ', bytes: [201, 164]
@@ -91,14 +238,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -118,14 +269,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -160,14 +315,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -213,19 +372,28 @@ int next_phoneme_length(int *string, int cursor, int length) {
             // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
             return 8;
                break;
+             default:
+               return 2;
            }
+           return 2;
            } else {
-             return 7;
+             return 2;
            }
               break;
+            default:
+              return 2;
           }
+          return 2;
           } else {
-            return 6;
+            return 2;
           }
              break;
+           default:
+             return 2;
          }
+         return 2;
          } else {
-           return 5;
+           return 2;
          }
             break;
         case 203:
@@ -237,14 +405,20 @@ int next_phoneme_length(int *string, int cursor, int length) {
           // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
           return 6;
              break;
+           default:
+             return 2;
          }
+         return 2;
          } else {
-           return 5;
+           return 2;
          }
             break;
+          default:
+            return 2;
         }
+        return 2;
         } else {
-          return 4;
+          return 2;
         }
            break;
        case 165:
@@ -252,14 +426,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -279,9 +457,12 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
       case 204:
@@ -293,14 +474,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -330,14 +515,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -362,14 +551,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -389,14 +582,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -436,14 +633,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
           // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
           return 6;
              break;
+           default:
+             return 4;
          }
+         return 4;
          } else {
-           return 5;
+           return 4;
          }
             break;
           default:
             return 4;
         }
+        return 4;
         } else {
           return 4;
         }
@@ -453,9 +654,12 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
       case 203:
@@ -467,14 +671,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -486,13 +694,39 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 101:
      // Phoneme: 'e', bytes: [101]
      // vowel features: {"F1":390,"F2":2300,"rounded":false}
+     if (max_length > 1) {
+     switch(string[cursor + 1]) {
+
+     case 201:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 170:
+       // Phoneme: 'eɪ', bytes: [101, 201, 170]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+       default:
+         return 1;
+     }
      return 1;
+     } else {
+       return 1;
+     }
         break;
     case 195:
      if (max_length > 1) {
@@ -505,7 +739,7 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      case 166:
       // Phoneme: 'æ', bytes: [195, 166]
-      // vowel features: {"F1":800,"F2":1900,"rounded":false}
+      // vowel features: {"F1":690,"F2":1660,"rounded":false}
       return 2;
          break;
      case 176:
@@ -528,14 +762,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -547,7 +785,7 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 197:
@@ -574,27 +812,74 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 97:
      // Phoneme: 'a', bytes: [97]
      // vowel features: {"F1":850,"F2":1610,"rounded":false}
+     if (max_length > 1) {
+     switch(string[cursor + 1]) {
+
+     case 201:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 170:
+       // Phoneme: 'aɪ', bytes: [97, 201, 170]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+     case 202:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 138:
+       // Phoneme: 'aʊ', bytes: [97, 202, 138]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+       default:
+         return 1;
+     }
      return 1;
+     } else {
+       return 1;
+     }
         break;
     case 202:
      if (max_length > 1) {
@@ -607,8 +892,34 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      case 138:
       // Phoneme: 'ʊ', bytes: [202, 138]
-      // vowel features: {"F1":350,"F2":650,"rounded":true}
+      // vowel features: {"F1":380,"F2":950,"rounded":true}
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 201:
+       if (max_length > 3) {
+       switch(string[cursor + 3]) {
+
+       case 153:
+        // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
+        // vowel features: null
+        return 4;
+           break;
+         default:
+           return 2;
+       }
+       return 2;
+       } else {
+         return 2;
+       }
+          break;
+        default:
+          return 2;
+      }
       return 2;
+      } else {
+        return 2;
+      }
          break;
      case 136:
       // Phoneme: 'ʈ', bytes: [202, 136]
@@ -630,14 +941,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -657,14 +972,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -724,14 +1043,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -751,14 +1074,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -778,14 +1105,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -825,14 +1156,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
           // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
           return 6;
              break;
+           default:
+             return 4;
          }
+         return 4;
          } else {
-           return 5;
+           return 4;
          }
             break;
           default:
             return 4;
         }
+        return 4;
         } else {
           return 4;
         }
@@ -847,14 +1182,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
@@ -884,14 +1223,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
           // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
           return 6;
              break;
+           default:
+             return 4;
          }
+         return 4;
          } else {
-           return 5;
+           return 4;
          }
             break;
           default:
             return 4;
         }
+        return 4;
         } else {
           return 4;
         }
@@ -911,31 +1254,61 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 111:
      // Phoneme: 'o', bytes: [111]
      // vowel features: {"F1":360,"F2":640,"rounded":true}
+     if (max_length > 1) {
+     switch(string[cursor + 1]) {
+
+     case 202:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 138:
+       // Phoneme: 'oʊ', bytes: [111, 202, 138]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+       default:
+         return 1;
+     }
      return 1;
+     } else {
+       return 1;
+     }
         break;
     case 117:
      // Phoneme: 'u', bytes: [117]
-     // vowel features: {"F1":350,"F2":650,"rounded":true}
+     // vowel features: {"F1":250,"F2":595,"rounded":true}
      return 1;
         break;
     case 109:
@@ -953,14 +1326,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -985,14 +1362,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1012,14 +1393,23 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
+         break;
+     case 102:
+      // Phoneme: 'pf', bytes: [112, 102]
+      // vowel features: null
+      return 2;
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1039,14 +1429,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1066,14 +1460,57 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
+      }
+         break;
+     case 202:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 131:
+       // Phoneme: 'tʃ', bytes: [116, 202, 131]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+     case 115:
+      // Phoneme: 'ts', bytes: [116, 115]
+      // vowel features: null
+      return 2;
+         break;
+     case 201:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 149:
+       // Phoneme: 'tɕ', bytes: [116, 201, 149]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1093,14 +1530,45 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
+         break;
+     case 202:
+      if (max_length > 2) {
+      switch(string[cursor + 2]) {
+
+      case 146:
+       // Phoneme: 'dʒ', bytes: [100, 202, 146]
+       // vowel features: null
+       return 3;
+          break;
+      case 145:
+       // Phoneme: 'dʑ', bytes: [100, 202, 145]
+       // vowel features: null
+       return 3;
+          break;
+        default:
+          return 1;
+      }
+      return 1;
+      } else {
+        return 1;
+      }
+         break;
+     case 122:
+      // Phoneme: 'dz', bytes: [100, 122]
+      // vowel features: null
+      return 2;
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1164,21 +1632,25 @@ int next_phoneme_length(int *string, int cursor, int length) {
         // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
         return 4;
            break;
+         default:
+           return 2;
        }
+       return 2;
        } else {
-         return 3;
+         return 2;
        }
           break;
         default:
           return 2;
       }
+      return 2;
       } else {
         return 2;
       }
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 102:
@@ -1207,7 +1679,7 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 196:
@@ -1221,7 +1693,7 @@ int next_phoneme_length(int *string, int cursor, int length) {
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 104:
@@ -1249,14 +1721,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1284,26 +1760,30 @@ int next_phoneme_length(int *string, int cursor, int length) {
          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
          return 5;
             break;
+          default:
+            return 3;
         }
+        return 3;
         } else {
-          return 4;
+          return 3;
         }
            break;
          default:
            return 3;
        }
+       return 3;
        } else {
          return 3;
        }
           break;
       }
       } else {
-        return 2;
+        /* no shorter phoneme matches; fall through */
       }
          break;
      }
      } else {
-       return 1;
+       /* no shorter phoneme matches; fall through */
      }
         break;
     case 114:
@@ -1321,14 +1801,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }
@@ -1348,14 +1832,18 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
        return 3;
           break;
+        default:
+          return 1;
       }
+      return 1;
       } else {
-        return 2;
+        return 1;
       }
          break;
        default:
          return 1;
      }
+     return 1;
      } else {
        return 1;
      }

@@ -15,13 +15,20 @@
 #define debug(M, ...)
 #endif
 
+// Standard weighted-Levenshtein constants. INDEL_COST is fixed at 1.0 so
+// inserting or deleting a single phoneme always costs one indel regardless
+// of the neighbours that happen to surround it. TRANSPOSE_COST < 2 * INDEL
+// makes adjacent transposition (Damerau) cheaper than two separate edits.
+#define INDEL_COST     1.0f
+#define TRANSPOSE_COST 0.8f
+
 VALUE Binding = Qnil;
 
 /* Function declarations */
 
 void Init_c_levenshtein();
 
-void set_initial(float *d, int string1_phoneme_count, uint64_t *string1_phonemes, int string2_phoneme_count, uint64_t *string2_phonemes, bool verbose);
+void set_initial(float *d, int string1_phoneme_count, int string2_phoneme_count, bool verbose);
 void print_matrix(float *d, int *string1, int string1_phoneme_count, int *string1_phoneme_sizes, int *string2, int string2_phoneme_count, int *string2_phoneme_sizes, bool verbose);
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose);
 
@@ -35,20 +42,30 @@ void Init_c_levenshtein() {
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose){
   bool verbose = _verbose;
 
+  // Type-check first so we never call RSTRING_LEN on a non-string.
+  if (!RB_TYPE_P(_string1, T_STRING)) {
+    rb_raise(rb_eArgError, "must pass string as first argument");
+  }
+  if (!RB_TYPE_P(_string2, T_STRING)) {
+    rb_raise(rb_eArgError, "must pass string as second argument");
+  }
+
   int string1_length = (int) RSTRING_LEN(_string1);
   int string2_length = (int) RSTRING_LEN(_string2);
 
-  // Given the input strings, we count the phonemes in each and store both the
-  // total and, in a phoneme_sizes array, the length of each.
+  // Stack VLAs were fine in practice but failed for very long inputs (e.g.
+  // whole-phrase Mad-Gab comparisons) and on stricter compilers. Move to
+  // heap allocations so callers can pass arbitrarily long phrases.
   int string1_phoneme_count = 0;
   int string2_phoneme_count = 0;
-  int string1_phoneme_sizes[string1_length + 1];
-  int string2_phoneme_sizes[string2_length + 1];
-  int string1[string1_length + 1];
-  int string2[string2_length + 1];
+  int *string1_phoneme_sizes = calloc(string1_length + 1, sizeof(int));
+  int *string2_phoneme_sizes = calloc(string2_length + 1, sizeof(int));
+  int *string1 = calloc(string1_length + 1, sizeof(int));
+  int *string2 = calloc(string2_length + 1, sizeof(int));
 
-  float *d;              // The (flattened) 2-dimensional matrix
-                          // underlying this algorithm
+  float *d = NULL;       // The (flattened) 2-dimensional matrix
+  uint64_t *string1_phonemes = NULL;
+  uint64_t *string2_phonemes = NULL;
 
   float distance;        // Return value of this function
   float min, delete,     // Reusable cost calculations
@@ -56,12 +73,6 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
          cost;
   int i, j;               // Frequently overwritten loop vars
 
-  if (!RB_TYPE_P(_string1, T_STRING)) {
-    rb_raise(rb_eArgError, "must pass string as first argument");
-  }
-  if (!RB_TYPE_P(_string2, T_STRING)) {
-    rb_raise(rb_eArgError, "must pass string as second argument");
-  }
   for (i = 0; i < string1_length; i++) {
     string1[i] = (RSTRING_PTR(_string1)[i] & 0xff);
   }
@@ -70,69 +81,67 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
   }
 
   find_phonemes(string1, string1_length, &string1_phoneme_count, string1_phoneme_sizes);
-  uint64_t string1_phonemes[string1_phoneme_count];
+  string1_phonemes = calloc(string1_phoneme_count + 1, sizeof(uint64_t));
   set_phonemes(string1_phonemes, string1, string1_phoneme_count, string1_phoneme_sizes);
 
   find_phonemes(string2, string2_length, &string2_phoneme_count, string2_phoneme_sizes);
-  uint64_t string2_phonemes[string2_phoneme_count];
+  string2_phonemes = calloc(string2_phoneme_count + 1, sizeof(uint64_t));
   set_phonemes(string2_phonemes, string2, string2_phoneme_count, string2_phoneme_sizes);
 
-  // Guard clauses for empty strings
-  if (string1_phoneme_count == 0 && string2_phoneme_count == 0)
-    return DBL2NUM(0.0);
-  
+  // Guard clauses for empty inputs. We've allocated above, so jump to a
+  // single cleanup path to free everything.
+  if (string1_phoneme_count == 0 && string2_phoneme_count == 0) {
+    distance = 0.0f;
+    goto cleanup;
+  }
+
   debug("\n");
-  debug("distance between 0 and 1 of phoneme1: %f\n", phonetic_cost(string1_phonemes[0], string1_phonemes[1]));
 
   // one-dimensional representation of 2 dimensional array
   d = calloc((string1_phoneme_count+1) * (string2_phoneme_count+1), sizeof(float));
 
-  // First, set the top row and left column of the matrix using the sequential
-  // phonetic edit distance of string1 and string2, respectively
-  set_initial(d, string1_phoneme_count, string1_phonemes, string2_phoneme_count, string2_phonemes, verbose);
+  // Seed the top row and left column with cumulative indel costs (j or i
+  // copies of INDEL_COST), matching the standard weighted-Levenshtein form.
+  set_initial(d, string1_phoneme_count, string2_phoneme_count, verbose);
 
   print_matrix(d, string1, string1_phoneme_count, string1_phoneme_sizes, string2, string2_phoneme_count, string2_phoneme_sizes, verbose);
 
-  // Then Fill in the (flattened) matrix using the Levenshtein algorithm so we can
-  // pluck the lowest-cost edit distance (stored in the lower-right corner, in
-  // this case the last spot in the array).
-  // We'll use phonetic distance instead of '1' as the edit cost.
+  // Fill the matrix using the recurrence
   //
-  // (Skipping i=0 and j=0 because set_initial filled in all cells where i
-  // or j are zero-valued)
+  //   d[i][j] = min(
+  //     d[i-1][j]   + INDEL_COST,                              (delete)
+  //     d[i][j-1]   + INDEL_COST,                              (insert)
+  //     d[i-1][j-1] + phonetic_cost(s1[j-1], s2[i-1]),         (substitute)
+  //     d[i-2][j-2] + TRANSPOSE_COST     when adjacent swap    (Damerau)
+  //   )
+  //
+  // Indel cost is the FIXED INDEL_COST — not the phonetic_cost between
+  // strings — which is what the original implementation accidentally added.
   for (j = 1; j <= string2_phoneme_count; j++){
-
     for (i = 1; i <= string1_phoneme_count; i++){
-
-      // The cost of deletion or addition is the Levenshtein distance
-      // calculation (the value in the cell to the left, upper-left, or above)
-      // plus the phonetic distance between the sound we're moving from to the
-      // new one.
 
       debug("------- %d/%d (%d) \n", i, j, j*(string1_phoneme_count+1) + i);
 
       cost = phonetic_cost(string1_phonemes[i-1], string2_phonemes[j-1]);
 
-      insert = d[j*(string1_phoneme_count+1) + i-1];
-      debug("insert proposes cell %d,%d - %f\n", i-1, j, insert);
+      insert = d[j*(string1_phoneme_count+1) + i-1] + INDEL_COST;
+      delete = d[(j-1)*(string1_phoneme_count+1) + i] + INDEL_COST;
+      replace = d[(j-1)*(string1_phoneme_count+1) + i-1] + cost;
+
       min = insert;
-      debug("min (insert): %f\n", min);
+      if (delete < min) min = delete;
+      if (replace < min) min = replace;
 
-      delete = d[(j-1)*(string1_phoneme_count+1) + i];
-      debug("delete proposes cell %d,%d - %f\n", i, j-1, delete);
-      if (delete < min) {
-        debug("delete is %f, better than %f for %d/%d\n", delete, min, i, j);
-        min = delete;
+      // Damerau adjacent-transposition: only valid when we have at least
+      // two prior phonemes on both sides and the adjacent pair is swapped.
+      if (i > 1 && j > 1
+          && string1_phonemes[i-1] == string2_phonemes[j-2]
+          && string1_phonemes[i-2] == string2_phonemes[j-1]) {
+        float transpose = d[(j-2)*(string1_phoneme_count+1) + i-2] + TRANSPOSE_COST;
+        if (transpose < min) min = transpose;
       }
 
-      replace = d[(j-1)*(string1_phoneme_count+1) + i-1];
-      debug("replace proposes cell %d,%d - %f\n", i-1, j-1, replace);
-      if (replace < min) {
-        debug("replace is %f, better than %f for %d/%d\n", replace, min, i, j);
-        min = replace;
-      }
-
-      d[(j * (string1_phoneme_count+1)) + i] = min + cost;
+      d[(j * (string1_phoneme_count+1)) + i] = min;
       debug("\n");
       if (verbose) {
         print_matrix(d, string1, string1_phoneme_count, string1_phoneme_sizes, string2, string2_phoneme_count, string2_phoneme_sizes, verbose);
@@ -145,50 +154,39 @@ VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _strin
   // the top-left to the bottom-right of the matrix.
   distance = d[(string1_phoneme_count + 1) * (string2_phoneme_count + 1) - 1];
 
-  free(d);
+cleanup:
   debug("distance: %f\n", distance);
+  free(d);
+  free(string1);
+  free(string2);
+  free(string1_phoneme_sizes);
+  free(string2_phoneme_sizes);
+  free(string1_phonemes);
+  free(string2_phonemes);
 
   return DBL2NUM(distance);
 }
 
-// Set the minimum scores equal to the distance between each phoneme,
-// sequentially.
+// Seed the top row and left column of the matrix with cumulative indel
+// costs: matching the empty string against a prefix of length k of the
+// other string costs k * INDEL_COST.
 //
-// The first value is always zero.
-// The second value is always the phonetic distance between the first
-// phonemes of each string.
-// Subsequent values are the cumulative phonetic distance between each
-// phoneme within the same string.
-// "aek" -> [0.0, 1.0, 1.61, 2.61]
-void set_initial(float *d, int string1_phoneme_count, uint64_t *string1_phonemes, int string2_phoneme_count, uint64_t *string2_phonemes, bool verbose) {
-
-  float initial_distance;
+// The old implementation seeded with cumulative *phonetic* distances
+// between consecutive phonemes inside the same string, which made
+// "abcabcabcabcabc" cheap to insert and "aeiou" expensive — neither of
+// which corresponds to the standard weighted-Levenshtein interpretation.
+void set_initial(float *d, int string1_phoneme_count, int string2_phoneme_count, bool verbose) {
   int i, j;
+  (void) verbose;
 
-  if (string1_phoneme_count == 0 || string2_phoneme_count == 0) {
-    initial_distance = 0.0;
-  } else {
-    initial_distance = 1.0;
-  }
-
-  // The top-left is 0, the cell to the right and down are each 1 to start
   d[0] = (float) 0.0;
-  if (string1_phoneme_count > 0) {
-    d[1] = initial_distance;
-  }
-  if (string2_phoneme_count > 0) {
-    d[string1_phoneme_count+1] = initial_distance;
+
+  for (i = 1; i <= string1_phoneme_count; i++) {
+    d[i] = i * INDEL_COST;
   }
 
-  for (i=2; i <= string1_phoneme_count; i++) {
-    // The cost of adding the next phoneme is the cost so far plus the phonetic
-    // distance between the previous one and the current one.
-    d[i] = d[i-1] + phonetic_cost(string1_phonemes[i-2], string1_phonemes[i-1]);
-  }
-
-  for (j=2; j <= string2_phoneme_count; j++) {
-    // The same exact pattern down the left side of the matrix
-    d[j * (string1_phoneme_count+1)] = d[(j - 1) * (string1_phoneme_count+1)] + phonetic_cost(string2_phonemes[j-2], string2_phonemes[j-1]);
+  for (j = 1; j <= string2_phoneme_count; j++) {
+    d[j * (string1_phoneme_count + 1)] = j * INDEL_COST;
   }
 }
 

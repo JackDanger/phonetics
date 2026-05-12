@@ -178,22 +178,18 @@ module Phonetics
 
     private
 
-    # Recursively build switch statements for the body of next_phoneme_length
-    def next_phoneme_switch(trie, depth)
-      # switch (string[cursor + depth]) {
-      #   case N: // for N in subtrie.keys
-      #     // if a case statement matches the current byte AND there's chance
-      #     // that a longer string might match, recurse.
-      #     if (max_length >= depth) {
-      #       // recurse
-      #     }
-      #     break;
-      #   // if there's a :source key here then a phoneme terminates at this
-      #   // point and this depth is a valid return value.
-      #   default:
-      #     return depth;
-      #     break;
-      # }
+    # Recursively build switch statements for the body of next_phoneme_length.
+    #
+    # `last_match_depth` is the length of the deepest phoneme that has matched
+    # *so far* on this descent. It lets us emit a correct fallback when a
+    # deeper case fails: if the input starts with /ɪ/ and we tried to extend
+    # to /ɪə/ but the next byte didn't match, we must return 2 (the /ɪ/
+    # length) rather than falling all the way through to `return 0`.
+    def next_phoneme_switch(trie, depth, last_match_depth = nil)
+      # If a phoneme terminates exactly at this trie node, it's `depth` bytes
+      # long; that's the deepest current match.
+      current_match = trie.key?(:source) ? depth : last_match_depth
+
       indent depth, "switch(string[cursor + #{depth}]) {"
       write ''
       trie.each do |key, subtrie|
@@ -208,21 +204,36 @@ module Phonetics
         if subtrie.keys == [:source]
           indent depth, " return #{depth + 1};"
         else
+          fallback_when_short = subtrie.key?(:source) ? depth + 1 : current_match
           indent depth, " if (max_length > #{depth + 1}) {"
-          next_phoneme_switch(subtrie, depth + 1)
+          next_phoneme_switch(subtrie, depth + 1, fallback_when_short)
           indent depth, ' } else {'
-          indent depth, "   return #{depth + 1};"
+          if fallback_when_short
+            indent depth, "   return #{fallback_when_short};"
+          else
+            indent depth, '   /* no shorter phoneme matches; fall through */'
+          end
           indent depth, ' }'
         end
 
         indent depth, '    break;'
       end
 
-      if trie.key?(:source)
+      # `default` covers next-byte values not enumerated by any case at this
+      # depth. If we have a known shallower (or current) match, return it.
+      if current_match
         indent depth, '  default:'
-        indent depth, "    return #{depth};"
+        indent depth, "    return #{current_match};"
       end
       indent depth, '}'
+
+      # After the C switch exits (via `break;` or fall-through with no default
+      # match), we may still hold a shallower match from an outer level. Emit
+      # an explicit return so the outer recursion's break doesn't propagate
+      # all the way to the function's tail `return 0`.
+      if current_match
+        indent depth, "return #{current_match};"
+      end
     end
   end
 end
