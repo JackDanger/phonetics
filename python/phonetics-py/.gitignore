@@ -1,0 +1,10 @@
+# Maturin / PyO3 build artifacts
+target/
+*.so
+*.dylib
+*.pyd
+__pycache__/
+*.egg-info/
+.venv/
+dist/
+wheels/

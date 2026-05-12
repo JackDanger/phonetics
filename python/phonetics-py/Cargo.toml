@@ -1,0 +1,22 @@
+# PyO3 binding crate for the phonetics core. Standalone (no
+# workspace inheritance) for the same reason as the Ruby binding —
+# `pip install`-extracted source trees don't include the Rust
+# workspace root. Same build works in checkout and in published
+# source distribution.
+[package]
+name = "phonetics-py"
+description = "Python bindings for the phonetics crate, via PyO3."
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+# `cdylib` for the wheel-loadable native extension. Maturin handles
+# the Python-side packaging; we just produce the dylib.
+name = "phonetics_native"
+crate-type = ["cdylib"]
+
+[dependencies]
+phonetics = { path = "../../rust/phonetics" }
+pyo3 = { version = "0.22", features = ["extension-module", "abi3-py39"] }

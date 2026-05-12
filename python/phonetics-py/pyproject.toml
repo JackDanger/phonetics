@@ -1,0 +1,34 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "phonetics"
+version = "0.1.0"
+description = "IPA-based phonetic distance: strict edit distance, listener-confusion distance, and per-phoneme acoustic and perceptual scoring."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Jack Danger", email = "github@jackcanty.com" },
+]
+keywords = ["phonetics", "ipa", "linguistics", "edit-distance", "speech", "mad-gab"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Text Processing :: Linguistic",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/JackDanger/phonetics"
+Repository = "https://github.com/JackDanger/phonetics"
+
+[tool.maturin]
+# Mixed Python/Rust project: pure Python is in `python/`, Rust binding
+# extension is built from the Cargo.toml beside this file. The wheel
+# ends up with a `phonetics` package that re-exports symbols from the
+# native module.
+python-source = "python"
+module-name = "phonetics._native"
+features = ["pyo3/extension-module"]
