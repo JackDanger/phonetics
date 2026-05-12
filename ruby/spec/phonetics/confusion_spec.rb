@@ -159,6 +159,42 @@ RSpec.describe Phonetics::Confusion do
     end
   end
 
+  describe 'C extension parity' do
+    let(:samples) do
+      [
+        %w[kæt kæt],
+        %w[kæt kʌt],
+        %w[ɪtsdʒʌstəstupɪdgeɪm hɪtsdʒʌstɪsduphɪdkeɪm],
+        %w[æpəlpaɪ eɪppʊlpaɪ],
+        %w[nidəkɔfi nidɑkhɔffi],
+        ['ɪts dʒʌst ə stupɪd geɪm', 'hɪts dʒʌstɪs dup hɪd keɪm'], # spaced
+        ['mæstɝ beɪkɝ', 'mæs stɝ beɪk hɝ'],
+      ]
+    end
+
+    it 'is available alongside the Ruby reference' do
+      expect(defined?(::PhoneticsConfusionCBinding)).to be_truthy
+    end
+
+    it 'agrees with the Ruby reference on every sample' do
+      samples.each do |a, b|
+        c = Phonetics::CConfusion.distance(a, b)
+        r = Phonetics::RubyConfusion.new(a, b).distance
+        expect(c).to be_within(0.005).of(r),
+                     "C=#{c.inspect}, Ruby=#{r.inspect} for (#{a.inspect}, #{b.inspect})"
+      end
+    end
+
+    it 'is the path .distance picks by default when the bundle is loaded' do
+      # Smoke check: calling Confusion.distance should be fast enough to
+      # suggest it's hitting C, not Ruby. We don't pin a number — only
+      # check the contract that .distance returns the same value the C
+      # wrapper does.
+      a, b = 'ɪts dʒʌst ə stupɪd geɪm', 'hɪts dʒʌstɪs dup hɪd keɪm'
+      expect(described_class.distance(a, b)).to be_within(1e-6).of(Phonetics::CConfusion.distance(a, b))
+    end
+  end
+
   describe 'two-tier API contract' do
     it "exposes Phonetics::Levenshtein as the strict per-phoneme edit distance" do
       # Strict and confusion should diverge meaningfully on length-changing

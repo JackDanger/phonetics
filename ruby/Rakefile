@@ -14,6 +14,7 @@ end
 
 PHONETIC_COST_C_EXTENSION = File.join(EXT_PATH, 'phonetic_cost.c')
 NEXT_PHONEME_LENGTH_C_EXTENSION = File.join(EXT_PATH, 'next_phoneme_length.c')
+CONFUSION_COST_C_EXTENSION = File.join(EXT_PATH, 'confusion_cost.c')
 
 require_relative './lib/phonetics/code_generator'
 
@@ -31,8 +32,16 @@ task NEXT_PHONEME_LENGTH_C_EXTENSION do
   puts "Wrote #{NEXT_PHONEME_LENGTH_C_EXTENSION}"
 end
 
+desc 'Write confusion_cost.c using Phonetics::Confusion.sub_cost (acoustic + overlay)'
+task CONFUSION_COST_C_EXTENSION do
+  file = File.open(CONFUSION_COST_C_EXTENSION, 'w')
+  Phonetics::CodeGenerator.new(file).generate_confusion_cost_c_code
+  puts "Wrote #{CONFUSION_COST_C_EXTENSION}"
+end
+
 task compile: PHONETIC_COST_C_EXTENSION
 task compile: NEXT_PHONEME_LENGTH_C_EXTENSION
+task compile: CONFUSION_COST_C_EXTENSION
 
 RSpec::Core::RakeTask.new(:spec)
 

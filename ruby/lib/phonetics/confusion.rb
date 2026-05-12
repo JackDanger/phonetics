@@ -110,9 +110,15 @@ module Phonetics
       Set[ 'l', 'ɹ' ]  => 0.15,
     }.freeze
 
-    # Convenience: top-level entry point.
+    # Top-level entry point. Delegates to the C binding when the levenshtein
+    # bundle has been loaded (which also registers the Confusion module);
+    # falls back to the pure-Ruby path otherwise. Verbose tracing only
+    # exists in the Ruby path.
     def distance(ipa1, ipa2, verbose: false)
-      RubyConfusion.new(ipa1, ipa2, verbose: verbose).distance
+      return RubyConfusion.new(ipa1, ipa2, verbose: verbose).distance if verbose
+      return CConfusion.distance(ipa1, ipa2) if defined?(::PhoneticsConfusionCBinding)
+
+      RubyConfusion.new(ipa1, ipa2).distance
     end
 
     # 0..1 normalised similarity score. Worst case is one substitution per
@@ -154,6 +160,20 @@ module Phonetics
       return WEAK_INDEL_COST if WEAK_PHONEMES.include?(phoneme)
 
       nil
+    end
+  end
+
+  # Thin wrapper over the C extension. Loaded lazily so the file can be
+  # required even when the bundle isn't built (tests, codegen).
+  module CConfusion
+    def self.distance(ipa1, ipa2)
+      return 0.0 if ipa1.nil? || ipa2.nil?
+
+      wrapper.internal_confusion_distance(ipa1, ipa2, false)
+    end
+
+    def self.wrapper
+      @wrapper ||= Class.new { include ::PhoneticsConfusionCBinding }.new
     end
   end
 

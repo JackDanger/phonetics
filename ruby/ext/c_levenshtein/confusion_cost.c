@@ -1,9 +1,9 @@
 
-// This is compiled from Ruby, in ruby/lib/phonetics/code_generator.rb:116
+// This is compiled from Ruby, in ruby/lib/phonetics/code_generator.rb:158
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>
-float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
+float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
   if (phoneme1 == phoneme2) {
     return (float) 0.0;
   }
@@ -25345,7 +25345,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01100110:
           // Phoneme: 'f', bytes: [102]
           // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.28211829829397933;
+          return (float) 0.2;
           break;
         case 0b01110110:
           // Phoneme: 'v', bytes: [118]
@@ -26086,7 +26086,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110110:
           // Phoneme: 'v', bytes: [118]
           // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.28211829829397933;
+          return (float) 0.2;
           break;
         case 0b11001110101110001100110010111100:
           // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
@@ -29711,7 +29711,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110011:
           // Phoneme: 's', bytes: [115]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.225;
+          return (float) 0.2;
           break;
         case 0b01111010:
           // Phoneme: 'z', bytes: [122]
@@ -29781,7 +29781,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100111010111000:
           // Phoneme: 'θ', bytes: [206, 184]
           // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.255;
+          return (float) 0.18;
           break;
         case 0b1100001110110000:
           // Phoneme: 'ð', bytes: [195, 176]
@@ -29946,7 +29946,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110111110:
           // Phoneme: 'ɾ', bytes: [201, 190]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5325;
+          return (float) 0.1;
           break;
         case 0b11001001101111011100110010001010:
           // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
@@ -30452,7 +30452,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01111010:
           // Phoneme: 'z', bytes: [122]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.225;
+          return (float) 0.2;
           break;
         case 0b1100101010000011:
           // Phoneme: 'ʃ', bytes: [202, 131]
@@ -30522,7 +30522,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100001110110000:
           // Phoneme: 'ð', bytes: [195, 176]
           // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.255;
+          return (float) 0.18;
           break;
         case 0b11001110101110001100110010100000:
           // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
@@ -30682,7 +30682,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110111110:
           // Phoneme: 'ɾ', bytes: [201, 190]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3825;
+          return (float) 0.05;
           break;
         case 0b11001001101111011100110010001010:
           // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
@@ -38488,7 +38488,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110100:
           // Phoneme: 't', bytes: [116]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.225;
+          return (float) 0.2;
           break;
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
@@ -38613,7 +38613,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100111010111000:
           // Phoneme: 'θ', bytes: [206, 184]
           // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.02999999999999999;
+          return (float) 0.12;
           break;
         case 0b1100001110110000:
           // Phoneme: 'ð', bytes: [195, 176]
@@ -39229,7 +39229,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.225;
+          return (float) 0.2;
           break;
         case 0b1100101010001000:
           // Phoneme: 'ʈ', bytes: [202, 136]
@@ -39354,7 +39354,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100001110110000:
           // Phoneme: 'ð', bytes: [195, 176]
           // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.02999999999999999;
+          return (float) 0.12;
           break;
         case 0b11001110101110001100110010100000:
           // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
@@ -45818,7 +45818,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110000:
           // Phoneme: 'p', bytes: [112]
           // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.28211829829397933;
+          return (float) 0.2;
           break;
         case 0b01100010:
           // Phoneme: 'b', bytes: [98]
@@ -46559,7 +46559,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01100010:
           // Phoneme: 'b', bytes: [98]
           // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.28211829829397933;
+          return (float) 0.2;
           break;
         case 0b011100001100110010101010:
           // Phoneme: 'p̪', bytes: [112, 204, 170]
@@ -48792,7 +48792,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110100:
           // Phoneme: 't', bytes: [116]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.255;
+          return (float) 0.18;
           break;
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
@@ -48852,7 +48852,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110011:
           // Phoneme: 's', bytes: [115]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.02999999999999999;
+          return (float) 0.12;
           break;
         case 0b01111010:
           // Phoneme: 'z', bytes: [122]
@@ -49533,7 +49533,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.255;
+          return (float) 0.18;
           break;
         case 0b1100101010001000:
           // Phoneme: 'ʈ', bytes: [202, 136]
@@ -49593,7 +49593,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01111010:
           // Phoneme: 'z', bytes: [122]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.02999999999999999;
+          return (float) 0.12;
           break;
         case 0b1100101010000011:
           // Phoneme: 'ʃ', bytes: [202, 131]
@@ -64648,7 +64648,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01101100:
           // Phoneme: 'l', bytes: [108]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.1;
+          return (float) 0.15;
           break;
         case 0b11001001101011011100110010001010:
           // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
@@ -73080,12 +73080,12 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b01110100:
           // Phoneme: 't', bytes: [116]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.5325;
+          return (float) 0.1;
           break;
         case 0b01100100:
           // Phoneme: 'd', bytes: [100]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.3825;
+          return (float) 0.05;
           break;
         case 0b1100101010001000:
           // Phoneme: 'ʈ', bytes: [202, 136]
@@ -89507,7 +89507,7 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
         case 0b1100100110111001:
           // Phoneme: 'ɹ', bytes: [201, 185]
           // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.1;
+          return (float) 0.15;
           break;
         case 0b11001001101110111100110010001010:
           // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]

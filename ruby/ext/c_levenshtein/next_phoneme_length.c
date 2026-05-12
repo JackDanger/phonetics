@@ -1,4 +1,4 @@
-// This is compiled from Ruby, in ruby/lib/phonetics/code_generator.rb:163
+// This is compiled from Ruby, in ruby/lib/phonetics/code_generator.rb:214
 #include <stdio.h>
 int next_phoneme_length(int *string, int cursor, int length) {
 
@@ -1810,6 +1810,11 @@ int next_phoneme_length(int *string, int cursor, int length) {
      } else {
        return 1;
      }
+        break;
+    case 35:
+     // Phoneme: '#', bytes: [35]
+     // vowel features: null
+     return 1;
         break;
     }
   return 0;

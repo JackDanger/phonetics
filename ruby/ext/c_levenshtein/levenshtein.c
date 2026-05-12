@@ -32,11 +32,17 @@ void set_initial(float *d, int string1_phoneme_count, int string2_phoneme_count,
 void print_matrix(float *d, int *string1, int string1_phoneme_count, int *string1_phoneme_sizes, int *string2, int string2_phoneme_count, int *string2_phoneme_sizes, bool verbose);
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose);
 
+/* Forward declaration: the confusion module lives in confusion.c but is
+ * compiled into the same shared object as this file so a single bundle
+ * load registers both binding modules. */
+void Init_c_confusion(void);
+
 /* Function implemitations */
 
 void Init_c_levenshtein() {
 	Binding = rb_define_module("PhoneticsLevenshteinCBinding");
 	rb_define_method(Binding, "internal_phonetic_distance", method_internal_phonetic_distance, 3);
+	Init_c_confusion();
 }
 
 VALUE method_internal_phonetic_distance(VALUE self, VALUE _string1, VALUE _string2, VALUE _verbose){

@@ -468,11 +468,15 @@ module Phonetics
   }.freeze
 
   def phonemes
-    @phonemes ||= Vowels.phonemes + Consonants.phonemes + Compounds.keys
+    # Include BOUNDARY_TOKEN in the inventory so the C tokenizer (driven by
+    # the same codegen) recognises it. Strict callers never tokenise spaces
+    # into '#' so they never see it; Confusion does, both in Ruby and C.
+    @phonemes ||= Vowels.phonemes + Consonants.phonemes + Compounds.keys + [BOUNDARY_TOKEN]
   end
 
   # Classify compounds by the class of their constituents. Diphthongs (both
-  # vowels) are vowels; affricates (both consonants) are consonants.
+  # vowels) are vowels; affricates (both consonants) are consonants. The
+  # boundary token is its own kind.
   Symbols = begin
     base = Consonants.phonemes.reduce({}) { |acc, p| acc.update p => :consonant }.merge(
       Vowels.phonemes.reduce({}) { |acc, p| acc.update p => :vowel }
@@ -481,6 +485,7 @@ module Phonetics
       classes = parts.map { |p| base[p] }.uniq
       base[sym] = classes.size == 1 ? classes.first : :compound
     end
+    base[BOUNDARY_TOKEN] = :boundary
     base.freeze
   end
 
@@ -547,6 +552,8 @@ module Phonetics
   private
 
   def _distance(phoneme1, phoneme2)
+    return BOUNDARY_VS_PHONEME if phoneme1 == BOUNDARY_TOKEN || phoneme2 == BOUNDARY_TOKEN
+
     c1 = Compounds[phoneme1]
     c2 = Compounds[phoneme2]
     return compound_distance(c1 || [phoneme1], c2 || [phoneme2]) if c1 || c2

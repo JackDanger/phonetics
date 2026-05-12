@@ -23,6 +23,12 @@ module Phonetics
       writer.flush
     end
 
+    def generate_confusion_cost_c_code
+      generator = ConfusionCost.new(writer)
+      generator.generate
+      writer.flush
+    end
+
     private
 
     def binary(str)
@@ -127,6 +133,51 @@ module Phonetics
           write "        case #{binary(phoneme2)}:"
           describe(phoneme2, 6)
           write "          return (float) #{distance};"
+          write '          break;'
+        end
+        write '      }'
+        write '      break;'
+      end
+      write '  }'
+      write '  return (float) 1.0;'
+      write '};'
+      write ''
+    end
+  end
+
+  # Generated lookup table for Phonetics::Confusion.sub_cost, which is the
+  # acoustic distance with the empirical-confusion overlay applied. Shares
+  # the nested-switch structure of PhoneticCost so the runtime cost of
+  # consulting either table is the same.
+  class ConfusionCost < CodeGenerator
+    def generate
+      require_relative 'confusion'
+
+      write(<<-HEADER.gsub(/^ {6}/, ''))
+
+      // This is compiled from Ruby, in #{ruby_source}
+      #include <stdint.h>
+      #include <stdio.h>
+      #include <inttypes.h>
+      float confusion_sub_cost(int64_t phoneme1, int64_t phoneme2) {
+        if (phoneme1 == phoneme2) {
+          return (float) 0.0;
+        }
+
+      HEADER
+
+      write '  switch (phoneme1) {'
+      Phonetics.phonemes.each do |phoneme1|
+        write "    case #{binary(phoneme1)}:"
+        describe(phoneme1, 2)
+        write '      switch(phoneme2) {'
+        Phonetics.phonemes.each do |phoneme2|
+          next if phoneme1 == phoneme2
+
+          cost = Phonetics::Confusion.sub_cost(phoneme1, phoneme2)
+          write "        case #{binary(phoneme2)}:"
+          describe(phoneme2, 6)
+          write "          return (float) #{cost};"
           write '          break;'
         end
         write '      }'
