@@ -25,7 +25,11 @@
 
 #![doc(html_root_url = "https://docs.rs/phonetics/0.1.0")]
 
+pub mod compounds;
 pub mod consonants;
+pub mod cross_class;
+pub mod diacritics;
+pub mod symbols;
 pub mod vowels;
 
 mod distance;
