@@ -26,6 +26,7 @@
 #![doc(html_root_url = "https://docs.rs/phonetics/0.1.0")]
 
 pub mod compounds;
+pub mod confusion;
 pub mod consonants;
 pub mod cross_class;
 pub mod diacritics;
@@ -36,6 +37,8 @@ pub mod vowels;
 
 mod distance;
 
+pub use confusion::distance as confusion;
+pub use confusion::similarity;
 pub use distance::distance;
 pub use levenshtein::distance as levenshtein;
 pub use tokenizer::tokens;
