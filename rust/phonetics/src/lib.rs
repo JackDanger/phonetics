@@ -35,6 +35,9 @@ pub mod symbols;
 pub mod tokenizer;
 pub mod vowels;
 
+#[cfg(feature = "transcriptions")]
+pub mod transcriptions;
+
 mod distance;
 
 pub use confusion::distance as confusion;
