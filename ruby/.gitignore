@@ -15,3 +15,7 @@
 Gemfile.lock
 *.bundle
 .ruby-version
+
+# C extension build artifacts produced by `rake compile` / `ruby extconf.rb`
+ext/c_levenshtein/Makefile
+ext/c_levenshtein/*.o
