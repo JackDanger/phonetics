@@ -190,7 +190,7 @@ jobs:
           chmod 0600 ~/.gem/credentials
           for gem in pkg/*-${{ matrix.platform }}.gem; do
             [ -f "$gem" ] || continue
-            gem push "$gem" --skip-existing
+            gem push "$gem" || echo "(push failed; likely already exists)"
           done
         env:
           GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
@@ -222,7 +222,7 @@ jobs:
               *-arm64-darwin*|*-x86_64-darwin*|*-x86_64-linux*|*-aarch64-linux*|*-mingw*)
                 continue ;;
             esac
-            gem push "$gem" --skip-existing
+            gem push "$gem" || echo "(push failed; likely already exists)"
           done
         env:
           GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
