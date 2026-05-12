@@ -738,31 +738,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b01111001:
@@ -1491,31 +1466,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -2250,31 +2200,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b01100101:
@@ -3003,31 +2928,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -3762,31 +3662,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100100110011011:
@@ -4515,31 +4390,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -5274,31 +5124,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b01100001:
@@ -6027,31 +5852,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -6786,31 +6586,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100100110010001:
@@ -7539,31 +7314,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -8298,31 +8048,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100101010001100:
@@ -9051,31 +8776,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -9810,31 +9510,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100100110011101:
@@ -10563,31 +10238,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -11322,31 +10972,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100100110100100:
@@ -12075,31 +11700,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -12834,31 +12434,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b1100100110101111:
@@ -13587,31 +13162,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -14346,31 +13896,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b01110101:
@@ -15099,31 +14624,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -15858,31 +15358,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b011011011100110010100101:
@@ -16613,31 +16088,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.5139448696248725;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3543634254848743;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5043634254848743;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3844977299204193;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5344977299204192;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.23105914914698966;
           break;
       }
       break;
@@ -17370,31 +16820,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3639448696248725;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5043634254848743;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3543634254848743;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5344977299204192;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3844977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.38105914914698963;
-          break;
       }
       break;
     case 0b1100100110110001:
@@ -18125,31 +17550,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3072981344304445;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4473683298050513;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.29736832980505135;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.478773400058633;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3287734000586331;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.38105914914698963;
           break;
       }
       break;
@@ -18882,31 +18282,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2761798706333501;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.41434658438426486;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2643465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.44987346149214247;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.29987346149214245;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.4328391485792995;
-          break;
       }
       break;
     case 0b011011101100110010100101:
@@ -19637,31 +19012,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3643585412256314;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.20249999999999999;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3525;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.23807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38807562367689424;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3258658776449629;
           break;
       }
       break;
@@ -20394,31 +19744,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.21435854122563142;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3525;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.20249999999999999;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.38807562367689424;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.23807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.47586587764496285;
-          break;
       }
       break;
     case 0b11001001101100111100110010001010:
@@ -21149,31 +20474,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3880756236768943;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2499341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3999341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.23807562367689428;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3880756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.36602200441589533;
           break;
       }
       break;
@@ -21906,31 +21206,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.23807562367689428;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3999341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2499341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3880756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.23807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5160220044158953;
-          break;
       }
       break;
     case 0b11001001101100101100110010001010:
@@ -22661,31 +21936,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4117927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.27365124735378854;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4236512473537885;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.23807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38807562367689424;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3874052523340895;
           break;
       }
       break;
@@ -23418,31 +22668,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2617927061281571;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4236512473537885;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.27365124735378854;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.38807562367689424;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.23807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5374052523340894;
-          break;
       }
       break;
     case 0b11000101100010111100110010001010:
@@ -24173,31 +23398,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4549297206949589;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3167365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4667365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2814843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.43148436789964917;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.42409484122218355;
           break;
       }
       break;
@@ -24930,31 +24130,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.30492972069495894;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4667365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3167365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.43148436789964917;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2814843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5740948412221836;
-          break;
       }
       break;
     case 0b1100100110110100:
@@ -25685,31 +24860,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.32856120945966766;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.49038582233137673;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3403858223313767;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.45498393082818517;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3049839308281852;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5968303480283493;
           break;
       }
       break;
@@ -26442,31 +25592,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4239448696248725;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.26436342548487435;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4143634254848743;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2944977299204193;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.44449772992041925;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.14105914914698967;
-          break;
       }
       break;
     case 0b01100010:
@@ -27197,31 +26322,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2739448696248725;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4143634254848743;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.26436342548487435;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.44449772992041925;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2944977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.29105914914698966;
           break;
       }
       break;
@@ -27954,31 +27054,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3672981344304445;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.20736832980505138;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.35736832980505134;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.23877340005863307;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38877340005863303;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.14105914914698967;
-          break;
       }
       break;
     case 0b011000101100110010101010:
@@ -28709,31 +27784,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2172981344304445;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.35736832980505134;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.20736832980505138;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.38877340005863303;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.23877340005863307;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.29105914914698966;
           break;
       }
       break;
@@ -29466,31 +28516,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3361798706333501;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1743465843842649;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3243465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2098734614921425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3598734614921425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.1928391485792995;
-          break;
       }
       break;
     case 0b011001001100110010111100:
@@ -30221,31 +29246,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.18617987063335012;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3243465843842649;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1743465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3598734614921425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2098734614921425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.34283914857929954;
           break;
       }
       break;
@@ -30978,31 +29978,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2743585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.23586587764496286;
-          break;
       }
       break;
     case 0b01100100:
@@ -31733,31 +30708,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.12435854122563143;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.38586587764496283;
           break;
       }
       break;
@@ -32490,31 +31440,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2980756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1599341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3099341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2760220044158953;
-          break;
       }
       break;
     case 0b1100100110010110:
@@ -33245,31 +32170,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.14807562367689428;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3099341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1599341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.42602200441589533;
           break;
       }
       break;
@@ -34002,31 +32902,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3217927061281571;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2974052523340895;
-          break;
       }
       break;
     case 0b1100100110011111:
@@ -34757,31 +33632,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.1717927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.44740525233408945;
           break;
       }
       break;
@@ -35514,31 +34364,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.36492972069495894;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.22673659658795864;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3767365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.19148436789964918;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3414843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3340948412221836;
-          break;
       }
       break;
     case 0b01100111:
@@ -36269,31 +35094,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.21492972069495897;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3767365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.22673659658795864;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3414843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.19148436789964918;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.4840948412221836;
           break;
       }
       break;
@@ -37026,31 +35826,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.38856120945966766;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.25038582233137674;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.40038582233137676;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2149839308281852;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3649839308281852;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.35683034802834934;
-          break;
       }
       break;
     case 0b1100100110100010:
@@ -37781,31 +36556,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2385612094596677;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.40038582233137676;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.25038582233137674;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3649839308281852;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2149839308281852;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5068303480283494;
           break;
       }
       break;
@@ -38538,31 +37288,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.40251174083231867;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2643634254848744;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.41436342548487437;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.22882044879594599;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.37882044879594595;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3717930862679808;
-          break;
       }
       break;
     case 0b1100101010010100:
@@ -39293,31 +38018,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.41222038327270594;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2740549442140351;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.42405494421403506;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2385888945079972;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38858889450799716;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3797319352479619;
           break;
       }
       break;
@@ -40050,31 +38750,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2743585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.23586587764496286;
-          break;
       }
       break;
     case 0b01111010:
@@ -40805,31 +39480,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.12435854122563143;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.38586587764496283;
           break;
       }
       break;
@@ -41562,31 +40212,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2743585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.13621708245126285;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.28621708245126287;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.25537712641035415;
-          break;
       }
       break;
     case 0b1100101010010010:
@@ -42317,31 +40942,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.12435854122563143;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.28621708245126287;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.13621708245126285;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.40537712641035417;
           break;
       }
       break;
@@ -43074,31 +41674,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2980756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1599341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3099341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2760220044158953;
-          break;
       }
       break;
     case 0b1100101010010000:
@@ -43829,31 +42404,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.14807562367689428;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3099341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1599341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.42602200441589533;
           break;
       }
       break;
@@ -44586,31 +43136,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3217927061281571;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2974052523340895;
-          break;
       }
       break;
     case 0b1100101010010001:
@@ -45341,31 +43866,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.17179270612815709;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.44740525233408945;
           break;
       }
       break;
@@ -46098,31 +44598,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4239448696248725;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.26436342548487435;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4143634254848743;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2944977299204193;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.44449772992041925;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.14105914914698967;
-          break;
       }
       break;
     case 0b1100111010110010:
@@ -46853,31 +45328,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2739448696248725;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4143634254848743;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.26436342548487435;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.44449772992041925;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2944977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.29105914914698966;
           break;
       }
       break;
@@ -47610,31 +46060,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.36729813443044446;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.20736832980505138;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.35736832980505134;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.23877340005863307;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38877340005863303;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.14105914914698967;
-          break;
       }
       break;
     case 0b01110110:
@@ -48365,31 +46790,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.21729813443044452;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.35736832980505134;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.20736832980505138;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.38877340005863303;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.23877340005863307;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.29105914914698966;
           break;
       }
       break;
@@ -49122,31 +47522,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3361798706333501;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1743465843842649;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3243465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2098734614921425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3598734614921425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.1928391485792995;
-          break;
       }
       break;
     case 0b11000011101100001100110010111100:
@@ -49877,31 +48252,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.18617987063335012;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3243465843842649;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1743465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3598734614921425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2098734614921425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.34283914857929954;
           break;
       }
       break;
@@ -50634,31 +48984,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3040165042944955;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1425;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2925;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.17753124024047373;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.32753124024047375;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2081145647521725;
-          break;
       }
       break;
     case 0b1100001110110000:
@@ -51389,31 +49714,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.15401650429449554;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2925;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1425;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.32753124024047375;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.17753124024047373;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3581145647521725;
           break;
       }
       break;
@@ -52146,31 +50446,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2743585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.23586587764496286;
-          break;
       }
       break;
     case 0b11000011101100001100110010100000:
@@ -52901,31 +51176,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.12435854122563143;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2625;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1125;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.38586587764496283;
           break;
       }
       break;
@@ -53658,31 +51908,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2743585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.13621708245126285;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.28621708245126287;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.25537712641035415;
-          break;
       }
       break;
     case 0b110010011011100111001100101000001100101110010100:
@@ -54413,31 +52638,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.12435854122563143;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.28621708245126287;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.13621708245126285;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.40537712641035417;
           break;
       }
       break;
@@ -55170,31 +53370,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.14807562367689428;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3099341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.1599341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689428;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.42602200441589533;
-          break;
       }
       break;
     case 0b1100001110100111:
@@ -55925,31 +54100,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3217927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.2974052523340895;
           break;
       }
       break;
@@ -56682,31 +54832,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.17179270612815709;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.33365124735378854;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.18365124735378852;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2980756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.14807562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.44740525233408945;
-          break;
       }
       break;
     case 0b01111000:
@@ -57437,31 +55562,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.36492972069495894;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.22673659658795864;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3767365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.1914843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3414843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3340948412221836;
           break;
       }
       break;
@@ -58194,31 +56294,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.21492972069495897;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3767365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.22673659658795864;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3414843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.1914843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.48409484122218355;
-          break;
       }
       break;
     case 0b1100111110000111:
@@ -58949,31 +57024,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3885612094596677;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.25038582233137674;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.40038582233137676;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.21498393082818523;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.36498393082818525;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.35683034802834934;
           break;
       }
       break;
@@ -59706,31 +57756,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2385612094596677;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.40038582233137676;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.25038582233137674;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.36498393082818525;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.21498393082818523;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5068303480283494;
-          break;
       }
       break;
     case 0b1100010010100111:
@@ -60461,31 +58486,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.40251174083231867;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2643634254848744;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.41436342548487437;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.22882044879594596;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.378820448795946;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3717930862679808;
           break;
       }
       break;
@@ -61218,31 +59218,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.25251174083231864;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.41436342548487437;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2643634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.378820448795946;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.22882044879594596;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5217930862679807;
-          break;
       }
       break;
     case 0b01101000:
@@ -61973,31 +59948,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4122203832727059;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2740549442140351;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.42405494421403506;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2385888945079972;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38858889450799716;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3797319352479619;
           break;
       }
       break;
@@ -62730,31 +60680,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.2622203832727059;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.42405494421403506;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2740549442140351;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.38858889450799716;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2385888945079972;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5297319352479619;
-          break;
       }
       break;
     case 0b01110111:
@@ -63485,31 +61410,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.5294225873401063;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.6824999999999999;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5325;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6776181677642135;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5276181677642136;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6822374469651455;
           break;
       }
       break;
@@ -64242,31 +62142,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5922981344304445;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.43236832980505135;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5823683298050513;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4637734000586331;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.613773400058633;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.36605914914698967;
-          break;
       }
       break;
     case 0b1100101010001011:
@@ -64997,31 +62872,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4422981344304445;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5823683298050513;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.43236832980505135;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.613773400058633;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4637734000586331;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5160591491469897;
           break;
       }
       break;
@@ -65754,31 +63604,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4993585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.3375;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4875;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3730756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.4608658776449629;
-          break;
       }
       break;
     case 0b1100100110111001:
@@ -66509,31 +64334,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3493585412256314;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4875;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3375;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3730756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6108658776449629;
           break;
       }
       break;
@@ -67266,31 +65066,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5230756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.38493416490252574;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5349341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3730756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5010220044158953;
-          break;
       }
       break;
     case 0b1100100110111011:
@@ -68021,31 +65796,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3730756236768943;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5349341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.38493416490252574;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3730756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6510220044158953;
           break;
       }
       break;
@@ -68778,31 +66528,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5467927061281571;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4086512473537885;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5586512473537886;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.37307562367689423;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5224052523340895;
-          break;
       }
       break;
     case 0b01101010:
@@ -69533,31 +67258,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3967927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5586512473537886;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4086512473537885;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5230756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.37307562367689423;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6724052523340894;
           break;
       }
       break;
@@ -70290,31 +67990,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.589929720694959;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4517365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.6017365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4164843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5664843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5590948412221837;
-          break;
       }
       break;
     case 0b1100100110110000:
@@ -71045,31 +68720,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.43992972069495895;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.6017365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4517365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5664843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4164843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7090948412221836;
           break;
       }
       break;
@@ -71802,31 +69452,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.48722038327270595;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.649054944214035;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.49905494421403507;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6135888945079971;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.46358889450799723;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7547319352479619;
-          break;
       }
       break;
     case 0b1110001010110001101100011100110010011111:
@@ -72557,31 +70182,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4314448696248725;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5718634254848743;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4218634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6019977299204192;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4519977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.44855914914698963;
           break;
       }
       break;
@@ -73314,31 +70914,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3747981344304445;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5148683298050514;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.36486832980505135;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.546273400058633;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3962734000586331;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.44855914914698963;
-          break;
       }
       break;
     case 0b11001001101111101100110010111100:
@@ -74069,31 +71644,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.34367987063335015;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.48184658438426486;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.3318465843842649;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5173734614921425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3673734614921425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5003391485792995;
           break;
       }
       break;
@@ -74826,31 +72376,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4318585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.27;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.42;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3055756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.45557562367689425;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3933658776449629;
-          break;
       }
       break;
     case 0b1100100110111110:
@@ -75581,31 +73106,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2818585412256314;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.42;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.27;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.45557562367689425;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3055756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5433658776449628;
           break;
       }
       break;
@@ -76338,31 +73838,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4555756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.31743416490252574;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4674341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3055756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4555756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.43352200441589533;
-          break;
       }
       break;
     case 0b1100100110111101:
@@ -77093,31 +74568,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.3055756236768943;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4674341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.31743416490252574;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4555756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3055756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5835220044158953;
           break;
       }
       break;
@@ -77850,31 +75300,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.3960612094596677;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5578858223313767;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.40788582233137677;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5224839308281852;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3724839308281852;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6643303480283493;
-          break;
       }
       break;
     case 0b11001010101000011100110010000110:
@@ -78605,31 +76030,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4100117408323186;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5718634254848745;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4218634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.536320448795946;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.38632044879594596;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6792930862679807;
           break;
       }
       break;
@@ -79362,31 +76762,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.6039448696248726;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.44436342548487434;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5943634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4744977299204193;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.6244977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.3210591491469897;
-          break;
       }
       break;
     case 0b1100101010011001:
@@ -80117,31 +77492,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4539448696248725;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5943634254848744;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.44436342548487434;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6244977299204193;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4744977299204193;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.47105914914698965;
           break;
       }
       break;
@@ -80874,31 +78224,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.45435854122563146;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.29250000000000004;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4425;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3280756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.47807562367689427;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.41586587764496286;
-          break;
       }
       break;
     case 0b01110010:
@@ -81629,31 +78954,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.30435854122563144;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4425;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.29250000000000004;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.47807562367689427;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3280756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.565865877644963;
           break;
       }
       break;
@@ -82386,31 +79686,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5685612094596677;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4303858223313768;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5803858223313767;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.3949839308281853;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5449839308281852;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5368303480283494;
-          break;
       }
       break;
     case 0b1100101010000000:
@@ -83141,31 +80416,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.41856120945966774;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5803858223313767;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4303858223313768;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5449839308281852;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.3949839308281853;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6868303480283493;
           break;
       }
       break;
@@ -83898,31 +81148,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5825117408323187;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4443634254848744;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5943634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.40882044879594603;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5588204487959461;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5517930862679807;
-          break;
       }
       break;
     case 0b1100101010100010:
@@ -84653,31 +81878,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4325117408323187;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5943634254848744;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4443634254848744;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5588204487959461;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.40882044879594603;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7017930862679809;
           break;
       }
       break;
@@ -85410,31 +82610,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.39685854122563147;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.23500000000000004;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.385;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4205756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.35836587764496286;
-          break;
       }
       break;
     case 0b1100100110101110:
@@ -86165,31 +83340,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.24685854122563144;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.385;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.23500000000000004;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4205756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5083658776449629;
           break;
       }
       break;
@@ -86922,31 +84072,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.42057562367689433;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.2824341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.43243416490252573;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.42057562367689433;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.39852200441589536;
-          break;
       }
       break;
     case 0b11001001101011011100101110010100:
@@ -87677,31 +84802,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2705756236768943;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.43243416490252573;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.2824341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.42057562367689433;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5485220044158954;
           break;
       }
       break;
@@ -88434,31 +85534,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.44429270612815713;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.30615124735378857;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.45615124735378854;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4205756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.4199052523340895;
-          break;
       }
       break;
     case 0b11001010100011101100110010011101:
@@ -89189,31 +86264,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.2942927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.45615124735378854;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.30615124735378857;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4205756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.2705756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5699052523340895;
           break;
       }
       break;
@@ -89946,31 +86996,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.487429720694959;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.34923659658795864;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.49923659658795866;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.31398436789964923;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.46398436789964925;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.4565948412221836;
-          break;
       }
       break;
     case 0b11001010100111111100110010011101:
@@ -90701,31 +87726,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.33742972069495897;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.49923659658795866;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.34923659658795864;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.46398436789964925;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.31398436789964923;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6065948412221835;
           break;
       }
       break;
@@ -91458,31 +88458,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5993585412256314;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4375;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5874999999999999;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.47307562367689426;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.6230756236768942;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.5608658776449629;
-          break;
       }
       break;
     case 0b01101100:
@@ -92213,31 +89188,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.44935854122563146;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5874999999999999;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4375;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6230756236768942;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.47307562367689426;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7108658776449628;
           break;
       }
       break;
@@ -92970,31 +89920,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.6230756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.4849341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.6349341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.4730756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.6230756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6010220044158954;
-          break;
       }
       break;
     case 0b1100100110101101:
@@ -93725,31 +90650,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4730756236768943;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.6349341649025257;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4849341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6230756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4730756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7510220044158953;
           break;
       }
       break;
@@ -94482,31 +91382,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.6467927061281571;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5086512473537885;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.6586512473537884;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.47307562367689426;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.6230756236768942;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6224052523340895;
-          break;
       }
       break;
     case 0b1100101010001110:
@@ -95237,31 +92112,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4967927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.6586512473537884;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5086512473537885;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6230756236768942;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.47307562367689426;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7724052523340894;
           break;
       }
       break;
@@ -95994,31 +92844,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.6899297206949588;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5517365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.7017365965879585;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5164843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.6664843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6590948412221835;
-          break;
       }
       break;
     case 0b1100101010011111:
@@ -96749,31 +93574,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.5399297206949589;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.7017365965879585;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5517365965879586;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6664843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5164843678996492;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.8090948412221834;
           break;
       }
       break;
@@ -97506,31 +94306,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.5635612094596677;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.7253858223313767;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.5753858223313768;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.6899839308281852;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.5399839308281853;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.8318303480283493;
-          break;
       }
       break;
     case 0b1100100110111010:
@@ -98261,31 +95036,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.38185854122563145;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.52;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.37;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5555756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.40557562367689426;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6433658776449629;
           break;
       }
       break;
@@ -99018,31 +95768,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.4055756236768943;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5674341649025256;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4174341649025257;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5555756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.4055756236768943;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.6835220044158953;
-          break;
       }
       break;
     case 0b11001010100011101100110010000110:
@@ -99773,31 +96498,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
           // vowel features: null
           return (float) 0.4292927061281571;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.5911512473537885;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.4411512473537885;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5555756236768943;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.40557562367689426;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7049052523340894;
           break;
       }
       break;
@@ -100530,31 +97230,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.472429720694959;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.6342365965879586;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.48423659658795865;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.5989843678996492;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.44898436789964924;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.7415948412221836;
-          break;
       }
       break;
     case 0b011000011100100110101010:
@@ -101283,31 +97958,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -102042,31 +98692,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b011000011100101010001010:
@@ -102795,31 +99420,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -103554,31 +100154,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b11001001100101001100100110101010:
@@ -104307,31 +100882,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -105066,31 +101616,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b011011111100101010001010:
@@ -105819,31 +102344,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -106578,31 +103078,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b11001001101010101100100110011001:
@@ -107331,31 +103806,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -108090,31 +104540,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.85;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.85;
-          break;
       }
       break;
     case 0b11001001100110111100100110011001:
@@ -108843,31 +105268,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           break;
         case 0b011001001100101010010010:
           // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
           // vowel features: null
           return (float) 0.85;
           break;
@@ -109602,31 +106002,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // vowel features: null
           return (float) 0.15;
           break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.011858541225631427;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.16185854122563142;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.023717082451262837;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.17371708245126283;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.13329568227035601;
-          break;
       }
       break;
     case 0b011001001100101010010010:
@@ -110357,3811 +106732,6 @@ float phonetic_cost(int64_t phoneme1, int64_t phoneme2) {
           // Phoneme: 'tʃ', bytes: [116, 202, 131]
           // vowel features: null
           return (float) 0.15;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.16185854122563142;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.011858541225631427;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.17371708245126283;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.023717082451262837;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.28329568227035595;
-          break;
-      }
-      break;
-    case 0b0111010001110011:
-      // Phoneme: 'ts', bytes: [116, 115]
-      // vowel features: null
-      switch(phoneme2) {
-        case 0b01101001:
-          // Phoneme: 'i', bytes: [105]
-          // vowel features: {"F1":240,"F2":2400,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01111001:
-          // Phoneme: 'y', bytes: [121]
-          // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101010:
-          // Phoneme: 'ɪ', bytes: [201, 170]
-          // vowel features: {"F1":300,"F2":2100,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01100101:
-          // Phoneme: 'e', bytes: [101]
-          // vowel features: {"F1":390,"F2":2300,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110111000:
-          // Phoneme: 'ø', bytes: [195, 184]
-          // vowel features: {"F1":370,"F2":1900,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011011:
-          // Phoneme: 'ɛ', bytes: [201, 155]
-          // vowel features: {"F1":610,"F2":1900,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100010110010011:
-          // Phoneme: 'œ', bytes: [197, 147]
-          // vowel features: {"F1":585,"F2":1710,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b01100001:
-          // Phoneme: 'a', bytes: [97]
-          // vowel features: {"F1":850,"F2":1610,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110110110:
-          // Phoneme: 'ɶ', bytes: [201, 182]
-          // vowel features: {"F1":820,"F2":1530,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010001:
-          // Phoneme: 'ɑ', bytes: [201, 145]
-          // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010010:
-          // Phoneme: 'ɒ', bytes: [201, 146]
-          // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001100:
-          // Phoneme: 'ʌ', bytes: [202, 140]
-          // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011001:
-          // Phoneme: 'ə', bytes: [201, 153]
-          // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011101:
-          // Phoneme: 'ɝ', bytes: [201, 157]
-          // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010100:
-          // Phoneme: 'ɔ', bytes: [201, 148]
-          // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110100100:
-          // Phoneme: 'ɤ', bytes: [201, 164]
-          // vowel features: {"F1":460,"F2":1310,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01101111:
-          // Phoneme: 'o', bytes: [111]
-          // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101111:
-          // Phoneme: 'ɯ', bytes: [201, 175]
-          // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110100110:
-          // Phoneme: 'æ', bytes: [195, 166]
-          // vowel features: {"F1":690,"F2":1660,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01110101:
-          // Phoneme: 'u', bytes: [117]
-          // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001010:
-          // Phoneme: 'ʊ', bytes: [202, 138]
-          // vowel features: {"F1":380,"F2":950,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b011011011100110010100101:
-          // Phoneme: 'm̥', bytes: [109, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
-          return (float) 0.3543634254848743;
-          break;
-        case 0b01101101:
-          // Phoneme: 'm', bytes: [109]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":true}
-          return (float) 0.5043634254848743;
-          break;
-        case 0b1100100110110001:
-          // Phoneme: 'ɱ', bytes: [201, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Nasal","voiced":true}
-          return (float) 0.4473683298050513;
-          break;
-        case 0b011011101100110010111100:
-          // Phoneme: 'n̼', bytes: [110, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Nasal","voiced":true}
-          return (float) 0.41434658438426486;
-          break;
-        case 0b011011101100110010100101:
-          // Phoneme: 'n̥', bytes: [110, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
-          return (float) 0.20249999999999999;
-          break;
-        case 0b01101110:
-          // Phoneme: 'n', bytes: [110]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":true}
-          return (float) 0.3525;
-          break;
-        case 0b11001001101100111100110010001010:
-          // Phoneme: 'ɳ̊', bytes: [201, 179, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
-          return (float) 0.2499341649025257;
-          break;
-        case 0b1100100110110011:
-          // Phoneme: 'ɳ', bytes: [201, 179]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":true}
-          return (float) 0.3999341649025257;
-          break;
-        case 0b11001001101100101100110010001010:
-          // Phoneme: 'ɲ̊', bytes: [201, 178, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
-          return (float) 0.27365124735378854;
-          break;
-        case 0b1100100110110010:
-          // Phoneme: 'ɲ', bytes: [201, 178]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":true}
-          return (float) 0.4236512473537885;
-          break;
-        case 0b11000101100010111100110010001010:
-          // Phoneme: 'ŋ̊', bytes: [197, 139, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
-          return (float) 0.3167365965879586;
-          break;
-        case 0b1100010110001011:
-          // Phoneme: 'ŋ', bytes: [197, 139]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":true}
-          return (float) 0.4667365965879586;
-          break;
-        case 0b1100100110110100:
-          // Phoneme: 'ɴ', bytes: [201, 180]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Nasal","voiced":true}
-          return (float) 0.49038582233137673;
-          break;
-        case 0b01110000:
-          // Phoneme: 'p', bytes: [112]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.26436342548487435;
-          break;
-        case 0b01100010:
-          // Phoneme: 'b', bytes: [98]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.4143634254848743;
-          break;
-        case 0b011100001100110010101010:
-          // Phoneme: 'p̪', bytes: [112, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
-          return (float) 0.20736832980505138;
-          break;
-        case 0b011000101100110010101010:
-          // Phoneme: 'b̪', bytes: [98, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
-          return (float) 0.35736832980505134;
-          break;
-        case 0b011101001100110010111100:
-          // Phoneme: 't̼', bytes: [116, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
-          return (float) 0.1743465843842649;
-          break;
-        case 0b011001001100110010111100:
-          // Phoneme: 'd̼', bytes: [100, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
-          return (float) 0.3243465843842649;
-          break;
-        case 0b01110100:
-          // Phoneme: 't', bytes: [116]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.1125;
-          break;
-        case 0b01100100:
-          // Phoneme: 'd', bytes: [100]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.2625;
-          break;
-        case 0b1100101010001000:
-          // Phoneme: 'ʈ', bytes: [202, 136]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":false}
-          return (float) 0.1599341649025257;
-          break;
-        case 0b1100100110010110:
-          // Phoneme: 'ɖ', bytes: [201, 150]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":true}
-          return (float) 0.3099341649025257;
-          break;
-        case 0b01100011:
-          // Phoneme: 'c', bytes: [99]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":false}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b1100100110011111:
-          // Phoneme: 'ɟ', bytes: [201, 159]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":true}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b01101011:
-          // Phoneme: 'k', bytes: [107]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":false}
-          return (float) 0.22673659658795864;
-          break;
-        case 0b01100111:
-          // Phoneme: 'g', bytes: [103]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":true}
-          return (float) 0.3767365965879586;
-          break;
-        case 0b01110001:
-          // Phoneme: 'q', bytes: [113]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":false}
-          return (float) 0.25038582233137674;
-          break;
-        case 0b1100100110100010:
-          // Phoneme: 'ɢ', bytes: [201, 162]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":true}
-          return (float) 0.40038582233137676;
-          break;
-        case 0b1100101010100001:
-          // Phoneme: 'ʡ', bytes: [202, 161]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Stop","voiced":false}
-          return (float) 0.2643634254848744;
-          break;
-        case 0b1100101010010100:
-          // Phoneme: 'ʔ', bytes: [202, 148]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.2740549442140351;
-          break;
-        case 0b01110011:
-          // Phoneme: 's', bytes: [115]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.1125;
-          break;
-        case 0b01111010:
-          // Phoneme: 'z', bytes: [122]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.2625;
-          break;
-        case 0b1100101010000011:
-          // Phoneme: 'ʃ', bytes: [202, 131]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.13621708245126285;
-          break;
-        case 0b1100101010010010:
-          // Phoneme: 'ʒ', bytes: [202, 146]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.28621708245126287;
-          break;
-        case 0b1100101010000010:
-          // Phoneme: 'ʂ', bytes: [202, 130]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.1599341649025257;
-          break;
-        case 0b1100101010010000:
-          // Phoneme: 'ʐ', bytes: [202, 144]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.3099341649025257;
-          break;
-        case 0b1100100110010101:
-          // Phoneme: 'ɕ', bytes: [201, 149]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b1100101010010001:
-          // Phoneme: 'ʑ', bytes: [202, 145]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b1100100110111000:
-          // Phoneme: 'ɸ', bytes: [201, 184]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.26436342548487435;
-          break;
-        case 0b1100111010110010:
-          // Phoneme: 'β', bytes: [206, 178]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.4143634254848743;
-          break;
-        case 0b01100110:
-          // Phoneme: 'f', bytes: [102]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.20736832980505138;
-          break;
-        case 0b01110110:
-          // Phoneme: 'v', bytes: [118]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.35736832980505134;
-          break;
-        case 0b11001110101110001100110010111100:
-          // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.1743465843842649;
-          break;
-        case 0b11000011101100001100110010111100:
-          // Phoneme: 'ð̼', bytes: [195, 176, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3243465843842649;
-          break;
-        case 0b1100111010111000:
-          // Phoneme: 'θ', bytes: [206, 184]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.1425;
-          break;
-        case 0b1100001110110000:
-          // Phoneme: 'ð', bytes: [195, 176]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2925;
-          break;
-        case 0b11001110101110001100110010100000:
-          // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.1125;
-          break;
-        case 0b11000011101100001100110010100000:
-          // Phoneme: 'ð̠', bytes: [195, 176, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2625;
-          break;
-        case 0b1100100110111001110011001010000011001100100010101100101110010100:
-          // Phoneme: 'ɹ̠̊˔', bytes: [201, 185, 204, 160, 204, 138, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.13621708245126285;
-          break;
-        case 0b110010011011100111001100101000001100101110010100:
-          // Phoneme: 'ɹ̠˔', bytes: [201, 185, 204, 160, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.28621708245126287;
-          break;
-        case 0b11001001101110111100101110010100:
-          // Phoneme: 'ɻ˔', bytes: [201, 187, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3099341649025257;
-          break;
-        case 0b1100001110100111:
-          // Phoneme: 'ç', bytes: [195, 167]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b1100101010011101:
-          // Phoneme: 'ʝ', bytes: [202, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b01111000:
-          // Phoneme: 'x', bytes: [120]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.22673659658795864;
-          break;
-        case 0b1100100110100011:
-          // Phoneme: 'ɣ', bytes: [201, 163]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3767365965879586;
-          break;
-        case 0b1100111110000111:
-          // Phoneme: 'χ', bytes: [207, 135]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.25038582233137674;
-          break;
-        case 0b1100101010000001:
-          // Phoneme: 'ʁ', bytes: [202, 129]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.40038582233137676;
-          break;
-        case 0b1100010010100111:
-          // Phoneme: 'ħ', bytes: [196, 167]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2643634254848744;
-          break;
-        case 0b1100101010010101:
-          // Phoneme: 'ʕ', bytes: [202, 149]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.41436342548487437;
-          break;
-        case 0b01101000:
-          // Phoneme: 'h', bytes: [104]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2740549442140351;
-          break;
-        case 0b1100100110100110:
-          // Phoneme: 'ɦ', bytes: [201, 166]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.42405494421403506;
-          break;
-        case 0b01110111:
-          // Phoneme: 'w', bytes: [119]
-          // consonant features: {"position":"Labio-velar","position_index":0,"manner":"Approximant","voiced":true}
-          return (float) 0.6824999999999999;
-          break;
-        case 0b11001010100010111100110010100101:
-          // Phoneme: 'ʋ̥', bytes: [202, 139, 204, 165]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
-          return (float) 0.43236832980505135;
-          break;
-        case 0b1100101010001011:
-          // Phoneme: 'ʋ', bytes: [202, 139]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":true}
-          return (float) 0.5823683298050513;
-          break;
-        case 0b11001001101110011100110010100101:
-          // Phoneme: 'ɹ̥', bytes: [201, 185, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
-          return (float) 0.3375;
-          break;
-        case 0b1100100110111001:
-          // Phoneme: 'ɹ', bytes: [201, 185]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.4875;
-          break;
-        case 0b11001001101110111100110010001010:
-          // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
-          return (float) 0.38493416490252574;
-          break;
-        case 0b1100100110111011:
-          // Phoneme: 'ɻ', bytes: [201, 187]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":true}
-          return (float) 0.5349341649025257;
-          break;
-        case 0b011010101100110010001010:
-          // Phoneme: 'j̊', bytes: [106, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
-          return (float) 0.4086512473537885;
-          break;
-        case 0b01101010:
-          // Phoneme: 'j', bytes: [106]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":true}
-          return (float) 0.5586512473537886;
-          break;
-        case 0b11001001101100001100110010001010:
-          // Phoneme: 'ɰ̊', bytes: [201, 176, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
-          return (float) 0.4517365965879586;
-          break;
-        case 0b1100100110110000:
-          // Phoneme: 'ɰ', bytes: [201, 176]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":true}
-          return (float) 0.6017365965879586;
-          break;
-        case 0b11001010100101001100110010011110:
-          // Phoneme: 'ʔ̞', bytes: [202, 148, 204, 158]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
-          return (float) 0.649054944214035;
-          break;
-        case 0b1110001010110001101100011100110010011111:
-          // Phoneme: 'ⱱ̟', bytes: [226, 177, 177, 204, 159]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5718634254848743;
-          break;
-        case 0b111000101011000110110001:
-          // Phoneme: 'ⱱ', bytes: [226, 177, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5148683298050514;
-          break;
-        case 0b11001001101111101100110010111100:
-          // Phoneme: 'ɾ̼', bytes: [201, 190, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Tap/flap","voiced":true}
-          return (float) 0.48184658438426486;
-          break;
-        case 0b11001001101111101100110010100101:
-          // Phoneme: 'ɾ̥', bytes: [201, 190, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
-          return (float) 0.27;
-          break;
-        case 0b1100100110111110:
-          // Phoneme: 'ɾ', bytes: [201, 190]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.42;
-          break;
-        case 0b11001001101111011100110010001010:
-          // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
-          return (float) 0.31743416490252574;
-          break;
-        case 0b1100100110111101:
-          // Phoneme: 'ɽ', bytes: [201, 189]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":true}
-          return (float) 0.4674341649025257;
-          break;
-        case 0b11001001101000101100110010000110:
-          // Phoneme: 'ɢ̆', bytes: [201, 162, 204, 134]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5578858223313767;
-          break;
-        case 0b11001010101000011100110010000110:
-          // Phoneme: 'ʡ̆', bytes: [202, 161, 204, 134]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5718634254848745;
-          break;
-        case 0b11001010100110011100110010100101:
-          // Phoneme: 'ʙ̥', bytes: [202, 153, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
-          return (float) 0.44436342548487434;
-          break;
-        case 0b1100101010011001:
-          // Phoneme: 'ʙ', bytes: [202, 153]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":true}
-          return (float) 0.5943634254848744;
-          break;
-        case 0b011100101100110010100101:
-          // Phoneme: 'r̥', bytes: [114, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
-          return (float) 0.29250000000000004;
-          break;
-        case 0b01110010:
-          // Phoneme: 'r', bytes: [114]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":true}
-          return (float) 0.4425;
-          break;
-        case 0b11001010100000001100110010100101:
-          // Phoneme: 'ʀ̥', bytes: [202, 128, 204, 165]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
-          return (float) 0.4303858223313768;
-          break;
-        case 0b1100101010000000:
-          // Phoneme: 'ʀ', bytes: [202, 128]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":true}
-          return (float) 0.5803858223313767;
-          break;
-        case 0b1100101010011100:
-          // Phoneme: 'ʜ', bytes: [202, 156]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":false}
-          return (float) 0.4443634254848744;
-          break;
-        case 0b1100101010100010:
-          // Phoneme: 'ʢ', bytes: [202, 162]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":true}
-          return (float) 0.5943634254848744;
-          break;
-        case 0b1100100110101100:
-          // Phoneme: 'ɬ', bytes: [201, 172]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.23500000000000004;
-          break;
-        case 0b1100100110101110:
-          // Phoneme: 'ɮ', bytes: [201, 174]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.385;
-          break;
-        case 0b110010011010110111001100100010101100101110010100:
-          // Phoneme: 'ɭ̊˔', bytes: [201, 173, 204, 138, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.2824341649025257;
-          break;
-        case 0b11001001101011011100101110010100:
-          // Phoneme: 'ɭ˔', bytes: [201, 173, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.43243416490252573;
-          break;
-        case 0b110010101000111011001100100111011100110010001010:
-          // Phoneme: 'ʎ̝̊', bytes: [202, 142, 204, 157, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.30615124735378857;
-          break;
-        case 0b11001010100011101100110010011101:
-          // Phoneme: 'ʎ̝', bytes: [202, 142, 204, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.45615124735378854;
-          break;
-        case 0b110010101001111111001100100111011100110010001010:
-          // Phoneme: 'ʟ̝̊', bytes: [202, 159, 204, 157, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.34923659658795864;
-          break;
-        case 0b11001010100111111100110010011101:
-          // Phoneme: 'ʟ̝', bytes: [202, 159, 204, 157]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.49923659658795866;
-          break;
-        case 0b011011001100110010100101:
-          // Phoneme: 'l̥', bytes: [108, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.4375;
-          break;
-        case 0b01101100:
-          // Phoneme: 'l', bytes: [108]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5874999999999999;
-          break;
-        case 0b11001001101011011100110010001010:
-          // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.4849341649025257;
-          break;
-        case 0b1100100110101101:
-          // Phoneme: 'ɭ', bytes: [201, 173]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6349341649025257;
-          break;
-        case 0b11001010100011101100110010100101:
-          // Phoneme: 'ʎ̥', bytes: [202, 142, 204, 165]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.5086512473537885;
-          break;
-        case 0b1100101010001110:
-          // Phoneme: 'ʎ', bytes: [202, 142]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6586512473537884;
-          break;
-        case 0b11001010100111111100110010100101:
-          // Phoneme: 'ʟ̥', bytes: [202, 159, 204, 165]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.5517365965879586;
-          break;
-        case 0b1100101010011111:
-          // Phoneme: 'ʟ', bytes: [202, 159]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.7017365965879585;
-          break;
-        case 0b11001010100111111100110010100000:
-          // Phoneme: 'ʟ̠', bytes: [202, 159, 204, 160]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.7253858223313767;
-          break;
-        case 0b1100100110111010:
-          // Phoneme: 'ɺ', bytes: [201, 186]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.52;
-          break;
-        case 0b11001001101011011100110010000110:
-          // Phoneme: 'ɭ̆', bytes: [201, 173, 204, 134]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5674341649025256;
-          break;
-        case 0b11001010100011101100110010000110:
-          // Phoneme: 'ʎ̆', bytes: [202, 142, 204, 134]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5911512473537885;
-          break;
-        case 0b11001010100111111100110010000110:
-          // Phoneme: 'ʟ̆', bytes: [202, 159, 204, 134]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.6342365965879586;
-          break;
-        case 0b011000011100100110101010:
-          // Phoneme: 'aɪ', bytes: [97, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100100110101010:
-          // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011000011100101010001010:
-          // Phoneme: 'aʊ', bytes: [97, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100101010001010:
-          // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100101001100100110101010:
-          // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001011100100110101010:
-          // Phoneme: 'eɪ', bytes: [101, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011011111100101010001010:
-          // Phoneme: 'oʊ', bytes: [111, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110011100101010001010:
-          // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001101010101100100110011001:
-          // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001010100010101100100110011001:
-          // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110111100100110011001:
-          // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100101010000011:
-          // Phoneme: 'tʃ', bytes: [116, 202, 131]
-          // vowel features: null
-          return (float) 0.011858541225631427;
-          break;
-        case 0b011001001100101010010010:
-          // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.16185854122563142;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.15;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.035575623676894264;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.18557562367689426;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.12336587764496286;
-          break;
-      }
-      break;
-    case 0b0110010001111010:
-      // Phoneme: 'dz', bytes: [100, 122]
-      // vowel features: null
-      switch(phoneme2) {
-        case 0b01101001:
-          // Phoneme: 'i', bytes: [105]
-          // vowel features: {"F1":240,"F2":2400,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01111001:
-          // Phoneme: 'y', bytes: [121]
-          // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101010:
-          // Phoneme: 'ɪ', bytes: [201, 170]
-          // vowel features: {"F1":300,"F2":2100,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01100101:
-          // Phoneme: 'e', bytes: [101]
-          // vowel features: {"F1":390,"F2":2300,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110111000:
-          // Phoneme: 'ø', bytes: [195, 184]
-          // vowel features: {"F1":370,"F2":1900,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011011:
-          // Phoneme: 'ɛ', bytes: [201, 155]
-          // vowel features: {"F1":610,"F2":1900,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100010110010011:
-          // Phoneme: 'œ', bytes: [197, 147]
-          // vowel features: {"F1":585,"F2":1710,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b01100001:
-          // Phoneme: 'a', bytes: [97]
-          // vowel features: {"F1":850,"F2":1610,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110110110:
-          // Phoneme: 'ɶ', bytes: [201, 182]
-          // vowel features: {"F1":820,"F2":1530,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010001:
-          // Phoneme: 'ɑ', bytes: [201, 145]
-          // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010010:
-          // Phoneme: 'ɒ', bytes: [201, 146]
-          // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001100:
-          // Phoneme: 'ʌ', bytes: [202, 140]
-          // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011001:
-          // Phoneme: 'ə', bytes: [201, 153]
-          // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011101:
-          // Phoneme: 'ɝ', bytes: [201, 157]
-          // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010100:
-          // Phoneme: 'ɔ', bytes: [201, 148]
-          // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110100100:
-          // Phoneme: 'ɤ', bytes: [201, 164]
-          // vowel features: {"F1":460,"F2":1310,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01101111:
-          // Phoneme: 'o', bytes: [111]
-          // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101111:
-          // Phoneme: 'ɯ', bytes: [201, 175]
-          // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110100110:
-          // Phoneme: 'æ', bytes: [195, 166]
-          // vowel features: {"F1":690,"F2":1660,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01110101:
-          // Phoneme: 'u', bytes: [117]
-          // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001010:
-          // Phoneme: 'ʊ', bytes: [202, 138]
-          // vowel features: {"F1":380,"F2":950,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b011011011100110010100101:
-          // Phoneme: 'm̥', bytes: [109, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
-          return (float) 0.5043634254848743;
-          break;
-        case 0b01101101:
-          // Phoneme: 'm', bytes: [109]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":true}
-          return (float) 0.3543634254848743;
-          break;
-        case 0b1100100110110001:
-          // Phoneme: 'ɱ', bytes: [201, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Nasal","voiced":true}
-          return (float) 0.29736832980505135;
-          break;
-        case 0b011011101100110010111100:
-          // Phoneme: 'n̼', bytes: [110, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Nasal","voiced":true}
-          return (float) 0.2643465843842649;
-          break;
-        case 0b011011101100110010100101:
-          // Phoneme: 'n̥', bytes: [110, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
-          return (float) 0.3525;
-          break;
-        case 0b01101110:
-          // Phoneme: 'n', bytes: [110]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":true}
-          return (float) 0.20249999999999999;
-          break;
-        case 0b11001001101100111100110010001010:
-          // Phoneme: 'ɳ̊', bytes: [201, 179, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
-          return (float) 0.3999341649025257;
-          break;
-        case 0b1100100110110011:
-          // Phoneme: 'ɳ', bytes: [201, 179]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":true}
-          return (float) 0.2499341649025257;
-          break;
-        case 0b11001001101100101100110010001010:
-          // Phoneme: 'ɲ̊', bytes: [201, 178, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
-          return (float) 0.4236512473537885;
-          break;
-        case 0b1100100110110010:
-          // Phoneme: 'ɲ', bytes: [201, 178]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":true}
-          return (float) 0.27365124735378854;
-          break;
-        case 0b11000101100010111100110010001010:
-          // Phoneme: 'ŋ̊', bytes: [197, 139, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
-          return (float) 0.4667365965879586;
-          break;
-        case 0b1100010110001011:
-          // Phoneme: 'ŋ', bytes: [197, 139]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":true}
-          return (float) 0.3167365965879586;
-          break;
-        case 0b1100100110110100:
-          // Phoneme: 'ɴ', bytes: [201, 180]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Nasal","voiced":true}
-          return (float) 0.3403858223313767;
-          break;
-        case 0b01110000:
-          // Phoneme: 'p', bytes: [112]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.4143634254848743;
-          break;
-        case 0b01100010:
-          // Phoneme: 'b', bytes: [98]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.26436342548487435;
-          break;
-        case 0b011100001100110010101010:
-          // Phoneme: 'p̪', bytes: [112, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
-          return (float) 0.35736832980505134;
-          break;
-        case 0b011000101100110010101010:
-          // Phoneme: 'b̪', bytes: [98, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
-          return (float) 0.20736832980505138;
-          break;
-        case 0b011101001100110010111100:
-          // Phoneme: 't̼', bytes: [116, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
-          return (float) 0.3243465843842649;
-          break;
-        case 0b011001001100110010111100:
-          // Phoneme: 'd̼', bytes: [100, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
-          return (float) 0.1743465843842649;
-          break;
-        case 0b01110100:
-          // Phoneme: 't', bytes: [116]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.2625;
-          break;
-        case 0b01100100:
-          // Phoneme: 'd', bytes: [100]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.1125;
-          break;
-        case 0b1100101010001000:
-          // Phoneme: 'ʈ', bytes: [202, 136]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":false}
-          return (float) 0.3099341649025257;
-          break;
-        case 0b1100100110010110:
-          // Phoneme: 'ɖ', bytes: [201, 150]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":true}
-          return (float) 0.1599341649025257;
-          break;
-        case 0b01100011:
-          // Phoneme: 'c', bytes: [99]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":false}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b1100100110011111:
-          // Phoneme: 'ɟ', bytes: [201, 159]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":true}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b01101011:
-          // Phoneme: 'k', bytes: [107]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":false}
-          return (float) 0.3767365965879586;
-          break;
-        case 0b01100111:
-          // Phoneme: 'g', bytes: [103]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":true}
-          return (float) 0.22673659658795864;
-          break;
-        case 0b01110001:
-          // Phoneme: 'q', bytes: [113]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":false}
-          return (float) 0.40038582233137676;
-          break;
-        case 0b1100100110100010:
-          // Phoneme: 'ɢ', bytes: [201, 162]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":true}
-          return (float) 0.25038582233137674;
-          break;
-        case 0b1100101010100001:
-          // Phoneme: 'ʡ', bytes: [202, 161]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Stop","voiced":false}
-          return (float) 0.41436342548487437;
-          break;
-        case 0b1100101010010100:
-          // Phoneme: 'ʔ', bytes: [202, 148]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.42405494421403506;
-          break;
-        case 0b01110011:
-          // Phoneme: 's', bytes: [115]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2625;
-          break;
-        case 0b01111010:
-          // Phoneme: 'z', bytes: [122]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.1125;
-          break;
-        case 0b1100101010000011:
-          // Phoneme: 'ʃ', bytes: [202, 131]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.28621708245126287;
-          break;
-        case 0b1100101010010010:
-          // Phoneme: 'ʒ', bytes: [202, 146]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.13621708245126285;
-          break;
-        case 0b1100101010000010:
-          // Phoneme: 'ʂ', bytes: [202, 130]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.3099341649025257;
-          break;
-        case 0b1100101010010000:
-          // Phoneme: 'ʐ', bytes: [202, 144]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.1599341649025257;
-          break;
-        case 0b1100100110010101:
-          // Phoneme: 'ɕ', bytes: [201, 149]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b1100101010010001:
-          // Phoneme: 'ʑ', bytes: [202, 145]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b1100100110111000:
-          // Phoneme: 'ɸ', bytes: [201, 184]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.4143634254848743;
-          break;
-        case 0b1100111010110010:
-          // Phoneme: 'β', bytes: [206, 178]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.26436342548487435;
-          break;
-        case 0b01100110:
-          // Phoneme: 'f', bytes: [102]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.35736832980505134;
-          break;
-        case 0b01110110:
-          // Phoneme: 'v', bytes: [118]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.20736832980505138;
-          break;
-        case 0b11001110101110001100110010111100:
-          // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3243465843842649;
-          break;
-        case 0b11000011101100001100110010111100:
-          // Phoneme: 'ð̼', bytes: [195, 176, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.1743465843842649;
-          break;
-        case 0b1100111010111000:
-          // Phoneme: 'θ', bytes: [206, 184]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2925;
-          break;
-        case 0b1100001110110000:
-          // Phoneme: 'ð', bytes: [195, 176]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.1425;
-          break;
-        case 0b11001110101110001100110010100000:
-          // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2625;
-          break;
-        case 0b11000011101100001100110010100000:
-          // Phoneme: 'ð̠', bytes: [195, 176, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.1125;
-          break;
-        case 0b1100100110111001110011001010000011001100100010101100101110010100:
-          // Phoneme: 'ɹ̠̊˔', bytes: [201, 185, 204, 160, 204, 138, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.28621708245126287;
-          break;
-        case 0b110010011011100111001100101000001100101110010100:
-          // Phoneme: 'ɹ̠˔', bytes: [201, 185, 204, 160, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.13621708245126285;
-          break;
-        case 0b11001001101110111100101110010100:
-          // Phoneme: 'ɻ˔', bytes: [201, 187, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.1599341649025257;
-          break;
-        case 0b1100001110100111:
-          // Phoneme: 'ç', bytes: [195, 167]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.33365124735378854;
-          break;
-        case 0b1100101010011101:
-          // Phoneme: 'ʝ', bytes: [202, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.18365124735378852;
-          break;
-        case 0b01111000:
-          // Phoneme: 'x', bytes: [120]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3767365965879586;
-          break;
-        case 0b1100100110100011:
-          // Phoneme: 'ɣ', bytes: [201, 163]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.22673659658795864;
-          break;
-        case 0b1100111110000111:
-          // Phoneme: 'χ', bytes: [207, 135]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.40038582233137676;
-          break;
-        case 0b1100101010000001:
-          // Phoneme: 'ʁ', bytes: [202, 129]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.25038582233137674;
-          break;
-        case 0b1100010010100111:
-          // Phoneme: 'ħ', bytes: [196, 167]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.41436342548487437;
-          break;
-        case 0b1100101010010101:
-          // Phoneme: 'ʕ', bytes: [202, 149]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2643634254848744;
-          break;
-        case 0b01101000:
-          // Phoneme: 'h', bytes: [104]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.42405494421403506;
-          break;
-        case 0b1100100110100110:
-          // Phoneme: 'ɦ', bytes: [201, 166]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2740549442140351;
-          break;
-        case 0b01110111:
-          // Phoneme: 'w', bytes: [119]
-          // consonant features: {"position":"Labio-velar","position_index":0,"manner":"Approximant","voiced":true}
-          return (float) 0.5325;
-          break;
-        case 0b11001010100010111100110010100101:
-          // Phoneme: 'ʋ̥', bytes: [202, 139, 204, 165]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
-          return (float) 0.5823683298050513;
-          break;
-        case 0b1100101010001011:
-          // Phoneme: 'ʋ', bytes: [202, 139]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":true}
-          return (float) 0.43236832980505135;
-          break;
-        case 0b11001001101110011100110010100101:
-          // Phoneme: 'ɹ̥', bytes: [201, 185, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
-          return (float) 0.4875;
-          break;
-        case 0b1100100110111001:
-          // Phoneme: 'ɹ', bytes: [201, 185]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.3375;
-          break;
-        case 0b11001001101110111100110010001010:
-          // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
-          return (float) 0.5349341649025257;
-          break;
-        case 0b1100100110111011:
-          // Phoneme: 'ɻ', bytes: [201, 187]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":true}
-          return (float) 0.38493416490252574;
-          break;
-        case 0b011010101100110010001010:
-          // Phoneme: 'j̊', bytes: [106, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
-          return (float) 0.5586512473537886;
-          break;
-        case 0b01101010:
-          // Phoneme: 'j', bytes: [106]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":true}
-          return (float) 0.4086512473537885;
-          break;
-        case 0b11001001101100001100110010001010:
-          // Phoneme: 'ɰ̊', bytes: [201, 176, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
-          return (float) 0.6017365965879586;
-          break;
-        case 0b1100100110110000:
-          // Phoneme: 'ɰ', bytes: [201, 176]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":true}
-          return (float) 0.4517365965879586;
-          break;
-        case 0b11001010100101001100110010011110:
-          // Phoneme: 'ʔ̞', bytes: [202, 148, 204, 158]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
-          return (float) 0.49905494421403507;
-          break;
-        case 0b1110001010110001101100011100110010011111:
-          // Phoneme: 'ⱱ̟', bytes: [226, 177, 177, 204, 159]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
-          return (float) 0.4218634254848744;
-          break;
-        case 0b111000101011000110110001:
-          // Phoneme: 'ⱱ', bytes: [226, 177, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Tap/flap","voiced":true}
-          return (float) 0.36486832980505135;
-          break;
-        case 0b11001001101111101100110010111100:
-          // Phoneme: 'ɾ̼', bytes: [201, 190, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3318465843842649;
-          break;
-        case 0b11001001101111101100110010100101:
-          // Phoneme: 'ɾ̥', bytes: [201, 190, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
-          return (float) 0.42;
-          break;
-        case 0b1100100110111110:
-          // Phoneme: 'ɾ', bytes: [201, 190]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.27;
-          break;
-        case 0b11001001101111011100110010001010:
-          // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
-          return (float) 0.4674341649025257;
-          break;
-        case 0b1100100110111101:
-          // Phoneme: 'ɽ', bytes: [201, 189]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":true}
-          return (float) 0.31743416490252574;
-          break;
-        case 0b11001001101000101100110010000110:
-          // Phoneme: 'ɢ̆', bytes: [201, 162, 204, 134]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
-          return (float) 0.40788582233137677;
-          break;
-        case 0b11001010101000011100110010000110:
-          // Phoneme: 'ʡ̆', bytes: [202, 161, 204, 134]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
-          return (float) 0.4218634254848744;
-          break;
-        case 0b11001010100110011100110010100101:
-          // Phoneme: 'ʙ̥', bytes: [202, 153, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
-          return (float) 0.5943634254848744;
-          break;
-        case 0b1100101010011001:
-          // Phoneme: 'ʙ', bytes: [202, 153]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":true}
-          return (float) 0.44436342548487434;
-          break;
-        case 0b011100101100110010100101:
-          // Phoneme: 'r̥', bytes: [114, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
-          return (float) 0.4425;
-          break;
-        case 0b01110010:
-          // Phoneme: 'r', bytes: [114]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":true}
-          return (float) 0.29250000000000004;
-          break;
-        case 0b11001010100000001100110010100101:
-          // Phoneme: 'ʀ̥', bytes: [202, 128, 204, 165]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
-          return (float) 0.5803858223313767;
-          break;
-        case 0b1100101010000000:
-          // Phoneme: 'ʀ', bytes: [202, 128]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":true}
-          return (float) 0.4303858223313768;
-          break;
-        case 0b1100101010011100:
-          // Phoneme: 'ʜ', bytes: [202, 156]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":false}
-          return (float) 0.5943634254848744;
-          break;
-        case 0b1100101010100010:
-          // Phoneme: 'ʢ', bytes: [202, 162]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":true}
-          return (float) 0.4443634254848744;
-          break;
-        case 0b1100100110101100:
-          // Phoneme: 'ɬ', bytes: [201, 172]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.385;
-          break;
-        case 0b1100100110101110:
-          // Phoneme: 'ɮ', bytes: [201, 174]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.23500000000000004;
-          break;
-        case 0b110010011010110111001100100010101100101110010100:
-          // Phoneme: 'ɭ̊˔', bytes: [201, 173, 204, 138, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.43243416490252573;
-          break;
-        case 0b11001001101011011100101110010100:
-          // Phoneme: 'ɭ˔', bytes: [201, 173, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.2824341649025257;
-          break;
-        case 0b110010101000111011001100100111011100110010001010:
-          // Phoneme: 'ʎ̝̊', bytes: [202, 142, 204, 157, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.45615124735378854;
-          break;
-        case 0b11001010100011101100110010011101:
-          // Phoneme: 'ʎ̝', bytes: [202, 142, 204, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.30615124735378857;
-          break;
-        case 0b110010101001111111001100100111011100110010001010:
-          // Phoneme: 'ʟ̝̊', bytes: [202, 159, 204, 157, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.49923659658795866;
-          break;
-        case 0b11001010100111111100110010011101:
-          // Phoneme: 'ʟ̝', bytes: [202, 159, 204, 157]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.34923659658795864;
-          break;
-        case 0b011011001100110010100101:
-          // Phoneme: 'l̥', bytes: [108, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.5874999999999999;
-          break;
-        case 0b01101100:
-          // Phoneme: 'l', bytes: [108]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.4375;
-          break;
-        case 0b11001001101011011100110010001010:
-          // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6349341649025257;
-          break;
-        case 0b1100100110101101:
-          // Phoneme: 'ɭ', bytes: [201, 173]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.4849341649025257;
-          break;
-        case 0b11001010100011101100110010100101:
-          // Phoneme: 'ʎ̥', bytes: [202, 142, 204, 165]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6586512473537884;
-          break;
-        case 0b1100101010001110:
-          // Phoneme: 'ʎ', bytes: [202, 142]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5086512473537885;
-          break;
-        case 0b11001010100111111100110010100101:
-          // Phoneme: 'ʟ̥', bytes: [202, 159, 204, 165]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.7017365965879585;
-          break;
-        case 0b1100101010011111:
-          // Phoneme: 'ʟ', bytes: [202, 159]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5517365965879586;
-          break;
-        case 0b11001010100111111100110010100000:
-          // Phoneme: 'ʟ̠', bytes: [202, 159, 204, 160]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5753858223313768;
-          break;
-        case 0b1100100110111010:
-          // Phoneme: 'ɺ', bytes: [201, 186]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.37;
-          break;
-        case 0b11001001101011011100110010000110:
-          // Phoneme: 'ɭ̆', bytes: [201, 173, 204, 134]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.4174341649025257;
-          break;
-        case 0b11001010100011101100110010000110:
-          // Phoneme: 'ʎ̆', bytes: [202, 142, 204, 134]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.4411512473537885;
-          break;
-        case 0b11001010100111111100110010000110:
-          // Phoneme: 'ʟ̆', bytes: [202, 159, 204, 134]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.48423659658795865;
-          break;
-        case 0b011000011100100110101010:
-          // Phoneme: 'aɪ', bytes: [97, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100100110101010:
-          // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011000011100101010001010:
-          // Phoneme: 'aʊ', bytes: [97, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100101010001010:
-          // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100101001100100110101010:
-          // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001011100100110101010:
-          // Phoneme: 'eɪ', bytes: [101, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011011111100101010001010:
-          // Phoneme: 'oʊ', bytes: [111, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110011100101010001010:
-          // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001101010101100100110011001:
-          // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001010100010101100100110011001:
-          // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110111100100110011001:
-          // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100101010000011:
-          // Phoneme: 'tʃ', bytes: [116, 202, 131]
-          // vowel features: null
-          return (float) 0.16185854122563142;
-          break;
-        case 0b011001001100101010010010:
-          // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.011858541225631427;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.15;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.18557562367689426;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.035575623676894264;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.27336587764496284;
-          break;
-      }
-      break;
-    case 0b011101001100100110010101:
-      // Phoneme: 'tɕ', bytes: [116, 201, 149]
-      // vowel features: null
-      switch(phoneme2) {
-        case 0b01101001:
-          // Phoneme: 'i', bytes: [105]
-          // vowel features: {"F1":240,"F2":2400,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01111001:
-          // Phoneme: 'y', bytes: [121]
-          // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101010:
-          // Phoneme: 'ɪ', bytes: [201, 170]
-          // vowel features: {"F1":300,"F2":2100,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01100101:
-          // Phoneme: 'e', bytes: [101]
-          // vowel features: {"F1":390,"F2":2300,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110111000:
-          // Phoneme: 'ø', bytes: [195, 184]
-          // vowel features: {"F1":370,"F2":1900,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011011:
-          // Phoneme: 'ɛ', bytes: [201, 155]
-          // vowel features: {"F1":610,"F2":1900,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100010110010011:
-          // Phoneme: 'œ', bytes: [197, 147]
-          // vowel features: {"F1":585,"F2":1710,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b01100001:
-          // Phoneme: 'a', bytes: [97]
-          // vowel features: {"F1":850,"F2":1610,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110110110:
-          // Phoneme: 'ɶ', bytes: [201, 182]
-          // vowel features: {"F1":820,"F2":1530,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010001:
-          // Phoneme: 'ɑ', bytes: [201, 145]
-          // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010010:
-          // Phoneme: 'ɒ', bytes: [201, 146]
-          // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001100:
-          // Phoneme: 'ʌ', bytes: [202, 140]
-          // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011001:
-          // Phoneme: 'ə', bytes: [201, 153]
-          // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011101:
-          // Phoneme: 'ɝ', bytes: [201, 157]
-          // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010100:
-          // Phoneme: 'ɔ', bytes: [201, 148]
-          // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110100100:
-          // Phoneme: 'ɤ', bytes: [201, 164]
-          // vowel features: {"F1":460,"F2":1310,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01101111:
-          // Phoneme: 'o', bytes: [111]
-          // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101111:
-          // Phoneme: 'ɯ', bytes: [201, 175]
-          // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110100110:
-          // Phoneme: 'æ', bytes: [195, 166]
-          // vowel features: {"F1":690,"F2":1660,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01110101:
-          // Phoneme: 'u', bytes: [117]
-          // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001010:
-          // Phoneme: 'ʊ', bytes: [202, 138]
-          // vowel features: {"F1":380,"F2":950,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b011011011100110010100101:
-          // Phoneme: 'm̥', bytes: [109, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
-          return (float) 0.3844977299204193;
-          break;
-        case 0b01101101:
-          // Phoneme: 'm', bytes: [109]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":true}
-          return (float) 0.5344977299204192;
-          break;
-        case 0b1100100110110001:
-          // Phoneme: 'ɱ', bytes: [201, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Nasal","voiced":true}
-          return (float) 0.478773400058633;
-          break;
-        case 0b011011101100110010111100:
-          // Phoneme: 'n̼', bytes: [110, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Nasal","voiced":true}
-          return (float) 0.44987346149214247;
-          break;
-        case 0b011011101100110010100101:
-          // Phoneme: 'n̥', bytes: [110, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
-          return (float) 0.23807562367689425;
-          break;
-        case 0b01101110:
-          // Phoneme: 'n', bytes: [110]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":true}
-          return (float) 0.38807562367689424;
-          break;
-        case 0b11001001101100111100110010001010:
-          // Phoneme: 'ɳ̊', bytes: [201, 179, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
-          return (float) 0.23807562367689428;
-          break;
-        case 0b1100100110110011:
-          // Phoneme: 'ɳ', bytes: [201, 179]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":true}
-          return (float) 0.3880756236768943;
-          break;
-        case 0b11001001101100101100110010001010:
-          // Phoneme: 'ɲ̊', bytes: [201, 178, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
-          return (float) 0.23807562367689425;
-          break;
-        case 0b1100100110110010:
-          // Phoneme: 'ɲ', bytes: [201, 178]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":true}
-          return (float) 0.38807562367689424;
-          break;
-        case 0b11000101100010111100110010001010:
-          // Phoneme: 'ŋ̊', bytes: [197, 139, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
-          return (float) 0.2814843678996492;
-          break;
-        case 0b1100010110001011:
-          // Phoneme: 'ŋ', bytes: [197, 139]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":true}
-          return (float) 0.43148436789964917;
-          break;
-        case 0b1100100110110100:
-          // Phoneme: 'ɴ', bytes: [201, 180]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Nasal","voiced":true}
-          return (float) 0.45498393082818517;
-          break;
-        case 0b01110000:
-          // Phoneme: 'p', bytes: [112]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.2944977299204193;
-          break;
-        case 0b01100010:
-          // Phoneme: 'b', bytes: [98]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.44449772992041925;
-          break;
-        case 0b011100001100110010101010:
-          // Phoneme: 'p̪', bytes: [112, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
-          return (float) 0.23877340005863307;
-          break;
-        case 0b011000101100110010101010:
-          // Phoneme: 'b̪', bytes: [98, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
-          return (float) 0.38877340005863303;
-          break;
-        case 0b011101001100110010111100:
-          // Phoneme: 't̼', bytes: [116, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
-          return (float) 0.2098734614921425;
-          break;
-        case 0b011001001100110010111100:
-          // Phoneme: 'd̼', bytes: [100, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
-          return (float) 0.3598734614921425;
-          break;
-        case 0b01110100:
-          // Phoneme: 't', bytes: [116]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b01100100:
-          // Phoneme: 'd', bytes: [100]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010001000:
-          // Phoneme: 'ʈ', bytes: [202, 136]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":false}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100100110010110:
-          // Phoneme: 'ɖ', bytes: [201, 150]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b01100011:
-          // Phoneme: 'c', bytes: [99]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100100110011111:
-          // Phoneme: 'ɟ', bytes: [201, 159]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b01101011:
-          // Phoneme: 'k', bytes: [107]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":false}
-          return (float) 0.19148436789964918;
-          break;
-        case 0b01100111:
-          // Phoneme: 'g', bytes: [103]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":true}
-          return (float) 0.3414843678996492;
-          break;
-        case 0b01110001:
-          // Phoneme: 'q', bytes: [113]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":false}
-          return (float) 0.2149839308281852;
-          break;
-        case 0b1100100110100010:
-          // Phoneme: 'ɢ', bytes: [201, 162]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":true}
-          return (float) 0.3649839308281852;
-          break;
-        case 0b1100101010100001:
-          // Phoneme: 'ʡ', bytes: [202, 161]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Stop","voiced":false}
-          return (float) 0.22882044879594599;
-          break;
-        case 0b1100101010010100:
-          // Phoneme: 'ʔ', bytes: [202, 148]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.2385888945079972;
-          break;
-        case 0b01110011:
-          // Phoneme: 's', bytes: [115]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b01111010:
-          // Phoneme: 'z', bytes: [122]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010000011:
-          // Phoneme: 'ʃ', bytes: [202, 131]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100101010010010:
-          // Phoneme: 'ʒ', bytes: [202, 146]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010000010:
-          // Phoneme: 'ʂ', bytes: [202, 130]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100101010010000:
-          // Phoneme: 'ʐ', bytes: [202, 144]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100100110010101:
-          // Phoneme: 'ɕ', bytes: [201, 149]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100101010010001:
-          // Phoneme: 'ʑ', bytes: [202, 145]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100100110111000:
-          // Phoneme: 'ɸ', bytes: [201, 184]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2944977299204193;
-          break;
-        case 0b1100111010110010:
-          // Phoneme: 'β', bytes: [206, 178]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.44449772992041925;
-          break;
-        case 0b01100110:
-          // Phoneme: 'f', bytes: [102]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.23877340005863307;
-          break;
-        case 0b01110110:
-          // Phoneme: 'v', bytes: [118]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.38877340005863303;
-          break;
-        case 0b11001110101110001100110010111100:
-          // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2098734614921425;
-          break;
-        case 0b11000011101100001100110010111100:
-          // Phoneme: 'ð̼', bytes: [195, 176, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3598734614921425;
-          break;
-        case 0b1100111010111000:
-          // Phoneme: 'θ', bytes: [206, 184]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.17753124024047373;
-          break;
-        case 0b1100001110110000:
-          // Phoneme: 'ð', bytes: [195, 176]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.32753124024047375;
-          break;
-        case 0b11001110101110001100110010100000:
-          // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b11000011101100001100110010100000:
-          // Phoneme: 'ð̠', bytes: [195, 176, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100100110111001110011001010000011001100100010101100101110010100:
-          // Phoneme: 'ɹ̠̊˔', bytes: [201, 185, 204, 160, 204, 138, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b110010011011100111001100101000001100101110010100:
-          // Phoneme: 'ɹ̠˔', bytes: [201, 185, 204, 160, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b11001001101110111100101110010100:
-          // Phoneme: 'ɻ˔', bytes: [201, 187, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100001110100111:
-          // Phoneme: 'ç', bytes: [195, 167]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100101010011101:
-          // Phoneme: 'ʝ', bytes: [202, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b01111000:
-          // Phoneme: 'x', bytes: [120]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.1914843678996492;
-          break;
-        case 0b1100100110100011:
-          // Phoneme: 'ɣ', bytes: [201, 163]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3414843678996492;
-          break;
-        case 0b1100111110000111:
-          // Phoneme: 'χ', bytes: [207, 135]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.21498393082818523;
-          break;
-        case 0b1100101010000001:
-          // Phoneme: 'ʁ', bytes: [202, 129]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.36498393082818525;
-          break;
-        case 0b1100010010100111:
-          // Phoneme: 'ħ', bytes: [196, 167]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.22882044879594596;
-          break;
-        case 0b1100101010010101:
-          // Phoneme: 'ʕ', bytes: [202, 149]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.378820448795946;
-          break;
-        case 0b01101000:
-          // Phoneme: 'h', bytes: [104]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2385888945079972;
-          break;
-        case 0b1100100110100110:
-          // Phoneme: 'ɦ', bytes: [201, 166]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.38858889450799716;
-          break;
-        case 0b01110111:
-          // Phoneme: 'w', bytes: [119]
-          // consonant features: {"position":"Labio-velar","position_index":0,"manner":"Approximant","voiced":true}
-          return (float) 0.6776181677642135;
-          break;
-        case 0b11001010100010111100110010100101:
-          // Phoneme: 'ʋ̥', bytes: [202, 139, 204, 165]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
-          return (float) 0.4637734000586331;
-          break;
-        case 0b1100101010001011:
-          // Phoneme: 'ʋ', bytes: [202, 139]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":true}
-          return (float) 0.613773400058633;
-          break;
-        case 0b11001001101110011100110010100101:
-          // Phoneme: 'ɹ̥', bytes: [201, 185, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
-          return (float) 0.3730756236768943;
-          break;
-        case 0b1100100110111001:
-          // Phoneme: 'ɹ', bytes: [201, 185]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b11001001101110111100110010001010:
-          // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
-          return (float) 0.3730756236768943;
-          break;
-        case 0b1100100110111011:
-          // Phoneme: 'ɻ', bytes: [201, 187]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":true}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b011010101100110010001010:
-          // Phoneme: 'j̊', bytes: [106, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
-          return (float) 0.37307562367689423;
-          break;
-        case 0b01101010:
-          // Phoneme: 'j', bytes: [106]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":true}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b11001001101100001100110010001010:
-          // Phoneme: 'ɰ̊', bytes: [201, 176, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
-          return (float) 0.4164843678996492;
-          break;
-        case 0b1100100110110000:
-          // Phoneme: 'ɰ', bytes: [201, 176]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":true}
-          return (float) 0.5664843678996492;
-          break;
-        case 0b11001010100101001100110010011110:
-          // Phoneme: 'ʔ̞', bytes: [202, 148, 204, 158]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
-          return (float) 0.6135888945079971;
-          break;
-        case 0b1110001010110001101100011100110010011111:
-          // Phoneme: 'ⱱ̟', bytes: [226, 177, 177, 204, 159]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
-          return (float) 0.6019977299204192;
-          break;
-        case 0b111000101011000110110001:
-          // Phoneme: 'ⱱ', bytes: [226, 177, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Tap/flap","voiced":true}
-          return (float) 0.546273400058633;
-          break;
-        case 0b11001001101111101100110010111100:
-          // Phoneme: 'ɾ̼', bytes: [201, 190, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5173734614921425;
-          break;
-        case 0b11001001101111101100110010100101:
-          // Phoneme: 'ɾ̥', bytes: [201, 190, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
-          return (float) 0.3055756236768943;
-          break;
-        case 0b1100100110111110:
-          // Phoneme: 'ɾ', bytes: [201, 190]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.45557562367689425;
-          break;
-        case 0b11001001101111011100110010001010:
-          // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
-          return (float) 0.3055756236768943;
-          break;
-        case 0b1100100110111101:
-          // Phoneme: 'ɽ', bytes: [201, 189]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":true}
-          return (float) 0.4555756236768943;
-          break;
-        case 0b11001001101000101100110010000110:
-          // Phoneme: 'ɢ̆', bytes: [201, 162, 204, 134]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5224839308281852;
-          break;
-        case 0b11001010101000011100110010000110:
-          // Phoneme: 'ʡ̆', bytes: [202, 161, 204, 134]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
-          return (float) 0.536320448795946;
-          break;
-        case 0b11001010100110011100110010100101:
-          // Phoneme: 'ʙ̥', bytes: [202, 153, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
-          return (float) 0.4744977299204193;
-          break;
-        case 0b1100101010011001:
-          // Phoneme: 'ʙ', bytes: [202, 153]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":true}
-          return (float) 0.6244977299204193;
-          break;
-        case 0b011100101100110010100101:
-          // Phoneme: 'r̥', bytes: [114, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
-          return (float) 0.3280756236768943;
-          break;
-        case 0b01110010:
-          // Phoneme: 'r', bytes: [114]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":true}
-          return (float) 0.47807562367689427;
-          break;
-        case 0b11001010100000001100110010100101:
-          // Phoneme: 'ʀ̥', bytes: [202, 128, 204, 165]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
-          return (float) 0.3949839308281853;
-          break;
-        case 0b1100101010000000:
-          // Phoneme: 'ʀ', bytes: [202, 128]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":true}
-          return (float) 0.5449839308281852;
-          break;
-        case 0b1100101010011100:
-          // Phoneme: 'ʜ', bytes: [202, 156]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":false}
-          return (float) 0.40882044879594603;
-          break;
-        case 0b1100101010100010:
-          // Phoneme: 'ʢ', bytes: [202, 162]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":true}
-          return (float) 0.5588204487959461;
-          break;
-        case 0b1100100110101100:
-          // Phoneme: 'ɬ', bytes: [201, 172]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b1100100110101110:
-          // Phoneme: 'ɮ', bytes: [201, 174]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.4205756236768943;
-          break;
-        case 0b110010011010110111001100100010101100101110010100:
-          // Phoneme: 'ɭ̊˔', bytes: [201, 173, 204, 138, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b11001001101011011100101110010100:
-          // Phoneme: 'ɭ˔', bytes: [201, 173, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.42057562367689433;
-          break;
-        case 0b110010101000111011001100100111011100110010001010:
-          // Phoneme: 'ʎ̝̊', bytes: [202, 142, 204, 157, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b11001010100011101100110010011101:
-          // Phoneme: 'ʎ̝', bytes: [202, 142, 204, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.4205756236768943;
-          break;
-        case 0b110010101001111111001100100111011100110010001010:
-          // Phoneme: 'ʟ̝̊', bytes: [202, 159, 204, 157, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.31398436789964923;
-          break;
-        case 0b11001010100111111100110010011101:
-          // Phoneme: 'ʟ̝', bytes: [202, 159, 204, 157]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.46398436789964925;
-          break;
-        case 0b011011001100110010100101:
-          // Phoneme: 'l̥', bytes: [108, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.47307562367689426;
-          break;
-        case 0b01101100:
-          // Phoneme: 'l', bytes: [108]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6230756236768942;
-          break;
-        case 0b11001001101011011100110010001010:
-          // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.4730756236768943;
-          break;
-        case 0b1100100110101101:
-          // Phoneme: 'ɭ', bytes: [201, 173]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6230756236768943;
-          break;
-        case 0b11001010100011101100110010100101:
-          // Phoneme: 'ʎ̥', bytes: [202, 142, 204, 165]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.47307562367689426;
-          break;
-        case 0b1100101010001110:
-          // Phoneme: 'ʎ', bytes: [202, 142]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6230756236768942;
-          break;
-        case 0b11001010100111111100110010100101:
-          // Phoneme: 'ʟ̥', bytes: [202, 159, 204, 165]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.5164843678996492;
-          break;
-        case 0b1100101010011111:
-          // Phoneme: 'ʟ', bytes: [202, 159]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6664843678996492;
-          break;
-        case 0b11001010100111111100110010100000:
-          // Phoneme: 'ʟ̠', bytes: [202, 159, 204, 160]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.6899839308281852;
-          break;
-        case 0b1100100110111010:
-          // Phoneme: 'ɺ', bytes: [201, 186]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5555756236768943;
-          break;
-        case 0b11001001101011011100110010000110:
-          // Phoneme: 'ɭ̆', bytes: [201, 173, 204, 134]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5555756236768943;
-          break;
-        case 0b11001010100011101100110010000110:
-          // Phoneme: 'ʎ̆', bytes: [202, 142, 204, 134]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5555756236768943;
-          break;
-        case 0b11001010100111111100110010000110:
-          // Phoneme: 'ʟ̆', bytes: [202, 159, 204, 134]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.5989843678996492;
-          break;
-        case 0b011000011100100110101010:
-          // Phoneme: 'aɪ', bytes: [97, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100100110101010:
-          // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011000011100101010001010:
-          // Phoneme: 'aʊ', bytes: [97, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100101010001010:
-          // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100101001100100110101010:
-          // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001011100100110101010:
-          // Phoneme: 'eɪ', bytes: [101, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011011111100101010001010:
-          // Phoneme: 'oʊ', bytes: [111, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110011100101010001010:
-          // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001101010101100100110011001:
-          // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001010100010101100100110011001:
-          // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110111100100110011001:
-          // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100101010000011:
-          // Phoneme: 'tʃ', bytes: [116, 202, 131]
-          // vowel features: null
-          return (float) 0.023717082451262837;
-          break;
-        case 0b011001001100101010010010:
-          // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.17371708245126283;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.035575623676894264;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.18557562367689426;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.15;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.15477094789854456;
-          break;
-      }
-      break;
-    case 0b011001001100101010010001:
-      // Phoneme: 'dʑ', bytes: [100, 202, 145]
-      // vowel features: null
-      switch(phoneme2) {
-        case 0b01101001:
-          // Phoneme: 'i', bytes: [105]
-          // vowel features: {"F1":240,"F2":2400,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01111001:
-          // Phoneme: 'y', bytes: [121]
-          // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101010:
-          // Phoneme: 'ɪ', bytes: [201, 170]
-          // vowel features: {"F1":300,"F2":2100,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01100101:
-          // Phoneme: 'e', bytes: [101]
-          // vowel features: {"F1":390,"F2":2300,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110111000:
-          // Phoneme: 'ø', bytes: [195, 184]
-          // vowel features: {"F1":370,"F2":1900,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011011:
-          // Phoneme: 'ɛ', bytes: [201, 155]
-          // vowel features: {"F1":610,"F2":1900,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100010110010011:
-          // Phoneme: 'œ', bytes: [197, 147]
-          // vowel features: {"F1":585,"F2":1710,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b01100001:
-          // Phoneme: 'a', bytes: [97]
-          // vowel features: {"F1":850,"F2":1610,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110110110:
-          // Phoneme: 'ɶ', bytes: [201, 182]
-          // vowel features: {"F1":820,"F2":1530,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010001:
-          // Phoneme: 'ɑ', bytes: [201, 145]
-          // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010010:
-          // Phoneme: 'ɒ', bytes: [201, 146]
-          // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001100:
-          // Phoneme: 'ʌ', bytes: [202, 140]
-          // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011001:
-          // Phoneme: 'ə', bytes: [201, 153]
-          // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011101:
-          // Phoneme: 'ɝ', bytes: [201, 157]
-          // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010100:
-          // Phoneme: 'ɔ', bytes: [201, 148]
-          // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110100100:
-          // Phoneme: 'ɤ', bytes: [201, 164]
-          // vowel features: {"F1":460,"F2":1310,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01101111:
-          // Phoneme: 'o', bytes: [111]
-          // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101111:
-          // Phoneme: 'ɯ', bytes: [201, 175]
-          // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110100110:
-          // Phoneme: 'æ', bytes: [195, 166]
-          // vowel features: {"F1":690,"F2":1660,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01110101:
-          // Phoneme: 'u', bytes: [117]
-          // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001010:
-          // Phoneme: 'ʊ', bytes: [202, 138]
-          // vowel features: {"F1":380,"F2":950,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b011011011100110010100101:
-          // Phoneme: 'm̥', bytes: [109, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
-          return (float) 0.5344977299204192;
-          break;
-        case 0b01101101:
-          // Phoneme: 'm', bytes: [109]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":true}
-          return (float) 0.3844977299204193;
-          break;
-        case 0b1100100110110001:
-          // Phoneme: 'ɱ', bytes: [201, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Nasal","voiced":true}
-          return (float) 0.3287734000586331;
-          break;
-        case 0b011011101100110010111100:
-          // Phoneme: 'n̼', bytes: [110, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Nasal","voiced":true}
-          return (float) 0.29987346149214245;
-          break;
-        case 0b011011101100110010100101:
-          // Phoneme: 'n̥', bytes: [110, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
-          return (float) 0.38807562367689424;
-          break;
-        case 0b01101110:
-          // Phoneme: 'n', bytes: [110]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":true}
-          return (float) 0.23807562367689425;
-          break;
-        case 0b11001001101100111100110010001010:
-          // Phoneme: 'ɳ̊', bytes: [201, 179, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
-          return (float) 0.3880756236768943;
-          break;
-        case 0b1100100110110011:
-          // Phoneme: 'ɳ', bytes: [201, 179]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":true}
-          return (float) 0.23807562367689428;
-          break;
-        case 0b11001001101100101100110010001010:
-          // Phoneme: 'ɲ̊', bytes: [201, 178, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
-          return (float) 0.38807562367689424;
-          break;
-        case 0b1100100110110010:
-          // Phoneme: 'ɲ', bytes: [201, 178]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":true}
-          return (float) 0.23807562367689425;
-          break;
-        case 0b11000101100010111100110010001010:
-          // Phoneme: 'ŋ̊', bytes: [197, 139, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
-          return (float) 0.43148436789964917;
-          break;
-        case 0b1100010110001011:
-          // Phoneme: 'ŋ', bytes: [197, 139]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":true}
-          return (float) 0.2814843678996492;
-          break;
-        case 0b1100100110110100:
-          // Phoneme: 'ɴ', bytes: [201, 180]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Nasal","voiced":true}
-          return (float) 0.3049839308281852;
-          break;
-        case 0b01110000:
-          // Phoneme: 'p', bytes: [112]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.44449772992041925;
-          break;
-        case 0b01100010:
-          // Phoneme: 'b', bytes: [98]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.2944977299204193;
-          break;
-        case 0b011100001100110010101010:
-          // Phoneme: 'p̪', bytes: [112, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
-          return (float) 0.38877340005863303;
-          break;
-        case 0b011000101100110010101010:
-          // Phoneme: 'b̪', bytes: [98, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
-          return (float) 0.23877340005863307;
-          break;
-        case 0b011101001100110010111100:
-          // Phoneme: 't̼', bytes: [116, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
-          return (float) 0.3598734614921425;
-          break;
-        case 0b011001001100110010111100:
-          // Phoneme: 'd̼', bytes: [100, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
-          return (float) 0.2098734614921425;
-          break;
-        case 0b01110100:
-          // Phoneme: 't', bytes: [116]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b01100100:
-          // Phoneme: 'd', bytes: [100]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100101010001000:
-          // Phoneme: 'ʈ', bytes: [202, 136]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100100110010110:
-          // Phoneme: 'ɖ', bytes: [201, 150]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":true}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b01100011:
-          // Phoneme: 'c', bytes: [99]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100100110011111:
-          // Phoneme: 'ɟ', bytes: [201, 159]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b01101011:
-          // Phoneme: 'k', bytes: [107]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":false}
-          return (float) 0.3414843678996492;
-          break;
-        case 0b01100111:
-          // Phoneme: 'g', bytes: [103]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":true}
-          return (float) 0.19148436789964918;
-          break;
-        case 0b01110001:
-          // Phoneme: 'q', bytes: [113]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":false}
-          return (float) 0.3649839308281852;
-          break;
-        case 0b1100100110100010:
-          // Phoneme: 'ɢ', bytes: [201, 162]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":true}
-          return (float) 0.2149839308281852;
-          break;
-        case 0b1100101010100001:
-          // Phoneme: 'ʡ', bytes: [202, 161]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Stop","voiced":false}
-          return (float) 0.37882044879594595;
-          break;
-        case 0b1100101010010100:
-          // Phoneme: 'ʔ', bytes: [202, 148]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.38858889450799716;
-          break;
-        case 0b01110011:
-          // Phoneme: 's', bytes: [115]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b01111010:
-          // Phoneme: 'z', bytes: [122]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100101010000011:
-          // Phoneme: 'ʃ', bytes: [202, 131]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010010010:
-          // Phoneme: 'ʒ', bytes: [202, 146]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100101010000010:
-          // Phoneme: 'ʂ', bytes: [202, 130]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010010000:
-          // Phoneme: 'ʐ', bytes: [202, 144]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100100110010101:
-          // Phoneme: 'ɕ', bytes: [201, 149]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010010001:
-          // Phoneme: 'ʑ', bytes: [202, 145]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100100110111000:
-          // Phoneme: 'ɸ', bytes: [201, 184]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.44449772992041925;
-          break;
-        case 0b1100111010110010:
-          // Phoneme: 'β', bytes: [206, 178]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2944977299204193;
-          break;
-        case 0b01100110:
-          // Phoneme: 'f', bytes: [102]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.38877340005863303;
-          break;
-        case 0b01110110:
-          // Phoneme: 'v', bytes: [118]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.23877340005863307;
-          break;
-        case 0b11001110101110001100110010111100:
-          // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3598734614921425;
-          break;
-        case 0b11000011101100001100110010111100:
-          // Phoneme: 'ð̼', bytes: [195, 176, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2098734614921425;
-          break;
-        case 0b1100111010111000:
-          // Phoneme: 'θ', bytes: [206, 184]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.32753124024047375;
-          break;
-        case 0b1100001110110000:
-          // Phoneme: 'ð', bytes: [195, 176]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.17753124024047373;
-          break;
-        case 0b11001110101110001100110010100000:
-          // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b11000011101100001100110010100000:
-          // Phoneme: 'ð̠', bytes: [195, 176, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b1100100110111001110011001010000011001100100010101100101110010100:
-          // Phoneme: 'ɹ̠̊˔', bytes: [201, 185, 204, 160, 204, 138, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b110010011011100111001100101000001100101110010100:
-          // Phoneme: 'ɹ̠˔', bytes: [201, 185, 204, 160, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b11001001101110111100101110010100:
-          // Phoneme: 'ɻ˔', bytes: [201, 187, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.14807562367689428;
-          break;
-        case 0b1100001110100111:
-          // Phoneme: 'ç', bytes: [195, 167]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2980756236768943;
-          break;
-        case 0b1100101010011101:
-          // Phoneme: 'ʝ', bytes: [202, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.14807562367689425;
-          break;
-        case 0b01111000:
-          // Phoneme: 'x', bytes: [120]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3414843678996492;
-          break;
-        case 0b1100100110100011:
-          // Phoneme: 'ɣ', bytes: [201, 163]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.1914843678996492;
-          break;
-        case 0b1100111110000111:
-          // Phoneme: 'χ', bytes: [207, 135]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.36498393082818525;
-          break;
-        case 0b1100101010000001:
-          // Phoneme: 'ʁ', bytes: [202, 129]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.21498393082818523;
-          break;
-        case 0b1100010010100111:
-          // Phoneme: 'ħ', bytes: [196, 167]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.378820448795946;
-          break;
-        case 0b1100101010010101:
-          // Phoneme: 'ʕ', bytes: [202, 149]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.22882044879594596;
-          break;
-        case 0b01101000:
-          // Phoneme: 'h', bytes: [104]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.38858889450799716;
-          break;
-        case 0b1100100110100110:
-          // Phoneme: 'ɦ', bytes: [201, 166]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.2385888945079972;
-          break;
-        case 0b01110111:
-          // Phoneme: 'w', bytes: [119]
-          // consonant features: {"position":"Labio-velar","position_index":0,"manner":"Approximant","voiced":true}
-          return (float) 0.5276181677642136;
-          break;
-        case 0b11001010100010111100110010100101:
-          // Phoneme: 'ʋ̥', bytes: [202, 139, 204, 165]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
-          return (float) 0.613773400058633;
-          break;
-        case 0b1100101010001011:
-          // Phoneme: 'ʋ', bytes: [202, 139]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":true}
-          return (float) 0.4637734000586331;
-          break;
-        case 0b11001001101110011100110010100101:
-          // Phoneme: 'ɹ̥', bytes: [201, 185, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b1100100110111001:
-          // Phoneme: 'ɹ', bytes: [201, 185]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.3730756236768943;
-          break;
-        case 0b11001001101110111100110010001010:
-          // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b1100100110111011:
-          // Phoneme: 'ɻ', bytes: [201, 187]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":true}
-          return (float) 0.3730756236768943;
-          break;
-        case 0b011010101100110010001010:
-          // Phoneme: 'j̊', bytes: [106, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
-          return (float) 0.5230756236768943;
-          break;
-        case 0b01101010:
-          // Phoneme: 'j', bytes: [106]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":true}
-          return (float) 0.37307562367689423;
-          break;
-        case 0b11001001101100001100110010001010:
-          // Phoneme: 'ɰ̊', bytes: [201, 176, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
-          return (float) 0.5664843678996492;
-          break;
-        case 0b1100100110110000:
-          // Phoneme: 'ɰ', bytes: [201, 176]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":true}
-          return (float) 0.4164843678996492;
-          break;
-        case 0b11001010100101001100110010011110:
-          // Phoneme: 'ʔ̞', bytes: [202, 148, 204, 158]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
-          return (float) 0.46358889450799723;
-          break;
-        case 0b1110001010110001101100011100110010011111:
-          // Phoneme: 'ⱱ̟', bytes: [226, 177, 177, 204, 159]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
-          return (float) 0.4519977299204193;
-          break;
-        case 0b111000101011000110110001:
-          // Phoneme: 'ⱱ', bytes: [226, 177, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3962734000586331;
-          break;
-        case 0b11001001101111101100110010111100:
-          // Phoneme: 'ɾ̼', bytes: [201, 190, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3673734614921425;
-          break;
-        case 0b11001001101111101100110010100101:
-          // Phoneme: 'ɾ̥', bytes: [201, 190, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
-          return (float) 0.45557562367689425;
-          break;
-        case 0b1100100110111110:
-          // Phoneme: 'ɾ', bytes: [201, 190]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3055756236768943;
-          break;
-        case 0b11001001101111011100110010001010:
-          // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
-          return (float) 0.4555756236768943;
-          break;
-        case 0b1100100110111101:
-          // Phoneme: 'ɽ', bytes: [201, 189]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3055756236768943;
-          break;
-        case 0b11001001101000101100110010000110:
-          // Phoneme: 'ɢ̆', bytes: [201, 162, 204, 134]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
-          return (float) 0.3724839308281852;
-          break;
-        case 0b11001010101000011100110010000110:
-          // Phoneme: 'ʡ̆', bytes: [202, 161, 204, 134]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
-          return (float) 0.38632044879594596;
-          break;
-        case 0b11001010100110011100110010100101:
-          // Phoneme: 'ʙ̥', bytes: [202, 153, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
-          return (float) 0.6244977299204193;
-          break;
-        case 0b1100101010011001:
-          // Phoneme: 'ʙ', bytes: [202, 153]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":true}
-          return (float) 0.4744977299204193;
-          break;
-        case 0b011100101100110010100101:
-          // Phoneme: 'r̥', bytes: [114, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
-          return (float) 0.47807562367689427;
-          break;
-        case 0b01110010:
-          // Phoneme: 'r', bytes: [114]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":true}
-          return (float) 0.3280756236768943;
-          break;
-        case 0b11001010100000001100110010100101:
-          // Phoneme: 'ʀ̥', bytes: [202, 128, 204, 165]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
-          return (float) 0.5449839308281852;
-          break;
-        case 0b1100101010000000:
-          // Phoneme: 'ʀ', bytes: [202, 128]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":true}
-          return (float) 0.3949839308281853;
-          break;
-        case 0b1100101010011100:
-          // Phoneme: 'ʜ', bytes: [202, 156]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":false}
-          return (float) 0.5588204487959461;
-          break;
-        case 0b1100101010100010:
-          // Phoneme: 'ʢ', bytes: [202, 162]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":true}
-          return (float) 0.40882044879594603;
-          break;
-        case 0b1100100110101100:
-          // Phoneme: 'ɬ', bytes: [201, 172]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.4205756236768943;
-          break;
-        case 0b1100100110101110:
-          // Phoneme: 'ɮ', bytes: [201, 174]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b110010011010110111001100100010101100101110010100:
-          // Phoneme: 'ɭ̊˔', bytes: [201, 173, 204, 138, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.42057562367689433;
-          break;
-        case 0b11001001101011011100101110010100:
-          // Phoneme: 'ɭ˔', bytes: [201, 173, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b110010101000111011001100100111011100110010001010:
-          // Phoneme: 'ʎ̝̊', bytes: [202, 142, 204, 157, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.4205756236768943;
-          break;
-        case 0b11001010100011101100110010011101:
-          // Phoneme: 'ʎ̝', bytes: [202, 142, 204, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.2705756236768943;
-          break;
-        case 0b110010101001111111001100100111011100110010001010:
-          // Phoneme: 'ʟ̝̊', bytes: [202, 159, 204, 157, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.46398436789964925;
-          break;
-        case 0b11001010100111111100110010011101:
-          // Phoneme: 'ʟ̝', bytes: [202, 159, 204, 157]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.31398436789964923;
-          break;
-        case 0b011011001100110010100101:
-          // Phoneme: 'l̥', bytes: [108, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6230756236768942;
-          break;
-        case 0b01101100:
-          // Phoneme: 'l', bytes: [108]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.47307562367689426;
-          break;
-        case 0b11001001101011011100110010001010:
-          // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6230756236768943;
-          break;
-        case 0b1100100110101101:
-          // Phoneme: 'ɭ', bytes: [201, 173]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.4730756236768943;
-          break;
-        case 0b11001010100011101100110010100101:
-          // Phoneme: 'ʎ̥', bytes: [202, 142, 204, 165]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6230756236768942;
-          break;
-        case 0b1100101010001110:
-          // Phoneme: 'ʎ', bytes: [202, 142]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.47307562367689426;
-          break;
-        case 0b11001010100111111100110010100101:
-          // Phoneme: 'ʟ̥', bytes: [202, 159, 204, 165]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6664843678996492;
-          break;
-        case 0b1100101010011111:
-          // Phoneme: 'ʟ', bytes: [202, 159]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5164843678996492;
-          break;
-        case 0b11001010100111111100110010100000:
-          // Phoneme: 'ʟ̠', bytes: [202, 159, 204, 160]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.5399839308281853;
-          break;
-        case 0b1100100110111010:
-          // Phoneme: 'ɺ', bytes: [201, 186]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.40557562367689426;
-          break;
-        case 0b11001001101011011100110010000110:
-          // Phoneme: 'ɭ̆', bytes: [201, 173, 204, 134]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.4055756236768943;
-          break;
-        case 0b11001010100011101100110010000110:
-          // Phoneme: 'ʎ̆', bytes: [202, 142, 204, 134]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.40557562367689426;
-          break;
-        case 0b11001010100111111100110010000110:
-          // Phoneme: 'ʟ̆', bytes: [202, 159, 204, 134]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.44898436789964924;
-          break;
-        case 0b011000011100100110101010:
-          // Phoneme: 'aɪ', bytes: [97, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100100110101010:
-          // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011000011100101010001010:
-          // Phoneme: 'aʊ', bytes: [97, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100101010001010:
-          // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100101001100100110101010:
-          // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001011100100110101010:
-          // Phoneme: 'eɪ', bytes: [101, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011011111100101010001010:
-          // Phoneme: 'oʊ', bytes: [111, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110011100101010001010:
-          // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001101010101100100110011001:
-          // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001010100010101100100110011001:
-          // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110111100100110011001:
-          // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100101010000011:
-          // Phoneme: 'tʃ', bytes: [116, 202, 131]
-          // vowel features: null
-          return (float) 0.17371708245126283;
-          break;
-        case 0b011001001100101010010010:
-          // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.023717082451262837;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.18557562367689426;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.035575623676894264;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.15;
-          break;
-        case 0b0111000001100110:
-          // Phoneme: 'pf', bytes: [112, 102]
-          // vowel features: null
-          return (float) 0.30477094789854453;
-          break;
-      }
-      break;
-    case 0b0111000001100110:
-      // Phoneme: 'pf', bytes: [112, 102]
-      // vowel features: null
-      switch(phoneme2) {
-        case 0b01101001:
-          // Phoneme: 'i', bytes: [105]
-          // vowel features: {"F1":240,"F2":2400,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01111001:
-          // Phoneme: 'y', bytes: [121]
-          // vowel features: {"F1":235,"F2":2100,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101010:
-          // Phoneme: 'ɪ', bytes: [201, 170]
-          // vowel features: {"F1":300,"F2":2100,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01100101:
-          // Phoneme: 'e', bytes: [101]
-          // vowel features: {"F1":390,"F2":2300,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110111000:
-          // Phoneme: 'ø', bytes: [195, 184]
-          // vowel features: {"F1":370,"F2":1900,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011011:
-          // Phoneme: 'ɛ', bytes: [201, 155]
-          // vowel features: {"F1":610,"F2":1900,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100010110010011:
-          // Phoneme: 'œ', bytes: [197, 147]
-          // vowel features: {"F1":585,"F2":1710,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b01100001:
-          // Phoneme: 'a', bytes: [97]
-          // vowel features: {"F1":850,"F2":1610,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110110110:
-          // Phoneme: 'ɶ', bytes: [201, 182]
-          // vowel features: {"F1":820,"F2":1530,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010001:
-          // Phoneme: 'ɑ', bytes: [201, 145]
-          // vowel features: {"F1":750,"F2":940,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010010:
-          // Phoneme: 'ɒ', bytes: [201, 146]
-          // vowel features: {"F1":700,"F2":760,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001100:
-          // Phoneme: 'ʌ', bytes: [202, 140]
-          // vowel features: {"F1":600,"F2":1170,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011001:
-          // Phoneme: 'ə', bytes: [201, 153]
-          // vowel features: {"F1":500,"F2":1500,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100100110011101:
-          // Phoneme: 'ɝ', bytes: [201, 157]
-          // vowel features: {"F1":500,"F2":1350,"rounded":false,"rhotic":true,"F3":1700}
-          return (float) 0.85;
-          break;
-        case 0b1100100110010100:
-          // Phoneme: 'ɔ', bytes: [201, 148]
-          // vowel features: {"F1":500,"F2":700,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110100100:
-          // Phoneme: 'ɤ', bytes: [201, 164]
-          // vowel features: {"F1":460,"F2":1310,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01101111:
-          // Phoneme: 'o', bytes: [111]
-          // vowel features: {"F1":360,"F2":640,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100100110101111:
-          // Phoneme: 'ɯ', bytes: [201, 175]
-          // vowel features: {"F1":300,"F2":1390,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b1100001110100110:
-          // Phoneme: 'æ', bytes: [195, 166]
-          // vowel features: {"F1":690,"F2":1660,"rounded":false}
-          return (float) 0.85;
-          break;
-        case 0b01110101:
-          // Phoneme: 'u', bytes: [117]
-          // vowel features: {"F1":250,"F2":595,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b1100101010001010:
-          // Phoneme: 'ʊ', bytes: [202, 138]
-          // vowel features: {"F1":380,"F2":950,"rounded":true}
-          return (float) 0.85;
-          break;
-        case 0b011011011100110010100101:
-          // Phoneme: 'm̥', bytes: [109, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":false}
-          return (float) 0.23105914914698966;
-          break;
-        case 0b01101101:
-          // Phoneme: 'm', bytes: [109]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Nasal","voiced":true}
-          return (float) 0.38105914914698963;
-          break;
-        case 0b1100100110110001:
-          // Phoneme: 'ɱ', bytes: [201, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Nasal","voiced":true}
-          return (float) 0.38105914914698963;
-          break;
-        case 0b011011101100110010111100:
-          // Phoneme: 'n̼', bytes: [110, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Nasal","voiced":true}
-          return (float) 0.4328391485792995;
-          break;
-        case 0b011011101100110010100101:
-          // Phoneme: 'n̥', bytes: [110, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":false}
-          return (float) 0.3258658776449629;
-          break;
-        case 0b01101110:
-          // Phoneme: 'n', bytes: [110]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Nasal","voiced":true}
-          return (float) 0.47586587764496285;
-          break;
-        case 0b11001001101100111100110010001010:
-          // Phoneme: 'ɳ̊', bytes: [201, 179, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":false}
-          return (float) 0.36602200441589533;
-          break;
-        case 0b1100100110110011:
-          // Phoneme: 'ɳ', bytes: [201, 179]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Nasal","voiced":true}
-          return (float) 0.5160220044158953;
-          break;
-        case 0b11001001101100101100110010001010:
-          // Phoneme: 'ɲ̊', bytes: [201, 178, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":false}
-          return (float) 0.3874052523340895;
-          break;
-        case 0b1100100110110010:
-          // Phoneme: 'ɲ', bytes: [201, 178]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Nasal","voiced":true}
-          return (float) 0.5374052523340894;
-          break;
-        case 0b11000101100010111100110010001010:
-          // Phoneme: 'ŋ̊', bytes: [197, 139, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":false}
-          return (float) 0.42409484122218355;
-          break;
-        case 0b1100010110001011:
-          // Phoneme: 'ŋ', bytes: [197, 139]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Nasal","voiced":true}
-          return (float) 0.5740948412221836;
-          break;
-        case 0b1100100110110100:
-          // Phoneme: 'ɴ', bytes: [201, 180]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Nasal","voiced":true}
-          return (float) 0.5968303480283493;
-          break;
-        case 0b01110000:
-          // Phoneme: 'p', bytes: [112]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":false}
-          return (float) 0.14105914914698967;
-          break;
-        case 0b01100010:
-          // Phoneme: 'b', bytes: [98]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Stop","voiced":true}
-          return (float) 0.29105914914698966;
-          break;
-        case 0b011100001100110010101010:
-          // Phoneme: 'p̪', bytes: [112, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":false}
-          return (float) 0.14105914914698967;
-          break;
-        case 0b011000101100110010101010:
-          // Phoneme: 'b̪', bytes: [98, 204, 170]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Stop","voiced":true}
-          return (float) 0.29105914914698966;
-          break;
-        case 0b011101001100110010111100:
-          // Phoneme: 't̼', bytes: [116, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":false}
-          return (float) 0.1928391485792995;
-          break;
-        case 0b011001001100110010111100:
-          // Phoneme: 'd̼', bytes: [100, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Stop","voiced":true}
-          return (float) 0.34283914857929954;
-          break;
-        case 0b01110100:
-          // Phoneme: 't', bytes: [116]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":false}
-          return (float) 0.23586587764496286;
-          break;
-        case 0b01100100:
-          // Phoneme: 'd', bytes: [100]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Stop","voiced":true}
-          return (float) 0.38586587764496283;
-          break;
-        case 0b1100101010001000:
-          // Phoneme: 'ʈ', bytes: [202, 136]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":false}
-          return (float) 0.2760220044158953;
-          break;
-        case 0b1100100110010110:
-          // Phoneme: 'ɖ', bytes: [201, 150]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Stop","voiced":true}
-          return (float) 0.42602200441589533;
-          break;
-        case 0b01100011:
-          // Phoneme: 'c', bytes: [99]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":false}
-          return (float) 0.2974052523340895;
-          break;
-        case 0b1100100110011111:
-          // Phoneme: 'ɟ', bytes: [201, 159]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Stop","voiced":true}
-          return (float) 0.44740525233408945;
-          break;
-        case 0b01101011:
-          // Phoneme: 'k', bytes: [107]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":false}
-          return (float) 0.3340948412221836;
-          break;
-        case 0b01100111:
-          // Phoneme: 'g', bytes: [103]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Stop","voiced":true}
-          return (float) 0.4840948412221836;
-          break;
-        case 0b01110001:
-          // Phoneme: 'q', bytes: [113]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":false}
-          return (float) 0.35683034802834934;
-          break;
-        case 0b1100100110100010:
-          // Phoneme: 'ɢ', bytes: [201, 162]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Stop","voiced":true}
-          return (float) 0.5068303480283494;
-          break;
-        case 0b1100101010100001:
-          // Phoneme: 'ʡ', bytes: [202, 161]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Stop","voiced":false}
-          return (float) 0.3717930862679808;
-          break;
-        case 0b1100101010010100:
-          // Phoneme: 'ʔ', bytes: [202, 148]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Stop","voiced":false}
-          return (float) 0.3797319352479619;
-          break;
-        case 0b01110011:
-          // Phoneme: 's', bytes: [115]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.23586587764496286;
-          break;
-        case 0b01111010:
-          // Phoneme: 'z', bytes: [122]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.38586587764496283;
-          break;
-        case 0b1100101010000011:
-          // Phoneme: 'ʃ', bytes: [202, 131]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.25537712641035415;
-          break;
-        case 0b1100101010010010:
-          // Phoneme: 'ʒ', bytes: [202, 146]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.40537712641035417;
-          break;
-        case 0b1100101010000010:
-          // Phoneme: 'ʂ', bytes: [202, 130]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2760220044158953;
-          break;
-        case 0b1100101010010000:
-          // Phoneme: 'ʐ', bytes: [202, 144]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.42602200441589533;
-          break;
-        case 0b1100100110010101:
-          // Phoneme: 'ɕ', bytes: [201, 149]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":false}
-          return (float) 0.2974052523340895;
-          break;
-        case 0b1100101010010001:
-          // Phoneme: 'ʑ', bytes: [202, 145]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Sibilant fricative","voiced":true}
-          return (float) 0.44740525233408945;
-          break;
-        case 0b1100100110111000:
-          // Phoneme: 'ɸ', bytes: [201, 184]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.14105914914698967;
-          break;
-        case 0b1100111010110010:
-          // Phoneme: 'β', bytes: [206, 178]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.29105914914698966;
-          break;
-        case 0b01100110:
-          // Phoneme: 'f', bytes: [102]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.14105914914698967;
-          break;
-        case 0b01110110:
-          // Phoneme: 'v', bytes: [118]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.29105914914698966;
-          break;
-        case 0b11001110101110001100110010111100:
-          // Phoneme: 'θ̼', bytes: [206, 184, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.1928391485792995;
-          break;
-        case 0b11000011101100001100110010111100:
-          // Phoneme: 'ð̼', bytes: [195, 176, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.34283914857929954;
-          break;
-        case 0b1100111010111000:
-          // Phoneme: 'θ', bytes: [206, 184]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2081145647521725;
-          break;
-        case 0b1100001110110000:
-          // Phoneme: 'ð', bytes: [195, 176]
-          // consonant features: {"position":"Dental","position_index":4,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.3581145647521725;
-          break;
-        case 0b11001110101110001100110010100000:
-          // Phoneme: 'θ̠', bytes: [206, 184, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.23586587764496286;
-          break;
-        case 0b11000011101100001100110010100000:
-          // Phoneme: 'ð̠', bytes: [195, 176, 204, 160]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.38586587764496283;
-          break;
-        case 0b1100100110111001110011001010000011001100100010101100101110010100:
-          // Phoneme: 'ɹ̠̊˔', bytes: [201, 185, 204, 160, 204, 138, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.25537712641035415;
-          break;
-        case 0b110010011011100111001100101000001100101110010100:
-          // Phoneme: 'ɹ̠˔', bytes: [201, 185, 204, 160, 203, 148]
-          // consonant features: {"position":"Post-alveolar","position_index":6,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.40537712641035417;
-          break;
-        case 0b11001001101110111100101110010100:
-          // Phoneme: 'ɻ˔', bytes: [201, 187, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.42602200441589533;
-          break;
-        case 0b1100001110100111:
-          // Phoneme: 'ç', bytes: [195, 167]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.2974052523340895;
-          break;
-        case 0b1100101010011101:
-          // Phoneme: 'ʝ', bytes: [202, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.44740525233408945;
-          break;
-        case 0b01111000:
-          // Phoneme: 'x', bytes: [120]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3340948412221836;
-          break;
-        case 0b1100100110100011:
-          // Phoneme: 'ɣ', bytes: [201, 163]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.48409484122218355;
-          break;
-        case 0b1100111110000111:
-          // Phoneme: 'χ', bytes: [207, 135]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.35683034802834934;
-          break;
-        case 0b1100101010000001:
-          // Phoneme: 'ʁ', bytes: [202, 129]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.5068303480283494;
-          break;
-        case 0b1100010010100111:
-          // Phoneme: 'ħ', bytes: [196, 167]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3717930862679808;
-          break;
-        case 0b1100101010010101:
-          // Phoneme: 'ʕ', bytes: [202, 149]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.5217930862679807;
-          break;
-        case 0b01101000:
-          // Phoneme: 'h', bytes: [104]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":false}
-          return (float) 0.3797319352479619;
-          break;
-        case 0b1100100110100110:
-          // Phoneme: 'ɦ', bytes: [201, 166]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Non-sibilant fricative","voiced":true}
-          return (float) 0.5297319352479619;
-          break;
-        case 0b01110111:
-          // Phoneme: 'w', bytes: [119]
-          // consonant features: {"position":"Labio-velar","position_index":0,"manner":"Approximant","voiced":true}
-          return (float) 0.6822374469651455;
-          break;
-        case 0b11001010100010111100110010100101:
-          // Phoneme: 'ʋ̥', bytes: [202, 139, 204, 165]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":false}
-          return (float) 0.36605914914698967;
-          break;
-        case 0b1100101010001011:
-          // Phoneme: 'ʋ', bytes: [202, 139]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Approximant","voiced":true}
-          return (float) 0.5160591491469897;
-          break;
-        case 0b11001001101110011100110010100101:
-          // Phoneme: 'ɹ̥', bytes: [201, 185, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":false}
-          return (float) 0.4608658776449629;
-          break;
-        case 0b1100100110111001:
-          // Phoneme: 'ɹ', bytes: [201, 185]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Approximant","voiced":true}
-          return (float) 0.6108658776449629;
-          break;
-        case 0b11001001101110111100110010001010:
-          // Phoneme: 'ɻ̊', bytes: [201, 187, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":false}
-          return (float) 0.5010220044158953;
-          break;
-        case 0b1100100110111011:
-          // Phoneme: 'ɻ', bytes: [201, 187]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Approximant","voiced":true}
-          return (float) 0.6510220044158953;
-          break;
-        case 0b011010101100110010001010:
-          // Phoneme: 'j̊', bytes: [106, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":false}
-          return (float) 0.5224052523340895;
-          break;
-        case 0b01101010:
-          // Phoneme: 'j', bytes: [106]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Approximant","voiced":true}
-          return (float) 0.6724052523340894;
-          break;
-        case 0b11001001101100001100110010001010:
-          // Phoneme: 'ɰ̊', bytes: [201, 176, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":false}
-          return (float) 0.5590948412221837;
-          break;
-        case 0b1100100110110000:
-          // Phoneme: 'ɰ', bytes: [201, 176]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Approximant","voiced":true}
-          return (float) 0.7090948412221836;
-          break;
-        case 0b11001010100101001100110010011110:
-          // Phoneme: 'ʔ̞', bytes: [202, 148, 204, 158]
-          // consonant features: {"position":"Glottal","position_index":12,"manner":"Approximant","voiced":true}
-          return (float) 0.7547319352479619;
-          break;
-        case 0b1110001010110001101100011100110010011111:
-          // Phoneme: 'ⱱ̟', bytes: [226, 177, 177, 204, 159]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Tap/flap","voiced":true}
-          return (float) 0.44855914914698963;
-          break;
-        case 0b111000101011000110110001:
-          // Phoneme: 'ⱱ', bytes: [226, 177, 177]
-          // consonant features: {"position":"Labio-dental","position_index":2,"manner":"Tap/flap","voiced":true}
-          return (float) 0.44855914914698963;
-          break;
-        case 0b11001001101111101100110010111100:
-          // Phoneme: 'ɾ̼', bytes: [201, 190, 204, 188]
-          // consonant features: {"position":"Linguo-labial","position_index":3,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5003391485792995;
-          break;
-        case 0b11001001101111101100110010100101:
-          // Phoneme: 'ɾ̥', bytes: [201, 190, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":false}
-          return (float) 0.3933658776449629;
-          break;
-        case 0b1100100110111110:
-          // Phoneme: 'ɾ', bytes: [201, 190]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5433658776449628;
-          break;
-        case 0b11001001101111011100110010001010:
-          // Phoneme: 'ɽ̊', bytes: [201, 189, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":false}
-          return (float) 0.43352200441589533;
-          break;
-        case 0b1100100110111101:
-          // Phoneme: 'ɽ', bytes: [201, 189]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Tap/flap","voiced":true}
-          return (float) 0.5835220044158953;
-          break;
-        case 0b11001001101000101100110010000110:
-          // Phoneme: 'ɢ̆', bytes: [201, 162, 204, 134]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Tap/flap","voiced":true}
-          return (float) 0.6643303480283493;
-          break;
-        case 0b11001010101000011100110010000110:
-          // Phoneme: 'ʡ̆', bytes: [202, 161, 204, 134]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Tap/flap","voiced":true}
-          return (float) 0.6792930862679807;
-          break;
-        case 0b11001010100110011100110010100101:
-          // Phoneme: 'ʙ̥', bytes: [202, 153, 204, 165]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":false}
-          return (float) 0.3210591491469897;
-          break;
-        case 0b1100101010011001:
-          // Phoneme: 'ʙ', bytes: [202, 153]
-          // consonant features: {"position":"Bi-labial","position_index":1,"manner":"Trill","voiced":true}
-          return (float) 0.47105914914698965;
-          break;
-        case 0b011100101100110010100101:
-          // Phoneme: 'r̥', bytes: [114, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":false}
-          return (float) 0.41586587764496286;
-          break;
-        case 0b01110010:
-          // Phoneme: 'r', bytes: [114]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Trill","voiced":true}
-          return (float) 0.565865877644963;
-          break;
-        case 0b11001010100000001100110010100101:
-          // Phoneme: 'ʀ̥', bytes: [202, 128, 204, 165]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":false}
-          return (float) 0.5368303480283494;
-          break;
-        case 0b1100101010000000:
-          // Phoneme: 'ʀ', bytes: [202, 128]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Trill","voiced":true}
-          return (float) 0.6868303480283493;
-          break;
-        case 0b1100101010011100:
-          // Phoneme: 'ʜ', bytes: [202, 156]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":false}
-          return (float) 0.5517930862679807;
-          break;
-        case 0b1100101010100010:
-          // Phoneme: 'ʢ', bytes: [202, 162]
-          // consonant features: {"position":"Pharyngeal","position_index":11,"manner":"Trill","voiced":true}
-          return (float) 0.7017930862679809;
-          break;
-        case 0b1100100110101100:
-          // Phoneme: 'ɬ', bytes: [201, 172]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.35836587764496286;
-          break;
-        case 0b1100100110101110:
-          // Phoneme: 'ɮ', bytes: [201, 174]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.5083658776449629;
-          break;
-        case 0b110010011010110111001100100010101100101110010100:
-          // Phoneme: 'ɭ̊˔', bytes: [201, 173, 204, 138, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.39852200441589536;
-          break;
-        case 0b11001001101011011100101110010100:
-          // Phoneme: 'ɭ˔', bytes: [201, 173, 203, 148]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.5485220044158954;
-          break;
-        case 0b110010101000111011001100100111011100110010001010:
-          // Phoneme: 'ʎ̝̊', bytes: [202, 142, 204, 157, 204, 138]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.4199052523340895;
-          break;
-        case 0b11001010100011101100110010011101:
-          // Phoneme: 'ʎ̝', bytes: [202, 142, 204, 157]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.5699052523340895;
-          break;
-        case 0b110010101001111111001100100111011100110010001010:
-          // Phoneme: 'ʟ̝̊', bytes: [202, 159, 204, 157, 204, 138]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":false}
-          return (float) 0.4565948412221836;
-          break;
-        case 0b11001010100111111100110010011101:
-          // Phoneme: 'ʟ̝', bytes: [202, 159, 204, 157]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral fricative","voiced":true}
-          return (float) 0.6065948412221835;
-          break;
-        case 0b011011001100110010100101:
-          // Phoneme: 'l̥', bytes: [108, 204, 165]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.5608658776449629;
-          break;
-        case 0b01101100:
-          // Phoneme: 'l', bytes: [108]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.7108658776449628;
-          break;
-        case 0b11001001101011011100110010001010:
-          // Phoneme: 'ɭ̊', bytes: [201, 173, 204, 138]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6010220044158954;
-          break;
-        case 0b1100100110101101:
-          // Phoneme: 'ɭ', bytes: [201, 173]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.7510220044158953;
-          break;
-        case 0b11001010100011101100110010100101:
-          // Phoneme: 'ʎ̥', bytes: [202, 142, 204, 165]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6224052523340895;
-          break;
-        case 0b1100101010001110:
-          // Phoneme: 'ʎ', bytes: [202, 142]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.7724052523340894;
-          break;
-        case 0b11001010100111111100110010100101:
-          // Phoneme: 'ʟ̥', bytes: [202, 159, 204, 165]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":false}
-          return (float) 0.6590948412221835;
-          break;
-        case 0b1100101010011111:
-          // Phoneme: 'ʟ', bytes: [202, 159]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.8090948412221834;
-          break;
-        case 0b11001010100111111100110010100000:
-          // Phoneme: 'ʟ̠', bytes: [202, 159, 204, 160]
-          // consonant features: {"position":"Uvular","position_index":10,"manner":"Lateral approximant","voiced":true}
-          return (float) 0.8318303480283493;
-          break;
-        case 0b1100100110111010:
-          // Phoneme: 'ɺ', bytes: [201, 186]
-          // consonant features: {"position":"Alveolar","position_index":5,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.6433658776449629;
-          break;
-        case 0b11001001101011011100110010000110:
-          // Phoneme: 'ɭ̆', bytes: [201, 173, 204, 134]
-          // consonant features: {"position":"Retro-flex","position_index":7,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.6835220044158953;
-          break;
-        case 0b11001010100011101100110010000110:
-          // Phoneme: 'ʎ̆', bytes: [202, 142, 204, 134]
-          // consonant features: {"position":"Palatal","position_index":8,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.7049052523340894;
-          break;
-        case 0b11001010100111111100110010000110:
-          // Phoneme: 'ʟ̆', bytes: [202, 159, 204, 134]
-          // consonant features: {"position":"Velar","position_index":9,"manner":"Lateral tap/flap","voiced":true}
-          return (float) 0.7415948412221836;
-          break;
-        case 0b011000011100100110101010:
-          // Phoneme: 'aɪ', bytes: [97, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100100110101010:
-          // Phoneme: 'ɑɪ', bytes: [201, 145, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011000011100101010001010:
-          // Phoneme: 'aʊ', bytes: [97, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100100011100101010001010:
-          // Phoneme: 'ɑʊ', bytes: [201, 145, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100101001100100110101010:
-          // Phoneme: 'ɔɪ', bytes: [201, 148, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011001011100100110101010:
-          // Phoneme: 'eɪ', bytes: [101, 201, 170]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011011111100101010001010:
-          // Phoneme: 'oʊ', bytes: [111, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110011100101010001010:
-          // Phoneme: 'əʊ', bytes: [201, 153, 202, 138]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001101010101100100110011001:
-          // Phoneme: 'ɪə', bytes: [201, 170, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001010100010101100100110011001:
-          // Phoneme: 'ʊə', bytes: [202, 138, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b11001001100110111100100110011001:
-          // Phoneme: 'ɛə', bytes: [201, 155, 201, 153]
-          // vowel features: null
-          return (float) 0.85;
-          break;
-        case 0b011101001100101010000011:
-          // Phoneme: 'tʃ', bytes: [116, 202, 131]
-          // vowel features: null
-          return (float) 0.13329568227035601;
-          break;
-        case 0b011001001100101010010010:
-          // Phoneme: 'dʒ', bytes: [100, 202, 146]
-          // vowel features: null
-          return (float) 0.28329568227035595;
-          break;
-        case 0b0111010001110011:
-          // Phoneme: 'ts', bytes: [116, 115]
-          // vowel features: null
-          return (float) 0.12336587764496286;
-          break;
-        case 0b0110010001111010:
-          // Phoneme: 'dz', bytes: [100, 122]
-          // vowel features: null
-          return (float) 0.27336587764496284;
-          break;
-        case 0b011101001100100110010101:
-          // Phoneme: 'tɕ', bytes: [116, 201, 149]
-          // vowel features: null
-          return (float) 0.15477094789854456;
-          break;
-        case 0b011001001100101010010001:
-          // Phoneme: 'dʑ', bytes: [100, 202, 145]
-          // vowel features: null
-          return (float) 0.30477094789854453;
           break;
       }
       break;

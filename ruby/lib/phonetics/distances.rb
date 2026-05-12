@@ -31,6 +31,18 @@ require 'set'
 module Phonetics
   extend self
 
+  # The synthetic phoneme symbol used to mark word boundaries in IPA input.
+  # Linguistics convention writes this as `#`; here it's an opt-in token the
+  # tokenizer can emit when boundaries: true is requested. Used by the
+  # listener-confusion metric to give re-syllabification (the operation that
+  # makes Mad Gab work) a near-zero edit cost.
+  BOUNDARY_TOKEN = '#'
+
+  # Characters in raw IPA input that should be interpreted as word boundaries.
+  # Whitespace is the obvious one; underscore and pipe are common in machine-
+  # readable transcriptions (CMU style and elsewhere).
+  BoundaryChars = Set.new([' ', "\t", '_', '|']).freeze
+
   # Suprasegmental and modifier diacritics. Each character either attaches to
   # the preceding base phoneme (length, aspiration, palatalization, etc.) or
   # to the following base phoneme (stress marks, which in IPA precede the
@@ -95,12 +107,23 @@ module Phonetics
       @phonemes_by_length = nil
     end
 
-    def each_phoneme
+    # When `boundaries: true`, whitespace and the explicit boundary
+    # characters become an emitted `#` token. This is what the Confusion
+    # metric wants; the default strict mode strips them so callers who
+    # care only about phoneme content (Levenshtein, dialect work) aren't
+    # cluttered.
+    def each_phoneme(boundaries: false)
       idx = 0
       pending_prefix = +''
       Enumerator.new do |y|
         while idx < chars.length
           ch = chars[idx]
+
+          if Phonetics::BoundaryChars.include?(ch)
+            y.yield Phonetics::BOUNDARY_TOKEN if boundaries
+            idx += 1
+            next
+          end
 
           # Stress marks bind forward; carry them onto the next emitted token.
           if Phonetics::LeadingDiacritics.key?(ch)
@@ -434,14 +457,14 @@ module Phonetics
     'ɪə' => %w[ɪ ə],
     'ʊə' => %w[ʊ ə],
     'ɛə' => %w[ɛ ə],
-    # affricates
+    # English affricates only. /ts/, /dz/, /tɕ/, /dʑ/, /pf/ are real
+    # affricates in other languages but in English transcription "ts" and
+    # "dz" almost always mean /t/+/s/, /d/+/z/ (cats, kids, hits). Treating
+    # them as atoms here would mis-tokenise every English plural ending
+    # in /s/ or /z/. Non-English transcriptions that need them can register
+    # them locally.
     'tʃ' => %w[t ʃ],
     'dʒ' => %w[d ʒ],
-    'ts' => %w[t s],
-    'dz' => %w[d z],
-    'tɕ' => %w[t ɕ],
-    'dʑ' => %w[d ʑ],
-    'pf' => %w[p f],
   }.freeze
 
   def phonemes
@@ -461,8 +484,15 @@ module Phonetics
     base.freeze
   end
 
+  # Cost of substituting a word boundary against a real phoneme. Set high
+  # enough that the algorithm prefers indeling the boundary (cheap, via
+  # weak-phoneme discount in Confusion) over substituting it. Strict
+  # Levenshtein doesn't tokenise boundaries so it never sees this.
+  BOUNDARY_VS_PHONEME = 0.95
+
   def distance(phoneme1, phoneme2)
     return 0 if phoneme1 == phoneme2
+    return BOUNDARY_VS_PHONEME if phoneme1 == BOUNDARY_TOKEN || phoneme2 == BOUNDARY_TOKEN
 
     base1, mods1 = decompose(phoneme1)
     base2, mods2 = decompose(phoneme2)

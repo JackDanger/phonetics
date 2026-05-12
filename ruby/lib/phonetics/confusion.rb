@@ -67,6 +67,13 @@ module Phonetics
     WEAK_PHONEMES = Set.new(%w[ə h ʔ ɦ]).freeze
     WEAK_INDEL_COST = 0.15
 
+    # The word-boundary token is even cheaper to indel than a weak phoneme.
+    # Mad Gab is fundamentally a re-syllabification operation: the surface
+    # form rearranges word boundaries without changing the underlying
+    # phoneme stream. Charging meaningfully for a boundary indel would
+    # punish exactly the operation we want to track.
+    BOUNDARY_INDEL_COST = 0.02
+
     # Empirically-confusable phoneme pairs whose acoustic distance under
     # Phonetics.distance overstates the perceptual gap. Drawn from the
     # Miller-Nicely (1955) consonant-confusion lineage and English-
@@ -112,8 +119,8 @@ module Phonetics
     # position in the longer string, so dividing by max(len) gives a
     # bounded-range judgement comparable across phrase lengths.
     def similarity(ipa1, ipa2)
-      a = Phonetics::String.new(ipa1).each_phoneme.to_a
-      b = Phonetics::String.new(ipa2).each_phoneme.to_a
+      a = Phonetics::String.new(ipa1).each_phoneme(boundaries: true).to_a
+      b = Phonetics::String.new(ipa2).each_phoneme(boundaries: true).to_a
       max_n = [a.size, b.size].max
       return 1.0 if max_n.zero?
 
@@ -135,7 +142,18 @@ module Phonetics
     end
 
     def weak?(phoneme)
-      WEAK_PHONEMES.include?(phoneme)
+      WEAK_PHONEMES.include?(phoneme) || phoneme == Phonetics::BOUNDARY_TOKEN
+    end
+
+    # Per-phoneme indel cost. The word-boundary token is at the bottom of
+    # the cost ladder (re-syllabification is free); other weak phonemes
+    # use WEAK_INDEL_COST; everything else falls back to the affine
+    # GAP_OPEN/GAP_EXTEND machinery.
+    def weak_indel_cost(phoneme)
+      return BOUNDARY_INDEL_COST if phoneme == Phonetics::BOUNDARY_TOKEN
+      return WEAK_INDEL_COST if WEAK_PHONEMES.include?(phoneme)
+
+      nil
     end
   end
 
@@ -152,8 +170,8 @@ module Phonetics
     end
 
     def initialize(a, b, verbose: false)
-      @a = Phonetics::String.new(a).each_phoneme.to_a
-      @b = Phonetics::String.new(b).each_phoneme.to_a
+      @a = Phonetics::String.new(a).each_phoneme(boundaries: true).to_a
+      @b = Phonetics::String.new(b).each_phoneme(boundaries: true).to_a
       @verbose = verbose
     end
 
@@ -202,9 +220,10 @@ module Phonetics
 
           # X: end in an a-consuming gap. Open a fresh gap from M or Y, or
           # extend an existing X-gap. Weak `a` overrides both costs.
+          a_weak_cost = Confusion.weak_indel_cost(ai)
           xx[i][j] =
-            if a_weak
-              [mm[i - 1][j], xx[i - 1][j], yy[i - 1][j]].min + Confusion::WEAK_INDEL_COST
+            if a_weak_cost
+              [mm[i - 1][j], xx[i - 1][j], yy[i - 1][j]].min + a_weak_cost
             else
               [
                 mm[i - 1][j] + Confusion::GAP_OPEN,
@@ -214,9 +233,10 @@ module Phonetics
             end
 
           # Y: end in a b-consuming gap. Symmetric.
+          b_weak_cost = Confusion.weak_indel_cost(bj)
           yy[i][j] =
-            if b_weak
-              [mm[i][j - 1], xx[i][j - 1], yy[i][j - 1]].min + Confusion::WEAK_INDEL_COST
+            if b_weak_cost
+              [mm[i][j - 1], xx[i][j - 1], yy[i][j - 1]].min + b_weak_cost
             else
               [
                 mm[i][j - 1] + Confusion::GAP_OPEN,
@@ -245,7 +265,8 @@ module Phonetics
     end
 
     def indel_step(phoneme, opening:)
-      return Confusion::WEAK_INDEL_COST if Confusion.weak?(phoneme)
+      cost = Confusion.weak_indel_cost(phoneme)
+      return cost if cost
 
       opening ? Confusion::GAP_OPEN : Confusion::GAP_EXTEND
     end

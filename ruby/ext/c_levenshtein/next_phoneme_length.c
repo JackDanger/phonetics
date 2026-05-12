@@ -1401,11 +1401,6 @@ int next_phoneme_length(int *string, int cursor, int length) {
         return 1;
       }
          break;
-     case 102:
-      // Phoneme: 'pf', bytes: [112, 102]
-      // vowel features: null
-      return 2;
-         break;
        default:
          return 1;
      }
@@ -1485,28 +1480,6 @@ int next_phoneme_length(int *string, int cursor, int length) {
         return 1;
       }
          break;
-     case 115:
-      // Phoneme: 'ts', bytes: [116, 115]
-      // vowel features: null
-      return 2;
-         break;
-     case 201:
-      if (max_length > 2) {
-      switch(string[cursor + 2]) {
-
-      case 149:
-       // Phoneme: 'tɕ', bytes: [116, 201, 149]
-       // vowel features: null
-       return 3;
-          break;
-        default:
-          return 1;
-      }
-      return 1;
-      } else {
-        return 1;
-      }
-         break;
        default:
          return 1;
      }
@@ -1547,11 +1520,6 @@ int next_phoneme_length(int *string, int cursor, int length) {
        // vowel features: null
        return 3;
           break;
-      case 145:
-       // Phoneme: 'dʑ', bytes: [100, 202, 145]
-       // vowel features: null
-       return 3;
-          break;
         default:
           return 1;
       }
@@ -1559,11 +1527,6 @@ int next_phoneme_length(int *string, int cursor, int length) {
       } else {
         return 1;
       }
-         break;
-     case 122:
-      // Phoneme: 'dz', bytes: [100, 122]
-      // vowel features: null
-      return 2;
          break;
        default:
          return 1;

@@ -136,6 +136,29 @@ RSpec.describe Phonetics::Confusion do
     end
   end
 
+  describe 'word-boundary support' do
+    it 'tokenises spaces into the boundary token only when boundaries: true' do
+      s = Phonetics::String.new('it is just')
+      expect(s.each_phoneme.to_a).to eq(%w[i t i s j u s t])
+      expect(s.each_phoneme(boundaries: true).to_a).to eq(['i', 't', '#', 'i', 's', '#', 'j', 'u', 's', 't'])
+    end
+
+    it 'gives near-zero cost to repositioning a word boundary' do
+      # Same phonemes, different word-boundary placement: the difference
+      # is entirely re-syllabification.
+      a = 'ɪts dʒʌst'   # "it's just"
+      b = 'ɪt sdʒʌst'    # "it sjust" — same phonemes, boundary moved
+      expect(d(a, b)).to be_within(2 * described_class::BOUNDARY_INDEL_COST).of(0)
+    end
+
+    it 'improves discrimination on a Mad Gab pair when boundaries are present' do
+      target_b = 'ɪts dʒʌst ə stupɪd geɪm'
+      clue_b   = 'hɪts dʒʌstɪs dup hɪd keɪm'
+      decoy_b  = 'jɔr mʌðɝ wɛrz sneɪkɝz'
+      expect(d(target_b, clue_b)).to be < d(target_b, decoy_b)
+    end
+  end
+
   describe 'two-tier API contract' do
     it "exposes Phonetics::Levenshtein as the strict per-phoneme edit distance" do
       # Strict and confusion should diverge meaningfully on length-changing
