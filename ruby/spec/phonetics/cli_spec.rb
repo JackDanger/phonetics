@@ -9,7 +9,12 @@ require 'open3'
 # reimplementation in Rust (or anything else) that preserves the same CLI
 # behavior is automatically validated by these tests.
 RSpec.describe 'phonetics CLI' do
-  PHONETICS_BIN = File.expand_path('../../bin/phonetics', __dir__)
+  # The path resolves to ruby/bin/phonetics by default. Set the
+  # `PHONETICS_BIN` env var to point at any other executable that
+  # implements the same CLI contract — that's the whole point of the
+  # cross-implementation integration suite.
+  PHONETICS_BIN = ENV.fetch('PHONETICS_BIN',
+                            File.expand_path('../../bin/phonetics', __dir__))
 
   def run(*args)
     stdout, stderr, status = Open3.capture3(PHONETICS_BIN, *args)
