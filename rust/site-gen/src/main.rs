@@ -513,6 +513,7 @@ struct PhonemeInfo {
     count: usize,
     category: &'static str,
     color: &'static str,
+    #[allow(dead_code)]
     cat_label: &'static str,
     size_ratio: f64,
     examples: Vec<(String, String)>, // top 30 (word, ipa)
@@ -554,8 +555,8 @@ fn fmt_k(n: usize) -> String {
 }
 
 fn analyze(raw: &serde_json::Map<String, serde_json::Value>) -> Stats {
-    let mut phoneme_data: BTreeMap<char, (usize, Vec<(String, String, f64)>)> =
-        BTreeMap::new();
+    type PhonemeEntry = (usize, Vec<(String, String, f64)>);
+    let mut phoneme_data: BTreeMap<char, PhonemeEntry> = BTreeMap::new();
     let mut source_counts: HashMap<String, usize> = HashMap::new();
     let mut all_words: Vec<(String, String, f64)> = Vec::new();
     let mut total_ipa_chars: usize = 0;
@@ -649,7 +650,7 @@ fn analyze(raw: &serde_json::Map<String, serde_json::Value>) -> Stats {
         })
         .collect();
 
-    phonemes.sort_by(|a, b| b.count.cmp(&a.count));
+    phonemes.sort_by_key(|p| std::cmp::Reverse(p.count));
 
     let unique_phoneme_count = phonemes.len();
     let avg_ipa_len = if !all_words.is_empty() {
@@ -659,7 +660,7 @@ fn analyze(raw: &serde_json::Map<String, serde_json::Value>) -> Stats {
     };
 
     let mut sources: Vec<(String, usize)> = source_counts.into_iter().collect();
-    sources.sort_by(|a, b| b.1.cmp(&a.1));
+    sources.sort_by_key(|s| std::cmp::Reverse(s.1));
 
     Stats {
         total_words: all_words.len(),
@@ -1896,7 +1897,7 @@ fn render_html(stats: &Stats) -> String {
     html.push_str(&render_showcase_section(stats));
     html.push_str(&render_sources_section(stats));
     html.push_str(&render_footer());
-    html.push_str("\n");
+    html.push('\n');
     html.push_str(&render_scripts(stats));
 
     html.push_str("</body>\n</html>\n");
