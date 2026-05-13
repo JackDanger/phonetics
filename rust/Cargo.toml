@@ -17,6 +17,7 @@
 resolver = "2"
 members = [
     "phonetics",
+    "site-gen",
 ]
 
 # The Ruby binding crate lives at <repo>/ruby/ext/phonetics/ where the

@@ -1,0 +1,62 @@
+name: Deploy GitHub Pages
+
+# Runs on every push to main and can be triggered manually.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One deployment at a time; cancel any in-flight run when a new push arrives.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write   # required for OIDC Pages deployment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Cache Rust build artefacts so the generator compiles fast after
+      # the first run (typically 2-3 minutes → ~20 seconds warm).
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rust
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build site-gen
+        working-directory: rust
+        run: cargo build --release --bin site-gen
+
+      # The corpus lives in the companion madgab repo (public, main branch).
+      # We fetch the raw JSON directly; GitHub's CDN serves it reliably.
+      - name: Download IPA corpus
+        run: |
+          curl -fsSL \
+            "https://raw.githubusercontent.com/JackDanger/madgab/main/data/common_ipa_transcriptions.json" \
+            -o /tmp/corpus.json
+          wc -c /tmp/corpus.json
+
+      - name: Generate site
+        run: |
+          mkdir -p _site
+          rust/target/release/site-gen /tmp/corpus.json _site
+
+      - name: Upload Pages artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
