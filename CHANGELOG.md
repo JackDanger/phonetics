@@ -12,16 +12,26 @@ prior C-extension gem's `3.x`).
 
 ## [Unreleased]
 
-### Added
+## [0.3.0] — 2026-05-12 (`phonetics-rs` only)
+
+### Added — Rust core (`phonetics-rs`)
 - `Trie::words_approximately_starting_at` (feature `transcriptions`):
   budgeted DFS through the transcription trie that allows per-
   character phonetic substitution while staying inside a caller-
   supplied cost budget. Designed for use by the
   [madgab](https://github.com/JackDanger/madgab) Mad Gab generator.
 
-### Changed
-- Python wheel: pyo3 0.22 → 0.24 (no behaviour change; quieter
-  deprecation warnings on Python 3.13).
+### Changed — Python wheel (internal only)
+- pyo3 0.22 → 0.24. No behaviour change; quieter deprecation warnings
+  on Python 3.13. The published `phonetics-ipa` wheel version stays
+  at 0.2.0 because no Python-visible surface changed.
+
+### Notes
+- The Ruby gem and Python wheel don't yet expose the `transcriptions`
+  module to their host languages, so this release ships only on
+  crates.io. The unified release workflow runs all three registry
+  jobs on the `v0.3.0` tag, but the PyPI / RubyGems uploads no-op
+  via `skip-existing` because their versions are unchanged.
 
 ## [0.2.0] — 2026-05-12
 
