@@ -22,8 +22,27 @@
 //! // The same vowel twice is exactly zero.
 //! assert_eq!(distance("ə", "ə"), 0.0);
 //! ```
+//!
+//! # Optional features
+//!
+//! * `transcriptions` — adds [`transcriptions::Corpus`] and
+//!   [`transcriptions::Trie`] for looking words up by English spelling
+//!   (`corpus.preferred_ipa("cat")`) or by IPA prefix
+//!   (`trie.words_starting_at(chars, pos)`). The reverse direction has
+//!   both an exact form and an approximate one
+//!   ([`transcriptions::Trie::words_approximately_starting_at`])
+//!   that allows per-character phonetic substitution within a
+//!   caller-supplied cost budget. Used by
+//!   <https://github.com/JackDanger/madgab>.
+//!
+//!   Off by default because callers that only need the distance math
+//!   shouldn't pay for a JSON parser they won't use. Enable with:
+//!
+//!   ```toml
+//!   phonetics-rs = { version = "0.3", features = ["transcriptions"] }
+//!   ```
 
-#![doc(html_root_url = "https://docs.rs/phonetics/0.1.0")]
+#![doc(html_root_url = "https://docs.rs/phonetics-rs/0.3.0")]
 
 pub mod compounds;
 pub mod confusion;
