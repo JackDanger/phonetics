@@ -209,15 +209,40 @@ pub struct Corpus {
 }
 
 /// Source-preference order used by [`Corpus::preferred_ipa`]. The
-/// first source whose name *contains* one of these substrings wins.
+/// first source whose label exactly matches one of these wins; if no
+/// exact match exists for any preference, we fall back to a
+/// prefix-match pass (so a corpus carrying `cmu`, `cmu2`, `cmu3`
+/// still resolves cleanly when the canonical `cmu` entry happens to
+/// be absent).
 ///
-/// CMU is professionally curated and canonical for American English;
-/// the Wiktionary corpus has known data-quality issues (e.g. "pie"
-/// transcribed as `piaɪi`) and is used as fallback. This differs
-/// from the Ruby gem's historical order, which preferred Wiktionary;
-/// for downstream search the more reliable transcription matters
-/// more than the more permissive one.
-const SOURCE_PREFERENCE: &[&str] = &["cmu", "phonemicchart", "wiktionary"];
+/// The order below reflects empirical reliability for American
+/// English Mad Gab generation:
+///
+/// * `cmu` — Carnegie Mellon Pronouncing Dictionary, ARPABET-derived
+///   IPA. Most reliable broad transcription; function words come
+///   through in their weak (contextual) form, which is what speakers
+///   actually produce.
+/// * `misaki_gold` — vetted near-IPA from the Kokoro TTS project.
+///   Narrow vowel distinctions but tends to give citation/strong
+///   forms for function words (e.g. `a` → `eɪ`).
+/// * `misaki_silver` — Misaki's silver tier; noisier than gold but
+///   still useful gap-fill.
+/// * `phonemicchart` / `wiktionary` — legacy labels from the older
+///   madgab corpus; retained for backward compatibility.
+/// * `wikipron` — broad scrape from Wiktionary via WikiPron. Captures
+///   pronunciation variants; quality varies.
+///
+/// Earlier releases used substring matching here, which caused
+/// non-deterministic resolution between `cmu` and `cmu2` because the
+/// underlying entry map iterates in random hash order.
+const SOURCE_PREFERENCE: &[&str] = &[
+    "cmu",
+    "misaki_gold",
+    "misaki_silver",
+    "phonemicchart",
+    "wiktionary",
+    "wikipron",
+];
 
 impl Corpus {
     /// Parse the JSON corpus and build both forward and reverse
@@ -264,13 +289,23 @@ impl Corpus {
             .unwrap_or(&[])
     }
 
-    /// The "best" IPA transcription for `word`: the first source
-    /// whose label matches the [`SOURCE_PREFERENCE`] order, falling
-    /// back to whatever appears first in the corpus.
+    /// The "best" IPA transcription for `word`: the first source whose
+    /// label matches the [`SOURCE_PREFERENCE`] order, falling back to
+    /// whatever appears first in the corpus.
+    ///
+    /// Walks each preference in order, trying exact label match first
+    /// (so `cmu` beats `cmu2`) and then prefix match (so when only
+    /// `cmu2` exists we still resolve under the `cmu` preference
+    /// rather than fall through to a less-preferred source). Exact
+    /// matching is what makes resolution deterministic in the
+    /// presence of indexed-variant labels.
     pub fn preferred_ipa(&self, word: &str) -> Option<&str> {
         let prs = self.pronunciations(word);
         for pref in SOURCE_PREFERENCE {
-            if let Some(p) = prs.iter().find(|p| p.source.contains(pref)) {
+            if let Some(p) = prs.iter().find(|p| p.source == *pref) {
+                return Some(&p.ipa);
+            }
+            if let Some(p) = prs.iter().find(|p| p.source.starts_with(pref)) {
                 return Some(&p.ipa);
             }
         }
@@ -448,5 +483,48 @@ mod tests {
             .collect();
         assert!(words.contains(&"cat"));
         assert!(words.contains(&"cats"));
+    }
+
+    // Regression: when a word carries multiple CMU variants
+    // (`cmu`, `cmu2`, `cmu3`), `preferred_ipa` must return the
+    // primary `cmu` entry. Earlier substring-matching logic could
+    // return `cmu2` because HashMap iteration order is randomized.
+    #[test]
+    fn preferred_ipa_picks_exact_over_indexed_variant() {
+        let json = r#"{
+            "just": {
+                "rarity": 45.0,
+                "ipa": {
+                    "cmu2":        "dʒɪst",
+                    "cmu":         "dʒˈʌst",
+                    "misaki_gold": "dʒˈʌst",
+                    "wikipron":    "dʒʌst"
+                }
+            }
+        }"#;
+        // Run a few times — if the bug returned, HashMap reshuffling
+        // would surface non-determinism in at least one iteration.
+        for _ in 0..32 {
+            let c = Corpus::from_json(json, None).unwrap();
+            assert_eq!(c.preferred_ipa("just"), Some("dʒˈʌst"));
+        }
+    }
+
+    // Prefix-match fallback: when no exact `cmu` entry exists, the
+    // search should still find `cmu2` rather than skip the whole
+    // family and fall through to a later preference (or to the
+    // arbitrary HashMap-first entry).
+    #[test]
+    fn preferred_ipa_falls_back_to_prefix_match() {
+        let json = r#"{
+            "ghost": {
+                "rarity": 5000.0,
+                "ipa": { "cmu2": "ɡoʊst", "wikipron": "ɡəʊst" }
+            }
+        }"#;
+        let c = Corpus::from_json(json, None).unwrap();
+        // No exact `cmu`, no `misaki_gold`, no `misaki_silver` —
+        // falls through to prefix match, which finds `cmu2`.
+        assert_eq!(c.preferred_ipa("ghost"), Some("ɡoʊst"));
     }
 }

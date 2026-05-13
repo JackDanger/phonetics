@@ -12,6 +12,26 @@ prior C-extension gem's `3.x`).
 
 ## [Unreleased]
 
+## [0.3.1] — 2026-05-12 (`phonetics-rs` only)
+
+### Fixed
+- `Corpus::preferred_ipa` no longer non-deterministically returns
+  `cmu2` (or `wikipron2`, etc.) when the canonical `cmu` entry is
+  also present. The earlier implementation used `source.contains(...)`,
+  which matches indexed variants too; combined with random HashMap
+  iteration order this made the result of `preferred_ipa` depend on
+  the process-wide hash seed. Now each preference is tried as an
+  exact match first and only falls through to prefix matching when
+  no exact match exists.
+
+### Changed
+- `SOURCE_PREFERENCE` extended with the new corpus labels
+  (`misaki_gold`, `misaki_silver`, `wikipron`) while keeping the old
+  labels (`phonemicchart`, `wiktionary`) for backward compatibility.
+  Existing corpora resolve identically; new corpora built with the
+  fused-source pipeline (see madgab `corpus/build.py`) get clean
+  resolution out of the box.
+
 ## [0.3.0] — 2026-05-12 (`phonetics-rs` only)
 
 ### Added — Rust core (`phonetics-rs`)
